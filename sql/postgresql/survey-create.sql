@@ -566,10 +566,10 @@ begin
     for v_response_row in select response_id from survey_responses
 	where initial_response_id=remove__response_id
     loop
-	survey_response__del(v_response_row.response_id);
+	PERFORM survey_response__del(v_response_row.response_id);
     end loop;
 
-    survey_response__del(remove__response_id);
+    PERFORM survey_response__del(remove__response_id);
 
     return 0;
 
@@ -578,26 +578,26 @@ end;' language 'plpgsql';
 create or replace function survey_response__del (integer)
 returns integer as '
 declare
-	del__response_id	alias for $1;
-	v_question_response_row survey_question_responses%ROWTYPE;
+	del__response_id        alias for $1;
+	v_question_response_row record;
 begin
+
 	for v_question_response_row in select item_id
 		from survey_question_responses, cr_revisions
 		where response_id=del__response_id
 		and attachment_answer=revision_id
 	loop
-		content_item__delete(v_question_response_row.item_id);
+		PERFORM content_item__delete(v_question_response_row.item_id);
 	end loop;
 	
 	delete from survey_question_responses
-	where response_id=del__response_id;
+		where response_id=del__response_id;
 	delete from survey_responses
 		where response_id=del__response_id;
-	acs_object.delete(del__response_id);
+	PERFORM acs_object__delete(del__response_id);
     return 0;
 
 end;' language 'plpgsql';
-
 
 create view survey_responses_latest as
 select sr.*, o.creation_date, 
