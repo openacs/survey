@@ -65,10 +65,10 @@
   <msg key="inactive">[inactive]</msg>
   <msg key="Integer">Integer</msg>
   <msg key="is">is</msg>
-  <msg key="list">list</msg>
   <msg key="Large">Large</msg>
   <msg key="Last_Name">Last Name</msg>
   <msg key="limit_to_one">limit to one</msg>
+  <msg key="list">list</msg>
   <msg key="lt_-_Lets_you_use_this_s">- Lets you use this survey as a template to create a new survey.</msg>
   <msg key="lt_-_Removes_all_questio">- Removes all questions and responses</msg>
   <msg key="lt_A_database_error_occu">A database error occured while trying
@@ -201,7 +201,7 @@ and free text answer questions in the same survey.</msg>
   <msg key="lt_to_the_survey_index_p">to the survey index page.</msg>
   <msg key="lt_Users_may_edit_their_">Users may edit their responses</msg>
   <msg key="lt_Users_may_not_edit_th">Users may not edit their responses</msg>
-  <msg key="lt_Valid_Resposnes_enter">Valid Resposnes (enter one choice per line)</msg>
+  <msg key="lt_Valid_Resposnes_enter">Valid Responses (enter one choice per line)</msg>
   <msg key="lt_You_did_not_enter_a_l">You did not enter a list of valid responses/choices.</msg>
   <msg key="lt_You_did_not_enter_a_q">You did not enter a question.</msg>
   <msg key="lt_You_didnt_respond_to_">You didn't respond to all required sections. You skipped:</msg>
