@@ -36,7 +36,7 @@ set question_id [db_nextval acs_object_id_seq]
 get_survey_info -section_id $section_id
 
 if {![info exists survey_info(survey_id)]} {
-    ad_return_complaint 1 "Requested survey does not exist"
+    ad_return_complaint 1 "[_ survey.lt_Requested_survey_does]"
     ad_script_abort
 }
 
@@ -47,7 +47,7 @@ set type $survey_info(type)
 # maybe put question_id:key in there if we move the processing from quesion-add-3 to this form.
 
 ad_form -name create-question-2 -action question-add-3 -form {
-    {question:text(inform) {label "Question Text"} {value $question_text}}
+    {question:text(inform) {label "[_ survey.Question_Text]"} {value $question_text}}
     {survey_id:text(hidden) {value $survey_id}}
     {section_id:text(hidden) {value $section_id}}
     {question_id:text(hidden) {value $question_id}}
@@ -86,7 +86,7 @@ if { $type == "scored" } {
     db_1row count_variable_names ""
 
     set response_fields "<table border=0>
-<tr><th>Answer Text</th><th colspan=$n_variables>Score</th></tr>
+<tr><th>[_ survey.Answer_Text]</th><th colspan=$n_variables>[_ survey.Score]</th></tr>
 <tr><td></td>"
 
     set variable_id_list [list]
@@ -118,16 +118,16 @@ if { $type == "scored" } {
 	"textbox" { 
 
 	    ad_form -extend -name create-question-2 -form {
-		{textbox_size:text(select) {options {{Small small} {Medium medium} {Large large}}} {label "Size"}}
-		{abstract_data_type:text(select) {label "Type of Response"}
-		{options {{"Short Text" shorttext} {Text text} {Boolean boolean} {Number number} {Integer integer}}}
+		{textbox_size:text(select) {options {{[_ survey.Small] small} {[_ survey.Medium] medium} {[_ survey.Large] large}}} {label "[_ survey.Size]"}}
+		{abstract_data_type:text(select) {label "[_ survey.Type_of_Response]"}
+		{options {{"[_ survey.Short_Text]" shorttext} {[_ survey.Text] text} {[_ survey.Boolean] boolean} {[_ survey.Number] number} {[_ survey.Integer] integer}}}
 	    }
 
 	    }	    
 	}
 	"textarea" {
 	    ad_form -extend -name create-question-2 -form {
-		{textarea_size:text(select) {options {{Small small} {Medium medium} {Large large}}} {label "Size"}}
+		{textarea_size:text(select) {options {{[_ survey.Small] small} {[_ survey.Medium] medium} {[_ survey.Large] large}}} {label "[_ survey.Size]"}}
 		{abstract_data_type:text(hidden) {value "text"}}
 
 	    }
@@ -144,17 +144,17 @@ if { $type == "scored" } {
 
 	    ad_form -extend -name create-question-2 -form {
 		{abstract_data_type:text(radio)
-		    {label "Type of Response"} {value "choice"} 
-		    {options {{"True or False" boolean} {"Yes or No" yn} {"Multiple Choice" choice}}}}
+		    {label "[_ survey.Type_of_Response]"} {value "choice"} 
+		    {options {{"[_ survey.True_or_False]" boolean} {"[_ survey.Yes_or_No]" yn} {"[_ survey.Multiple_Choice]" choice}}}}
 		{valid_responses:text(textarea)
-		    {label "For Multiple Choice<br />Enter a List of Valid Responses<br /> (enter one choice per line)"}
+		    {label "[_ survey.lt_For_Multiple_Choicebr]"}
 		    {html {rows 10 cols 50}}}
 	    }
 	}
 	 
 	"checkbox" {
 	    ad_form -extend -name create-question-2 -form {
-		{valid_responses:text(textarea) {label "Valid Resposnes (enter one choice per line)"} {html {rows 10 cols 50}}}
+		{valid_responses:text(textarea) {label "[_ survey.lt_Valid_Resposnes_enter]"} {html {rows 10 cols 50}}}
 		{abstract_data_type:text(hidden) {value "choice"}}
 	    }
 	}
@@ -176,8 +176,8 @@ if { $type == "scored" } {
     }
 
 ad_form -extend -name create-question-2 -form {
-    {presentation_alignment:text(radio) {options {{"Beside the question" beside} {"Below the question" below}}} {value below} {label "Presentation Alignment"}}
+    {presentation_alignment:text(radio) {options {{"[_ survey.Beside_the_question]" beside} {"[_ survey.Below_the_question]" below}}} {value below} {label "[_ survey.lt_Presentation_Alignmen]"}}
 }
-set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "Add A Question"]
+set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Add_A_Question]"]
 
 ad_return_template

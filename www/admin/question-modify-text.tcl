@@ -24,7 +24,7 @@ set survey_id $survey_info(survey_id)
 
 ad_form -name modify_question -form {
     question_id:key
-    {question_text:text(textarea) {label Question} {html {rows 5 cols 70}}}
+    {question_text:text(textarea) {label [_ survey.Question]} {html {rows 5 cols 70}}}
     {section_id:text(hidden) {value $section_id}}
     {survey_id:text(hidden) {value $survey_id}}
 } -select_query_name {survey_question_text_from_id} -edit_data {
@@ -35,6 +35,6 @@ ad_form -name modify_question -form {
 
 }
 
-set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "Modify a Question's Text"]
+set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.lt_Modify_a_Questions_Te]"]
 
 ad_return_template

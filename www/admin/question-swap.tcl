@@ -32,8 +32,7 @@ and sort_order in (:sort_order, :next_sort_order)"
 
 } on_error {
 
-    ad_return_error "Database error" "A database error occured while trying
-to swap your questions. Here's the error:
+    ad_return_error "[_ survey.Database_error]" "[_ survey.lt_A_database_error_occu]
 <pre>
 $errmsg
 </pre>

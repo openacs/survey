@@ -40,4 +40,4 @@ set results ""
 
 db_multirow responses all_responses_to_question {}
 
-set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "Responses to Question"]
+set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.lt_Responses_to_Question]"]

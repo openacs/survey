@@ -25,7 +25,7 @@ ad_page_contract {
 
     section_exists -requires { section_id } {
 	if ![db_0or1row section_exists {}] {
-	    ad_complain "Section $section_id does not exist"
+	    ad_complain "[_ survey.lt_Section_section_id_do]"
 	}
     }
 
@@ -70,7 +70,7 @@ ad_page_contract {
 	    
 	    if { $abstract_data_type == "date" } {
 		if [catch  { set response_to_question($question_id) [validate_ad_dateentrywidget "" response_to_question.$question_id [ns_getform]]} errmsg] {
-		    ad_complain "$errmsg: Please make sure your dates are valid."
+		    ad_complain "$errmsg: [_ survey.lt_Please_make_sure_your]"
 		}
 	    }
 	   
@@ -90,13 +90,13 @@ ad_page_contract {
 		if { $abstract_data_type == "number" } {
 		    if { ![regexp {^(-?[0-9]+\.)?[0-9]+$} $response_value] } {
 			
-			ad_complain "The response to \"$question_text\" must be a number. Your answer was \"$response_value\"."
+			ad_complain "[_ survey.lt_The_response_to_ques_n]"
 			continue
 		    }
 		} elseif { $abstract_data_type == "integer" } {
 		    if { ![regexp {^[0-9]+$} $response_value] } {
 			
-			ad_complain "The response to \"$question_text\" must be an integer. Your answer was \"$response_value\"."
+			ad_complain "[_ survey.lt_The_response_to_ques_i]"
 			continue
 		}
 		}
@@ -107,14 +107,14 @@ ad_page_contract {
 		set n_bytes [file size $tmp_filename]
 		if { $n_bytes == 0 && $required_p == "t" } {
 		    
-		    ad_complain "Your file is zero-length. Either you attempted to upload a zero length file, a file which does not exist, or something went wrong during the transfer."
+		    ad_complain "[_ survey.lt_Your_file_is_zero-len]"
 		}
 	    }
 	    
 	}
 	
 	if { [llength $questions_with_missing_responses] > 0 } {
-	    ad_complain "You didn't respond to all required sections. You skipped:"
+	    ad_complain "[_ survey.lt_You_didnt_respond_to_]"
 	    foreach skipped_question $questions_with_missing_responses {
 		ad_complain $skipped_question
 	    }
@@ -283,7 +283,7 @@ if {[info exists return_url] && ![empty_string_p $return_url]} {
     ad_returnredirect "$return_url"
            ad_script_abort
 } else {
-     set context_bar [ad_context_bar "Response Submitted for $survey_name"]
+     set context_bar [ad_context_bar "[_ survey.lt_Response_Submitted_for]"]
      ad_return_template
 }	
     

@@ -24,30 +24,30 @@ get_survey_info -section_id $section_id
 ad_form -name create_question -action question-add-2  -export { after } -form {
     question_id:key
     {section_id:text(hidden) {value $section_id}}
-    {question_text:text(textarea) {label "Question"}  {html {rows 5 cols 70}}}   
+    {question_text:text(textarea) {label "[_ survey.Question]"}  {html {rows 5 cols 70}}}   
 }
 
 ad_form -extend -name create_question -form {
      {presentation_type:text(select)
-	 {label "Presentation Type"}
-	 {options {{ "One Line Answer (Text Field)" "textbox" }
-	           { "Essay Answer (Text Area)" "textarea" }
-        	     { "Multiple Choice (Drop Down, single answer allowed)" "select" }
-        	     { "Multiple Choice (Radio Buttons, single answer allowed)" "radio" }
-		     { "Multiple Choice (Checkbox, multiple answers allowed)" "checkbox" }
-		     { "Date" "date" }
-		     { "File Attachment" "upload_file" } } } }
+	 {label "[_ survey.Presentation_Type]"}
+	 {options {{ "[_ survey.lt_One_Line_Answer_Text_]" "textbox" }
+	           { "[_ survey.lt_Essay_Answer_Text_Are]" "textarea" }
+        	     { "[_ survey.lt_Multiple_Choice_Drop_]" "select" }
+        	     { "[_ survey.lt_Multiple_Choice_Radio]" "radio" }
+		     { "[_ survey.lt_Multiple_Choice_Check]" "checkbox" }
+		     { "[_ survey.Date]" "date" }
+		     { "[_ survey.File_Attachment]" "upload_file" } } } }
 }	    
 		
     
 
 get_survey_info -section_id $section_id
 set survey_id $survey_info(survey_id)
-set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "Add A Question"]
+set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Add_A_Question]"]
 
 if {[ad_parameter allow_question_deactivation_p] == 1} {
     ad_form -extend -name create_question -form {
-        {active:text(radio)     {label "Active?"} {options {{Yes t} {No f}}} {value t}}
+        {active:text(radio)     {label "[_ survey.Active]"} {options {{[_ survey.Yes] t} {[_ survey.No] f}}} {value t}}
     } 
 } else {
     ad_form -extend -name create_question -form {
@@ -55,7 +55,7 @@ if {[ad_parameter allow_question_deactivation_p] == 1} {
     }
 }
 ad_form -extend -name create_question -form {
-    {required_p:text(radio)     {label "Required?"} {options {{Yes t} {No f}}} {value t}}
+    {required_p:text(radio)     {label "[_ survey.Required]"} {options {{"[_ survey.Yes]" t} {"[_ survey.No]" f}}} {value t}}
 }
     
 ad_return_template

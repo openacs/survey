@@ -35,19 +35,19 @@ if {$dotlrn_installed_p} {
     if {$n_responses > 0} {
 	ad_form -name send-mail -form {
 	    {to:text(radio) {options {
-		{"Everyone eligible to take this survey" "all"}
-		{"Everyone who has already taken this survey" "responded"}
-		{"Everyone who has not yet taken this survey" "not_responded"}}}
-		{label "Send mail to"}
+		{"[_ survey.lt_Everyone_eligible_to_]" "all"}
+		{"[_ survey.lt_Everyone_who_has_alre]" "responded"}
+		{"[_ survey.lt_Everyone_who_has_not_]" "not_responded"}}}
+		{label "[_ survey.Send_mail_to]"}
 		{value $to}
 	    }
 	}
     } else {
 	ad_form -name send-mail -form {
 	    {to:text(radio) {options {
-		{"Everyone eligible to take this survey" "all"}
-		{"Everyone who has not yet taken this survey" "not_responded"}}}
-		{label "Send mail to"}
+		{"[_ survey.lt_Everyone_eligible_to_]" "all"}
+		{"[_ survey.lt_Everyone_who_has_not_]" "not_responded"}}}
+		{label "[_ survey.Send_mail_to]"}
 		{value $to}
 	    }
 	}
@@ -55,16 +55,16 @@ if {$dotlrn_installed_p} {
 } else {
     ad_form -name send-mail -form {
 	{to:text(radio) {options {
-	    {"Everyone who has already taken this survey" "all"}}} 
+	    {"[_ survey.lt_Everyone_who_has_alre]" "all"}}} 
 	    {value "all"}
-	    {label "Send mail to"}
+	    {label "[_ survey.Send_mail_to]"}
 	}
     }
 }
 
 ad_form -extend -name send-mail -form {
-    {subject:text(text) {value $survey_name} {label "Message Subject"} {html {size 50}}}
-    {message:text(textarea) {label "Enter Message"} {html {rows 15 cols 60}}}
+    {subject:text(text) {value $survey_name} {label "[_ survey.Message_Subject]"} {html {size 50}}}
+    {message:text(textarea) {label "[_ survey.Enter_Message]"} {html {rows 15 cols 60}}}
     {survey_id:text(hidden) {value $survey_id}}
     {package_id:text(hidden) {value $package_id}}
 } -on_submit {
@@ -100,6 +100,6 @@ ns_log notice "DAVE-SURVEY: $query"
     ad_script_abort
 }
 
-set context_bar [ad_context_bar "Send Mail"]
+set context_bar [ad_context_bar "[_ survey.Send_Mail]"]
 ad_return_template
 

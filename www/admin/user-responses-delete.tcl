@@ -21,11 +21,11 @@ set response_count [template::multirow size responses]
 ad_form -name confirm_delete -form {
     {survey_id:text(hidden) {value $survey_id}}
     {user_id:text(hidden) {value $user_id}}
-    {warning:text(inform) {label "Warning:"} {value "This will remove $response_count responses"}}
+    {warning:text(inform) {label "[_ survey.Warning_1]"} {value "[_ survey.lt_This_will_remove_respo]"}}
     {confirmation:text(radio) {label " "}
 	{options
-	    {{"Continue with Delete" t }
-	     {"Cancel and return to survey responses" f }}	}
+	    {{"[_ survey.Continue_with_Delete]" t }
+	     {"[_ survey.lt_Cancel_and_return_to_]" f }}	}
 	    {value f}
     }
 
@@ -41,4 +41,4 @@ ad_form -name confirm_delete -form {
     ad_script_abort
 }
 
-set context_bar [ad_context_bar "Delete Response"]
+set context_bar [ad_context_bar "[_ survey.Delete_Response]"]

@@ -1,11 +1,10 @@
 <master src="master">
 <property name="survey_id">@survey_id@</property>
 
-<property name=title>People who answered @response_text@</property>
+<property name=title>#survey.lt_People_who_answered_r#</property>
 <property name=context_bar>@context_bar@</property>
 
-@survey_name@ responders who answered @response_text@
-when asked @question_text@:
+#survey.lt_survey_name_responder#
 
 <ul>
 <multiple name="user_responses">
@@ -13,3 +12,5 @@ when asked @question_text@:
 
 </multiple>
 </ul>
+
+

@@ -20,12 +20,12 @@ ad_form -name confirm_delete -form {
     {response_id:text(hidden) {value $response_id}}
     {survey_id:text(hidden) {value $survey_id}}
     {user_id:text(hidden) {value $user_id}}
-    {warning:text(inform) {value "Completely delete ${user_name}'s response from $response_date? (Note: This can not be undone.)"}
-    {label "Warning!"}}
+    {warning:text(inform) {value "[_ survey.lt_Completely_delete [list user_name_var user_name response_date_var response_date]]"}
+    {label "[_ survey.Warning]"}}
     {confirmation:text(radio) {label " "}
 	{options
-	    {{"Continue with Delete" t }
-	     {"Cancel and return to survey responses" f }}	}
+	    {{"[_ survey.Continue_with_Delete]" t }
+	     {"[_ survey.lt_Cancel_and_return_to_]" f }}	}
 	    {value f}
     }
 
@@ -36,4 +36,4 @@ ad_form -name confirm_delete -form {
     ad_returnredirect "one-respondent?[export_vars {survey_id user_id}]"
 }
 
-set context_bar [ad_context_bar "Delete Response"]
+set context_bar [ad_context_bar "[_ survey.Delete_Response]"]

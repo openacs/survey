@@ -23,11 +23,11 @@ set responses_count ""
 
 ad_form -name confirm_delete -form {
     {survey_id:text(hidden) {value $survey_id}}
-    {warning:text(inform) {label "Warning:"} {value "Deleting this survey will delete all $questions_count questions and all $responses_count responses associated with this survey!"}}
+    {warning:text(inform) {label "[_ survey.Warning_1]"} {value "[_ survey.lt_Deleting_this_surve]"}}
     {confirmation:text(radio) {label " "}
 	{options
-	    {{"Continue with Delete" t }
-	     {"Cancel and return to survey administration" f }}	}
+	    {{"[_ survey.Continue_with_Delete]" t }
+	     {"[_ survey.lt_Cancel_and_return_to__1]" f }}	}
 	    {value f}
     }
 
@@ -42,4 +42,4 @@ ad_form -name confirm_delete -form {
     }
 }
 
-set context_bar [ad_context_bar "Delete Survey"]
+set context_bar [ad_context_bar "[_ survey.Delete_Survey]"]

@@ -13,7 +13,7 @@
       <querytext>
 
     select response_id, creation_date, 
-           to_char(creation_date, 'Month DD, YYYY') as pretty_submission_date
+           to_char(creation_date, 'YYYY-MM-DD') as pretty_submission_date_ansi
     from survey_responses_latest
     where survey_id=:survey_id
     and initial_user_id = :user_id

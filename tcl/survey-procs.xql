@@ -30,10 +30,10 @@
 <querytext>
 	select s.*,
 	       o.creation_user, o.creation_date, p.first_names || ' ' || p.last_name as creator_name, 
-	       (case when enabled_p = 't' then 'Enabled' else 'Disabled' end) as enabled_display,
-	       (case when single_response_p = 't' then 'One response' else 'Multiple responses' end) as single_response_display,
-	       (case when editable_p = 'f' then 'Non-Editable' else 'Editable' end) as editable_display, 
-	       (case when single_section_p = 'f' then 'Multiple sections' else 'Single section' end) as single_section_display
+	       (case when enabled_p = 't' then '#survey.Enable#' else '#survey.Disable#' end) as enabled_display,
+	       (case when single_response_p = 't' then '#survey.One_response#' else '#survey.Multiple_responses#' end) as single_response_display,
+	       (case when editable_p = 'f' then '#survey.Non-Editable#' else '#survey.Editable#' end) as editable_display, 
+	       (case when single_section_p = 'f' then '#survey.Multiple_sections#' else '#survey.Single_section#' end) as single_section_display
 	  from surveys s, acs_objects o, persons p
 	 where o.object_id = :survey_id	
 	   and s.survey_id = o.object_id

@@ -5,6 +5,7 @@
 <if @title@ not nil>
 <property name="title">@title@</property>
 </if>
-<a href=".">Main Survey Administration</a>  | <a href="one?survey_id=@survey_id@">Admin This Survey</a> 
+<a href=".">#survey.lt_Main_Survey_Administr#</a>  | <a href="one?survey_id=@survey_id@">#survey.Admin_This_Survey#</a> 
 <p>
 <slave>
+

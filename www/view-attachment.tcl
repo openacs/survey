@@ -21,7 +21,7 @@ ad_page_contract {
 	db_1row get_file_info {}
 
 	if { [empty_string_p $file_type] } {
-	    ad_complain "Couldn't find attachment. Couldn't find an attachment matching the response_id $response_id, question_id $question_id given."
+	    ad_complain "[_ survey.lt_Couldnt_find_attachment]"
 	}
     }
 }

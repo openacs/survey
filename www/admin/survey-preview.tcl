@@ -18,7 +18,7 @@ ad_page_contract {
 } -validate {
     survey_exists -requires {survey_id} {
 	if ![db_0or1row survey_exists {}] {
-	    ad_complain "Survey $survey_id does not exist"
+	    ad_complain "[_ survey.lt_Survey_survey_id_does]"
 	}
     }
 } -properties {
@@ -41,7 +41,7 @@ ad_require_permission $survey_id survey_take_survey
     set editable_p $survey_info(editable_p)
     set display_type $survey_info(display_type)
 
-set context_bar [ad_context_bar "Preview $name"]
+set context_bar [ad_context_bar "[_ survey.Preview] $name"]
 
 # build a list containing the HTML (generated with survey_question_display) for each question
 set rownum 0

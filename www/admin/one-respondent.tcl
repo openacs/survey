@@ -27,11 +27,11 @@ set type $survey_info(type)
 set user_exists_p [db_0or1row user_name_from_id "select first_names, last_name from persons where person_id = :user_id" ]
 
 if { !$user_exists_p } {
-    ad_return_error "Not Found" "Could not find user #$user_id"
+    ad_return_error "[_ survey.Not_Found]" "[_ survey.Could_not_find_user] #$user_id"
     return
 }
 
-set context_bar [ad_context_bar "One Respondent"]
+set context_bar [ad_context_bar "[_ survey.One_Respondent]"]
  
 
 db_multirow -extend {response_display} responses get_responses {} {

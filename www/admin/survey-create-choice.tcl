@@ -16,26 +16,19 @@ ad_page_contract {
 set package_id [ad_conn package_id]
 ad_require_permission $package_id survey_create_survey
 
-set whole_page "[ad_header "Choose Survey Type"]
+set whole_page "[ad_header "[_ survey.Choose_Survey_Type]"]
 
-<h2>Choose a Survey Type</h2>
+<h2>[_ survey.Choose_a_Survey_Type]</h2>
 
-[ad_context_bar "Choose Type"]
+[ad_context_bar "[_ survey.Choose_Type]"]
 
 <hr>
 
 <dl>
-<dt><a href=\"survey-create?type=scored\">Scored Survey</a>
-<dd>This is a multiple choice survey where each answer can be scored on one
-or more variables. This survey also allows you to execute arbitrary
-code (e.g. for redirects) conditional on the user's score at the end
-of the survey.</dd>
-<dt><a href=\"survey-create?type=general\">General Survey</a>
-<dd>This survey allows you to specify the type of response
-required. Use this survey if you want to allow users to enter their
-own answers rather than choose from a list. You should also use this
-survey if you wish to mix question types, e.g. have multiple choice
-and free text answer questions in the same survey.</dd>
+<dt><a href=\"survey-create?type=scored\">[_ survey.Scored_Survey]</a>
+<dd>[_ survey.lt_This_is_a_multiple_ch]</dd>
+<dt><a href=\"survey-create?type=general\">[_ survey.General_Survey]</a>
+<dd>[_ survey.lt_This_survey_allows_yo]</dd>
 </dl>
 
 [ad_footer]

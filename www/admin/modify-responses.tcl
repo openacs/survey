@@ -65,21 +65,21 @@ append table_html "</table>\n"
 
 db_release_unused_handles
 
-doc_return 200 text/html "[ad_header "Modify Responses"]
+doc_return 200 text/html "[ad_header "[_ survey.Modify_Responses]"]
 <h2>$survey_name</h2>
 
-[ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "Modify Question Responses"]
+[ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.lt_Modify_Question_Respo]"]
 
 <hr>
 
-Question: $question_text
+[_ survey.Question]: $question_text
 <p>
 <form action=\"modify-responses-2\" method=get>
 [export_form_vars section_id question_id choice_id_list variable_id_list]
 $table_html
 <p>
 <center>
-<input type=submit value=\"Submit\">
+<input type=submit value=\"[_ survey.Submit]\">
 </center>
 
 </form>

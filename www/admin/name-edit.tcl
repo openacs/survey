@@ -22,14 +22,14 @@ ad_require_permission $survey_id survey_modify_survey
 
 ad_form -name edit-name -form {
     survey_id:key
-    {name:text(text) {label "Survey Name"} {html {size 80}}
+    {name:text(text) {label "[_ survey.Survey_Name_1]"} {html {size 80}}
 	{value $survey_name}}
-	{description:text(textarea) {label "Description"} 
+	{description:text(textarea) {label "[_ survey.Description_1]"} 
 	{html {rows 10 cols 65}}
         {value $survey_description}}
 } -validate {
     {name {[string length $name] <= 4000}
-    "Survey Name must be less than 4000 characters"
+    "[_ survey.lt_Survey_Name_must_be_l]"
     }
 } -edit_request {
     set name $survey_name
@@ -39,7 +39,7 @@ ad_form -name edit-name -form {
     ad_script_abort
 }
 
-set context_bar [ad_context_bar "Edit Name"]
+set context_bar [ad_context_bar "[_ survey.Edit_Name]"]
 
 ad_return_template
 

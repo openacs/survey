@@ -1,5 +1,5 @@
 <master>
-<property name=title>One Survey: @name@</property>
+<property name=title>#survey.One_Survey_name#</property>
 <property name=context_bar>@context_bar@</property>
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <form enctype=multipart/form-data method="post" action="process-response">
@@ -9,7 +9,7 @@
           <td class="tabledata">@description@</td>
         </tr>
 	<tr>
-	  <td class="tabledata"><span style="color: #f00;">*</span> denotes a required question</td>                
+	  <td class="tabledata"><span style="color: #f00;">*</span> #survey.lt_denotes_a_required_qu#</td>                
 	</tr>        
         <tr>
           <td class="tabledata"><hr noshade size="1" color="#dddddd"></td>
@@ -26,3 +26,5 @@
         
       </form>
     </table>
+
+

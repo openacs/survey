@@ -1,8 +1,9 @@
 <master>
-<property name=title>Response Submitted</property>
+<property name=title>#survey.Response_Submitted#</property>
 <property name=context_bar>@context_bar@</property>
     <blockquote>
-     <p> Response submitted. Thank you.</p>
-	<p><a href=".">Return</a> to the survey index page.</p>
+     <p> #survey.lt_Response_submitted_Th#</p>
+	<p><a href=".">#survey.Return#</a> #survey.lt_to_the_survey_index_p#</p>
 
     </blockquote>
+

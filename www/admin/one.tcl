@@ -22,7 +22,7 @@ ad_require_permission $package_id survey_admin_survey
 # Get the survey information.
 get_survey_info -survey_id $survey_id
 if {![info exists survey_info(survey_id)]} {
-    ad_return_complaint 1 "Requested survey does not exist"
+    ad_return_complaint 1 "[_ survey.lt_Requested_survey_does]"
     ad_script_abort
 }
 # get users and # who responded etc...
@@ -35,12 +35,13 @@ if {[apm_package_installed_p dotlrn]} {
 }
 set return_html ""
 
+
 set creation_date [util_AnsiDatetoPrettyDate $survey_info(creation_date)]
 set user_link [acs_community_member_url -user_id $survey_info(creation_user)]
 if {$survey_info(single_response_p) == "t"} {
-    set response_limit_toggle "allow multiple"
+    set response_limit_toggle "[_ survey.allow_multiple]"
 } else {
-    set response_limit_toggle "limit to one"
+    set response_limit_toggle "[_ survey.limit_to_one]"
 }
 
 
@@ -49,9 +50,9 @@ set target "one?[export_url_vars survey_id]"
 set enabled_p $survey_info(enabled_p)
 set toggle_enabled_url "survey-toggle?[export_vars {survey_id enabled_p target}]"
 if {$enabled_p == "t"} {
-    append toggle_enabled_text "disable"
+    append toggle_enabled_text "[_ survey.disable]"
 } else {
-    append toggle_enabled_text "enable"
+    append toggle_enabled_text "[_ survey.enable]"
 }
 
 

@@ -31,21 +31,21 @@ set display_type "list"
 ad_form -name create_survey -confirm_template survey-create-confirm -form {
     survey_id:key
     {display_type:text(hidden)  {value $display_type}}
-    {name:text(text)            {label "Survey Name"} {html {size 55}}}
-    {description:text(textarea) {label "Description"} {html {rows 10 cols 40}}}
-    {desc_html:text(radio)      {label "The Above Description is"}
-	{options {{"Preformatted Text" "pre"}
-		  {"HTML" "html"} {"Plain Text" "plain"}}}
+    {name:text(text)            {label "[_ survey.Survey_Name_1]"} {html {size 55}}}
+    {description:text(textarea) {label "[_ survey.Description_1]"} {html {rows 10 cols 40}}}
+    {desc_html:text(radio)      {label "[_ survey.lt_The_Above_Description]"}
+	{options {{"[_ survey.Preformatted_Text]" "pre"}
+		  {"HTML" "html"} {"[_ survey.Plain_Text]" "plain"}}}
 		{value "plain"}
     }
     
 } -validate { 
     {name {[string length $name] <= 4000}
-    "Survey Name must be 4000 characters or less"
+    "[_ survey.lt_Survey_Name_must_be_4]"
 }     {description {[string length $description] <= 4000}
-    "Survey Name must be 4000 characters or less"
+    "[_ survey.lt_Survey_Name_must_be_4]"
 }
-    {survey_id {[db_string count_surveys "select count(survey_id) from surveys where survey_id=:survey_id"] < 1} "oops"
+    {survey_id {[db_string count_surveys "select count(survey_id) from surveys where survey_id=:survey_id"] < 1} "[_ survey.oops]"
     }
     
 } -new_data {
@@ -83,7 +83,7 @@ ad_form -name create_survey -confirm_template survey-create-confirm -form {
 
 # function to insert survey type-specific form html
 
-set context_bar [ad_context_bar "Create Survey"]
+set context_bar [ad_context_bar "[_ survey.Create_Survey]"]
 
 ad_return_template
 

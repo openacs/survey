@@ -44,7 +44,7 @@ ad_require_permission $package_id survey_create_question
 get_survey_info -section_id $section_id
 
 if {![info exists survey_info(survey_id)]} {
-    ad_return_complaint 1 "Requested survey does not exist"
+    ad_return_complaint 1 "[_ survey.lt_Requested_survey_does]"
     ad_script_abort
 }
 
@@ -54,17 +54,18 @@ set exception_text ""
 
 if { [empty_string_p $question_text] } {
     incr exception_count
-    append exception_text "<li>You did not enter a question.\n"
+    append exception_text "<li>[_ survey.lt_You_did_not_enter_a_q]\n"
 }
 
 if { $type != "scored" && $type != "general" } {
     incr exception_count
-    append exception_text "<li>Surveys of type $type are not currently available.\n"
+    set type_var $type
+    append exception_text "<li>[_ survey.Surveys of type $type are not currently available.\n"
 }
 
 if { $type == "general" && $abstract_data_type == "choice" && [empty_string_p $valid_responses] } {
     incr exception_count
-    append exception_text "<li>You did not enter a list of valid responses/choices.\n"
+    append exception_text "<li>[_ survey.lt_You_did_not_enter_a_l]\n"
 }
 
 
@@ -93,9 +94,9 @@ if { $already_inserted_p } {
 	}
     } elseif { $abstract_data_type == "yn" } {
 	set abstract_data_type "boolean"
-	set presentation_options "Yes/No"
+	set presentation_options "[_ survey.YesNo]"
     } elseif { $abstract_data_type == "boolean" } {
-	set presentation_options "True/False"
+	set presentation_options "[_ survey.TrueFalse]"
     }
 
     db_transaction {
@@ -136,7 +137,7 @@ values (survey_choice_id_sequence.nextval, :question_id, :trimmed_response, :cou
     } on_error {
 
             db_release_unused_handles
-            ad_return_error "Database Error" "<pre>$errmsg</pre>"
+            ad_return_error "[_ survey.Database_Error]" "<pre>$errmsg</pre>"
             ad_script_abort
  
     }

@@ -31,25 +31,25 @@ ad_form -name modify_question -form {
 
 if {$n_responses > 0} {
     if {$n_responses >1} {
-	set isare "are"
-	set resp "responses"
+	set isare "[_ survey.are]"
+	set resp "[_ survey.responses]"
     } else {
-	set isare "is"
-	set resp "response"
+	set isare "[_ survey.is]"
+	set resp "[_ survey.response]"
     }
     ad_form -extend -name modify_question -form {
-	{warning:text(inform) {label "Warning!"} {value "<span style=\"color: #f00;\">There $isare $n_responses $resp to this question.  Editing a question with responses is not recommnded. No record of the original question will remain.  Proceed with caution."}}
+	{warning:text(inform) {label "[_ survey.Warning]"} {value "<span style=\"color: #f00;\">[_ survey.lt_There_isare_n_resp]"}}
     }
 }
 ad_form -extend -name modify_question -export {sort_order} -form {
-    {question_number:text(inform) {label "Modify Question #"}}
-    {survey_name:text(inform) {label "From"} {value $survey_name}}
-    {question_text:text(textarea) {label Question} {html {rows 5 cols 70}}}
+    {question_number:text(inform) {label "[_ survey.Modify_Question] #"}}
+    {survey_name:text(inform) {label "[_ survey.From_1]"} {value $survey_name}}
+    {question_text:text(textarea) {label "[_ survey.Question]"} {html {rows 5 cols 70}}}
 }
 
 if {$allow_question_deactivation == 1} {
     ad_form -extend -name modify_question -form {
-        {active_p:text(radio)     {label "Active?"} {options {{Yes t} {No f}}}}
+        {active_p:text(radio)     {label "[_ survey.Active]"} {options {{[_ survey.Yes] t} {[_ survey.No] f}}}}
     }
 } else {
     ad_form -extend -name modify_question -form {
@@ -57,7 +57,7 @@ if {$allow_question_deactivation == 1} {
     }
 }
 ad_form -extend -name modify_question -form {
-    {required_p:text(radio)     {label "Required?"} {options {{Yes t} {No f}}}}
+    {required_p:text(radio)     {label "[_ survey.Required]"} {options {{"[_ survey.Yes]" t} {"[_ survey.No]" f}}}}
     {section_id:text(hidden) {value $section_id}}
     {survey_id:text(hidden) {value $survey_id}}
 } 
@@ -73,7 +73,7 @@ if {($presentation_type=="checkbox" || $presentation_type=="select" || $presenta
     }
     ad_form -extend -name modify_question -form {
         {valid_responses:text(textarea)
-            {label "For Multiple Choice<br />Enter a List of Valid Responses<br /> (enter one choice per line)"}
+            {label "[_ survey.lt_For_Multiple_Choicebr]"}
             {html {rows 10 cols 50}}
             {value $valid_responses}}
     } 
@@ -81,7 +81,7 @@ if {($presentation_type=="checkbox" || $presentation_type=="select" || $presenta
 
 if {$presentation_type == "textarea" || $presentation_type == "textbox"} {
     ad_form -extend -name modify_question -form {
-	{presentation_options:text(select) {options {{Small small} {Medium medium} {Large large}}} {value $presentation_options} {label "[string totitle $presentation_type] Size"}} 
+	{presentation_options:text(select) {options {{[_ survey.Small] small} {[_ survey.Medium] medium} {[_ survey.Large] large}}} {value $presentation_options} {label "[string totitle $presentation_type] [_ survey.Size]"}} 
 
     }
 }
@@ -141,6 +141,6 @@ ad_form -extend -name modify_question -select_query_name {survey_question_detail
 }
 
 
-set context_bar [ad_context_bar "Modify Question"]
+set context_bar [ad_context_bar "[_ survey.Modify_Question]"]
 
 ad_return_template

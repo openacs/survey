@@ -26,19 +26,19 @@ set n_responses [db_string survey_number_responses {} ]
 
 ad_form -name confirm_delete -export {sort_order} -form {
     question_id:key
-    {question_text:text(inform) {label "Delete:"}}
-    {from:text(inform) {label "From:"} {value $survey_info(name)}}
+    {question_text:text(inform) {label "[_ survey.Delete_1]"}}
+    {from:text(inform) {label "[_ survey.From]"} {value $survey_info(name)}}
 }
 
 if {$n_responses > 0} {
     if {$n_responses >1} {
-	set response_text "responses"
+	set response_text "[_ survey.responses]"
     } else {
-	set response_text "response"
+	set response_text "[_ survey.response]"
     }
     ad_form -extend -name confirm_delete -form {
-	{warning:text(inform) {value "This question has $n_responses $response_text that will be deleted if you continue. (Note: This can not be undone.)"}
-	{label "Warning!"}}
+	{warning:text(inform) {value "[_ survey.lt_This_question_has_n]"}
+	{label "[_ survey.Warning]"}}
     }
  
 }
@@ -46,8 +46,8 @@ if {$n_responses > 0} {
 ad_form -extend -name confirm_delete -form {
    {confirmation:text(radio) {label " "}
 	{options
-	    {{"Continue with Delete" t }
-	     {"Cancel and return to survey responses" f }}	}
+	    {{"[_ survey.Continue_with_Delete]" t }
+	     {"[_ survey.lt_Cancel_and_return_to_]" f }}	}
 	     {value f}}
     } -select_query_name {get_question_details} -on_submit {
 	if {$confirmation} {
@@ -63,11 +63,11 @@ ad_form -extend -name confirm_delete -form {
 		}
 	    } on_error {
     
-		ad_return_error "Database Error" "There was an error while trying to delete the question:
+		ad_return_error "[_ survey.Database_Error]" "[_ survey.lt_There_was_an_error_wh]
 		<pre>
 		$errmsg
 		</pre>
-		<p> Please go back using your browser.
+		<p> [_ survey.lt_Please_go_back_using_]
 		"
                 ad_script_abort
 	    }
@@ -79,6 +79,6 @@ ad_form -extend -name confirm_delete -form {
         ad_script_abort
     }
 
-set context_bar [ad_context_bar "Delete Question"]    
+set context_bar [ad_context_bar "[_ survey.Delete_Question]"]    
 ad_return_template
 

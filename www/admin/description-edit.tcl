@@ -17,10 +17,10 @@ ad_page_contract {
 ad_require_permission $survey_id survey_modify_survey
 ad_form -name edit-survey -form {
     survey_id:key
-    {description:text(textarea) {label "Survey Description"} {html {rows 10 cols 65}}}
-    {desc_html:text(radio)      {label "The Above Description is"}
-	                        {options {{"Preformatted Text" "pre"}    
-				    {"HTML" "html"} {"Plain Text" "plain"}}}}
+    {description:text(textarea) {label "[_ survey.Survey_Description]"} {html {rows 10 cols 65}}}
+    {desc_html:text(radio)      {label "[_ survey.lt_The_Above_Description]"}
+	                        {options {{"[_ survey.Preformatted_Text]" "pre"}    
+				    {"HTML" "html"} {"[_ survey.Plain_Text]" "plain"}}}}
 } -edit_request {
     get_survey_info -survey_id $survey_id
     set survey_name $survey_info(name)
@@ -36,7 +36,7 @@ ad_form -name edit-survey -form {
     
 } -validate {
     {description {[string length $description] <= 4000}
-    "Description must be less than 4000 characters"
+    "[_ survey.lt_Description_must_be_l]"
     }
 }
 } -edit_data { 
@@ -51,6 +51,6 @@ ad_form -name edit-survey -form {
     ad_script_abort
 }
 
-set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "Edit Description"]
+set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Edit_Description]"]
 
 ad_return_template

@@ -44,7 +44,7 @@ db_foreach survey_question_list {} {
 	"date" -
 	"text" -
 	"shorttext" {
-	    append results "<a href=\"view-text-responses?question_id=$question_id\">View responses</a>\n"
+	    append results "<a href=\"view-text-responses?question_id=$question_id\">[_ survey.View_responses]</a>\n"
 	}
 	
 	"boolean" {
@@ -59,7 +59,7 @@ db_foreach survey_question_list {} {
                append results "$number_answer: $n_responses<br>\n"
             }
             db_1row survey_number_average "" 
-         append results "<p>Mean: $mean<br>Standard Dev: $standard_deviation<br>\
+         append results "<p>[_ survey.Mean] $mean<br>[_ survey.Standard_Dev]: $standard_deviation<br>\
 \n"
 	    
         }
@@ -82,11 +82,11 @@ db_foreach survey_question_list {} {
 set n_responses [db_string survey_number_responses {} ]
 
 if { $n_responses == 1 } {
-    set response_sentence "There has been 1 response."
+    set response_sentence "[_ survey.lt_There_has_been_1_resp]"
 } else {
- 	set response_sentence "There have been $n_responses responses."
+ 	set response_sentence "[_ survey.lt_There_have_been_n]"
 }
 
-set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "Responses"]
+set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Responses]"]
 
 ad_return_template

@@ -19,7 +19,7 @@ ad_page_contract {
 } -validate {
     survey_exists -requires {survey_id} {
 	if ![db_0or1row survey_exists {}] {
-	    ad_complain "Survey $survey_id does not exist"
+	    ad_complain "[_ survey.lt_Survey_survey_id_do_no]"
 	}
     set user_id [ad_maybe_redirect_for_registration]
     set number_of_responses [db_string count_responses {}]
@@ -34,9 +34,9 @@ ad_page_contract {
     set editable_p $survey_info(editable_p)
     set display_type $survey_info(display_type)
 	if {($single_response_p=="t" && $editable_p=="f" && $number_of_responses>0) || ($single_response_p=="t" && $editable_p=="t" && $number_of_responses>0 && $response_id==0)} {
-	    ad_complain "You have already completed this survey"
+	    ad_complain "[_ survey.lt_You_have_already_comp]"
 	} elseif {$response_id>0 && $editable_p=="f"} {
-	    ad_complain "This survey is not editable"
+	    ad_complain "[_ survey.lt_This_survey_is_not_ed]"
 	}
     }
 } -properties {
@@ -53,10 +53,10 @@ ad_page_contract {
 ad_require_permission $survey_id survey_take_survey
 
 set context_bar [ad_context_bar "$name"]
-set button_label "Submit response"
+set button_label "[_ survey.Submit_response]"
 if {$editable_p == "t"} {
     if {$response_id > 0} {
-	set button_label "Modify previous response"
+	set button_label "[_ survey.lt_Modify_previous_respo]"
 	db_1row get_initial_response ""
     }
 }

@@ -271,7 +271,7 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} "Returns 
 	if {![empty_string_p $attachment_answer]} {
 	    set package_id [ad_conn package_id]
 	    set filename [db_string get_filename {}]
-	    append return_string "Uploaded file: <a href=\"[site_node::get_url_from_object_id -object_id $package_id]/view-attachment?[export_url_vars response_id question_id]\">\"$filename\"</a>"
+	    append return_string "[_ survey.Uploaded_file] <a href=\"[site_node::get_url_from_object_id -object_id $package_id]/view-attachment?[export_url_vars response_id question_id]\">\"$filename\"</a>"
 	}
 	
 	if {$choice_id != 0 && ![empty_string_p $choice_id] && $question_id != $question_id_previous} {
@@ -399,7 +399,7 @@ ad_proc -public survey_do_notifications {
         set survey_id [db_string get_survey_id_from_response {}]
 	get_survey_info -survey_id $survey_id
 	set survey_name $survey_info(name)
-	set subject "Response to $survey_name"
+	set subject "[_ survey.Response_to] $survey_name"
 
         #dotlrn specific info
     set dotlrn_installed_p [apm_package_installed_p dotlrn]
@@ -417,19 +417,16 @@ ad_proc -public survey_do_notifications {
 	    append notif_text "
 Group: $community_name"
         }
+	set comm_url "[acs_community_member_url -user_id $responding_user_id]"
 	append notif_text "
-Survey: $survey_name
-Respondent: $user_name 
-
-Here is what $user_name <[acs_community_member_url -user_id $responding_user_id]>
-had to say in response to $survey_name:
+[_ survey.lt_Survey_survey_nameRes_1]
 	"
 
 	if {$edit_p} {
 	    append notif_text "
-Edited "
+[_ survey.Edited] "
 	}
-	append notif_text "Response on $response_date\n"
+	append notif_text "[_ survey.lt_Response_on_response_]\n"
 
 	append notif_text [survey_answer_summary_display $response_id 0]
 
@@ -438,35 +435,18 @@ Edited "
 	set n_responses [db_string n_responses {}]
 	if {$n_responses > 0} {
 	    append notif_text " -----
-Already Responsed: $n_responses users
-
-View these users. <$community_url/survey/admin/respondents?response_type=responded>
-
-Spam these users. <$community_url/survey/admin/send-mail?survey_id=$survey_id&to=responded>
-
+[_ survey.lt_Already_Responsed_n_r_1]
 "
         }
 	set n_members [db_string n_members {}]
         set n_awaiting [expr {$n_members - $n_responses}]
 
         append notif_text "
-Awaiting a response: $n_awaiting users
-
-View these users. <$community_url/survey/admin/respondents?response_type=not_responded>
-
-Spam these users. <$community_url/survey/admin/send-mail?survey_id=$survey_id&to=not_responded>
-
-The whole group: $n_members
-
-View these users. <$community_url/survey/admin/respondents?response_type=all>
-
-Spam these users. <$community_url/survey/admin/send-mail?survey_id=$survey_id&to=all>
-
-Responses:
+[_ survey.lt_Awaiting_a_response_n]
 "
 
         db_foreach get_questions {} {
-        append notif_text "$sort_order.    $question_text - View responses. <$community_url/survey/view-text-responses?question_id=$question_id>
+        append notif_text "$sort_order.    $question_text - [_ survey.View_responses_1] <$community_url/survey/view-text-responses?question_id=$question_id>
     "
         }
     }

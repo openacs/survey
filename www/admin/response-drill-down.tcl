@@ -32,7 +32,7 @@ set survey_id $survey_info(survey_id)
 
 if { !$question_exists_p }  {
     db_release_unused_handles
-    ad_return_error "Survey Question Not Found" "Could not find a survey question #$question_id"
+    ad_return_error "[_ survey.lt_Survey_Question_Not_F]" "[_ survey.lt_Could_not_find_a_surv] #$question_id"
     return
 }
 
@@ -40,7 +40,7 @@ set response_exists_p [db_0or1row get_response_text ""]
 
 if { !$response_exists_p } {
     db_release_unused_handles
-    ad_return_error "Response Not Found" "Could not find the response #$choice_id"
+    ad_return_error "[_ survey.Response_Not_Found]" "[_ survey.lt_Could_not_find_the_re] #$choice_id"
     return
 }
 
@@ -51,7 +51,7 @@ db_multirow user_responses all_users_for_response {}
 
 set context_bar [ad_context_bar \
      [list "one?[export_url_vars survey_id]" $survey_info(name)] \
-     [list "responses?[export_url_vars survey_id]" "Responses"] \
-     "One Response"]
+     [list "responses?[export_url_vars survey_id]" "[_ survey.Responses]"] \
+     "[_ survey.One_Response]"]
 
 ad_return_template
