@@ -21,7 +21,7 @@ ad_page_contract {
 	if ![db_0or1row survey_exists {}] {
 	    ad_complain "[_ survey.lt_Survey_survey_id_do_no]"
 	}
-    set user_id [ad_maybe_redirect_for_registration]
+    set user_id [auth::require_login]
     set number_of_responses [db_string count_responses {}]
     get_survey_info -survey_id $survey_id
     set single_section_p $survey_info(single_section_p)

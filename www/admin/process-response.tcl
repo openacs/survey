@@ -141,7 +141,7 @@ ad_page_contract {
 
 ad_require_permission $survey_id survey_take_survey
 
-set user_id [ad_verify_and_get_user_id]
+set user_id [ad_conn user_id]
 
 get_survey_info -survey_id $survey_id
 set type $survey_info(type)
