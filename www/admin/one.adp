@@ -1,4 +1,4 @@
- <master >
+<master>
 <property name="survey_id">@survey_id@</property>
 
 <property name="title">One Survey: @survey_info.name@</property>

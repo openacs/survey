@@ -1,4 +1,4 @@
-<master src="./master">
+<master>
 <property name="title">Surveys</property>
 <property name="context_bar">@context_bar@</property>
 <if @admin_p@ eq "1"><p style="text-align: right;"><a href="admin/"><img src="/graphics/admin.gif" border="0" alt="Administer Surveys"></a></if>
