@@ -35,7 +35,9 @@
             <file type="query_file" db_type="postgresql" path="tcl/survey-procs-postgresql.xql"/>
             <file type="tcl_procs" path="tcl/survey-procs.tcl"/>
             <file type="query_file" path="tcl/survey-procs.xql"/>
-            <file type="content_page" path="www/admin/description-edit.adp"/>
+	    <file type="tcl_procs" path="tcl/survey-notification-procs.tcl"/>
+	    <file type="query_file" path="tcl/survey-notification-procs.xql"/>
+	    <file type="content_page" path="www/admin/description-edit.adp"/>
             <file type="content_page" path="www/admin/description-edit.tcl"/>
             <file type="query_file" path="www/admin/description-edit.xql"/>
             <file type="content_page" path="www/admin/index.adp"/>
