@@ -387,9 +387,11 @@ as
     is
         v_user_id acs_objects.creation_user%TYPE;
     begin
-	select creation_user into v_user_id
-	from acs_objects
-	where object_id = survey_response.initial_response_id(initial_user_id.response_id);
+	select o.creation_user into v_user_id
+	from acs_objects o,
+             survey_responses s
+	where o.object_id = nvl(s.initial_response_id, s.response_id)
+	and s.response_id=initial_user_id.response_id;
 	return v_user_id;
     end initial_user_id;
 

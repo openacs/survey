@@ -539,9 +539,12 @@ declare
 p_response_id 	alias for $1;
 v_user_id	integer;
 begin
-	select into v_user_id creation_user
-	from acs_objects where
-	object_id = survey_response__initial_response_id(p_response_id);
+	select into v_user_id o.creation_user
+	from acs_objects o,
+	     survey_responses s
+        where
+	object_id = coalesce(s.initial_response_id, s.response_id)
+	and s.response_id = p_response_id;
 return v_user_id;
 end;' language 'plpgsql';
 
@@ -557,8 +560,6 @@ begin
     loop
 	PERFORM survey_response__del(v_response_row.response_id);
     end loop;
-
-    PERFORM survey_response__del(remove__response_id);
 
     return 0;
 
