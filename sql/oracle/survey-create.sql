@@ -200,7 +200,7 @@ create index survey_q_c_sort_order on survey_question_choices(sort_order);
 create table survey_responses (
 	response_id		constraint survey_resp_response_id_fk
 				references acs_objects (object_id)
-				constraint srvsimp_resp_response_id_pk
+				constraint survey_resp_response_id_pk
 				primary key,
 	initial_response_id	constraint init_resp_id_fk
 				references survey_responses (response_id),
