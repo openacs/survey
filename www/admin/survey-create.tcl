@@ -64,25 +64,6 @@ ad_form -name create_survey -confirm_template survey-create-confirm -form {
 
 	# survey type-specific inserts
 
-	if { $type == "scored" } {
-
-	    foreach variable_name [split $variable_names ","] {
-	    
-		set variable_id [db_nextval "survey_variable_id_sequence"]
-
-		db_dml add_variable_name ""
-
-		db_dml map_variable_name ""
-	    }
-
-	    set logic_id [db_nextval "survey_logic_id_sequence"]
-	
-	    ### since survey_logic contains a clob on oracle and a text column
-            ### on postgresql, the sql statement is different for each database
-	    db_dml add_logic "" -clobs [list $logic]
-
-	    db_dml map_logic ""
-	}
 
 	# create new section here. the questions go in the section
 	# section_id is null to create a new section
@@ -98,14 +79,6 @@ ad_form -name create_survey -confirm_template survey-create-confirm -form {
 
 
 # function to insert survey type-specific form html
-
-if {$type=="scored"} {
-	    upvar variable_names local_variable_names
-    ad_form -extend -name create_survey -form {
-	{variable_names:text(text)     {label "Survey variable names<br />(comma-seperated list)"} {value $local_variable_names}
-	    {html {size 65}} }
-    }
-}
 
 set context_bar [ad_context_bar "Create Survey"]
 

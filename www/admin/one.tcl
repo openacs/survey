@@ -23,12 +23,13 @@ ad_require_permission $package_id survey_admin_survey
 get_survey_info -survey_id $survey_id
 
 # get users and # who responded etc...
-set community_id [dotlrn_community::get_community_id_from_url]
-set n_eligible [db_string n_eligible { 
-    select count(*) from dotlrn_member_rels_full
-    where rel_type='dotlrn_member_rel'
-    and community_id=:community_id}]
-
+if {[apm_package_installed_p dotlrn]} {
+    set community_id [dotlrn_community::get_community_id_from_url]
+    set n_eligible [db_string n_eligible { 
+	select count(*) from dotlrn_member_rels_full
+	where rel_type='dotlrn_member_rel'
+	and community_id=:community_id}]
+}
 set return_html ""
 
 # Leaving this commented out until we evaluate scored surveys -- Luke
