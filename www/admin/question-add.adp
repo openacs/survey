@@ -3,9 +3,8 @@
 
 <property name=title>#survey.lt_survey_infoname_New_Q#</property>
 <property name=context_bar>@context_bar;noquote@</property>
+<property name="focus">create_question.question_text</property>
 
-    <formtemplate id="create_question"></formtemplate>
-
-</form>
+<formtemplate id="create_question"></formtemplate>
 
 
