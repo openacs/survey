@@ -25,6 +25,11 @@ if {![info exists survey_info(survey_id)]} {
     ad_return_complaint 1 "[_ survey.lt_Requested_survey_does]"
     ad_script_abort
 }
+
+if {$survey_info(description_html_p) == "f"} {   
+    set survey_info(description) [ad_text_to_html $survey_info(description)]    
+}
+
 # get users and # who responded etc...
 if {[apm_package_installed_p dotlrn]} {
     set community_id [dotlrn_community::get_community_id_from_url]
@@ -34,7 +39,6 @@ if {[apm_package_installed_p dotlrn]} {
 	and community_id=:community_id}]
 }
 set return_html ""
-
 
 set creation_date [util_AnsiDatetoPrettyDate $survey_info(creation_date)]
 set user_link [acs_community_member_url -user_id $survey_info(creation_user)]

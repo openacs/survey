@@ -20,7 +20,13 @@ ad_require_permission $survey_id survey_admin_survey
 get_survey_info -survey_id $survey_id
 set survey_name $survey_info(name)
 set description $survey_info(description)
+set description_html_p $survey_info(description_html_p)
 set type $survey_info(type)
+
+
+if {$description_html_p != "t"} {
+    set description [ad_text_to_html $description]
+} 
 
 # survey_name and description are now set 
 

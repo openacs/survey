@@ -36,8 +36,14 @@ get_survey_info -survey_id $survey_id
 
 set survey_name $survey_info(name)
 set description $survey_info(description)
+set description_html_p $survey_info(description_html_p)
 set editable_p $survey_info(editable_p)
 set context_bar [ad_context_bar "[_ survey.Responses]"]
+
+if {$description_html_p != "t" } {
+    set description [ad_text_to_html $description]
+}
+
 db_multirow -extend {answer_summary pretty_submission_date} responses responses_select {} {
     set answer_summary [survey_answer_summary_display $response_id 1] 
     set pretty_submission_date [lc_time_fmt $pretty_submission_date_ansi %x]
