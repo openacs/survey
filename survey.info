@@ -181,6 +181,9 @@
             <file type="query_file" db_type="postgresql" path="www/response-postgresql.xql"/>
             <file type="content_page" path="www/view-attachment.tcl"/>
             <file type="query_file" path="www/view-attachment.xql"/>
+            <file type="query_file" path="www/admin/site-wide-survey-oracle.xql"/>
+            <file type="content_page" path="www/admin/site-wide-survey.adp"/>
+            <file type="content_page" path="www/admin/site-wide-survey.tcl"/>
         </files>
         <parameters>
             <parameter datatype="number"  min_n_values="1"  max_n_values="1"  name="allow_question_deavtivation_p"  default="0" description="Allow questions to be set inactive"/>
