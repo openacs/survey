@@ -38,6 +38,7 @@ ad_form -name confirm_delete -form {
 	}
     } 
     ad_returnredirect "one-respondent?[export_vars {survey_id user_id}]"
+    ad_script_abort
 }
 
 set context_bar [ad_context_bar "Delete Response"]

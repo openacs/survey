@@ -30,8 +30,6 @@ set sort_order = decode(sort_order, :sort_order, :next_sort_order, :next_sort_or
 where section_id = :section_id
 and sort_order in (:sort_order, :next_sort_order)"
 
-ad_returnredirect "one?survey_id=$survey_id&#${sort_order}"
-
 } on_error {
 
     ad_return_error "Database error" "A database error occured while trying
@@ -40,5 +38,7 @@ to swap your questions. Here's the error:
 $errmsg
 </pre>
 "
+    ad_script_abort
 }
+ad_returnredirect "one?survey_id=$survey_id&#${sort_order}"
 

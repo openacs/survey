@@ -64,7 +64,7 @@ if { $type == "general" && $abstract_data_type == "choice" && [empty_string_p $v
 
 if { $exception_count > 0 } {
     ad_return_complaint $exception_count $exception_text
-    return
+    ad_script_abort
 }
 
 
@@ -129,7 +129,7 @@ values (survey_choice_id_sequence.nextval, :question_id, :trimmed_response, :cou
         if { !$already_inserted_p } {
             db_release_unused_handles
             ad_return_error "Database Error" "<pre>$errmsg</pre>"
-            return
+            ad_script_abort
         }
     }
 

@@ -278,7 +278,7 @@ switch $type {
 
 	if {[info exists return_url] && ![empty_string_p $return_url]} {
 	    ad_returnredirect "$return_url"
-	    return
+            ad_script_abort
 	} else {
             set context_bar [ad_context_bar "Response Submitted for $survey_name"]
 	    ad_return_template
@@ -314,7 +314,7 @@ switch $type {
     default {
 	if {[info exists return_url] && ![empty_string_p $return_url]} {
 	    ad_returnredirect "$return_url"
-	    return
+            ad_script_abort
 	} else {
             set context_bar [ad_context_bar "Response Submitted for $survey_name"]
 

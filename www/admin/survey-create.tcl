@@ -72,7 +72,8 @@ ad_form -name create_survey -confirm_template survey-create-confirm -form {
 	set section_id ""
 	set section_id [db_exec_plsql create_section ""]
     }
-    ad_returnredirect "question-add.tcl?section_id=$section_id"
+    ad_returnredirect "question-add?section_id=$section_id"
+    ad_script_abort
 }
 
 

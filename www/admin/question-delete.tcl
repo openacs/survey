@@ -69,14 +69,14 @@ ad_form -extend -name confirm_delete -form {
 		</pre>
 		<p> Please go back using your browser.
 		"
-		return
+                ad_script_abort
 	    }
 
 	    db_release_unused_handles
 	    set sort_order [expr {$sort_order -1}]
 	}
-    ad_returnredirect "one?[export_url_vars survey_id]&#${sort_order}"
-    return
+        ad_returnredirect "one?[export_url_vars survey_id]&#${sort_order}"
+        ad_script_abort
     }
 
 set context_bar [ad_context_bar "Delete Question"]    

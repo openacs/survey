@@ -48,6 +48,7 @@ ad_form -name edit-survey -form {
         db_dml survey_update_description ""
 
     ad_returnredirect "one?[export_url_vars survey_id]"
+    ad_script_abort
 }
 
 set context_bar [ad_context_bar [list "one.tcl?[export_url_vars survey_id]" $survey_info(name)] "Edit Description"]

@@ -29,8 +29,9 @@ ad_form -name modify_question -form {
     {survey_id:text(hidden) {value $survey_id}}
 } -select_query_name {survey_question_text_from_id} -edit_data {
     
-db_dml survey_question_text_update "update survey_questions set question_text=:question_text where question_id=:question_id" 
-ad_returnredirect "one.tcl?survey_id=$survey_id"
+    db_dml survey_question_text_update "update survey_questions set question_text=:question_text where question_id=:question_id" 
+    ad_returnredirect "one?survey_id=$survey_id"
+    ad_script_abort
 
 }
 

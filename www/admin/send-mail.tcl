@@ -96,7 +96,8 @@ set query ""
 	    -subject $subject \
             -message $message \
             -query $query
-    ad_returnredirect "one.tcl?survey_id=$survey_id"
+    ad_returnredirect "one?survey_id=$survey_id"
+    ad_script_abort
 }
 
 set context_bar [ad_context_bar "Send Mail"]

@@ -71,11 +71,11 @@ if {($presentation_type=="checkbox" || $presentation_type=="select" || $presenta
     foreach response $valid_responses_list {
 	append valid_responses "$response\n"
     }
-  ad_form -extend -name modify_question -form {
-			{valid_responses:text(textarea)
-		    {label "For Multiple Choice<br />Enter a List of Valid Responses<br /> (enter one choice per line)"}
-		    {html {rows 10 cols 50}}
-		    {value $valid_responses}}
+    ad_form -extend -name modify_question -form {
+        {valid_responses:text(textarea)
+            {label "For Multiple Choice<br />Enter a List of Valid Responses<br /> (enter one choice per line)"}
+            {html {rows 10 cols 50}}
+            {value $valid_responses}}
     } 
 } 
 
@@ -83,61 +83,61 @@ if {$presentation_type == "textarea" || $presentation_type == "textbox"} {
     ad_form -extend -name modify_question -form {
 	{presentation_options:text(select) {options {{Small small} {Medium medium} {Large large}}} {value $presentation_options} {label "[string totitle $presentation_type] Size"}} 
 
-		    }
-		}
+    }
+}
 
 
 ad_form -extend -name modify_question -select_query_name {survey_question_details} -edit_data {
 
-        db_dml survey_question_update {}
+    db_dml survey_question_update {}
 
-# add new responses is choice type question
+    # add new responses is choice type question
 
 
-	if {[info exists valid_responses]} {
+    if {[info exists valid_responses]} {
 
-	            set responses [split $valid_responses "\n"]
-	            set count 0
-	            set response_list ""
-	            foreach response $responses {
-		        set trimmed_response [string trim $response]
-		        if { [empty_string_p $trimmed_response] } {
-		        # skip empty lines
-		            continue
-		        }
+        set responses [split $valid_responses "\n"]
+        set count 0
+        set response_list ""
+        foreach response $responses {
+            set trimmed_response [string trim $response]
+            if { [empty_string_p $trimmed_response] } {
+                # skip empty lines
+                continue
+            }
 
-			lappend response_list [list "$trimmed_response" "$count"]
-			incr count
-		    }
-		
-		    set choice_id_to_update_list [db_list get_choice_id {}]
+            lappend response_list [list "$trimmed_response" "$count"]
+            incr count
+        }
+        
+        set choice_id_to_update_list [db_list get_choice_id {}]
         set choice_count 0
         foreach one_response $response_list {
             set choice_name [lindex $one_response 0]
             set choice_value [lindex $one_response 1]
             set choice_id_to_update [lindex $choice_id_to_update_list $choice_count]
-if {[empty_string_p $choice_id_to_update]} {
-    db_dml insert_new_choice {}
-} else {
+            if {[empty_string_p $choice_id_to_update]} {
+                db_dml insert_new_choice {}
+            } else {
 
-    db_dml update_new_choice {}
-}
+                db_dml update_new_choice {}
+            }
             incr choice_count
-}
-while {[llength $choice_id_to_update_list] >= $choice_count} {
+        }
+        while {[llength $choice_id_to_update_list] >= $choice_count} {
             set choice_id_to_delete [lindex $choice_id_to_update_list $choice_count]
-db_dml delete_old_choice {}
+            db_dml delete_old_choice {}
             incr choice_count
-}
+        }
 
-}
-
-
-	
+    }
 
 
-ad_returnredirect "one.tcl?survey_id=$survey_id&#${sort_order}"
+    
 
+
+    ad_returnredirect "one?survey_id=$survey_id&#${sort_order}"
+    ad_script_abort
 }
 
 

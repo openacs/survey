@@ -36,9 +36,10 @@ ad_form -name edit-name -form {
 } -edit_data {
     db_dml survey_update ""
     ad_returnredirect "one?[export_vars survey_id]"
+    ad_script_abort
 }
-set context_bar [ad_context_bar "Edit Name"]
 
+set context_bar [ad_context_bar "Edit Name"]
 
 ad_return_template
 

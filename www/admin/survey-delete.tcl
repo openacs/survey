@@ -35,8 +35,10 @@ ad_form -name confirm_delete -form {
     if {$confirmation} {
 	db_exec_plsql delete_survey {}
 	ad_returnredirect "."
+        ad_script_abort
     } else {
-	ad_returnredirect "one.tcl?[export_vars survey_id]"
+	ad_returnredirect "one?[export_vars survey_id]"
+        ad_script_abort
     }
 }
 

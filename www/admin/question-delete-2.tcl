@@ -36,7 +36,7 @@ db_dml survey_question_choices_score_delete "delete from survey_choice_scores wh
         </pre>
         <p> Please go back to the <a href=\"one?section_id=$section_id\">survey</a>.
         "
-        return
+   ad_script_abort
 }
 
 db_release_unused_handles

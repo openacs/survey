@@ -27,9 +27,10 @@ ad_form -name copy_survey -form {
 } -on_submit {
     set new_survey_id [survey_copy -survey_id $survey_id -new_name $name]
 
-set survey_id $new_survey_id
-
-ad_returnredirect "one?[export_vars survey_id]"
+    set survey_id $new_survey_id
+ 
+    ad_returnredirect "one?[export_vars survey_id]"
+    ad_script_abort
 }
 
 
