@@ -68,7 +68,7 @@ set survey_display_types [survey_display_types]
 # Questions summary.   
 # We need to get the questions for ALL sections.
 
-set context $survey_info(name)
+set context [list $survey_info(name)]
 
 db_multirow -extend { question_display } questions survey_questions "" {set question_display [survey_question_display $question_id]}
 
