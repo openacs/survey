@@ -202,7 +202,7 @@ as
 	end loop;
 	
 	delete from surveys where survey_id=remove.survey_id;
-	acs_object.delete(survey_id);
+	acs_object.del(survey_id);
     end remove;
 
     function name (
@@ -268,7 +268,7 @@ as
 		survey_question.remove(v_question_row.question_id);
 	end loop;
 	delete from survey_sections where section_id=remove.section_id;
-	acs_object.delete(remove.section_id);
+	acs_object.del(remove.section_id);
     end remove;
 end survey_section;
 /
@@ -328,7 +328,7 @@ as
 	where question_id=remove.question_id;
 	delete from survey_questions
             where question_id = remove.question_id;
-        acs_object.delete(remove.question_id);
+        acs_object.del(remove.question_id);
     end remove;
 end survey_question;
 /
@@ -420,14 +420,14 @@ as
 	where response_id=del.response_id
 	and attachment_answer=revision_id)
 	loop
-		content_item.delete(v_question_response_row.item_id);
+		content_item.del(v_question_response_row.item_id);
 	end loop;
 	
 	delete from survey_question_responses
 	where response_id=del.response_id;
 	delete from survey_responses
 		where response_id=del.response_id;
-	acs_object.delete(del.response_id);
+	acs_object.del(del.response_id);
     end del;
 
     function boolean_answer (
