@@ -5,8 +5,7 @@
 
 <fullquery name="survey_question_copy.create_question">      
       <querytext>
-	    begin
-		PERFORM survey_question__new (
+		SELECT survey_question__new (
 		    NULL,
 		    :section_id,
                     :new_sort_order,
@@ -20,7 +19,6 @@
 		    :user_id,
 		    :section_id
 		);
-	    end;
       </querytext>
 </fullquery>
 
