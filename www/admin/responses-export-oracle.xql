@@ -61,7 +61,7 @@ select
           r.creation_date,
           q.abstract_data_type,
           q.sort_order
-     from survey_questions q, (select creation_user as user_id, creation_date, response_id from (select rownum as r_num, rt.* from survey_responses_latest rt where survey_id=:survey_id) where r_num >= $start and r_num <= $end) r, cc_users u, survey_sections ss
+     from survey_questions q, (select initial_user_id as user_id, creation_date, response_id from survey_responses_latest rt where survey_id=:survey_id) r, cc_users u, survey_sections ss
      where ss.survey_id=:survey_id
      and q.section_id=ss.section_id
      and r.user_id = u.user_id) sq

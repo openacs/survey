@@ -13,6 +13,7 @@ ad_page_contract {
     @author  nstrug@arsdigita.com
     @date    28th September 2000
     @cvs-id $Id$
+
 } {
   survey_id:integer
   section_id:integer
@@ -70,7 +71,7 @@ ad_page_contract {
 		}
 	    }
 	    
-	    if { [exists_and_not_null response_to_question($question_id)] || ($abstract_data_type=="choice" && ![empty_string_p [lindex $response_to_question($question_id) 0]])} {
+	    if { [exists_and_not_null response_to_question($question_id)] } {
 		set response_value [string trim $response_to_question($question_id)]
 	    } elseif {$required_p == "t"} {
 		lappend questions_with_missing_responses $question_text

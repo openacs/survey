@@ -24,7 +24,7 @@
       insert into survey_question_responses
       (response_id, question_id, clob_answer)
       values 
-      (:response_id, :question_id, :clob_answer)
+      (:response_id, :question_id, :response_value)
 
       </querytext>
 </fullquery>

@@ -11,13 +11,12 @@ ad_page_contract {
 } {
   survey_id:integer,notnull
   {package_id:integer 0}
-  {to "all"}  
+  {to "responded"}  
 }
 
 set package_id [ad_conn package_id]
 set user_id [ad_conn user_id]
 set sender_id [ad_conn user_id]
-set rel_type "dotlrn_member_rel"
 
 ad_require_permission $survey_id survey_admin_survey
 
@@ -26,6 +25,7 @@ set survey_name $survey_info(name)
 db_1row select_sender_info {}
 set dotlrn_installed_p [apm_package_installed_p dotlrn]
 if {$dotlrn_installed_p} {
+    set rel_type "dotlrn_member_rel"
     set community_id [dotlrn_community::get_community_id]
     set segment_id [db_string select_rel_segment_id {}]
     set community_name [dotlrn_community::get_community_name $community_id]
@@ -70,26 +70,26 @@ ad_form -extend -name send-mail -form {
 } -on_submit {
 
 set query ""
+
+if {$dotlrn_installed_p} {
     switch $to {
 	    all {
-		if {$dotlrn_installed_p} {
-		    set query [db_map dotlrn_all {}]
+		    set query [db_map dotlrn_all]
 		}
-	    }
+	    
 	    responded {
-		if {$dotlrn_installed_p} {
-		    set query [db_map dotlrn_responded {}]
-		} else {
-		    set query [db_map responded {}]
+		    set query [db_map dotlrn_responded]
 		}
-	    }
+	   
 	    not_responded {
-		if {$dotlrn_installed_p} {
-		    set query [db_map dotlrn_not_responded {}]
-		}
+		set query [db_map dotlrn_not_responded]
 	    }
-        }
+    }
+} else {
+    set query [db_map responded]
+}
 
+ns_log notice "DAVE-SURVEY: $query"
 	bulk_mail::new \
 	    -package_id $package_id \
 	    -from_addr $sender_email \

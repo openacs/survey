@@ -5,9 +5,9 @@
 
     <partialquery name="dotlrn_all">
 	<querytext>
-            select '$sender_email' as from_addr,
-               '$sender_first_names' as sender_first_names,
-               '$sender_last_name' as sender_last_name,
+            select '[db_quote $sender_email]' as from_addr,
+               '[db_quote $sender_first_names]' as sender_first_names,
+               '[db_quote $sender_last_name]' as sender_last_name,
                parties.email,
                coalesce(acs_objects.object_type,
                       'user',
@@ -29,8 +29,8 @@
                        from persons
                        where person_id = parties.party_id),
                       '') as last_name,
-               '$community_name' as community_name,
-               '$community_url' as community_url
+               '[db_quote $community_name]' as community_name,
+               '[db_quote $community_url]' as community_url
             from party_approved_member_map,
                  parties,
                  acs_objects
@@ -43,9 +43,9 @@
 
     <partialquery name="dotlrn_responded">
 	<querytext>
- 		select '$sender_email' as from_addr,
-               '$sender_first_names' as sender_first_names,
-               '$sender_last_name' as sender_last_name,
+ 		select '[db_quote $sender_email]' as from_addr,
+               '[db_quote $sender_first_names]' as sender_first_names,
+               '[db_quote $sender_last_name]' as sender_last_name,
                parties.email,
                coalesce(acs_objects.object_type,
                       'user',
@@ -67,8 +67,8 @@
                        from persons
                        where person_id = parties.party_id),
                       '') as last_name,
-               '$community_name' as community_name,
-               '$community_url' as community_url
+               '[db_quote $community_name]' as community_name,
+               '[db_quote $community_url]' as community_url
             from party_approved_member_map,
                  parties,
                  acs_objects
@@ -84,9 +84,9 @@
 
     <partialquery name="dotlrn_not_responded">
 	<querytext>
-		select '$sender_email' as from_addr,
-               '$sender_first_names' as sender_first_names,
-               '$sender_last_name' as sender_last_name,
+		select '[db_quote $sender_email]' as from_addr,
+               '[db_quote $sender_first_names]' as sender_first_names,
+               '[db_quote $sender_last_name]' as sender_last_name,
                parties.email,
                coalesce(acs_objects.object_type,
                       'user',
@@ -108,8 +108,8 @@
                        from persons
                        where person_id = parties.party_id),
                       '') as last_name,
-               '$community_name' as community_name,
-               '$community_url' as community_url
+               '[db_quote $community_name]' as community_name,
+               '[db_quote $community_url]' as community_url
             from party_approved_member_map,
                  parties,
                  acs_objects
@@ -121,20 +121,19 @@
             select survey_response__initial_user_id(response_id)
             from survey_responses_latest where survey_id=$survey_id)
 	</querytext>
-    <partialquery>
+    </partialquery>
 
     <partialquery name="responded">
 	<querytext>
- 		select '$sender_email' as from_addr,
-               '$sender_first_names' as sender_first_names,
-               '$sender_last_name' as sender_last_name,
-               parties.email,
+ 		select '[db_quote $sender_email]' as from_addr,
+               '[db_quote $sender_first_names]' as sender_first_names,
+               '[db_quote $sender_last_name]' as sender_last_name,
+               parties.email
             from parties
-            where parties.party_id = acs_objects.object_id
-	    and parties.party_id in (
+            where parties.party_id in (
 		select survey_response__initial_user_id(response_id)
 		from survey_responses_latest where survey_id=$survey_id)
 	</querytext>
-    <partialquery>
+    </partialquery>
 
 </queryset>

@@ -19,7 +19,7 @@
           <td class="tabledata">
 	    @form_vars@
             <include src="one_@display_type@" questions=@questions@>
-            <hr noshapde size="1" color="#dddddd">
+            <hr noshade size="1" color="#dddddd">
               <input type="submit" value="@button_label@">
           </td>
         </tr>
