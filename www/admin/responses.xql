@@ -14,7 +14,7 @@ order by sort_order
  
 <fullquery name="survey_boolean_summary">      
       <querytext>
-select count(*) as n_responses, (case when boolean_answer = 't' then 'True' when boolean_answer = 'f' then 'False' end) as boolean_answer
+select count(*) as n_responses, boolean_answer
 from survey_ques_responses_latest
 where question_id = :question_id
 group by boolean_answer
