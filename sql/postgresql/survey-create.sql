@@ -187,7 +187,7 @@ create table survey_questions (
                                 not null,
         abstract_data_type      varchar(30)
                                 constraint survey_q_abs_data_type_ck
-                                check (abstract_data_type in ('text', 'shorttext', 'boolean', 'number', 'integer', 'choice','date')),
+                                check (abstract_data_type in ('text', 'shorttext', 'boolean', 'number', 'integer', 'choice','date','blob')),
         required_p              boolean,
         active_p                boolean,
         presentation_type       varchar(20)
