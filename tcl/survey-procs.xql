@@ -217,7 +217,18 @@ insert into survey_question_choices
 
 <fullquery name="survey_copy.get_survey_info">
 <querytext>
-select * from surveys where survey_id=:survey_id
+	select
+	    survey_id,
+	    name,
+  	    description,
+	    description_html_p,
+	    'f' as enabled_p,
+	    single_response_p,
+	    editable_p,
+	    single_section_p,
+	    type,
+	    display_type 
+	from surveys where survey_id=:survey_id
 </querytext>
 </fullquery>
 
