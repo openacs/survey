@@ -31,7 +31,7 @@ set table_def {
     {first_names "First Name" {upper(first_names) $order} {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$first_names</a></td>}}
     {last_name "Last Name" "" {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$last_name</a></td>}}
     {email "Email Address" "" {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$email</a></td>}}
-    {actions "Actions" no_sort {<td><a href="one-respondent?[export_vars {user_id survey_id}]"><img src="/graphics/view.gif" border="0" alt="View"></a></td>}}
+    {actions "Actions" no_sort {<td><a href="one-respondent?[export_vars {user_id survey_id}]"><img src="../graphics/view.gif" border="0" alt="View"></a></td>}}
 }
 
 set respondents_table [ad_table -Torderby $orderby -Textra_vars {survey_id} select_respondents {}  $table_def]
