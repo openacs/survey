@@ -59,7 +59,7 @@ ad_form -extend -name confirm_delete -form {
 
 		db_exec_plsql survey_delete_question {}
 		if {![empty_string_p $sort_order]} {
-		    db_exec_plsql survey_renumber_questions {}
+		    db_dml survey_renumber_questions {}
 		}
 	    } on_error {
     
