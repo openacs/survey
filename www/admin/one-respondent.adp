@@ -18,7 +18,7 @@
 <group column="initial_response">
 
 <if @responses.original_p@><a href="response-delete?response_id=@response_id@">
-<img valign="top" align="right" src="/graphics/delete.gif" border="0" alt="Delete"></a>
+<img valign="top" align="right" src="../graphics/delete.gif" border="0" alt="Delete"></a>
 </if>
  <strong>[<if
       @responses.original_p@>Original</if><else>Edited</a></else>

@@ -12,9 +12,9 @@
 <td valign="top">Survey Name:<p>
 Description: </td>
 	<td >
-<a href="survey-preview?survey_id=@survey_id@"><img align=right src=/graphics/preview.gif border=0 alt="Preview"></a>
+<a href="survey-preview?survey_id=@survey_id@"><img align=right src=../graphics/preview.gif border=0 alt="Preview"></a>
 
-	 <a href="name-edit?survey_id=@survey_id@"><img align=right src=/graphics/edit.gif border=0 alt="Edit"></a>
+	 <a href="name-edit?survey_id=@survey_id@"><img align=right src=../graphics/edit.gif border=0 alt="Edit"></a>
 @survey_info.name@<p>
 @survey_info.description@</td>
 </tr>
@@ -70,13 +70,13 @@ Description: </td>
 
 <td valign="top">@questions.rownum@.  <a name="@questions.sort_order@"></a></td>
 
-<td><a	href="question-modify?question_id=@questions.question_id@&section_id=@section_id@&survey_id=@survey_id@"><img src=/graphics/edit.gif border=0 alt="Edit"></a>
+<td><a	href="question-modify?question_id=@questions.question_id@&section_id=@section_id@&survey_id=@survey_id@"><img src=../graphics/edit.gif border=0 alt="Edit"></a>
 <if @questions.active_p@ eq "f"><span style="color: #f00;">[inactive]</span></if>
-<a href="question-copy?question_id=@questions.question_id@&sort_order=@questions.sort_order@"><img src="/graphics/copy.gif" border="0" alt="Copy"></a>
-<a href="question-add?section_id=@section_id@&after=@questions.sort_order@"><img src="/graphics/new.gif" border="0" alt="Add New"></a><img src="/graphics/spacer.gif" border="0" alt="" width="10">
+<a href="question-copy?question_id=@questions.question_id@&sort_order=@questions.sort_order@"><img src="../graphics/copy.gif" border="0" alt="Copy"></a>
+<a href="question-add?section_id=@section_id@&after=@questions.sort_order@"><img src="../graphics/new.gif" border="0" alt="Add New"></a><img src="../graphics/spacer.gif" border="0" alt="" width="10">
 <if @questions.rownum@ lt @questions:rowcount@ ><a
-	  href="question-swap?section_id=@section_id@&survey_id=@survey_id@&sort_order=@questions.sort_order@&direction=down"><img src="/graphics/down" border="0" alt="Move Down"></a></if><if @questions.rownum@ gt 1><a
-	  href="question-swap?section_id=@section_id@&survey_id=@survey_id@&sort_order=@questions.sort_order@&direction=up"><img src="/graphics/up.gif" border="0" alt="Move Up"></a></if><a href="question-delete?question_id=@questions.question_id@&survey_id=@survey_id@"><img src="/graphics/delete.gif" border="0" alt="Delete"></a></td></tr>
+	  href="question-swap?section_id=@section_id@&survey_id=@survey_id@&sort_order=@questions.sort_order@&direction=down"><img src="../graphics/down" border="0" alt="Move Down"></a></if><if @questions.rownum@ gt 1><a
+	  href="question-swap?section_id=@section_id@&survey_id=@survey_id@&sort_order=@questions.sort_order@&direction=up"><img src="../graphics/up.gif" border="0" alt="Move Up"></a></if><a href="question-delete?question_id=@questions.question_id@&survey_id=@survey_id@"><img src="../graphics/delete.gif" border="0" alt="Delete"></a></td></tr>
 
   <if @questions.rownum@ odd>
     <tr class="odd">
