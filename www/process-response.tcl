@@ -195,18 +195,17 @@ if {[db_string get_response_count {}] == 0} {
 			db_dml survey_question_response_choice_insert "insert into survey_question_responses (response_id, question_id, choice_id)
  values (:response_id, :question_id, :response_value)"
 		    }
-<<<<<<< process-response.tcl
-<<<<<<< process-response.tcl
+
 		}  else {
 		    if { [empty_string_p $response_value] || [empty_string_p [lindex $response_value 0]] } {
-=======
+
 		}
 		"shorttext" {
 		    db_dml survey_question_choice_shorttext_insert "insert into survey_question_responses (response_id, question_id, varchar_answer)
  values (:response_id, :question_id, :response_value)"
 		}
 		"boolean" {
-=======
+
 		}
 		"shorttext" {
 		    db_dml survey_question_choice_shorttext_insert "insert into survey_question_responses (response_id, question_id, varchar_answer)
