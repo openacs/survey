@@ -73,7 +73,7 @@ ad_page_contract {
 		    ad_complain "$errmsg: Please make sure your dates are valid."
 		}
 	    }
-    
+  
 	    if { [exists_and_not_null response_to_question($question_id)] } {
 
 		set response_value [string trim $response_to_question($question_id)]
@@ -195,16 +195,6 @@ if {[db_string get_response_count {}] == 0} {
 			db_dml survey_question_response_choice_insert "insert into survey_question_responses (response_id, question_id, choice_id)
  values (:response_id, :question_id, :response_value)"
 		    }
-
-		}  else {
-		    if { [empty_string_p $response_value] || [empty_string_p [lindex $response_value 0]] } {
-
-		}
-		"shorttext" {
-		    db_dml survey_question_choice_shorttext_insert "insert into survey_question_responses (response_id, question_id, varchar_answer)
- values (:response_id, :question_id, :response_value)"
-		}
-		"boolean" {
 
 		}
 		"shorttext" {
