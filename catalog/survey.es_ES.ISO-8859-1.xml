@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<message_catalog package_key="survey" package_version="0.2d" locale="es_ES" charset="ISO-8859-1">
+
+  <msg key="-__Created_by">Creado por</msg>
+  <msg key="Add_A_Question">Añadir una pregunta</msg>
+  <msg key="Add_New">Añadir Nuevo</msg>
+  <msg key="add_new_question">añadir una nueva pregunta</msg>
+  <msg key="By_user">Por usuario</msg>
+  <msg key="Choose_Type">Elegir Tipo</msg>
+  <msg key="Copy">Copiar</msg>
+  <msg key="Could_not_find_user">No se pudo encontrar el usuario</msg>
+  <msg key="Date">Fecha</msg>
+  <msg key="Delete">Eliminar</msg>
+  <msg key="Delete_1">Eliminar:</msg>
+  <msg key="Description">Descripción:</msg>
+  <msg key="Description_1">Descripción</msg>
+  <msg key="Edit">Editar</msg>
+  <msg key="Edit_Description">Editar Descripción</msg>
+  <msg key="Edit_Name">Editar Nombre</msg>
+  <msg key="edit_this_response">editar esta respuesta</msg>
+  <msg key="Enter_Message">Introducir Mensaje</msg>
+  <msg key="From">De:</msg>
+  <msg key="From_1">De</msg>
+  <msg key="Integer">Entero</msg>
+  <msg key="is">es</msg>
+  <msg key="list">lista</msg>
+  <msg key="lt_Modify_a_Questions_Te">Modificar el Texto de una Pregunta</msg>
+  <msg key="lt_Modify_previous_respo">Modificar la respuesta anterior</msg>
+  <msg key="lt_Users_may_edit_their_">Los Usuarios pueden editar sus respuestas</msg>
+  <msg key="Name_copy">Nombre</msg>
+  <msg key="No">No</msg>
+  <msg key="Number">Número</msg>
+  <msg key="Original">Original</msg>
+  <msg key="Size">Tamaño</msg>
+  <msg key="table">tabla</msg>
+  <msg key="Text">Texto</msg>
+  <msg key="True_or_False">Verdadero o Falso</msg>
+  <msg key="TrueFalse">Verdadero/Falso</msg>
+  <msg key="View">Ver</msg>
+  <msg key="Yes">Sí</msg>
+  <msg key="Yes_or_No">Sí o No</msg>
+  <msg key="YesNo">Sí/No</msg>
+</message_catalog>

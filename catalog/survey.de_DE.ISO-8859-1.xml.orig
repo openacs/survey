@@ -68,7 +68,6 @@
   <msg key="Large">Groß</msg>
   <msg key="Last_Name">Nachname</msg>
   <msg key="limit_to_one">Teilnahme nur einmal möglich</msg>
-  <msg key="list">Liste</msg>
   <msg key="lt_-_Lets_you_use_this_s">- Die Evaluation dient als Vorlage für eine neue Evaluation</msg>
   <msg key="lt_-_Removes_all_questio">- Alle Fragen und Antworten werden gelöscht</msg>
   <msg key="lt_A_database_error_occu">Bei dem Versuch, die Fragen auzutauschen, ist folgender Datenbankfehler aufgetreten:</msg>
@@ -146,8 +145,8 @@
   <msg key="lt_Survey_section_id_does">Survey %section_id% does not exist </msg>
   <msg key="lt_Survey_survey_id_do_no">Die Evaluation %survey_id% ist nicht vorhanden.</msg>
   <msg key="lt_Survey_survey_id_does">Die Evaluation %survey_id% ist nicht vorhanden.</msg>
-  <msg key="lt_Survey_survey_nameRes">Evaluation: %survey_name% Teilnehmer: %user_name%; %user_name% (%comm_url%) schrieb Folgendes bezüglich %survey_name%: </msg>
-  <msg key="lt_Survey_survey_nameRes_1">Evaluation: %survey_name% Teilnehmer: %user_name%; %user_name% &lt;%comm_url%&gt; schrieb Folgendes bezüglich %survey_name%: </msg>
+  <msg key="lt_Survey_survey_nameRes">Evaluation: %survey_name% Teilnehmer: %user_name%; %user_name% (%comm_url%) schrieb Folgendes bezüglich %survey_name:% </msg>
+  <msg key="lt_Survey_survey_nameRes_1">Evaluation: %survey_name% Teilnehmer: %user_name%; %user_name% &lt;%comm_url%&gt; schrieb Folgendes bezüglich %survey_name:% </msg>
   <msg key="lt_The_Above_Description">Format der Beschreibung</msg>
   <msg key="lt_The_response_to_ques_i">Die Antwort auf die Frage &quot;%question_text%&quot; muss eine ganze Zahl sein. Sie haben %response_value% eingegeben.</msg>
   <msg key="lt_The_response_to_ques_n">Die Antwort auf die Frage &quot;%question_text%&quot; muss eine Zahl sein. Sie haben %response_value% eingegeben.</msg>
@@ -179,7 +178,6 @@
   <msg key="Move_Down">Nach unten verschieben</msg>
   <msg key="Move_Up">Nach oben verschieben</msg>
   <msg key="Multiple_Choice">Mehrere Antworten zur Auswahl:</msg>
-  <msg key="multiple_responses">Mehrfachantworten</msg>
   <msg key="Name_copy">Bezeichnung</msg>
   <msg key="New_Survey">Neue Evaluation erstellen</msg>
   <msg key="No">Nein</msg>
@@ -194,7 +192,6 @@
   <msg key="One_Survey_name">Einzelne Evaluation: %name%</msg>
   <msg key="oops">&amp;nbsp;</msg>
   <msg key="Original">Originalversion</msg>
-  <msg key="paragraph">Abschnitt</msg>
   <msg key="Plain_Text">Einfacher Text</msg>
   <msg key="Preformatted_Text">Vorformatierter Text</msg>
   <msg key="Presentation_Type">Fragentyp</msg>
@@ -229,7 +226,6 @@
   <msg key="Survey_Name_1">Bezeichnung der Evaluation</msg>
   <msg key="Survey_Name_name">Bezeichnung der Evaluation:</msg>
   <msg key="Surveys">Evaluationen</msg>
-  <msg key="table">Tabelle</msg>
   <msg key="Text">Text</msg>
   <msg key="This_survey_is">Diese Evaluation ist</msg>
   <msg key="True_or_False">Richtig oder Falsch</msg>
