@@ -1,11 +1,10 @@
 <master>
- <if @context_bar@ not nil>
-   @context_bar@
- </if>
+<if @context_bar@ not nil>
+<property name="context_bar">@context_bar@</property>
+</if>
 <if @title@ not nil>
-<h2>@title@</h2>
+<property name="title">@title@</property>
 </if>
 <a href=".">Group Survey Administration</a>  | <a href="one?survey_id=@survey_id@">Admin This Survey</a> 
-
-<hr><p>
+<p>
 <slave>
