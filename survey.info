@@ -10,12 +10,12 @@
     <version name="0.2d" url="http://openacs.org/repository/download/apm/survey-0.2d.apm">
         <owner url="mailto:dave@thedesignexperience.org">Dave Bauer</owner>
         <owner url="mailto:luke@museatech.net">Luke Pond</owner>
-        <summary>New version of survey package for dotLRN/OpenACS4.5</summary>
+        <summary>User defined surveys with reporting.</summary>
         <vendor url="http://openacs.org">OpenACS</vendor>
-        <description format="text/plain">New version of survey package for dotLRN/OpenACS4.5</description>
+        <description format="text/plain">Expanded functionality survey package derived from simple-survey.</description>
 
         <provides url="survey" version="0.2d"/>
-        <requires url="notifications" version="5.0.0a5"/>
+        <requires url="notifications" version="5.0.0b4"/>
 
         <callbacks>
         </callbacks>
