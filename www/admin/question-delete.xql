@@ -41,10 +41,8 @@ where question_id = :question_id
 
 <fullquery name="survey_renumber_questions">
 <querytext>
-update survey_questions set sort_order=sort_order -1 
-where section_id in (
-	select section_id from surveys where 
-	survey_id=:survey_id)
+update survey_questions set sort_order=sort_order - 1 
+where section_id = :section_id
 and sort_order > :sort_order
 </querytext>
 </fullquery>
