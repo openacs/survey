@@ -10,15 +10,6 @@ select drop_package('survey_question');
 select drop_package('survey_section');
 select drop_package('survey');
 
-drop table survey_logic_surveys_map;
-drop view survey_logic_id_sequence;
-drop sequence survey_logic_id_seq;
-drop table survey_logic;
-drop table survey_choice_scores;
-drop table survey_variables_surveys_map;
-drop table survey_variables;
-drop view survey_variable_id_sequence;
-drop sequence survey_variable_id_seq;
 drop view survey_responses_latest;
 drop view survey_ques_responses_latest;
 drop table survey_question_responses;
