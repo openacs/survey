@@ -121,7 +121,7 @@
             select survey_response__initial_user_id(response_id)
             from survey_responses_latest where survey_id=$survey_id)
 	</querytext>
-    <partialquery>
+    </partialquery>
 
     <partialquery name="responded">
 	<querytext>
@@ -135,6 +135,6 @@
 		select survey_response__initial_user_id(response_id)
 		from survey_responses_latest where survey_id=$survey_id)
 	</querytext>
-    <partialquery>
+    </partialquery>
 
 </queryset>
