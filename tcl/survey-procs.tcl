@@ -35,6 +35,11 @@ ad_proc -public get_survey_info {
 
     db_1row get_info_by_survey_id "" -column_array survey_info
 
+    if {![info exists survey_info(survey_id)]} {
+	# survey doesn't exist, caller has to handle this in their
+	# own way
+	return
+    }
     # If it's a single-section survey, look up the section_id
     if {[empty_string_p $section_id] && $survey_info(single_section_p) == "t"} {
 	db_1row lookup_single_section_id ""
@@ -405,19 +410,7 @@ ad_proc -public survey_do_notifications {
 	set community_name [dotlrn_community::get_community_name $community_id]
 	set community_url "[ad_parameter -package_id [ad_acs_kernel_id] SystemURL][dotlrn_community::get_community_url $community_id]"
     }
-	db_1row get_response_info {
-	select r.initial_response_id, r.responding_user_id, r.response_id,
-	    u.first_names || ' ' || u.last_name as user_name,
-	    edit_p,
-	    o.creation_date as response_date
-	    from (select survey_response.initial_user_id(response_id) as responding_user_id,
-		  survey_response.initial_response_id(response_id) as initial_response_id,
-		  response_id, (case when initial_response_id is NULL then 'f' else 't' end) as edit_p
-	    from survey_responses) r, acs_objects o,
-	    cc_users u where r.response_id=:response_id
-	    and r.responding_user_id = u.user_id
-	    and r.response_id = o.object_id
-	}
+	db_1row get_response_info {}
 	
 	set notif_text ""
 	if {$dotlrn_installed_p} {

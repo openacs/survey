@@ -45,6 +45,8 @@ ad_form -name create_survey -confirm_template survey-create-confirm -form {
 }     {description {[string length $description] <= 4000}
     "Survey Name must be 4000 characters or less"
 }
+    {survey_id {[db_string count_surveys "select count(survey_id) from surveys where survey_id=:survey_id"] < 1} "oops"
+    }
     
 } -new_data {
         

@@ -98,26 +98,6 @@
 </fullquery>
 
  
-<fullquery name="get_score">      
-      <querytext>
-      select variable_name, sum(score) as sum_of_scores
-                           from survey_choice_scores, survey_question_responses, survey_variables
-                           where survey_choice_scores.choice_id = survey_question_responses.choice_id
-                           and survey_choice_scores.variable_id = survey_variables.variable_id
-                           and survey_question_responses.response_id = :response_id
-                           group by variable_name
-      </querytext>
-</fullquery>
-
- 
-<fullquery name="get_logic">      
-      <querytext>
-      select logic from survey_logic, survey_logic_surveys_map
-          where survey_logic.logic_id = survey_logic_surveys_map.logic_id
-          and section_id = :section_id
-      </querytext>
-</fullquery>
-
 
 <fullquery name="survey_question_response_file_attachment_insert">
       <querytext>

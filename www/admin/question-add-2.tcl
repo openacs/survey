@@ -34,6 +34,12 @@ ad_require_permission $package_id survey_create_question
 
 set question_id [db_nextval acs_object_id_seq]
 get_survey_info -section_id $section_id
+
+if {![info exists survey_info(survey_id)]} {
+    ad_return_complaint 1 "Requested survey does not exist"
+    ad_script_abort
+}
+
 set survey_id $survey_info(survey_id)
 set type $survey_info(type)
 

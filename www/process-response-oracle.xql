@@ -46,19 +46,4 @@
       </querytext>
 </fullquery>
 
-
-<fullquery name="create_rel">
-      <querytext>
-
-      begin
- 	  :1 := acs_rel.new (
- 	  rel_type => 'user_blob_response_rel',
- 	  object_id_one => :user_id,
- 	  object_id_two => :item_id);
-      end;
-
-      </querytext>
-</fullquery>
-
-
 </queryset>

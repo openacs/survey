@@ -42,6 +42,12 @@ set package_id [ad_conn package_id]
 set user_id [ad_get_user_id]
 ad_require_permission $package_id survey_create_question
 get_survey_info -section_id $section_id
+
+if {![info exists survey_info(survey_id)]} {
+    ad_return_complaint 1 "Requested survey does not exist"
+    ad_script_abort
+}
+
 set survey_id $survey_info(survey_id)
 set exception_count 0
 set exception_text ""

@@ -21,7 +21,10 @@ ad_require_permission $package_id survey_admin_survey
 
 # Get the survey information.
 get_survey_info -survey_id $survey_id
-
+if {![info exists survey_info(survey_id)]} {
+    ad_return_complaint 1 "Requested survey does not exist"
+    ad_script_abort
+}
 # get users and # who responded etc...
 if {[apm_package_installed_p dotlrn]} {
     set community_id [dotlrn_community::get_community_id_from_url]
