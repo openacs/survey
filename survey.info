@@ -72,8 +72,6 @@
             <file type="content_page" path="www/admin/question-add.tcl"/>
             <file type="content_page" path="www/admin/question-copy.tcl"/>
             <file type="query_file" path="www/admin/question-copy.xql"/>
-            <file type="content_page" path="www/admin/question-delete-2.tcl"/>
-            <file type="query_file" path="www/admin/question-delete-2.xql"/>
             <file type="query_file" db_type="oracle" path="www/admin/question-delete-oracle.xql"/>
             <file type="query_file" db_type="postgresql" path="www/admin/question-delete-postgresql.xql"/>
             <file type="content_page" path="www/admin/question-delete.adp"/>
@@ -184,6 +182,18 @@
             <file type="query_file" db_type="postgresql" path="www/response-postgresql.xql"/>
             <file type="content_page" path="www/view-attachment.tcl"/>
             <file type="query_file" path="www/view-attachment.xql"/>
+            <file type="content_page" path="www/graphics/add.gif"/>
+            <file type="content_page" path="www/graphics/admin.gif"/>
+            <file type="content_page" path="www/graphics/answer.gif"/>
+            <file type="content_page" path="www/graphics/copy.gif"/>
+            <file type="content_page" path="www/graphics/delete.gif"/>
+            <file type="content_page" path="www/graphics/down.gif"/>
+            <file type="content_page" path="www/graphics/edit.gif"/>
+            <file type="content_page" path="www/graphics/new.gif"/>
+            <file type="content_page" path="www/graphics/preview.gif"/>
+            <file type="content_page" path="www/graphics/spacer.gif"/>
+            <file type="content_page" path="www/graphics/up.gif"/>
+            <file type="content_page" path="www/graphics/view.gif"/>
         </files>
         <parameters>
             <parameter datatype="number"  min_n_values="1"  max_n_values="1"  name="allow_question_deavtivation_p"  default="0" description="Allow questions to be set inactive"/>
