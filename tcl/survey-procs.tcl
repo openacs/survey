@@ -404,7 +404,13 @@ ad_proc -public survey_do_notifications {
     set community_url [ad_conn package_url]
 
     #dotlrn specific info
-    set dotlrn_installed_p [expr [apm_package_installed_p dotlrn] && ![empty_string_p [dotlrn_community::get_community_id]]]
+    set dotlrn_installed_p [expr [apm_package_installed_p dotlrn] && [apm_package_enabled_p dotlrn]]
+    if { $dotlrn_installed_p } {
+        # Cannot do this unless dotlrn package is installed and enabled
+        if { [empty_string_p [dotlrn_community::get_community_id]] } {
+            set dotlrn_installed_p 0
+        }
+    }
 
     if {$dotlrn_installed_p} { 
 	set package_id [ad_conn package_id]
