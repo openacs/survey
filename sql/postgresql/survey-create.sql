@@ -415,9 +415,9 @@ create or replace function survey_section__remove (integer)
 returns integer as '
 declare
   remove__section_id             alias for $1;
-  v_section_row         	 survey_questions%ROWTYPE;
+  v_question_row         	 survey_questions%ROWTYPE;
 begin
-    for v_section_row in select question_id
+    for v_question_row in select question_id
 		from survey_questions
 		where section_id=remove__section_id
     loop
