@@ -10,5 +10,13 @@
 
       </querytext>
 </fullquery>
+
+<fullquery name="count_responses">      
+      <querytext>
+      select count(*) from survey_responses
+	where survey_id=:survey_id
+	and survey_response__initial_user_id(response_id)=:user_id
+      </querytext>
+</fullquery>
  
 </queryset>
