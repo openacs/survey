@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="en_US" charset="ISO-8859-1">
+<message_catalog pa5Bckage_key="survey" package_version="0.2d" locale="en_US" charset="ISO-8859-1">
 
   <msg key="-__Created_by">-  Created by</msg>
   <msg key="_on_creation_date">, on %creation_date%</msg>
@@ -65,6 +65,7 @@
   <msg key="inactive">[inactive]</msg>
   <msg key="Integer">Integer</msg>
   <msg key="is">is</msg>
+  <msg key="list">list</msg>
   <msg key="Large">Large</msg>
   <msg key="Last_Name">Last Name</msg>
   <msg key="limit_to_one">limit to one</msg>
@@ -217,6 +218,7 @@ and free text answer questions in the same survey.</msg>
   <msg key="Move_Down">Move Down</msg>
   <msg key="Move_Up">Move Up</msg>
   <msg key="Multiple_Choice">Multiple Choice</msg>
+  <msg key="multiple_responses">multiple responses</msg>
   <msg key="Name_copy">Name</msg>
   <msg key="New_Survey">New Survey</msg>
   <msg key="No">No</msg>
@@ -231,6 +233,7 @@ and free text answer questions in the same survey.</msg>
   <msg key="One_Survey_name">One Survey: %name%</msg>
   <msg key="oops">oops</msg>
   <msg key="Original">Original</msg>
+  <msg key="paragraph">paragraph</msg>
   <msg key="Plain_Text">Plain Text</msg>
   <msg key="Preformatted_Text">Preformatted Text</msg>
   <msg key="Presentation_Type">Presentation Type</msg>
@@ -266,6 +269,7 @@ and free text answer questions in the same survey.</msg>
   <msg key="Survey_Name_1">Survey Name</msg>
   <msg key="Survey_Name_name">Survey Name: %name%</msg>
   <msg key="Surveys">Surveys</msg>
+  <msg key="table">table</msg>
   <msg key="Text">Text</msg>
   <msg key="This_survey_is">This survey is</msg>
   <msg key="True_or_False">True or False</msg>
