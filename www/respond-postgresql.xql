@@ -6,7 +6,7 @@
 <fullquery name="get_initial_response">      
       <querytext>
       
-	select survey_response__initial_response_id(:response_id) as initial_response_id from dual
+	select coalesce(initial_response_id,response_id) as initial_response_id  from survey_responses where reponse_id=:response_id
 
       </querytext>
 </fullquery>

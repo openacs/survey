@@ -6,7 +6,7 @@
 <fullquery name="get_initial_response">      
       <querytext>
       
-	select survey_response.initial_response_id(:response_id) as initial_response_id from dual
+	select nvl(initial_response_id,response_id) as initial_response_id from survey_responses where response_id=:response_id
 
       </querytext>
 </fullquery>
