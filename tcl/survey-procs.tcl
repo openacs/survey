@@ -261,12 +261,14 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} "Returns 
 	}
 	
 	if $html_p {
-	    append return_string "<b># $sort_order: $question_text</b> 
-	<blockquote>"
+	    append return_string "# $sort_order: $question_text <p>"
+	    append return_string "[ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]"
 	} else {
-	    append return_string "# $sort_order: $question_text:  "
+	    append return_string "$sort_order: "
+	    append return_string [ad_html_to_text $question_text]
+	    append return_string "\n\n"
+	    append return_string "[ad_html_to_text [ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]]"
 	}
-	append return_string [util_show_plain_text "$clob_answer $number_answer $varchar_answer $date_answer"]
 	
 	if {![empty_string_p $attachment_answer]} {
 	    set package_id [ad_conn package_id]
@@ -422,34 +424,45 @@ ad_proc -public survey_do_notifications {
     db_1row get_response_info {}
     
     set notif_text ""
+    set notif_html ""
+
     if {$dotlrn_installed_p} {
 	append notif_text "\nGroup: $community_name"
+        append notif_html "Group: <a href=\"$community_url\">$community_name</a><br>"
+
     }
     set comm_url "[ad_parameter -package_id [ad_acs_kernel_id] SystemURL][acs_community_member_url -user_id $responding_user_id]"
-    append notif_text "\n[_ survey.lt_Survey_survey_nameRes_1]\n"
+    append notif_text "\n[_ survey.lt_Survey_survey_name]"
+    append notif_text "\n[_ survey.lt_Survey_survey_Res]\n"
+    append notif_text "\n[_ survey.lt_Survey_survey_notif_intro]\n"
+
+
+    append notif_html "[_ survey.lt_Survey_survey_name]<br>"
+    append notif_html "[_ survey.lt_Survey_survey_Res]<br>"
+    append notif_html "[_ survey.lt_Survey_survey_notif_intro]<p>"
+
 
     if {$edit_p} {
 	append notif_text "\n[_ survey.Edited] "
+	append notif_html "<br>[_ survey.Edited]&nbsp; "
     }
-    append notif_text "[_ survey.lt_Response_on_response_]\n"
+
+    append notif_text "[_ survey.lt_Response_on_response_]\n\n"
+    append notif_html "[_ survey.lt_Response_on_response_] : <P>"
 
     append notif_text [survey_answer_summary_display $response_id 0]
+    append notif_html [survey_answer_summary_display $response_id 1]
 
     # add summary info for sloanspace
     if {$dotlrn_installed_p} {
-	set n_responses [db_string n_responses {}]
-	if {$n_responses > 0} {
-	    append notif_text " -----\n[_ survey.lt_Already_Responsed_n_r_1]\n"
-        }
-	set n_members [db_string n_members {}]
-        set n_awaiting [expr {$n_members - $n_responses}]
-
-        append notif_text "\n[_ survey.lt_Awaiting_a_response_n]\n"
-
         db_foreach get_questions {} {
-	    append notif_text "$sort_order.    $question_text - [_ survey.View_responses_1] <$community_url/survey/view-text-responses?question_id=$question_id>\n"
+	    # only doing the summary for HTML version because
+	    # all the links make the text version a mess
+	    append notif_html "$sort_order.    $question_text - <a href=$community_url/survey/admin/view-text-responses?question_id=$question_id> [_ survey.View_responses_1]</a><br>"
         }
     }
+
+    append notif_html "<p>"
 
     notification::new \
 	-type_id [notification::type::get_type_id \
@@ -457,7 +470,8 @@ ad_proc -public survey_do_notifications {
 	-object_id $survey_id \
 	-response_id $survey_id \
 	-notif_subject $subject \
-	-notif_text $notif_text
+	-notif_text $notif_text \
+        -notif_html $notif_html
 }
 
 
