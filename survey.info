@@ -14,9 +14,9 @@
     </database-support>
         <owner url="mailto:dave@thedesignexperience.org">Dave Bauer</owner>
         <owner url="mailto:luke@museatech.net">Luke Pond</owner>
-        <summary>New version of survey package for dotLRN/OpenACS4.5</summary>
-        <vendor url="http://dotlrn.mit.edu">dotLRN</vendor>
-        <description format="text/plain">New version of survey package for dotLRN/OpenACS4.5</description>
+        <summary>New version of survey package OpenACS</summary>
+        <vendor url="http://openacs.org">OpenACS</vendor>
+        <description format="text/plain">New version of survey package OpenACS</description>
 
         <provides url="survey" version="0.1d"/>
         <requires url="notifications" version="0.1"/>
