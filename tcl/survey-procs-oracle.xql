@@ -85,12 +85,9 @@ select survey_choice_id_sequence.nextval as choice_id from dual
             u.first_names || ' ' || u.last_name as user_name,
             edit_p,
             o.creation_date as response_date
-            from (select survey_response.initial_user_id(response_id) as respon\
-ding_user_id,
-                  survey_response.initial_response_id(response_id) as initial_r\
-esponse_id,
-                  response_id, (case when initial_response_id is NULL then 'f' \
-else 't' end) as edit_p
+            from (select survey_response.initial_user_id(response_id) as responding_user_id,
+                  survey_response.initial_response_id(response_id) as initial_response_id,
+                  response_id, (case when initial_response_id is NULL then 'f' else 't' end) as edit_p
             from survey_responses) r, acs_objects o,
             cc_users u where r.response_id=:response_id
             and r.responding_user_id = u.user_id
