@@ -30,10 +30,16 @@ ad_page_contract {
         }
     set name $survey_info(name)
     set description $survey_info(description)
+    set description_html_p $survey_info(description_html_p)
     set single_response_p $survey_info(single_response_p)
     set editable_p $survey_info(editable_p)
     set display_type $survey_info(display_type)
-	if {($single_response_p=="t" && $editable_p=="f" && $number_of_responses>0) || ($single_response_p=="t" && $editable_p=="t" && $number_of_responses>0 && $response_id==0)} {
+
+   if {$description_html_p != "t"} {
+       set description [ad_text_to_html $description]
+   } 
+
+   if {($single_response_p=="t" && $editable_p=="f" && $number_of_responses>0) || ($single_response_p=="t" && $editable_p=="t" && $number_of_responses>0 && $response_id==0)} {
 	    ad_complain "[_ survey.lt_You_have_already_comp]"
 	} elseif {$response_id>0 && $editable_p=="f"} {
 	    ad_complain "[_ survey.lt_This_survey_is_not_ed]"

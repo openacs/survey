@@ -2,7 +2,7 @@
 <property name="title">#survey.lt_Answers_to_survey_nam#</property>
 <property name="context_bar">@context_bar;noquote@</property>
 
-    @description@
+    @description;noquote@
     <p>
       <multiple name="responses">	
 	<if @responses.rownum@ ne @responses:rowcount@>

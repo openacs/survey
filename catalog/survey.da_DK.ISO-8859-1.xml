@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="da_DK" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.0b7" locale="da_DK" charset="ISO-8859-1">
 
   <msg key="-__Created_by">- Oprettet af</msg>
   <msg key="_on_creation_date"> på %creation_date%</msg>
@@ -158,12 +158,6 @@ Besvarelser:</msg>
   <msg key="lt_Survey_section_id_does">Spørgeskema %section_id% eksisterer ikke</msg>
   <msg key="lt_Survey_survey_id_do_no">Spørgeskema %survey_id% eksisterer ikke</msg>
   <msg key="lt_Survey_survey_id_does">Spørgeskema %survey_id% eksisterer ikke</msg>
-  <msg key="lt_Survey_survey_nameRes">Spørgeskema: %survey_name%
-Besvarer: %user_name%
-Her er hvad %user_name% %comm_url% sagde i sin besvarelse af %survey_name%:</msg>
-  <msg key="lt_Survey_survey_nameRes_1">Spørgeskema: %survey_name%
-Besvarer: %user_name%
-Her er hvad %user_name% &lt;%comm_url%&gt; sagde i sin besvarelse af %survey_name%:</msg>
   <msg key="lt_The_Above_Description">Ovenstående beskrivelse er</msg>
   <msg key="lt_The_response_to_ques_i">Svaret på %question_text% skal være et heltal. Du skrev %response_value%.</msg>
   <msg key="lt_The_response_to_ques_n">Svaret på %question_text% skal være et tal. Du skrev %response_value%.</msg>

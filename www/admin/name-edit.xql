@@ -4,7 +4,8 @@
 <querytext>
 update surveys 
 set name= :name,
-    description= :description
+    description= :description,
+    description_html_p = :description_html_p
 where survey_id = :survey_id
 </querytext>
 </fullquery>

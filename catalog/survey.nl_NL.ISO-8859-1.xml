@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="nl_NL" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.0b7" locale="nl_NL" charset="ISO-8859-1">
 
   <msg key="-__Created_by">- Gemaakt door</msg>
   <msg key="_on_creation_date">, op %creation_date% </msg>
@@ -159,10 +159,6 @@ Antwoorden: </msg>
   <msg key="lt_Survey_section_id_does">Vragenlijst %section_id% bestaat niet</msg>
   <msg key="lt_Survey_survey_id_do_no">Vragenlijst %section_id% bestaat niet</msg>
   <msg key="lt_Survey_survey_id_does">Vragenlijst %section_id% bestaat niet</msg>
-  <msg key="lt_Survey_survey_nameRes">Vragenlijst: %survey_name% Respondent: %user_name% 
-Hier is wat %user_name% %comm_url% zei in reactie op %survey_name%: </msg>
-  <msg key="lt_Survey_survey_nameRes_1">Vragenlijst : %survey_name% Respondent: %user_name% 
-Hier is wat %user_name% &lt;%comm_url%&gt; zei in reactie op %survey_name%: </msg>
   <msg key="lt_The_Above_Description">De bovenstaande beschrijving is</msg>
   <msg key="lt_The_response_to_ques_i">Het antwoord op %question_text% moeten een geheel getal zijn. Het gegeven antwoord was echter %response_value%. </msg>
   <msg key="lt_The_response_to_ques_n">Het antwoord op %question_text% moeten een getal zijn. Het gegeven antwoord was echter %response_value%. </msg>

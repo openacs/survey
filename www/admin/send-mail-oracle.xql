@@ -67,7 +67,7 @@
                        where person_id = parties.party_id),
                       '') as last_name,
                '[db_quote $community_name]' as community_name,
-               '[db-quote $community_url]' as community_url
+               '[db_quote $community_url]' as community_url
             from party_approved_member_map,
                  parties,
                  acs_objects
@@ -111,14 +111,15 @@
                '[db_quote $community_url]' as community_url
             from party_approved_member_map,
                  parties,
-                 acs_objects
+                 acs_objects,
+		 (select initial_user_id 
+		  from survey_responses_latest where survey_id = $survey_id) srl
             where party_approved_member_map.party_id = $segment_id
             and party_approved_member_map.member_id <> $segment_id
             and party_approved_member_map.member_id = parties.party_id
             and parties.party_id = acs_objects.object_id
-	    and parties.party_id not in (
-            select survey_response.initial_user_id(response_id)
-            from survey_responses_latest where survey_id=$survey_id)
+	    and srl.initial_user_id(+) = parties.party_id 
+            and srl.initial_user_id is null
 	</querytext>
     </partialquery>
 

@@ -468,9 +468,11 @@ show errors
 -- this view contains only the most recently edited version
 -- of each survey response.
 
+
 create or replace view survey_responses_latest as
-select sr.*, o.creation_date, 
-       o.creation_user as initial_user_id
+select sr.*, o.creation_date,
+       o.creation_user,
+        survey_response.initial_user_id(sr.response_id) as initial_user_id
   from survey_responses sr,
   acs_objects o,
   (select max(response_id) as response_id

@@ -82,9 +82,6 @@ ns_write "$headline \r\n"
 
 db_foreach get_all_survey_question_responses "" {
 
-    set creation_date_ansi [lc_time_system_to_conn $creation_date_ansi]
-    set creation_date_pretty [lc_time_fmt $creation_date_ansi "%x %X"]
-
     if { $response_id != $current_response_id } {
 	if { ![empty_string_p $current_question_id] } {
 	    append current_response ",\"[join $current_question_list ","]\""
@@ -94,6 +91,9 @@ db_foreach get_all_survey_question_responses "" {
 	    append csv_export "$current_response \r\n"
 	}
 	set current_response_id $response_id
+
+	set creation_date_ansi [lc_time_system_to_conn $creation_date_ansi]
+	set creation_date_pretty [lc_time_fmt $creation_date_ansi "%x %X"]
 	set one_response [list $email $first_names $last_name $user_id $creation_date_pretty $response_id]
 	regsub -all {"} $one_response {""} one_response
 	set current_response "\"[join $one_response {","}]\""

@@ -4,7 +4,7 @@
 
 <property name="title">#survey.lt_survey_name_Responses_1#</property>
 <property name="context_bar">@context_bar;noquote@</property>
-@question_text@
+@question_text@ 
 <hr />
 <if @responses:rowcount@ eq 0>
 	<em>#survey.No_Responses#</em>

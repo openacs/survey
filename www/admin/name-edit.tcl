@@ -12,27 +12,33 @@ ad_page_contract {
 
     survey_id:integer
     {name ""}
+    {description:html ""}
 }
 
 get_survey_info -survey_id $survey_id
-set survey_name $survey_info(name)
-set survey_description $survey_info(description)
+set survey_name "$survey_info(name)"
 
 ad_require_permission $survey_id survey_modify_survey
 
 ad_form -name edit-name -form {
     survey_id:key
-    {name:text(text) {label "[_ survey.Survey_Name_1]"} {html {size 80}}
-	{value $survey_name}}
+    {name:text(text) {label "[_ survey.Survey_Name_1]"} {html {size 80}}}
 	{description:text(textarea) {label "[_ survey.Description_1]"} 
-	{html {rows 10 cols 65}}
-        {value $survey_description}}
+	{html {rows 10 cols 65}}}
+	{description_html_p:text(radio)      {label "[_ survey.lt_The_Above_Description]"}
+	{options {{"[_ survey.Preformatted_Text]" "f"}
+	       {"HTML" "t"} }}
+	       {value "pre"}}
+
 } -validate {
     {name {[string length $name] <= 4000}
     "[_ survey.lt_Survey_Name_must_be_l]"
     }
 } -edit_request {
-    set name $survey_name
+    get_survey_info -survey_id $survey_id
+    set name "$survey_info(name)"
+    set description "$survey_info(description)"
+    set description_html_p "$survey_info(description_html_p)"
 } -edit_data {
     db_dml survey_update ""
     ad_returnredirect "one?[export_vars survey_id]"

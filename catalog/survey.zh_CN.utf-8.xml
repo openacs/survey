@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="zh_CN" charset="utf-8">
+<message_catalog package_key="survey" package_version="5.0.0b7" locale="zh_CN" charset="utf-8">
 
   <msg key="-__Created_by">——创建人</msg>
   <msg key="_on_creation_date">，%creation_date%日</msg>
@@ -146,8 +146,6 @@
   <msg key="lt_Survey_section_id_does">问卷%section_id%不存在</msg>
   <msg key="lt_Survey_survey_id_do_no">问卷%survey_id不存在</msg>
   <msg key="lt_Survey_survey_id_does">问卷%survey_id不存在</msg>
-  <msg key="lt_Survey_survey_nameRes">对不起，%survey_name%回答者：%user_name%这里是%user_name% %comm_url%对%survey_name%:的应答：</msg>
-  <msg key="lt_Survey_survey_nameRes_1">问卷：%survey_name%回答者：%user_name%这里是%user_name% %comm_url%对%survey_name%:的应答：</msg>
   <msg key="lt_The_Above_Description">上述描述是</msg>
   <msg key="lt_The_response_to_ques_i">对%question_text%的应答必须是整数。您的回答是response_value%。</msg>
   <msg key="lt_The_response_to_ques_n">对%question_text%的应答必须是数字。您的回答是response_value%。</msg>

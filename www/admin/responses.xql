@@ -57,10 +57,12 @@ order by sort_order
 <fullquery name="survey_attachment_summary">
       <querytext>
 	select cr.title, qr.question_id, qr.response_id
-	from cr_revisions cr, survey_ques_responses_latest qr 
+	from cr_revisions cr, survey_ques_responses_latest qr, survey_responses sr
 	where
 	revision_id=attachment_answer
 	and qr.question_id=question_id
+        and sr.response_id = qr.response_id
+        and survey_id = :survey_id
       </querytext>
 </fullquery>
 

@@ -15,6 +15,10 @@
 <multiple name="responses">
 
     <tr class="odd"><td>
+
+<a href="respond?response_id=@responses.response_id@&survey_id=@survey_id@&user_id=@user_id@">
+<img valign="top" align="right" src="../graphics/edit.gif" border="0" alt="#survey.Edit#"></a>
+
 <group column="initial_response">
 
 <if @responses.original_p@><a href="response-delete?response_id=@response_id@">

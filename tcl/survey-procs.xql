@@ -31,7 +31,7 @@
 	select s.*,
 	       o.creation_user, o.creation_date, p.first_names || ' ' || p.last_name as creator_name, 
 	       (case when enabled_p = 't' then '#survey.enable#' else '#survey.disable#' end) as enabled_display,
-	       (case when single_response_p = 't' then '#survey.one_response#' else '#survey.multiple_responses#' end) as single_response_display,
+	       (case when single_response_p = 't' then '#survey.One_Response#' else '#survey.multiple_responses#' end) as single_response_display,
 	       (case when editable_p = 'f' then '#survey.non-editable#' else '#survey.editable#' end) as editable_display, 
 	       (case when single_section_p = 'f' then '#survey.multiple_sections#' else '#survey.single_section#' end) as single_section_display
 	  from surveys s, acs_objects o, persons p

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="de_DE" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.0b7" locale="de_DE" charset="ISO-8859-1">
 
   <msg key="-__Created_by">Erstellt von</msg>
   <msg key="_on_creation_date"> am %creation_date%</msg>
@@ -146,8 +146,6 @@
   <msg key="lt_Survey_section_id_does">Survey %section_id% does not exist </msg>
   <msg key="lt_Survey_survey_id_do_no">Die Evaluation %survey_id% ist nicht vorhanden.</msg>
   <msg key="lt_Survey_survey_id_does">Die Evaluation %survey_id% ist nicht vorhanden.</msg>
-  <msg key="lt_Survey_survey_nameRes">Evaluation: %survey_name% Teilnehmer: %user_name%; %user_name% (%comm_url%) schrieb Folgendes bezüglich %survey_name%: </msg>
-  <msg key="lt_Survey_survey_nameRes_1">Evaluation: %survey_name% Teilnehmer: %user_name%; %user_name% &lt;%comm_url%&gt; schrieb Folgendes bezüglich %survey_name%: </msg>
   <msg key="lt_The_Above_Description">Format der Beschreibung</msg>
   <msg key="lt_The_response_to_ques_i">Die Antwort auf die Frage &quot;%question_text%&quot; muss eine ganze Zahl sein. Sie haben %response_value% eingegeben.</msg>
   <msg key="lt_The_response_to_ques_n">Die Antwort auf die Frage &quot;%question_text%&quot; muss eine Zahl sein. Sie haben %response_value% eingegeben.</msg>

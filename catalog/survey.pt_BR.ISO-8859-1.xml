@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="pt_BR" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.0b7" locale="pt_BR" charset="ISO-8859-1">
 
   <msg key="-__Created_by">- Criado por</msg>
   <msg key="_on_creation_date">, em %creation_date%</msg>
@@ -68,6 +68,7 @@
   <msg key="Large">Grande</msg>
   <msg key="Last_Name">Sobrenome</msg>
   <msg key="limit_to_one">limitar a uma</msg>
+  <msg key="list">lista</msg>
   <msg key="lt_-_Lets_you_use_this_s">- Usar este questionário como modelo para criar um novo questionário</msg>
   <msg key="lt_-_Removes_all_questio">- Remover todas as perguntas e respotas</msg>
   <msg key="lt_A_database_error_occu">Um erro de base de dados ocorreu tentando trocar suas perguntas. Este foi o erro:</msg>
@@ -145,8 +146,6 @@
   <msg key="lt_Survey_section_id_does">Questionário %section_id% não existe</msg>
   <msg key="lt_Survey_survey_id_do_no">Questionário %survey_id% não existe</msg>
   <msg key="lt_Survey_survey_id_does">Questionário %survey_id% não existe</msg>
-  <msg key="lt_Survey_survey_nameRes">Questionário: %survey_name% Participante: %user_name% O que %user_name% %comm_url% tem a dizer sobre o tema %survey_name%:</msg>
-  <msg key="lt_Survey_survey_nameRes_1">Questionário: %survey_name% Participante: %user_name% O que %user_name% &lt;%comm_url%&gt; tem a dizer sobre o tema %survey_name%:</msg>
   <msg key="lt_The_Above_Description">A descrição acima é</msg>
   <msg key="lt_The_response_to_ques_i">A resposta para %question_text% deve ser um inteiro. Sua resposta foi %response_value%.</msg>
   <msg key="lt_The_response_to_ques_n">A resposta para %question_text% deve ser um número. Sua resposta foi %response_value%.</msg>
@@ -178,6 +177,7 @@
   <msg key="Move_Down">Mover Abaixo</msg>
   <msg key="Move_Up">Mover Acima</msg>
   <msg key="Multiple_Choice">Múltipla Escolha</msg>
+  <msg key="multiple_responses">múltiplas respostas</msg>
   <msg key="Name_copy">Nome</msg>
   <msg key="New_Survey">Novo Questionário</msg>
   <msg key="No">Não</msg>
@@ -192,6 +192,7 @@
   <msg key="One_Survey_name">Questionário: %name%</msg>
   <msg key="oops">opa</msg>
   <msg key="Original">Original</msg>
+  <msg key="paragraph">parágrafo</msg>
   <msg key="Plain_Text">Texto Simples</msg>
   <msg key="Preformatted_Text">Texto pré-formatado</msg>
   <msg key="Presentation_Type">Tipo de Apresentação</msg>
@@ -226,6 +227,7 @@
   <msg key="Survey_Name_1">Nome do Questionário</msg>
   <msg key="Survey_Name_name">Nome do Questionário: %name%</msg>
   <msg key="Surveys">Questionários</msg>
+  <msg key="table">tabela</msg>
   <msg key="Text">Texto</msg>
   <msg key="This_survey_is">Este questionário é</msg>
   <msg key="True_or_False">Verdadeiro ou Falso</msg>

@@ -37,9 +37,15 @@ ad_require_permission $survey_id survey_take_survey
     get_survey_info -survey_id $survey_id
     set name $survey_info(name)
     set description $survey_info(description)
+    set description_html_p $survey_info(description_html_p)
     set single_response_p $survey_info(single_response_p)
     set editable_p $survey_info(editable_p)
     set display_type $survey_info(display_type)
+
+   if {$description_html_p != "t"} {
+       set description [ad_text_to_html $description]
+   } 
+   
 
 set context_bar [ad_context_bar "[_ survey.Preview] $name"]
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="en_US" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.0b7" locale="en_US" charset="ISO-8859-1">
 
   <msg key="-__Created_by">-  Created by</msg>
   <msg key="_on_creation_date">, on %creation_date%</msg>
@@ -73,19 +73,16 @@
   <msg key="lt_-_Removes_all_questio">- Removes all questions and responses</msg>
   <msg key="lt_A_database_error_occu">A database error occured while trying
 to swap your questions. Here's the error:</msg>
-  <msg key="lt_Already_Responsed_n_r">Already Responsed: %n_responses users%
+  <msg key="lt_Already_Responsed_email">Email these users</msg>
+  <msg key="lt_Already_Responsed_n_r">Already Responsed: %n_responses% users
 
 View these users. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt;
 
 Spam these users. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;</msg>
-  <msg key="lt_Already_Responsed_n_r_1">Already Responsed: %n_responses users%
-
-View these users. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt;
-
-Spam these users. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;
-</msg>
+  <msg key="lt_Already_Responsed_n_r_1">Already Responsed: %n_responses% users</msg>
+  <msg key="lt_Already_Responsed_view">View these users</msg>
   <msg key="lt_Answers_to_survey_nam">Answers to %survey_name%</msg>
-  <msg key="lt_Awaiting_a_response_n">Awaiting a response: %n_awaiting users%
+  <msg key="lt_Awaiting_a_response_n">Awaiting a response: %n_awaiting% users
 
 View these users. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt;
 
@@ -169,16 +166,9 @@ when asked %question_text%:</msg>
   <msg key="lt_Survey_section_id_does">Survey %section_id% does not exist</msg>
   <msg key="lt_Survey_survey_id_do_no">Survey %survey_id% does not exist</msg>
   <msg key="lt_Survey_survey_id_does">Survey %survey_id% does not exist</msg>
-  <msg key="lt_Survey_survey_nameRes">Survey: %survey_name%
-Respondent: %user_name% 
-
-Here is what %user_name% %comm_url%
-had to say in response to %survey_name%:</msg>
-  <msg key="lt_Survey_survey_nameRes_1">Survey: %survey_name%
-Respondent: %user_name% 
-
-Here is what %user_name% &lt;%comm_url%&gt;
-had to say in response to %survey_name%:</msg>
+  <msg key="lt_Survey_survey_name">Survey: %survey_name%</msg>
+  <msg key="lt_Survey_survey_notif_intro">Here is what %user_name% had to say in response to %survey_name%:</msg>
+  <msg key="lt_Survey_survey_Res">Respondent: %user_name% </msg>
   <msg key="lt_The_Above_Description">The Above Description is</msg>
   <msg key="lt_The_response_to_ques_i">The response to %question_text% must be an integer. Your answer was %response_value%.</msg>
   <msg key="lt_The_response_to_ques_n">The response to %question_text% must be a number. Your answer was %response_value%.</msg>

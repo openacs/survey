@@ -35,8 +35,8 @@ ad_form -name create_survey -confirm_template survey-create-confirm -form {
     {description:text(textarea) {label "[_ survey.Description_1]"} {html {rows 10 cols 40}}}
     {desc_html:text(radio)      {label "[_ survey.lt_The_Above_Description]"}
 	{options {{"[_ survey.Preformatted_Text]" "pre"}
-		  {"HTML" "html"} {"[_ survey.Plain_Text]" "plain"}}}
-		{value "plain"}
+	       {"HTML" "html"} }}
+		{value "pre"}
     }
     
 } -validate { 
@@ -50,10 +50,10 @@ ad_form -name create_survey -confirm_template survey-create-confirm -form {
     
 } -new_data {
         
-    if {[string compare $desc_html "plain"] == 0} {
-	set description_html_p "f"
-    } else {
+    if {[string compare $desc_html "html"] == 0} {
 	set description_html_p "t"
+    } else {
+	set description_html_p "f"
     }
 
     if {[parameter::get -package_id $package_id -parameter survey_enabled_default_p -default 0]} {
