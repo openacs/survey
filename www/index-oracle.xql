@@ -6,7 +6,7 @@
 	<querytext>
 
 select s.survey_id, s.name, s.editable_p, s.single_response_p,
-       sr.response_id, sr.creation_date
+       sr.response_id, to_char(sr.creation_date,'Month FMDD, YYYY') as creation_date
   from surveys s ,(select survey_id, response_id, creation_date
           from survey_responses_latest
 	 where initial_user_id = :user_id) sr
