@@ -286,7 +286,7 @@ create table survey_question_responses (
         date_answer             timestamp,
 	attachment_answer       integer
 				constraint survey_q_response_item_id_fk
-                                references cr_items(item_id)
+                                references cr_revisions(revision_id)
                                 on delete cascade
 );
 
@@ -304,7 +304,7 @@ create index survey_response_index on survey_question_responses (response_id, qu
 
 -- API for survey objects
 
-create function survey__new (integer,varchar,text,boolean,boolean,boolean,boolean,boolean,varchar,varchar,integer,integer,integer)
+create or replace function survey__new (integer,varchar,text,boolean,boolean,boolean,boolean,boolean,varchar,varchar,integer,integer,integer)
 returns integer as '
 declare
   new__survey_id                alias for $1;  -- default null
@@ -343,17 +343,36 @@ begin
     return v_survey_id;
 
 end;' language 'plpgsql';
+ 
 
-
-create function survey__delete (integer)
+create or replace function survey__remove (integer)
 returns integer as '
 declare
-  delete__survey_id             alias for $1;
+  remove__survey_id             alias for $1;
+  v_response_row                survey_responses%ROWTYPE;
+  v_section_row                 survey_sections%ROWTYPE;
 begin
-    delete from surveys
-    where survey_id = delete__survey_id;
 
-    PERFORM acs_object__delete(delete__survey_id);
+    for v_response_row in SELECT
+		response_id	
+               from survey_responses
+               where survey_id=remove__survey_id
+               and initial_response_id is NULL
+    loop
+	PERFORM survey_response__remove(v_response_row.response_id);
+    end loop;
+
+    for v_section_row in select section_id
+		from survey_sections
+		where survey_id=remove__survey_id
+    loop
+	PERFORM survey_section__remove(v_section_row.section_id);
+    end loop;
+
+    delete from surveys
+    where survey_id = remove__survey_id;
+
+    PERFORM acs_object__delete(remove__survey_id);
 
     return 0;
 
@@ -362,7 +381,7 @@ end;' language 'plpgsql';
 
 -- API for survey_section objects
 
-create function survey_section__new (integer,integer,varchar,text,boolean,integer,integer)
+create or replace function survey_section__new (integer,integer,varchar,text,boolean,integer,integer)
 returns integer as '
 declare
   new__section_id               alias for $1;  -- default null
@@ -392,21 +411,29 @@ begin
 
 end;' language 'plpgsql';
 
-create function survey_section__delete (integer)
+create or replace function survey_section__remove (integer)
 returns integer as '
 declare
-  delete__section_id             alias for $1;
+  remove__section_id             alias for $1;
+  v_question_row         	 survey_questions%ROWTYPE;
 begin
-    delete from survey_sections
-    where section_id = delete__section_id;
+    for v_question_row in select question_id
+		from survey_questions
+		where section_id=remove__section_id
+    loop
+	PERFORM survey_question__remove(v_question_row.question_id);
+    end loop;
 
-    PERFORM acs_object__delete(delete__section_id);
+    delete from survey_sections
+    where section_id = remove__section_id;
+
+    PERFORM acs_object__delete(remove__section_id);
 
     return 0;
 
 end;' language 'plpgsql';
 
-create function survey_question__new (integer,integer,integer,text,varchar,boolean,boolean,varchar,varchar,varchar,integer,integer)
+create or replace function survey_question__new (integer,integer,integer,text,varchar,boolean,boolean,varchar,varchar,varchar,integer,integer)
 returns integer as '
 declare
   new__question_id              alias for $1; -- default null
@@ -447,16 +474,22 @@ begin
 
 end;' language 'plpgsql';
 
--- procedure delete 
-create function survey_question__delete (integer)
+create or replace function survey_question__remove (integer)
 returns integer as '
 declare
-  delete__question_id           alias for $1;
+  remove__question_id           alias for $1;
 begin
-    delete from survey_questions
-    where question_id = delete__question_id;
 
-    PERFORM acs_object__delete(delete__question_id);
+	delete from survey_question_responses
+	    where question_id=remove__question_id;
+
+	delete from survey_question_choices
+	    where question_id=remove__question_id;
+
+	delete from survey_questions
+            where question_id = remove__question_id;
+
+    PERFORM acs_object__delete(remove__question_id);
 
     return 0;
 
@@ -465,7 +498,7 @@ end;' language 'plpgsql';
 
 -- create or replace package body survey_response
 -- procedure new
-create function survey_response__new(integer,integer,varchar,boolean,integer,varchar,integer,integer)
+create or replace function survey_response__new(integer,integer,varchar,boolean,integer,varchar,integer,integer)
 returns integer as '
 declare
   new__response_id              alias for $1; -- default null
@@ -497,7 +530,7 @@ begin
 end;' language 'plpgsql';
 
 --function initial_response_id
-create function survey_response__initial_response_id(integer)
+create or replace function survey_response__initial_response_id(integer)
 returns integer as '
 declare
   p_response_id		alias for $1;
@@ -511,7 +544,7 @@ begin
   return v_initial_response_id;
 end;' language 'plpgsql';
 
-create function survey_response__initial_user_id (integer)
+create or replace function survey_response__initial_user_id (integer)
 returns integer as '
 declare
 p_response_id 	alias for $1;
@@ -524,16 +557,44 @@ return v_user_id;
 end;' language 'plpgsql';
 
 -- procedure delete 
-create function survey_response__delete(integer)
+create or replace function survey_response__remove(integer)
 returns integer as '
 declare
-  delete__response_id           alias for $1;
+  remove__response_id           alias for $1;
+  v_response_row                survey_responses%ROWTYPE;
 begin
-    delete from survey_responses
-    where response_id = delete__response_id;
+    for v_response_row in select response_id from survey_responses
+	where initial_response_id=remove__response_id
+    loop
+	PERFORM survey_response__del(v_response_row.response_id);
+    end loop;
 
-    PERFORM acs_object__delete(delete__response_id);
+    PERFORM survey_response__del(remove__response_id);
 
+    return 0;
+
+end;' language 'plpgsql';
+
+create or replace function survey_response__del (integer)
+returns integer as '
+declare
+	del__response_id        alias for $1;
+	v_question_response_row record;
+begin
+
+	for v_question_response_row in select item_id
+		from survey_question_responses, cr_revisions
+		where response_id=del__response_id
+		and attachment_answer=revision_id
+	loop
+		PERFORM content_item__delete(v_question_response_row.item_id);
+	end loop;
+	
+	delete from survey_question_responses
+		where response_id=del__response_id;
+	delete from survey_responses
+		where response_id=del__response_id;
+	PERFORM acs_object__delete(del__response_id);
     return 0;
 
 end;' language 'plpgsql';
