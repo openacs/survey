@@ -20,9 +20,9 @@ ad_page_contract {
   {initial_response_id:integer 0}
   return_url:optional
   response_to_question:array,optional,multiple,html
-
+  new_response_id:integer
 } -validate {
-	
+
     section_exists -requires { section_id } {
 	if ![db_0or1row section_exists {}] {
 	    ad_complain "Section $section_id does not exist"
@@ -61,16 +61,19 @@ ad_page_contract {
 	    if { [exists_and_not_null response_to_question($question_id)] } {
 		if {$abstract_data_type != "choice"} {
 		    set response_to_question($question_id) [join $response_to_question($question_id)]
-		}
+		} else {
+		    if { [empty_string_p [lindex $response_to_question($question_id) 0 ] ] } {
+			set response_to_question($question_id) ""
+		    }
+	        }
 	    }
-	    
 	    
 	    if { $abstract_data_type == "date" } {
 		if [catch  { set response_to_question($question_id) [validate_ad_dateentrywidget "" response_to_question.$question_id [ns_getform]]} errmsg] {
 		    ad_complain "$errmsg: Please make sure your dates are valid."
 		}
 	    }
-	    
+    
 	    if { [exists_and_not_null response_to_question($question_id)] } {
 		set response_value [string trim $response_to_question($question_id)]
 	    } elseif {$required_p == "t"} {
@@ -118,6 +121,7 @@ ad_page_contract {
 	    return 1
 	}
     }
+
 } -properties {
 
     survey_name:onerow
@@ -127,87 +131,105 @@ ad_require_permission $survey_id survey_take_survey
 
 set user_id [ad_verify_and_get_user_id]
 
+get_survey_info -survey_id $survey_id
+set type $survey_info(type)
+set survey_id $survey_info(survey_id)
+set survey_name $survey_info(name)
+
+
 # Do the inserts.
 # here we need to decide if it is an edit or multiple response, and create
 # a new response, possibly linked to a previous response.
 
-set response_id [db_nextval acs_object_id_seq]
-set creation_ip [ad_conn peeraddr]
-if {$initial_response_id==0} {
-    set initial_response_id ""
-}
-db_transaction {
+# moved to respond.tcl for double-click protection
+# set response_id [db_nextval acs_object_id_seq]
 
-    db_exec_plsql create_response {}
+if {[db_string get_response_count {}] == 0} {
 
-    set question_info_list [db_list_of_lists survey_question_info_list {
-        select question_id, question_text, abstract_data_type, presentation_type, required_p
-	from survey_questions
-	where section_id = :section_id
-	and active_p = 't'
-	order by sort_order }]
+    set response_id $new_response_id
+
+    set creation_ip [ad_conn peeraddr]
+    if {$initial_response_id==0} {
+	set initial_response_id ""
+    }
+
+    db_transaction {
+
+	db_exec_plsql create_response {}
+
+	set question_info_list [db_list_of_lists survey_question_info_list {
+	    select question_id, question_text, abstract_data_type, presentation_type, required_p
+	    from survey_questions
+	    where section_id = :section_id
+	    and active_p = 't'
+	    order by sort_order }]
 
 
-    foreach question $question_info_list { 
-	set question_id [lindex $question 0]
-	set question_text [lindex $question 1]
-	set abstract_data_type [lindex $question 2]
-	set presentation_type [lindex $question 3]
+	foreach question $question_info_list { 
+	    set question_id [lindex $question 0]
+	    set question_text [lindex $question 1]
+	    set abstract_data_type [lindex $question 2]
+	    set presentation_type [lindex $question 3]
 
-	set response_value [string trim $response_to_question($question_id)]
+	    set response_value [string trim $response_to_question($question_id)]
 
-	switch -- $abstract_data_type {
-	    "choice" {
-		if { $presentation_type == "checkbox" } {
-		    # Deal with multiple responses. 
-		    set checked_responses $response_to_question($question_id)
-		    foreach response_value $checked_responses {
-			if { [empty_string_p $response_value] } {
+	    switch -- $abstract_data_type {
+		"choice" {
+		    if { $presentation_type == "checkbox" } {
+			# Deal with multiple responses. 
+			set checked_responses $response_to_question($question_id)
+			foreach response_value $checked_responses {
+			    if { [empty_string_p $response_value] } {
+				set response_value [db_null]
+			    }
+
+			    db_dml survey_question_response_checkbox_insert "insert into survey_question_responses (response_id, question_id, choice_id)
+ values (:response_id, :question_id, :response_value)"
+			}
+		    }  else {
+			if { [empty_string_p $response_value] || [empty_string_p [lindex $response_value 0]] } {
 			    set response_value [db_null]
 			}
 
-			db_dml survey_question_response_checkbox_insert "insert into survey_question_responses (response_id, question_id, choice_id)
+			db_dml survey_question_response_choice_insert "insert into survey_question_responses (response_id, question_id, choice_id)
  values (:response_id, :question_id, :response_value)"
 		    }
+<<<<<<< process-response.tcl
 		}  else {
 		    if { [empty_string_p $response_value] || [empty_string_p [lindex $response_value 0]] } {
+=======
+		}
+		"shorttext" {
+		    db_dml survey_question_choice_shorttext_insert "insert into survey_question_responses (response_id, question_id, varchar_answer)
+ values (:response_id, :question_id, :response_value)"
+		}
+		"boolean" {
+		    if { [empty_string_p $response_value] } {
+>>>>>>> 1.3.2.4
 			set response_value [db_null]
 		    }
 
-		    db_dml survey_question_response_choice_insert "insert into survey_question_responses (response_id, question_id, choice_id)
+		    db_dml survey_question_response_boolean_insert "insert into survey_question_responses (response_id, question_id, boolean_answer)
  values (:response_id, :question_id, :response_value)"
 		}
-	    }
-	    "shorttext" {
-		db_dml survey_question_choice_shorttext_insert "insert into survey_question_responses (response_id, question_id, varchar_answer)
+		"integer" -
+		"number" {
+		    if { [empty_string_p $response_value] } {
+			set response_value [db_null]
+		    } 
+		    db_dml survey_question_response_integer_insert "insert into survey_question_responses (response_id, question_id, number_answer)
  values (:response_id, :question_id, :response_value)"
-	    }
-	    "boolean" {
-		if { [empty_string_p $response_value] } {
-		    set response_value [db_null]
 		}
+		"text" {
+		    if { [empty_string_p $response_value] } {
+			set response_value [db_null]
+		    }
 
-		db_dml survey_question_response_boolean_insert "insert into survey_question_responses (response_id, question_id, boolean_answer)
- values (:response_id, :question_id, :response_value)"
-	    }
-	    "integer" -
-	    "number" {
-                if { [empty_string_p $response_value] } {
-                    set response_value [db_null]
-                } 
-		db_dml survey_question_response_integer_insert "insert into survey_question_responses (response_id, question_id, number_answer)
- values (:response_id, :question_id, :response_value)"
-	    }
-	    "text" {
-                if { [empty_string_p $response_value] } {
-                    set response_value [db_null]
-                }
-
-		db_dml survey_question_response_text_insert "
+		    db_dml survey_question_response_text_insert "
 insert into survey_question_responses
 (response_id, question_id, clob_answer)
 values (:response_id, :question_id, empty_clob())
- returning clob_answer into :1" -clobs [list $response_value]
+returning clob_answer into :1" -clobs [list $response_value]
 	    }
 	    "date" {
                 if { [empty_string_p $response_value] } {
@@ -215,7 +237,7 @@ values (:response_id, :question_id, empty_clob())
                 }
 
 		db_dml survey_question_response_date_insert "insert into survey_question_responses (response_id, question_id, date_answer)
- values (:response_id, :question_id, :response_value)"
+values (:response_id, :question_id, :response_value)"
 	    }   
             "blob" {
 
@@ -244,84 +266,30 @@ values (:response_id, :question_id, empty_clob())
 # this abstracts out for use the blob handling for oracle or postgresql
 # we are linking the file item_id to the survey_question_response attachment_answer field now
                             db_dml survey_question_response_attachment_insert "
-                               insert into survey_question_responses
-                               (response_id, question_id, attachment_answer)
-				  values
-				  (:response_id, :question_id, :revision_id
-                                  )"
-		    }
+insert into survey_question_responses
+(response_id, question_id, attachment_answer)
+values
+(:response_id, :question_id, :revision_id
+ )"
+	 	    }
                 }
             }
 	}
     }
-
-} 
+}
 
 survey_do_notifications -response_id $response_id
 
-#
-# Survey type-specific stuff
-#
-get_survey_info -survey_id $survey_id
-set type $survey_info(type)
-set survey_id $survey_info(survey_id)
-set survey_name $survey_info(name)
-
-#set type [db_string get_type "select type from survey_sections where section_id = :section_id"]
-
-switch $type {
-    
-    "general" {
-	      
-	#set survey_name [db_string survey_name_from_id "select name from survey_sections where section_id = :section_id" ]
-
-	db_release_unused_handles
-
-	if {[info exists return_url] && ![empty_string_p $return_url]} {
-	    ad_returnredirect "$return_url"
-            ad_script_abort
-	} else {
-            set context_bar [ad_context_bar "Response Submitted for $survey_name"]
-	    ad_return_template
-	}
-    }
-
-    "scored" {
-
-        db_foreach get_score "select variable_name, sum(score) as sum_of_scores
-                           from survey_choice_scores, survey_question_responses, survey_variables
-                           where survey_choice_scores.choice_id = survey_question_responses.choice_id
-                           and survey_choice_scores.variable_id = survey_variables.variable_id
-                           and survey_question_responses.response_id = :response_id
-                           group by variable_name" {
-			       set sum_score($variable_name) $sum_of_scores
-			   }
-
-        set logic [db_string get_logic "select logic from survey_logic, survey_logic_surveys_map
-          where survey_logic.logic_id = survey_logic_surveys_map.logic_id
-          and section_id = :section_id"]
-
-
-	if {[info exists return_url] && ![empty_string_p $return_url]} {
-
-	    ad_returnredirect $return_url
-
-        }
-
-        eval $logic
-
-    }
-
-    default {
-	if {[info exists return_url] && ![empty_string_p $return_url]} {
-	    ad_returnredirect "$return_url"
-            ad_script_abort
-	} else {
-            set context_bar [ad_context_bar "Response Submitted for $survey_name"]
-
-	    ad_return_template
-	}	
-    }
 }
+
+if {[info exists return_url] && ![empty_string_p $return_url]} {
+    ad_returnredirect "$return_url"
+           ad_script_abort
+} else {
+     set context_bar [ad_context_bar "Response Submitted for $survey_name"]
+     ad_return_template
+}	
+    
+
 
 
