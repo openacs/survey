@@ -145,8 +145,8 @@
   <msg key="lt_Survey_section_id_does">Inquérito %section_id% não existe</msg>
   <msg key="lt_Survey_survey_id_do_no">Inquérito %survey_id% não existe</msg>
   <msg key="lt_Survey_survey_id_does">Inquérito %survey_id% não existe</msg>
-  <msg key="lt_Survey_survey_nameRes">Inquérito: %survey_name% Participante: %user_name% Eis o que %user_name% %comm_url% tinha a dizer em resposta a %survey_name:%</msg>
-  <msg key="lt_Survey_survey_nameRes_1">Inquérito: %survey_name% Participante: %user_name% Eis o que %user_name% &lt;%comm_url%&gt; tinha a dizer em resposta a %survey_name:% </msg>
+  <msg key="lt_Survey_survey_nameRes">Inquérito: %survey_name% Participante: %user_name% Eis o que %user_name% %comm_url% tinha a dizer em resposta a %survey_name%:</msg>
+  <msg key="lt_Survey_survey_nameRes_1">Inquérito: %survey_name% Participante: %user_name% Eis o que %user_name% &lt;%comm_url%&gt; tinha a dizer em resposta a %survey_name%: </msg>
   <msg key="lt_The_Above_Description">A Descrição Acima é</msg>
   <msg key="lt_The_response_to_ques_i">A resposta a %question_text% tem de ser um inteiro. A sua resposta foi %response_value%.</msg>
   <msg key="lt_The_response_to_ques_n">A resposta a %question_text% tem de ser um número. A sua resposta foi %response_value%.</msg>

@@ -172,12 +172,12 @@ when asked %question_text%:</msg>
 Respondent: %user_name% 
 
 Here is what %user_name% %comm_url%
-had to say in response to %survey_name:%</msg>
+had to say in response to %survey_name%:</msg>
   <msg key="lt_Survey_survey_nameRes_1">Survey: %survey_name%
 Respondent: %user_name% 
 
 Here is what %user_name% &lt;%comm_url%&gt;
-had to say in response to %survey_name:%</msg>
+had to say in response to %survey_name%:</msg>
   <msg key="lt_The_Above_Description">The Above Description is</msg>
   <msg key="lt_The_response_to_ques_i">The response to %question_text% must be an integer. Your answer was %response_value%.</msg>
   <msg key="lt_The_response_to_ques_n">The response to %question_text% must be a number. Your answer was %response_value%.</msg>

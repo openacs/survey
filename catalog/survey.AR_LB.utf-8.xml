@@ -145,8 +145,8 @@
   <msg key="lt_Survey_section_id_does">الإستطلاع %section_id% غير موجود</msg>
   <msg key="lt_Survey_survey_id_do_no">الإستطلاع %survey_id% غير موجود</msg>
   <msg key="lt_Survey_survey_id_does">الإستطلاع %survey_id% غير موجود</msg>
-  <msg key="lt_Survey_survey_nameRes">إستطلاع: %survey_name% المستجيب: %user_name% هنا ماذا %comm_url% %user_name% كان لا بدّ أن يقول ردّا على %survey_name:%</msg>
-  <msg key="lt_Survey_survey_nameRes_1">إستطلاع: %survey_name% المستجيب: %user_name% هنا ماذا %comm_url% %user_name% كان لا بدّ أن يقول ردّا على %survey_name:%</msg>
+  <msg key="lt_Survey_survey_nameRes">إستطلاع: %survey_name% المستجيب: %user_name% هنا ماذا %comm_url% %user_name% كان لا بدّ أن يقول ردّا على %survey_name%</msg>
+  <msg key="lt_Survey_survey_nameRes_1">إستطلاع: %survey_name% المستجيب: %user_name% هنا ماذا %comm_url% %user_name% كان لا بدّ أن يقول ردّا على %survey_name%</msg>
   <msg key="lt_The_Above_Description">الوصفُ أعلاهُ</msg>
   <msg key="lt_The_response_to_ques_i">الردّ إلى %question_text% يجب أن يكون عدد صحيح. جوابك كان %response_value%.</msg>
   <msg key="lt_The_response_to_ques_n">الردّ إلى %question_text% يجب أن يكون عدد. جوابك كان %response_value%.</msg>
