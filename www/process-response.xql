@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
 <queryset>
 
+<fullquery name="get_response_count">
+    <querytext>
+	select count(*) from survey_responses
+	where response_id=:new_response_id
+    </querytext>
+</fullquery>
+
 <fullquery name="section_exists">      
       <querytext>
       
