@@ -6,7 +6,7 @@
 <fullquery name="delete_response">
 <querytext>
 begin
-	survey_response__remove(:response_id);
+	perform survey_response__remove(:response_id);
 end;
 </querytext>
 </fullquery>
