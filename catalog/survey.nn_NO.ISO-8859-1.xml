@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="nn_NO" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.0b7" locale="nn_NO" charset="ISO-8859-1">
 
   <msg key="-__Created_by">- Innlagt av</msg>
   <msg key="_on_creation_date">, den %creation_date%</msg>
@@ -146,8 +146,6 @@
   <msg key="lt_Survey_section_id_does">Undersøking %section_id% fins ikkje</msg>
   <msg key="lt_Survey_survey_id_do_no">Undersøking %survey_id% fins ikkje</msg>
   <msg key="lt_Survey_survey_id_does">Undersøking %survey_id% fins ikkje</msg>
-  <msg key="lt_Survey_survey_nameRes">Undersøking: %survey_name% Svarar: %user_name% Dette svarte %user_name% %comm_url% på %survey_name%:</msg>
-  <msg key="lt_Survey_survey_nameRes_1">Undersøking: %survey_name% Svarar: %user_name% Dette svarte %user_name% %comm_url% på %survey_name%:</msg>
   <msg key="lt_The_Above_Description">Omtalen over er</msg>
   <msg key="lt_The_response_to_ques_i">Svaret på %question_text% må vere eit heiltal. Du svarte %response_value%. </msg>
   <msg key="lt_The_response_to_ques_n">Svaret på %question_text% må vere eit tal. Du svarte %response_value%. </msg>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="ko_KR" charset="utf-8">
+<message_catalog package_key="survey" package_version="5.0.0b7" locale="ko_KR" charset="utf-8">
 
   <msg key="-__Created_by">- 가 생성한</msg>
   <msg key="_on_creation_date">, %creation_date%에</msg>
@@ -146,8 +146,6 @@
   <msg key="lt_Survey_section_id_does">설문 %section_id%이 존재하지 않음</msg>
   <msg key="lt_Survey_survey_id_do_no">설문 %survey_id%이 존재하지 않음</msg>
   <msg key="lt_Survey_survey_id_does">설문 %survey_id%이 존재하지 않음</msg>
-  <msg key="lt_Survey_survey_nameRes">설문: %survey_name% 응답자: %user_name% 이것이 %survey_name%에 대하여 %user_name% %comm_url%가 말 한 것이다: </msg>
-  <msg key="lt_Survey_survey_nameRes_1">설문: %survey_name% 응답자: %user_name% 이것이 %survey_name%에 대하여 %user_name% &lt;%comm_url%&gt;가 말한 것이다:</msg>
   <msg key="lt_The_Above_Description">위의 설명은 아래와 같다</msg>
   <msg key="lt_The_response_to_ques_i">%question_text%에 대한 응답은 정수이어야 한다. 당신의 답은 %response_value%이다.</msg>
   <msg key="lt_The_response_to_ques_n">%question_text%에 대한 응답은 숫자이어야 한다. 당신의 답은 %response_value%이다.</msg>

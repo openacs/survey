@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="es_GT" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.0b7" locale="es_GT" charset="ISO-8859-1">
 
   <msg key="-__Created_by">-Creado por</msg>
   <msg key="_on_creation_date">, en %creation_date%</msg>
@@ -154,8 +154,6 @@
   <msg key="lt_Survey_section_id_does">La sección %section_id% de la Encuesta no existe</msg>
   <msg key="lt_Survey_survey_id_do_no">El id %survey_id% de la Encuesta no existe</msg>
   <msg key="lt_Survey_survey_id_does">El id %survey_id% de la Encuesta no existe</msg>
-  <msg key="lt_Survey_survey_nameRes">Encuesta: %survey_name% Persona que respondió: %user_name% Esto es lo que %user_name% %comm_url% tiene que decir con respecto a %survey_name%:</msg>
-  <msg key="lt_Survey_survey_nameRes_1">Encuesta: %survey_name% Persona que respondió: %user_name% Esto es lo que %user_name% %comm_url% tiene que decir con respecto a %survey_name%:</msg>
   <msg key="lt_The_Above_Description">La descripcion anterior es</msg>
   <msg key="lt_The_response_to_ques_i">La respuesta a %question_text% tiene que ser entera. Tu respuesta fue %response_value%.</msg>
   <msg key="lt_The_response_to_ques_n">La respuesta a %question_text% tiene que ser un número. Tu respuesta fue %response_value%.</msg>
