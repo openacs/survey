@@ -1,7 +1,7 @@
 <master>
 
 <property name=title>#survey.lt_Survey_Administration#</property>
-<property name=context_bar>@context_bar@</property>
+<property name=context_bar>@context_bar;noquote@</property>
 <property name="link_all">1</property>
 <ul>
 <multiple name=surveys>

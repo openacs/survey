@@ -1,11 +1,11 @@
 <master src="master">
 
-<property name="survey_id">@survey_id@</property>
+<property name="survey_id">@survey_id;noquote@</property>
 
-<property name="survey_id">@survey_id@</property>
-<property name="survey_name@">@survey_info.name@</property>
+<property name="survey_id">@survey_id;noquote@</property>
+<property name="survey_name@">;noquote@survey_info.name@</property>
 <property name="title">#survey.lt_One_Respondent_first_#</property>
-<property name="context_bar">@context_bar@</property>
+<property name="context_bar">@context_bar;noquote@</property>
 <table class=table-display cellspacing=0 cellpadding=5>
 <tr class="table-header"><td>
   #survey.Here_is_what# <a href="/shared/community-member?user_id=@user_id@">@first_names@ @last_name@</a> #survey.lt_had_to_say_in_respons#

@@ -1,8 +1,8 @@
 <master>
-<property name="survey_id">@survey_id@</property>
+<property name="survey_id">@survey_id;noquote@</property>
 
 <property name="title">#survey.lt_One_Survey_survey_inf#</property>
-<property name="context_bar">@context_bar@</property>
+<property name="context_bar">@context_bar;noquote@</property>
 <p><a href=".">#survey.lt_Main_Survey_Administr#</a></p>
 <font size=+1><b>@survey_info.name@</b></font> #survey.-__Created_by# <a href="@user_link@">@survey_info.creator_name@</a>#survey._on_creation_date#</h2>
 <table class="table-display" cellpadding=2 cellspacing=0>
@@ -36,7 +36,7 @@
 	<tr class="odd"><td>#survey.Display_Options# </td><td><%= [lang::util::localize "#survey.@survey_info.display_type@#"]%> - <list name="survey_display_types"><if @survey_info.display_type@ ne @survey_display_types:item@>[<a href="survey-display-type-edit?display_type=@survey_display_types:item@&survey_id=@survey_id@"><%= [lang::util::localize "#survey.@survey_display_types:item@#"]%></a>]</if></list></td></tr>
 	
       
-<tr class="odd"><td valign="top" rowspan="2">#survey.Email_Options#</td><td >@notification_chunk@</td></tr>
+<tr class="odd"><td valign="top" rowspan="2">#survey.Email_Options#</td><td >@notification_chunk;noquote@</td></tr>
 
 	<tr class="odd"><td ><a href="send-mail?survey_id=@survey_id@">#survey.Send_bulkmail#</a> #survey.lt_regarding_this_survey# </td></tr>
 	
