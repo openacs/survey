@@ -286,7 +286,7 @@ create table survey_question_responses (
         date_answer             timestamp,
 	attachment_answer       integer
 				constraint survey_q_response_item_id_fk
-                                references cr_items(item_id)
+                                references cr_revisions(revision_id)
                                 on delete cascade
 );
 
