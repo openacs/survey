@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="it_IT" charset="ISO-8859-1">
-
-  <msg key="Answer_Survey">Rispondi al questionario</msg>
-  <msg key="lt_denotes_a_required_qu">denota un campo obbligatorio</msg>
-  <msg key="One_Survey_name">Un questionario d'esame: %name%</msg>
-  <msg key="Submit_response">Invia le risposte</msg>
-</message_catalog>
