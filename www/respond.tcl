@@ -63,7 +63,8 @@ if {$editable_p == "t"} {
 
 # build a list containing the HTML (generated with survey_question_display) for each question
 set rownum 0
-    
+# for double-click protection
+set new_response_id [db_nextval acs_object_id_seq]    
 set questions [list]
 
 db_foreach survey_sections {} {
@@ -81,6 +82,6 @@ db_foreach survey_sections {} {
 	set return_url {}
     }
 }
-set form_vars [export_form_vars section_id survey_id]
+set form_vars [export_form_vars section_id survey_id new_response_id]
 ad_return_template
 
