@@ -1,6 +1,6 @@
 -- Survey
 --
--- -- @author dave@thedesignexperience.org, ben@openforce.biz
+-- @author dave@thedesignexperience.org, ben@openforce.biz
 -- @creation-date 2002-08-03
 --
 -- integration with Notifications
