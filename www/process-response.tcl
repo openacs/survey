@@ -60,9 +60,12 @@ ad_page_contract {
 	    if { [exists_and_not_null response_to_question($question_id)] } {
 		if {$abstract_data_type != "choice"} {
 		    set response_to_question($question_id) [join $response_to_question($question_id)]
-		}
+		} else {
+		    if { [empty_string_p [lindex $response_to_question($question_id) 0 ] ] } {
+			set response_to_question($question_id) ""
+		    }
+	        }
 	    }
-	    
 	    
 	    if { $abstract_data_type == "date" } {
 		if [catch  { set response_to_question($question_id) [validate_ad_dateentrywidget "" response_to_question.$question_id [ns_getform]]} errmsg] {
@@ -70,10 +73,7 @@ ad_page_contract {
 		}
 	    }
 	   
-	    if {$abstract_data_type=="choice" && [empty_string_p [lindex $response_to_question($question_id) 0]]} {
-		set response_to_question($question_id) "" 
-	    }
-	    
+    
 	    if { [exists_and_not_null response_to_question($question_id)] } {
 
 		set response_value [string trim $response_to_question($question_id)]
