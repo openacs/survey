@@ -55,7 +55,7 @@ if {[ad_parameter allow_question_deactivation_p] == 1} {
     }
 }
 ad_form -extend -name create_question -form {
-    {required:text(radio)     {label "Required?"} {options {{Yes t} {No f}}} {value t}}
+    {required_p:text(radio)     {label "Required?"} {options {{Yes t} {No f}}} {value t}}
 }
     
 ad_return_template
