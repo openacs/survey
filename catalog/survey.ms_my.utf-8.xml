@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<message_catalog package_key="survey" package_version="0.2d" locale="ms_my" charset="utf-8">
+
+  <msg key="-__Created_by">- Dicipta oleh</msg>
+  <msg key="Actions">Perlakuan</msg>
+  <msg key="Active">Aktif?</msg>
+  <msg key="Add_A_Question">Tambah Soalan</msg>
+  <msg key="Add_New">Tambah Baru</msg>
+  <msg key="add_new_question">tambah soalan baru</msg>
+</message_catalog>
