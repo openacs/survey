@@ -33,7 +33,7 @@ Description: </td>
 	href="response-editable-toggle?survey_id=@survey_id@">make <if
 	@survey_info.editable_p@>non-</if>editable</a> ]</td></tr>
 
-	<tr class="odd"><td>Display Opinions: </td><td> @survey_info.display_type@ - <list name="survey_display_types"><if @survey_info.display_type@ ne @survey_display_types:item@>[<a href="survey-display-type-edit?display_type=@survey_display_types:item@&survey_id=@survey_id@">@survey_display_types:item@</a>]</if></list></td></tr>
+	<tr class="odd"><td>Display Options: </td><td> @survey_info.display_type@ - <list name="survey_display_types"><if @survey_info.display_type@ ne @survey_display_types:item@>[<a href="survey-display-type-edit?display_type=@survey_display_types:item@&survey_id=@survey_id@">@survey_display_types:item@</a>]</if></list></td></tr>
 	
       
 <tr class="odd"><td valign="top" rowspan="2">Email Options:</td><td >@notification_chunk@</td></tr>
