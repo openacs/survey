@@ -38,8 +38,9 @@ set survey_name $survey_info(name)
 set description $survey_info(description)
 set editable_p $survey_info(editable_p)
 set context_bar [ad_context_bar "[_ survey.Responses]"]
-db_multirow -extend {answer_summary} responses responses_select {} {
+db_multirow -extend {answer_summary pretty_submission_date} responses responses_select {} {
     set answer_summary [survey_answer_summary_display $response_id 1] 
+    set pretty_submission_date [lc_time_fmt $pretty_submission_date_ansi %x]
 }
 
 ad_return_template
