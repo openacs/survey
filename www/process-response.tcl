@@ -75,6 +75,7 @@ ad_page_contract {
 	    }
     
 	    if { [exists_and_not_null response_to_question($question_id)] } {
+
 		set response_value [string trim $response_to_question($question_id)]
 	    } elseif {$required_p == "t"} {
 		lappend questions_with_missing_responses $question_text
@@ -195,6 +196,7 @@ if {[db_string get_response_count {}] == 0} {
  values (:response_id, :question_id, :response_value)"
 		    }
 <<<<<<< process-response.tcl
+<<<<<<< process-response.tcl
 		}  else {
 		    if { [empty_string_p $response_value] || [empty_string_p [lindex $response_value 0]] } {
 =======
@@ -204,8 +206,16 @@ if {[db_string get_response_count {}] == 0} {
  values (:response_id, :question_id, :response_value)"
 		}
 		"boolean" {
+=======
+		}
+		"shorttext" {
+		    db_dml survey_question_choice_shorttext_insert "insert into survey_question_responses (response_id, question_id, varchar_answer)
+ values (:response_id, :question_id, :response_value)"
+		}
+		"boolean" {
+
 		    if { [empty_string_p $response_value] } {
->>>>>>> 1.3.2.4
+
 			set response_value [db_null]
 		    }
 
