@@ -51,6 +51,6 @@ ad_form -name edit-survey -form {
     ad_script_abort
 }
 
-set context_bar [ad_context_bar [list "one.tcl?[export_url_vars survey_id]" $survey_info(name)] "Edit Description"]
+set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "Edit Description"]
 
 ad_return_template

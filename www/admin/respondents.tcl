@@ -25,7 +25,7 @@ ad_require_permission $survey_id survey_admin_survey
 get_survey_info -survey_id $survey_id
 set survey_name $survey_info(name)
 
-set context_bar [ad_context_bar [list "one.tcl?[export_url_vars survey_id]" $survey_info(name)] "Respondents"]
+set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "Respondents"]
 
 set table_def {
     {first_names "First Name" {upper(first_names) $order} {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$first_names</a></td>}}

@@ -12,7 +12,7 @@ ad_page_contract {
 } {
     survey_id:integer
     enabled_p
-    {target "index.tcl"}
+    {target "./"}
 }
 
 ad_require_permission $survey_id survey_admin_survey
