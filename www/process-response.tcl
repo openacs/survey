@@ -69,8 +69,13 @@ ad_page_contract {
 		    ad_complain "$errmsg: Please make sure your dates are valid."
 		}
 	    }
+	   
+	    if {$abstract_data_type=="choice" && [empty_string_p [lindex $response_to_question($question_id) 0]]} {
+		set response_to_question($question_id) "" 
+	    }
 	    
 	    if { [exists_and_not_null response_to_question($question_id)] } {
+
 		set response_value [string trim $response_to_question($question_id)]
 	    } elseif {$required_p == "t"} {
 		lappend questions_with_missing_responses $question_text
