@@ -31,7 +31,7 @@ if {$n_responses==0} {
 set question_id_list [list]
 set responses_table survey_responses
 
-set headline "email,first_names,last_name,user_id,submission_date,ip_address,response_id"
+set headline "email,first_names,last_name,user_id,submission_date,,response_id"
 
 db_foreach get_question_data_types {} {
     lappend question_id_list $question_id
