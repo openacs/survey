@@ -24,6 +24,10 @@ ad_page_contract {
     set user_id [ad_maybe_redirect_for_registration]
     set number_of_responses [db_string count_responses {}]
     get_survey_info -survey_id $survey_id
+    set single_section_p $survey_info(single_section_p)
+        if {$section_id==0 && $single_section_p=="t"} {
+            set section_id $survey_info(section_id)
+        }
     set name $survey_info(name)
     set description $survey_info(description)
     set single_response_p $survey_info(single_response_p)

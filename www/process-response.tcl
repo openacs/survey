@@ -70,7 +70,7 @@ ad_page_contract {
 		}
 	    }
 	    
-	    if { [exists_and_not_null response_to_question($question_id)] || ($abstract_data_type=="choice" && ![empty_string_p [lindex $response_to_question($question_id) 0]])} {
+	    if { [exists_and_not_null response_to_question($question_id)] } {
 		set response_value [string trim $response_to_question($question_id)]
 	    } elseif {$required_p == "t"} {
 		lappend questions_with_missing_responses $question_text
@@ -169,7 +169,7 @@ db_transaction {
  values (:response_id, :question_id, :response_value)"
 		    }
 		}  else {
-		    if { [empty_string_p $response_value] } {
+		    if { [empty_string_p $response_value] || [empty_string_p [lindex $response_value 0]] } {
 			set response_value [db_null]
 		    }
 
