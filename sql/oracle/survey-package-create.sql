@@ -476,7 +476,7 @@ select sr.*, o.creation_date,
   (select max(response_id) as response_id
           from survey_responses
          group by nvl(initial_response_id, response_id)) latest
-  where nvl(sr.inital_response_id,sr.response_id) = o.object_id
+  where nvl(sr.initial_response_id,sr.response_id) = o.object_id
   and sr.response_id= latest.response_id;
 
 create or replace view survey_ques_responses_latest as
