@@ -1,4 +1,4 @@
-<master src=./master>
+<master>
 <property name=title>One Survey: @name@</property>
 <property name=context_bar>@context_bar@</property>
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
