@@ -79,6 +79,6 @@ ad_form -extend -name confirm_delete -form {
         ad_script_abort
     }
 
-set context_bar [ad_context_bar "[_ survey.Delete_Question]"]    
+set context [_ survey.Delete_Question]
 ad_return_template
 

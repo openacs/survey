@@ -23,7 +23,7 @@ set n_responses [db_string get_n_responses {}]
 ns_log notice "DAVEB: n_responses=$n_responses"
 if {$n_responses==0} {
     get_survey_info -survey_id $survey_id
-    set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.CSV_Export]"]
+    set context [list [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.CSV_Export]"]
     ad_return_template "no-responses"
     return
 }

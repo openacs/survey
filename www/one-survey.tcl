@@ -15,8 +15,6 @@ ad_page_contract {
 
 set package_id [ad_conn package_id]
 
-set context_bar [ad_context_bar]
-
 set user_id [ad_maybe_redirect_for_registration]
 
 set take_survey_p [ad_permission_p $survey_id survey_take_survey]

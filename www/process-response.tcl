@@ -283,7 +283,7 @@ if {[info exists return_url] && ![empty_string_p $return_url]} {
     ad_returnredirect "$return_url"
            ad_script_abort
 } else {
-     set context_bar [ad_context_bar "[_ survey.lt_Response_Submitted_for]"]
+     set context [_ survey.lt_Response_Submitted_for]
      ad_return_template
 }	
     

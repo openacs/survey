@@ -141,6 +141,6 @@ ad_form -extend -name modify_question -select_query_name {survey_question_detail
 }
 
 
-set context_bar [ad_context_bar "[_ survey.Modify_Question]"]
+set context [_ survey.Modify_Question]
 
 ad_return_template

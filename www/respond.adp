@@ -1,6 +1,6 @@
 <master>
 <property name=title>#survey.One_Survey_name#</property>
-<property name=context_bar>@context_bar;noquote@</property>
+<property name=context>@context;noquote@</property>
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <form enctype=multipart/form-data method="post" action="process-response">
 	<if @initial_response_id@ not nil><input type="hidden"

@@ -38,7 +38,8 @@ set survey_name $survey_info(name)
 set description $survey_info(description)
 set description_html_p $survey_info(description_html_p)
 set editable_p $survey_info(editable_p)
-set context_bar [ad_context_bar "[_ survey.Responses]"]
+
+set context [_ survey.Responses]
 
 if {$description_html_p != "t" } {
     set description [ad_text_to_html $description]

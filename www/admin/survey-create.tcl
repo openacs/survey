@@ -83,7 +83,7 @@ ad_form -name create_survey -confirm_template survey-create-confirm -form {
 
 # function to insert survey type-specific form html
 
-set context_bar [ad_context_bar "[_ survey.Create_Survey]"]
+set context [_ survey.Create_Survey]
 
 ad_return_template
 

@@ -43,7 +43,7 @@ ad_form -extend -name create_question -form {
 
 get_survey_info -section_id $section_id
 set survey_id $survey_info(survey_id)
-set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Add_A_Question]"]
+set context [list [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Add_A_Question]"]
 
 if {[ad_parameter allow_question_deactivation_p] == 1} {
     ad_form -extend -name create_question -form {

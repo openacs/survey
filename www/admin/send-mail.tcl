@@ -100,6 +100,6 @@ ns_log notice "DAVE-SURVEY: $query"
     ad_script_abort
 }
 
-set context_bar [ad_context_bar "[_ survey.Send_Mail]"]
+set context [_ survey.Send_Mail]
 ad_return_template
 

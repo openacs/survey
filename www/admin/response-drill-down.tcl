@@ -49,7 +49,7 @@ if { !$response_exists_p } {
 
 db_multirow user_responses all_users_for_response {}
 
-set context_bar [ad_context_bar \
+set context [list \
      [list "one?[export_url_vars survey_id]" $survey_info(name)] \
      [list "responses?[export_url_vars survey_id]" "[_ survey.Responses]"] \
      "[_ survey.One_Response]"]

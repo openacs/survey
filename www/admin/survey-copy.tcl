@@ -33,5 +33,5 @@ ad_form -name copy_survey -form {
 }
 
 
-set context_bar [ad_context_bar "[_ survey.Copy] $title_name"]
+set context "[_ survey.Copy] $title_name"
 ad_return_template

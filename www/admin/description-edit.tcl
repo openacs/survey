@@ -51,6 +51,6 @@ ad_form -name edit-survey -form {
     ad_script_abort
 }
 
-set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Edit_Description]"]
+set context [list [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Edit_Description]"]
 
 ad_return_template

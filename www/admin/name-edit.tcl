@@ -45,7 +45,7 @@ ad_form -name edit-name -form {
     ad_script_abort
 }
 
-set context_bar [ad_context_bar "[_ survey.Edit_Name]"]
+set context [_ survey.Edit_Name]
 
 ad_return_template
 

@@ -178,6 +178,6 @@ if { $type == "scored" } {
 ad_form -extend -name create-question-2 -form {
     {presentation_alignment:text(radio) {options {{"[_ survey.Beside_the_question]" beside} {"[_ survey.Below_the_question]" below}}} {value below} {label "[_ survey.lt_Presentation_Alignmen]"}}
 }
-set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Add_A_Question]"]
+set context [list [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Add_A_Question]"]
 
 ad_return_template

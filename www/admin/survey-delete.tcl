@@ -42,4 +42,4 @@ ad_form -name confirm_delete -form {
     }
 }
 
-set context_bar [ad_context_bar "[_ survey.Delete_Survey]"]
+set context [_ survey.Delete_Survey]

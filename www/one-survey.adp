@@ -1,6 +1,5 @@
 <master>
 <property name="title">#survey.Surveys#</property>
-<property name="context_bar">@context_bar;noquote@</property>
 <if @admin_p@ eq "1"><p style="text-align: right;"><a href="admin/">#survey.lt_img_srcgraphicsadming_1#</a></p></if>
     <ul>
       

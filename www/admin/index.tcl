@@ -11,8 +11,6 @@ ad_page_contract {
 
 }
 
-set context_bar [ad_context_bar]
-
 set package_id [ad_conn package_id]
 
 # bounce the user if they don't have permission to admin surveys

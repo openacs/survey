@@ -2,6 +2,9 @@
 <if @context_bar@ not nil>
 <property name="context_bar">@context_bar;noquote@</property>
 </if>
+<if @context;noquote@ not nil>
+<property name="context">@context;noquote@</property>
+</if>
 <if @title@ not nil>
 <property name="title">@title;noquote@</property>
 </if>

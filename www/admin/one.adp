@@ -2,7 +2,7 @@
 <property name="survey_id">@survey_id;noquote@</property>
 
 <property name="title">#survey.lt_One_Survey_survey_inf#</property>
-<property name="context_bar">@context_bar;noquote@</property>
+<property name="context">@context;noquote@</property>
 <p><a href=".">#survey.lt_Main_Survey_Administr#</a></p>
 <font size=+1><b>@survey_info.name@</b></font> #survey.-__Created_by# <a href="@user_link@">@survey_info.creator_name@</a>#survey._on_creation_date#</h2>
 <table class="table-display" cellpadding=2 cellspacing=0>

@@ -35,6 +35,6 @@ ad_form -name modify_question -form {
 
 }
 
-set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.lt_Modify_a_Questions_Te]"]
+set context [list [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.lt_Modify_a_Questions_Te]"]
 
 ad_return_template

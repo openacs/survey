@@ -58,7 +58,7 @@ ad_page_contract {
 
 ad_require_permission $survey_id survey_take_survey
 
-set context_bar [ad_context_bar "$name"]
+set context $name
 set button_label "[_ survey.Submit_response]"
 if {$editable_p == "t"} {
     if {$response_id > 0} {

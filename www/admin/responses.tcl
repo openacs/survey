@@ -87,6 +87,6 @@ if { $n_responses == 1 } {
  	set response_sentence "[_ survey.lt_There_have_been_n]"
 }
 
-set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Responses]"]
+set context [list [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Responses]"]
 
 ad_return_template

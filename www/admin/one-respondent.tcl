@@ -37,7 +37,7 @@ if { !$user_exists_p } {
     return
 }
 
-set context_bar [ad_context_bar "[_ survey.One_Respondent]"]
+set context [_ survey.One_Respondent]
  
 
 db_multirow -extend {response_display} responses get_responses {} {

@@ -2,7 +2,7 @@
 <property name="survey_id">@survey_id;noquote@</property>
 
 <property name=title>#survey.lt_Preview_One_Survey_na#</property>
-<property name=context_bar>@context_bar;noquote@</property>
+<property name=context>@context;noquote@</property>
 <a href="@return_url@">#survey.Return#</a>
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <form enctype="multipart/form-data" >

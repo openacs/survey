@@ -56,7 +56,7 @@ if { !$user_exists_p } {
 }
 
 # XXX TODO - person name
-set context_bar [ad_context_bar "$survey_name"]
+set context $survey_name
 
 # XXX TODO - check how the correct reponse get's filled
 #  with the correct response esp if there is more than
