@@ -7,7 +7,7 @@
     <initial-install-p>f</initial-install-p>
     <singleton-p>f</singleton-p>
 
-    <version name="0.1d" url="http://openacs.org/repository/download/apm/survey-0.1d.apm">
+    <version name="0.2d" url="http://openacs.org/repository/download/apm/survey-0.2d.apm">
     <database-support>
         <database>oracle</database>
         <database>postgresql</database>
@@ -18,7 +18,7 @@
         <vendor url="http://dotlrn.mit.edu">dotLRN</vendor>
         <description format="text/plain">New version of survey package for dotLRN/OpenACS4.5</description>
 
-        <provides url="survey" version="0.1d"/>
+        <provides url="survey" version="0.2d"/>
         <requires url="notifications" version="0.1"/>
 
         <files>
