@@ -5,7 +5,8 @@
 <fullquery name="delete_survey">
 <querytext>
 begin
-	survey__remove(:survey_id);
+	perform survey__remove(:survey_id);
+return NULL;
 end;
 </querytext>
 </fullquery>
