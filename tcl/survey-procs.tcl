@@ -396,68 +396,62 @@ ad_proc -public survey_do_notifications {
     or edits a response
 } {
 
-        set survey_id [db_string get_survey_id_from_response {}]
-	get_survey_info -survey_id $survey_id
-	set survey_name $survey_info(name)
-	set subject "[_ survey.Response_to] $survey_name"
+    set survey_id [db_string get_survey_id_from_response {}]
+    get_survey_info -survey_id $survey_id
+    set survey_name $survey_info(name)
+    set subject "[_ survey.Response_to] $survey_name"
+    set community_name {}
+    set community_url [ad_conn package_url]
 
-        #dotlrn specific info
-    set dotlrn_installed_p [apm_package_installed_p dotlrn]
-    if {$dotlrn_installed_p} {
+    #dotlrn specific info
+    set dotlrn_installed_p [expr [apm_package_installed_p dotlrn] && ![empty_string_p [dotlrn_community::get_community_id]]]
+
+    if {$dotlrn_installed_p} { 
 	set package_id [ad_conn package_id]
 	set community_id [dotlrn_community::get_community_id]
 	set segment_id [dotlrn_community::get_rel_segment_id -community_id $community_id -rel_type "dotlrn_member_rel"]
 	set community_name [dotlrn_community::get_community_name $community_id]
 	set community_url "[ad_parameter -package_id [ad_acs_kernel_id] SystemURL][dotlrn_community::get_community_url $community_id]"
     }
-	db_1row get_response_info {}
-	
-	set notif_text ""
-	if {$dotlrn_installed_p} {
-	    append notif_text "
-Group: $community_name"
-        }
-	set comm_url "[acs_community_member_url -user_id $responding_user_id]"
-	append notif_text "
-[_ survey.lt_Survey_survey_nameRes_1]
-	"
+    db_1row get_response_info {}
+    
+    set notif_text ""
+    if {$dotlrn_installed_p} {
+	append notif_text "\nGroup: $community_name"
+    }
+    set comm_url "[ad_parameter -package_id [ad_acs_kernel_id] SystemURL][acs_community_member_url -user_id $responding_user_id]"
+    append notif_text "\n[_ survey.lt_Survey_survey_nameRes_1]\n"
 
-	if {$edit_p} {
-	    append notif_text "
-[_ survey.Edited] "
-	}
-	append notif_text "[_ survey.lt_Response_on_response_]\n"
+    if {$edit_p} {
+	append notif_text "\n[_ survey.Edited] "
+    }
+    append notif_text "[_ survey.lt_Response_on_response_]\n"
 
-	append notif_text [survey_answer_summary_display $response_id 0]
+    append notif_text [survey_answer_summary_display $response_id 0]
 
-# add summary info for sloanspace
-	if {$dotlrn_installed_p} {
+    # add summary info for sloanspace
+    if {$dotlrn_installed_p} {
 	set n_responses [db_string n_responses {}]
 	if {$n_responses > 0} {
-	    append notif_text " -----
-[_ survey.lt_Already_Responsed_n_r_1]
-"
+	    append notif_text " -----\n[_ survey.lt_Already_Responsed_n_r_1]\n"
         }
 	set n_members [db_string n_members {}]
         set n_awaiting [expr {$n_members - $n_responses}]
 
-        append notif_text "
-[_ survey.lt_Awaiting_a_response_n]
-"
+        append notif_text "\n[_ survey.lt_Awaiting_a_response_n]\n"
 
         db_foreach get_questions {} {
-        append notif_text "$sort_order.    $question_text - [_ survey.View_responses_1] <$community_url/survey/view-text-responses?question_id=$question_id>
-    "
+	    append notif_text "$sort_order.    $question_text - [_ survey.View_responses_1] <$community_url/survey/view-text-responses?question_id=$question_id>\n"
         }
     }
-	notification::new \
-            -type_id [notification::type::get_type_id \
-			  -short_name survey_response_notif] \
-            -object_id $survey_id \
-            -response_id $survey_id \
-            -notif_subject $subject \
-            -notif_text $notif_text
-    
+
+    notification::new \
+	-type_id [notification::type::get_type_id \
+		      -short_name survey_response_notif] \
+	-object_id $survey_id \
+	-response_id $survey_id \
+	-notif_subject $subject \
+	-notif_text $notif_text
 }
 
 
