@@ -1,4 +1,4 @@
--- ported to OpenACS 4 by Gilbert Wong (gwong@orchardlabs.com) on 2001-05-20
+ -- ported to OpenACS 4 by Gilbert Wong (gwong@orchardlabs.com) on 2001-05-20
 --
 -- based on student work from 6.916 in Fall 1999
 -- which was in turn based on problem set 4
@@ -616,3 +616,4 @@ select qr.*
   from survey_question_responses qr, survey_responses_latest r
  where qr.response_id=r.response_id;  
 
+\i survey-notifications-init.sql
