@@ -32,22 +32,6 @@ if {[apm_package_installed_p dotlrn]} {
 }
 set return_html ""
 
-# Leaving this commented out until we evaluate scored surveys -- Luke
-#  switch $survey_info(type) {
-#      "general" {
-#  	set return_html ""
-#      }
-#      "scored" {
-#  	upvar section_id local_section_id
-#  	set return_html "<li><a href=\"edit-logic?section_id=$local_section_id\">Edit survey logic</a>"
-#      }
-    
-#      default {
-#  	set return_html ""
-#      }
-#      return $return_html
-#  }
-
 set creation_date [util_AnsiDatetoPrettyDate $survey_info(creation_date)]
 set user_link [acs_community_member_url -user_id $survey_info(creation_user)]
 if {$survey_info(single_response_p) == "t"} {

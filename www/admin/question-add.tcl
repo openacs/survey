@@ -21,7 +21,6 @@ ad_require_permission $package_id survey_create_question
 
 get_survey_info -section_id $section_id
 
-# function to insert survey type-specific form html
 ad_form -name create_question -action question-add-2  -export { after } -form {
     question_id:key
     {section_id:text(hidden) {value $section_id}}
