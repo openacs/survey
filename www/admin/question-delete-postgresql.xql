@@ -6,7 +6,7 @@
 <fullquery name="survey_delete_question">      
       <querytext>
 
-            select survey_question__delete (:question_id);
+            select survey_question__remove (:question_id);
 	
       </querytext>
 </fullquery>
