@@ -272,7 +272,7 @@ create table survey_question_responses (
         clob_answer             text,
         number_answer           numeric,
         varchar_answer          text,
-        date_answer             timestamp,
+        date_answer             timestamptz,
 	attachment_answer       integer
 				constraint survey_q_response_item_id_fk
                                 references cr_revisions(revision_id)

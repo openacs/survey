@@ -28,6 +28,16 @@ select survey_choice_id_sequence.nextval as choice_id
 </querytext>
 </fullquery>
 
+<fullquery name="get_survey_info.n_completed">
+<querytext>
+    		    select count(distinct survey_response__initial_user_id(response_id))
+                    from 
+		    survey_responses
+		    where survey_id=:survey_id
+</querytext>
+</fullquery>
+
+
 <fullquery name="survey_do_notifications.get_response_info">
     <querytext>
 	select r.initial_response_id, r.responding_user_id, r.response_id,

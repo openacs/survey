@@ -124,9 +124,9 @@ db_foreach get_all_survey_question_responses "" {
 	
 	incr r
 	if {$r>99} {
-	    ns_write "${csv_export} "
+	    ns_write "${csv_export}"
 	    set csv_export ""
-	    set rows 0
+	    set r 0
 	}
 
     }

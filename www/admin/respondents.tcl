@@ -28,17 +28,10 @@ set survey_name $survey_info(name)
 set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Respondents]"]
 
 set table_def {
-<<<<<<< respondents.tcl
     {first_names "[_ survey.First_Name]" {upper(first_names) $order} {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$first_names</a></td>}}
     {last_name "[_ survey.Last_Name]" "" {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$last_name</a></td>}}
     {email "[_ survey.Email_Address]" "" {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$email</a></td>}}
     {actions "[_ survey.Actions]" no_sort {<td><a href="one-respondent?[export_vars {user_id survey_id}]"><img src="/graphics/view.gif" border="0" alt="[_ survey.View]"></a></td>}}
-=======
-    {first_names "First Name" {upper(first_names) $order} {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$first_names</a></td>}}
-    {last_name "Last Name" "" {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$last_name</a></td>}}
-    {email "Email Address" "" {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$email</a></td>}}
-    {actions "Actions" no_sort {<td><a href="one-respondent?[export_vars {user_id survey_id}]"><img src="../graphics/view.gif" border="0" alt="View"></a></td>}}
->>>>>>> 1.3
 }
 
 set respondents_table [ad_table -Torderby $orderby -Textra_vars {survey_id} -Tmissing_text "[_ survey.No_data_found]" select_respondents {}  $table_def]

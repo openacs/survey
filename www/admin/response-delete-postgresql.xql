@@ -5,13 +5,9 @@
 
 <fullquery name="delete_response">
 <querytext>
-<<<<<<< response-delete-postgresql.xql
-	select survey_response__remove(:response_id);
-=======
 begin
 	perform survey_response__remove(:response_id);
 end;
->>>>>>> 1.3
 </querytext>
 </fullquery>
 
