@@ -265,9 +265,9 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} "Returns 
 	    append return_string "[ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]"
 	} else {
 	    append return_string "$sort_order: "
-	    append return_string [ad_html_to_text $question_text]
+	    append return_string [ad_html_to_text -- $question_text]
 	    append return_string "\n\n"
-	    append return_string "[ad_html_to_text [ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]]"
+	    append return_string "[ad_html_to_text -- [ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]]"
 	}
 	
 	if {![empty_string_p $attachment_answer]} {
