@@ -19,6 +19,15 @@ set csv_export ""
 set package_id [ad_conn package_id]
 ad_require_permission $package_id survey_admin_survey
 
+set n_responses [db_string get_n_responses {}]
+ns_log notice "DAVEB: n_responses=$n_responses"
+if {$n_responses==0} {
+    get_survey_info -survey_id $survey_id
+    set context_bar [ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "CSV Export"]
+    ad_return_template "no-responses"
+    return
+}
+
 set question_id_list [list]
 set responses_table survey_responses
 
