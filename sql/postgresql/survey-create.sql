@@ -255,25 +255,8 @@ create table survey_responses (
 );
 
 
-create index survey_response_index on survey_question_responses (response_id, question_id);
-create index survey_q_r_choice_id on survey_question_responses(choice_id);
-create index survey_q_r_attachment_answer on survey_question_responses(attachment_answer);
-
-
 -- this view contains only the most recently edited version
 -- of each survey response.
-
-create view survey_responses_latest as
-select sr.*, o.creation_date, 
-       o.creation_user,
-       survey_response__initial_user_id(sr.response_id) as initial_user_id
-  from survey_responses sr 
-  join acs_objects o
-    on (sr.response_id = o.object_id)
-  join (select max(response_id) as response_id
-          from survey_responses
-         group by survey_response__initial_response_id(response_id)) latest
-    on (sr.response_id = latest.response_id);
 
 
 
@@ -307,14 +290,8 @@ create table survey_question_responses (
                                 on delete cascade
 );
 
-
-create or replace view survey_ques_responses_latest as
-select qr.*
-  from survey_question_responses qr, survey_responses_latest r
- where qr.response_id=r.response_id;  
-
-
-
+create index survey_q_r_choice_id on survey_question_responses(choice_id);
+create index survey_q_r_attachment_answer on survey_question_responses(attachment_answer);
 create index survey_response_index on survey_question_responses (response_id, question_id);
 
 -- We create a view that selects out only the last response from each
@@ -415,8 +392,6 @@ begin
 
 end;' language 'plpgsql';
 
-
-
 create function survey_section__delete (integer)
 returns integer as '
 declare
@@ -430,8 +405,6 @@ begin
     return 0;
 
 end;' language 'plpgsql';
-
-
 
 create function survey_question__new (integer,integer,integer,text,varchar,boolean,boolean,varchar,varchar,varchar,integer,integer)
 returns integer as '
@@ -564,4 +537,21 @@ begin
     return 0;
 
 end;' language 'plpgsql';
+
+create view survey_responses_latest as
+select sr.*, o.creation_date, 
+       o.creation_user,
+       survey_response__initial_user_id(sr.response_id) as initial_user_id
+  from survey_responses sr 
+  join acs_objects o
+    on (sr.response_id = o.object_id)
+  join (select max(response_id) as response_id
+          from survey_responses
+         group by survey_response__initial_response_id(response_id)) latest
+    on (sr.response_id = latest.response_id);
+
+create view survey_ques_responses_latest as
+select qr.*
+  from survey_question_responses qr, survey_responses_latest r
+ where qr.response_id=r.response_id;  
 

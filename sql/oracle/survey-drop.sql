@@ -7,10 +7,9 @@
 
 @@ survey-package-drop.sql
 
-
-drop view survey_question_responses_un;
+drop view survey_ques_responses_latest;
 drop table survey_question_responses cascade constraints;
-drop view survey_responses_unique;
+drop view survey_responses_latest;
 drop table survey_responses cascade constraints;
 drop table survey_question_choices cascade constraints;
 
