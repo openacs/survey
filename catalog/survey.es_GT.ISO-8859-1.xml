@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="es_ES" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="0.2d" locale="es_GT" charset="ISO-8859-1">
 
   <msg key="-__Created_by">-Creado por</msg>
   <msg key="_on_creation_date">, en %creation_date%</msg>
@@ -9,7 +9,7 @@
   <msg key="Add_New">Añadir Nuevo</msg>
   <msg key="add_new_question">añadir una nueva pregunta</msg>
   <msg key="Admin_This_Survey">Administrar esta encuesta</msg>
-  <msg key="allow_multiple">permitir múltiple</msg>
+  <msg key="allow_multiple">permitir múltiples</msg>
   <msg key="Answer_Survey">Responder Encuesta</msg>
   <msg key="Answer_Text">Texto de Respuesta</msg>
   <msg key="are">son</msg>
@@ -23,18 +23,18 @@
   <msg key="Continue_with_Delete">Continue borrando</msg>
   <msg key="Copy">Copiar</msg>
   <msg key="Copy_of">Copia de</msg>
-  <msg key="Copy_this_survey">Copia esta encuesta</msg>
-  <msg key="Copy_title_name">Copia: %title_name%</msg>
+  <msg key="Copy_this_survey">Copiar esta encuesta</msg>
+  <msg key="Copy_title_name">Copiar: %title_name%</msg>
   <msg key="Could_not_find_user">No se pudo encontrar el usuario</msg>
   <msg key="Create_Survey">Crear Encuesta</msg>
   <msg key="CSV_Export">Exportar CSV</msg>
-  <msg key="CSV_file">archivo de CSV</msg>
+  <msg key="CSV_file">archivo CSV</msg>
   <msg key="Database_Error">Error de la base de datos</msg>
   <msg key="Database_error">Error de la base de datos</msg>
   <msg key="Date">Fecha</msg>
-  <msg key="Delete">Eliminar</msg>
-  <msg key="Delete_1">Eliminar:</msg>
-  <msg key="DELETE_Question">Borrar:Pregunta</msg>
+  <msg key="Delete">Borrar</msg>
+  <msg key="Delete_1">Borrar:</msg>
+  <msg key="DELETE_Question">Borrar: Pregunta</msg>
   <msg key="Delete_Question">Borrar Pregunta</msg>
   <msg key="Delete_Response">Borrar Respuesta</msg>
   <msg key="Delete_Survey">Borrar Encuesta</msg>
@@ -67,7 +67,7 @@
   <msg key="is">es</msg>
   <msg key="Large">Largo</msg>
   <msg key="Last_Name">Apellido</msg>
-  <msg key="limit_to_one">límite a usar</msg>
+  <msg key="limit_to_one">limitar a uno</msg>
   <msg key="list">lista</msg>
   <msg key="lt_-_Lets_you_use_this_s">-Te deja usar esta encuesta como plantilla para crear una nueva encuesta.</msg>
   <msg key="lt_-_Removes_all_questio">-Remover todas las preguntas y repuestas</msg>
@@ -84,7 +84,7 @@
 &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt;  Manda un correo masivo a estos usuarios.
 &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; A todo el grupo:
 %n_members% View these users. &lt;%community_url%/survey/admin/respondents?response_type=all&gt; Manda mensajes masivos a estos usuarios. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; Respuestas:</msg>
-  <msg key="lt_Cancel_and_return_to_">Cancelar y regresar a la página de respuestas a encuestas</msg>
+  <msg key="lt_Cancel_and_return_to_">Cancelar y regresar a la página de respuesta de encuestas</msg>
   <msg key="lt_Cancel_and_return_to__1">Cancelar y regresar a administracion de encuestas</msg>
   <msg key="lt_Completely_delete">Borrar completamente las respuestas de %user_name_var% de %response_date_var%? (Nota: Esto no se puede deshacer.)</msg>
   <msg key="lt_Confirm_Survey_Detail">Confirmar detalles de Encuesta</msg>
@@ -125,13 +125,13 @@
   <msg key="lt_Please_make_sure_your">Por favor, asegúrese que sus fechas sean válidas.</msg>
   <msg key="lt_Presentation_Alignmen">Alineación de la Presentacion</msg>
   <msg key="lt_Preview_One_Survey_na">Vista previa de una Encuesta: %name%</msg>
-  <msg key="lt_Previous_response_on_">Respuesta previa en: %surveys.creation_date%</msg>
-  <msg key="lt_Previous_response_on__1">Respuesta previa en: %survey_details.creation_date%</msg>
+  <msg key="lt_Previous_response_on_">Respuesta anterior en: %surveys.creation_date%</msg>
+  <msg key="lt_Previous_response_on__1">Respuesta anterior en: %survey_details.creation_date%</msg>
   <msg key="lt_regarding_this_survey">con respecto a esta encuesta</msg>
   <msg key="lt_Requested_survey_does">La Encuesta solicitada no existe</msg>
   <msg key="lt_Response_on_response_">Respuesta en %response_date%</msg>
   <msg key="lt_Response_on_responses">Respuesta en %responses.creation_date%]</msg>
-  <msg key="lt_Response_Submitted_for">Respuesta enviada para %survey_name%</msg>
+  <msg key="lt_Response_Submitted_for">Respuesta Enviada para %survey_name%</msg>
   <msg key="lt_Response_submitted_Th">Respuesta Enviada. Gracias.</msg>
   <msg key="lt_Responses_to_Question">Respuestas a Pregunta</msg>
   <msg key="lt_Return_to_survey_admi">Regresar a la Administración de Encuestas</msg>
@@ -139,21 +139,21 @@
   <msg key="lt_Send_Mail_Re_survey_n">Mandar Mail Re:%survey_name%</msg>
   <msg key="lt_Survey_Administration">Administraciónd de Encuestas</msg>
   <msg key="lt_Survey_Administration_1">Administraciónd de Encuestas: Agregar una Pregunta(cont.)</msg>
-  <msg key="lt_Survey_Administration_2">Administraciónd de Encuestas:Crear una nueva Encuesta</msg>
+  <msg key="lt_Survey_Administration_2">Administración de Encuestas:Crear una nueva Encuesta</msg>
   <msg key="lt_survey_infoname_New_Q">%survey_info.name%: Nueva Pregunta</msg>
   <msg key="lt_survey_name_Edit_Desc">%survey_name%: Editar Descripcion</msg>
   <msg key="lt_survey_name_Edit_Name">%survey_name%: Editar Nombre</msg>
   <msg key="lt_survey_name_Modify_Qu">%survey_name%: Modificar Texto de la Pregunta</msg>
   <msg key="lt_Survey_Name_must_be_4">El nombre de la encuesta debe tener 4000 o menos caracteres</msg>
-  <msg key="lt_Survey_Name_must_be_l">Es nombre de la encuesta tiene que tener menos de 4000 caracteres</msg>
+  <msg key="lt_Survey_Name_must_be_l">El nombre de la encuesta tiene que tener menos de 4000 caracteres</msg>
   <msg key="lt_survey_name_Responden">%survey_name%:Personas que Respondieron</msg>
   <msg key="lt_survey_name_responder">En la encuesta %survey_name% la personas que respondieron %response_text% cuando les preguntaron %question_text% fueron:</msg>
   <msg key="lt_survey_name_Responses">%survey_name%: Respuestas</msg>
-  <msg key="lt_survey_name_Responses_1">%survey_name%: Respuestas a Pregunta</msg>
+  <msg key="lt_survey_name_Responses_1">%survey_name%: Respuestas a la Pregunta</msg>
   <msg key="lt_Survey_Question_Not_F">La pregunta de la encuesta no fue encontrada</msg>
-  <msg key="lt_Survey_section_id_does">La sección %section_id% no existe</msg>
-  <msg key="lt_Survey_survey_id_do_no">El id %survey_id% no existe</msg>
-  <msg key="lt_Survey_survey_id_does">El id %survey_id% no existe</msg>
+  <msg key="lt_Survey_section_id_does">La sección %section_id% de la Encuesta no existe</msg>
+  <msg key="lt_Survey_survey_id_do_no">El id %survey_id% de la Encuesta no existe</msg>
+  <msg key="lt_Survey_survey_id_does">El id %survey_id% de la Encuesta no existe</msg>
   <msg key="lt_Survey_survey_nameRes">Encuesta: %survey_name% Persona que respondió: %user_name% Esto es lo que %user_name% %comm_url% tiene que decir con respecto a %survey_name%:</msg>
   <msg key="lt_Survey_survey_nameRes_1">Encuesta: %survey_name% Persona que respondió: %user_name% Esto es lo que %user_name% %comm_url% tiene que decir con respecto a %survey_name%:</msg>
   <msg key="lt_The_Above_Description">La descripcion anterior es</msg>
@@ -161,11 +161,11 @@
   <msg key="lt_The_response_to_ques_n">La respuesta a %question_text% tiene que ser un número. Tu respuesta fue %response_value%.</msg>
   <msg key="lt_There_has_been_1_resp">Ha habido 1 respuesta.</msg>
   <msg key="lt_There_have_been_n">Han habido %n_responses% respuestas.</msg>
-  <msg key="lt_There_isare_n_resp">Hay %isare% %n_responses% %resp% para esta pregunta. Editar una pregunta con contestaciones no es recomendable. No quedara ninguna copia de la pregunta original. Proceda con cuidado. </msg>
+  <msg key="lt_There_isare_n_resp">Hay %isare% %n_responses% %resp% a esta pregunta. Editar una pregunta con respuestas no es recomendable. No quedara ninguna copia de la pregunta original. Proceda con cuidado. </msg>
   <msg key="lt_There_was_an_error_wh">Huebo un error mientras tratábamos de borrar la pregunta:</msg>
-  <msg key="lt_This_is_a_multiple_ch">Esta es una encuesta de opción múltiple donde cada respuesta puede tener valor en una o mas variables. Esta encuesta también permite ejecutar código arbitrario (por ejemplo redirectar) condicional en el punteo del usuario al final de la encuesta.</msg>
-  <msg key="lt_This_question_has_n">Esta pregunta tiene %n_responses% %response_text% que serán eliminadas si continua. (Nota: Esto no puede restaurarse)</msg>
-  <msg key="lt_This_survey_allows_yo">Esta encuesta le permite especificar el tipo de respuesta requerido. Utilice esta encuesta si quiere permitirle a los usuarios ingresar sus propias respuestas a cambio de escogerlas de una lista. Usted también debería utilizar esta encuesta  si desea mezclar tipos de preguntas, por ejemplo tener respuestas de texto libre y de opción múltiple en la misma encuesta.</msg>
+  <msg key="lt_This_is_a_multiple_ch">Esta es una encuesta de opción múltiple donde cada respuesta puede tener valor en una o mas variables. Esta encuesta también permite ejecutar código arbitrario (por ejemplo redireccionar) condicional en el punteo del usuario al final de la encuesta.</msg>
+  <msg key="lt_This_question_has_n">Esta pregunta tiene %n_responses% %response_text% que serán eliminadas si continua. (Nota: Esto no puede deshacerse.)</msg>
+  <msg key="lt_This_survey_allows_yo">Esta encuesta le permite especificar el tipo de respuesta requerido. Utilice esta encuesta si quiere permitirle a los usuarios ingresar sus propias respuestas en lugar de escogerlas de una lista. Usted también debería utilizar esta encuesta si desea mezclar tipos de preguntas, por ejemplo tener respuestas de texto libre y de opción múltiple en la misma encuesta.</msg>
   <msg key="lt_This_survey_is_not_ed">Esta encuenta no es editable</msg>
   <msg key="lt_This_will_remove_respo">Esto borrará %response_count% respuestas</msg>
   <msg key="lt_to_the_survey_index_p">a la página índice de la encuesta.</msg>
@@ -173,11 +173,11 @@
   <msg key="lt_Users_may_not_edit_th">Los usuarios no pueden editar sus respuestas</msg>
   <msg key="lt_Valid_Resposnes_enter">Respuestas Válidad (una opción por línea)</msg>
   <msg key="lt_You_did_not_enter_a_l">No ingresaste una lista de respuestas/opciones válidas</msg>
-  <msg key="lt_You_did_not_enter_a_q">No ingresaste una pregunta.</msg>
-  <msg key="lt_You_didnt_respond_to_">No respondiste todas las secciones requeridas. Te faltaron:</msg>
-  <msg key="lt_You_have_already_comp">Ya habias terminado esta encuesta</msg>
+  <msg key="lt_You_did_not_enter_a_q">No ingresó una pregunta.</msg>
+  <msg key="lt_You_didnt_respond_to_">No respondió todas las secciones requeridas. Te faltaron:</msg>
+  <msg key="lt_You_have_already_comp">Ya había terminado esta encuesta</msg>
   <msg key="lt_Your_file_is_zero-len">Su archivo es de longitud cero. Usted intentaba cargar un archivo de longitud cero, un archivo que no existe, o hubo algún problema durante la transferencia.</msg>
-  <msg key="lt_Your_response________">Respondiste en %responses.pretty_submission_date%</msg>
+  <msg key="lt_Your_response________">Respondió en %responses.pretty_submission_date%</msg>
   <msg key="make">hacer</msg>
   <msg key="Mean">Significa:</msg>
   <msg key="Medium">Mediana</msg>
@@ -197,7 +197,7 @@
   <msg key="non-">no-</msg>
   <msg key="Not_Found">No encontrado</msg>
   <msg key="Number">Número</msg>
-  <msg key="One_Respondent">Un Respondiente</msg>
+  <msg key="One_Respondent">Una persona respondió</msg>
   <msg key="One_Response">Una Respuesta</msg>
   <msg key="One_Survey_name">Una Encuesta: %name%</msg>
   <msg key="oops">oops</msg>
@@ -211,7 +211,7 @@
   <msg key="Question_Text">Pregunta de Texto</msg>
   <msg key="Questions">Preguntas</msg>
   <msg key="Required">Requerido?</msg>
-  <msg key="Respondents">Respondientes</msg>
+  <msg key="Respondents">personas que respondieron</msg>
   <msg key="response">respuesta</msg>
   <msg key="Response_Not_Found">Respuesta No Encontrada</msg>
   <msg key="Response_Options">Opciones de Respuesta:</msg>
@@ -239,7 +239,7 @@
   <msg key="Surveys">Encuestas</msg>
   <msg key="table">tabla</msg>
   <msg key="Text">Texto</msg>
-  <msg key="This_survey_is">Esta encuesta esta</msg>
+  <msg key="This_survey_is">Esta encuesta es</msg>
   <msg key="True_or_False">Verdadero o Falso</msg>
   <msg key="TrueFalse">Verdadero/Falso</msg>
   <msg key="Type_of_Response">Tipo de Respuesta</msg>

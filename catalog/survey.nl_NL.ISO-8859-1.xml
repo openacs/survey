@@ -169,7 +169,7 @@ Hier is wat %user_name% &lt;%comm_url%&gt; zei in reactie op %survey_name%: </ms
   <msg key="lt_There_has_been_1_resp">Er is 1 antwoord gegeven.</msg>
   <msg key="lt_There_have_been_n">Er zijn %n_responses% antwoorden gegeven.</msg>
   <msg key="lt_There_isare_n_resp">Er %isare% %n_responses% %resp% op deze vraag. 
-Het wordt afgeraden om vragen te wijzigen waar al antwoorden op zijn gegeven. De orginele vraag wordt definitief verwijderd. 
+Het wordt afgeraden om vragen te bewerken waar al antwoorden op zijn gegeven. De orginele vraag wordt definitief verwijderd. 
 U bent gewaarschuwd.</msg>
   <msg key="lt_There_was_an_error_wh">Er is een fout opgetreden tijdens het verwijderen van de vraag: </msg>
   <msg key="lt_This_is_a_multiple_ch">Dit is een meerkeuze vragenlijst waar ieder antwoord kan worden gescoord op een of meer variabelen. Deze vragenlijst staat toe om een willekeurige code uit te voeren (bijvoorbeeld voor een redirect), afhankelijk van de score van de gebruiker aan het eind van het onderzoek.</msg>
