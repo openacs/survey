@@ -4,6 +4,6 @@
 <property name="title">#survey.lt_survey_name_Responden#</property>
 <property name="context_bar">@context_bar;noquote@</property>
 
-@respondents_table@
+@respondents_table;noquote@
 
 

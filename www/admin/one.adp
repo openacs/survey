@@ -84,7 +84,7 @@
     <tr class="even">
   </else>
 <td colspan="3">
-  <blockquote>@questions.question_display@</blockquote>
+  <blockquote>@questions.question_display;noquote@</blockquote>
 </td></tr>
 <if @questions.rownum@ eq @questions:rowcount@>
   <if @questions.rownum@ odd>

@@ -9,7 +9,7 @@
 @response_sentence@
 
 <ul>
-@results@
+@results;noquote@
 </ul>
 
 

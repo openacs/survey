@@ -24,7 +24,7 @@
       @responses.original_p@>#survey.Original#</if><else>#survey.Edited#</a></else>
       #survey.lt_Response_on_responses#</strong> 
 	  <br />
-@responses.response_display@
+@responses.response_display;noquote@
 
 
 </group>

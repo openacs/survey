@@ -22,7 +22,7 @@
 	      </td>
             </tr>
             <tr class="odd" bgcolor="#f4f4f4">
-              <td>@responses.answer_summary@</td>
+              <td>@responses.answer_summary;noquote@</td>
             </tr>
           </table>
         </multiple>
