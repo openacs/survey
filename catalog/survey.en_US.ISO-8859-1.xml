@@ -128,7 +128,6 @@ Responses:</msg>
   <msg key="lt_Multiple_Choice_Drop_">Multiple Choice (Drop Down, single answer allowed)</msg>
   <msg key="lt_Multiple_Choice_Radio">Multiple Choice (Radio Buttons, single answer allowed)</msg>
   <msg key="lt_No_Responses_for_surv">No Responses for: %survey_info.name%</msg>
-  <msg key="lt_No_Responses_for_surv_1">No Responses for %survey_info.name%</msg>
   <msg key="lt_on_responsessubmissio">on %responses.submission_date% | %responses.response%</msg>
   <msg key="lt_One_Line_Answer_Text_">One Line Answer (Text Field)</msg>
   <msg key="lt_One_Respondent_first_">One Respondent: %first_names% %last_name%</msg>
