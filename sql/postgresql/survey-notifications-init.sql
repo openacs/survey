@@ -1,4 +1,3 @@
--- daveb: not tested, this will probably break on postgresql
 -- Survey
 --
 -- -- @author dave@thedesignexperience.org, ben@openforce.biz
