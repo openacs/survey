@@ -169,7 +169,7 @@ db_transaction {
  values (:response_id, :question_id, :response_value)"
 		    }
 		}  else {
-		    if { [empty_string_p $response_value] } {
+		    if { [empty_string_p $response_value] || [empty_string_p [lindex $response_value 0]] } {
 			set response_value [db_null]
 		    }
 
