@@ -15,7 +15,7 @@
         <description format="text/plain">Expanded functionality survey package derived from simple-survey.</description>
 
         <provides url="survey" version="0.2d"/>
-        <requires url="notifications" version="5.0.0a5"/>
+        <requires url="notifications" version="5.0.0b4"/>
 
         <callbacks>
         </callbacks>
