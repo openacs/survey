@@ -7,7 +7,7 @@
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <form enctype="multipart/form-data" >
         <tr>
-          <td class="tabledata">@description@</td>
+          <td class="tabledata">@description;noquote@</td>
         </tr>
 	<tr>
 	  <td class="tabledata"><span style="color: #f00;">*</span> #survey.lt_denotes_a_required_qu#</td>                
