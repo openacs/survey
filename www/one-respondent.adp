@@ -22,7 +22,7 @@
             href="respond?survey_id=@survey_id@&response_id=@responses.response_id@">edit this response</a>]</if>
 	      </td>
             </tr>
-            <tr class="z_light" bgcolor="#f4f4f4">
+            <tr class="odd" bgcolor="#f4f4f4">
               <td>@responses.answer_summary@</td>
             </tr>
           </table>

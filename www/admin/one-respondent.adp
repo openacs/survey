@@ -14,7 +14,7 @@
 
 <multiple name="responses">
 
-    <tr class="z_light"><td>
+    <tr class="odd"><td>
 <group column="initial_response">
 
 <if @responses.original_p@><a href="response-delete?response_id=@response_id@">
@@ -30,7 +30,7 @@
 </group>
 </td>
 </tr>
-<tr class="z_light"><td><hr class="main_color"></td></tr>
+<tr class="odd"><td><hr class="main_color"></td></tr>
 </multiple>
 </table>
 
