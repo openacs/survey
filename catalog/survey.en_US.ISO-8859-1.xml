@@ -207,7 +207,7 @@ and free text answer questions in the same survey.</msg>
   <msg key="lt_You_have_already_comp">You have already completed this survey</msg>
   <msg key="lt_Your_file_is_zero-len">Your file is zero-length. Either you attempted to upload a zero length file, a file which does not exist, or something went wrong during the transfer.</msg>
   <msg key="lt_Your_response________">Your response
-            on %responses.pretty_submission_date%</msg>
+            on %responses.pretty_submission_date_ansi%</msg>
   <msg key="make">make</msg>
   <msg key="Mean">Mean:</msg>
   <msg key="Medium">Medium</msg>
