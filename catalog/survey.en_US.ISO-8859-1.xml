@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<message_catalog package_key="survey" package_version="0.1d" locale="en_US" charset="ISO-8859-1">
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<message_catalog package_key="survey" package_version="0.2d" locale="en_US" charset="ISO-8859-1">
 
   <msg key="-__Created_by">-  Created by</msg>
   <msg key="_on_creation_date">, on %creation_date%</msg>
@@ -128,6 +128,7 @@ Responses:</msg>
   <msg key="lt_Multiple_Choice_Drop_">Multiple Choice (Drop Down, single answer allowed)</msg>
   <msg key="lt_Multiple_Choice_Radio">Multiple Choice (Radio Buttons, single answer allowed)</msg>
   <msg key="lt_No_Responses_for_surv">No Responses for: %survey_info.name%</msg>
+  <msg key="lt_No_Responses_for_surv_1">No Responses for %survey_info.name%</msg>
   <msg key="lt_on_responsessubmissio">on %responses.submission_date% | %responses.response%</msg>
   <msg key="lt_One_Line_Answer_Text_">One Line Answer (Text Field)</msg>
   <msg key="lt_One_Respondent_first_">One Respondent: %first_names% %last_name%</msg>
@@ -206,7 +207,7 @@ and free text answer questions in the same survey.</msg>
   <msg key="lt_You_have_already_comp">You have already completed this survey</msg>
   <msg key="lt_Your_file_is_zero-len">Your file is zero-length. Either you attempted to upload a zero length file, a file which does not exist, or something went wrong during the transfer.</msg>
   <msg key="lt_Your_response________">Your response
-            on %responses.pretty_submission_date_ansi%</msg>
+            on %responses.pretty_submission_date%</msg>
   <msg key="make">make</msg>
   <msg key="Mean">Mean:</msg>
   <msg key="Medium">Medium</msg>
