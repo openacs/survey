@@ -555,3 +555,4 @@ select qr.*
   from survey_question_responses qr, survey_responses_latest r
  where qr.response_id=r.response_id;  
 
+\i survey-notifications-init.sql
