@@ -185,7 +185,7 @@
   <msg key="No">Nein</msg>
   <msg key="No_data_found">Es wurden keine Daten gefunden.</msg>
   <msg key="No_Responses">Keine Rückantworten vorhanden</msg>
-  <msg key="No_surveys_active">Keine aktivierten Evaluationen vorhanden</msg>
+  <msg key="No_surveys_active">Keine aktivierten Komplexaufgaben vorhanden</msg>
   <msg key="non-">nicht </msg>
   <msg key="Not_Found">Nicht gefunden</msg>
   <msg key="Number">Zahl</msg>
@@ -228,7 +228,7 @@
   <msg key="Survey_Name">Bezeichnung der Evaluation:</msg>
   <msg key="Survey_Name_1">Bezeichnung der Evaluation</msg>
   <msg key="Survey_Name_name">Bezeichnung der Evaluation:</msg>
-  <msg key="Surveys">Evaluationen</msg>
+  <msg key="Surveys">Komplexaufgaben</msg>
   <msg key="table">Tabelle</msg>
   <msg key="Text">Text</msg>
   <msg key="This_survey_is">Diese Evaluation ist</msg>

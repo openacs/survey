@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<message_catalog package_key="survey" package_version="0.2d" locale="AR_LB" charset="utf-8">
+<message_catalog package_key="survey" package_version="0.2d" locale="ar_LB" charset="utf-8">
 
   <msg key="-__Created_by">- خَلقَ مِنْ قِبَلْ</msg>
   <msg key="_on_creation_date">، على %creation_date%</msg>
@@ -26,7 +26,7 @@
   <msg key="Copy_this_survey">إنسخْ هذا الإستطلاع</msg>
   <msg key="Copy_title_name">إنسخ: %title_name%</msg>
   <msg key="Could_not_find_user">لم يكن من الممكن أن يجد المستخدم</msg>
-  <msg key="Create_Survey">إخلقْ الإستطلاع</msg>
+  <msg key="Create_Survey">انشئ الإستطلاع</msg>
   <msg key="CSV_Export">يصدّر سي إس في</msg>
   <msg key="CSV_file">ملفُ سي إس في</msg>
   <msg key="Database_Error">خطأُ قاعدةِ بيانات</msg>
@@ -42,7 +42,7 @@
   <msg key="Description">الوصف:</msg>
   <msg key="Description_1">الوصف</msg>
   <msg key="disable">عطّلْ</msg>
-  <msg key="disabled">(معطل)</msg>
+  <msg key="disabled">- معطل</msg>
   <msg key="Display_Options">خياراتُ عرضِ:</msg>
   <msg key="Edit">حررْ</msg>
   <msg key="Edit_Description">حررْ الوصف</msg>
@@ -62,12 +62,13 @@
   <msg key="From_1">مِنْ</msg>
   <msg key="General_Survey">استطلاع عام</msg>
   <msg key="Here_is_what">هنا ماذا</msg>
-  <msg key="inactive">[خامل]</msg>
+  <msg key="inactive">-  خامل-</msg>
   <msg key="Integer">عدد الصّحيح</msg>
   <msg key="is">يكون</msg>
   <msg key="Large">كبير</msg>
   <msg key="Last_Name">الشهرة</msg>
   <msg key="limit_to_one">حدّدْ إلى واحد</msg>
+  <msg key="list">لائحة</msg>
   <msg key="lt_-_Lets_you_use_this_s">- يَتْركُك تَستعملُ هذا الإستطلاع كنموذج لخَلْق لإستطلاع جديد. </msg>
   <msg key="lt_-_Removes_all_questio">- أزل كُلّ الأسئلة والردود </msg>
   <msg key="lt_A_database_error_occu">خطأ في قاعدةِ البيانات حصل عند محاولة تبديل أسئلتِكَ. هنا الخطأَ: </msg>
@@ -77,7 +78,7 @@
   <msg key="lt_Awaiting_a_response_n">إنتظار ردّ: %n_awaiting users% إنظر هؤلاء المستعملين. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; أغرق هؤلاء المستعملين. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; المجموعة الكاملة: %n_members% شاهد هؤلاء المستعملين. &lt;%community_url%/survey/admin/respondents?response_type=all&gt; أغرق هؤلاء المستعملين. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; الردود:</msg>
   <msg key="lt_Cancel_and_return_to_">ألغِ وعُدْ الردود الإستطلاع</msg>
   <msg key="lt_Cancel_and_return_to__1">ألغِ وعُدْ الردود الإدارةِ</msg>
-  <msg key="lt_Completely_delete">إحذف بالكامل %user_name_var% رده منذ %response_date_var% (لاحظ: هذا لا يمكن أن يلغى)</msg>
+  <msg key="lt_Completely_delete">إحذف بالكامل %user_name_var% رده منذ %response_date_var% -لاحظ: هذا لا يمكن أن يلغى-</msg>
   <msg key="lt_Confirm_Survey_Detail">أَكّدْ تفاصيلَ الإستطلاع</msg>
   <msg key="lt_Copying_a_survey_will">نسخ إستطلاعاً سيخلق إستطلاعاً جديد بنسخة عن كلّ الأسئلة.&lt;br /&gt; ولا واحد من بيانات الردّ ستضاعف.  </msg>
   <msg key="lt_Could_not_find_a_surv">لم يكن من الممكن أن نجد سؤال الإستطلاع</msg>
@@ -102,13 +103,13 @@
   <msg key="lt_Modify_a_Questions_Te">عدّلْ نَصَّ سؤالِ</msg>
   <msg key="lt_Modify_previous_respo">عدّلْ رَدّاً سابقاً</msg>
   <msg key="lt_Modify_Question_Respo">عدّلْ ردودَ الأسئلة </msg>
-  <msg key="lt_Multiple_Choice_Check">اختيار من متعدّد ( تشيكبوكس, الإجابات المتعدّدة سمحت )</msg>
-  <msg key="lt_Multiple_Choice_Drop_">اختيار من متعدّد ( الانخفاض إلى الأسفل, مسموح بجواب واحد)</msg>
-  <msg key="lt_Multiple_Choice_Radio">المتعدّد الإختيارات (أزرار إذاعية، مسموح بجواب واحد) </msg>
+  <msg key="lt_Multiple_Choice_Check">اختيار من متعدّد - تشيكبوكس, الإجابات المتعدّدة سمحت </msg>
+  <msg key="lt_Multiple_Choice_Drop_">اختيار من متعدّد - الانخفاض إلى الأسفل, مسموح بجواب واحد</msg>
+  <msg key="lt_Multiple_Choice_Radio">المتعدّد الإختيارات - أزرار إذاعية، مسموح بجواب واحد </msg>
   <msg key="lt_No_Responses_for_surv">لا ردود لـ: %survey_info.name%</msg>
   <msg key="lt_No_Responses_for_surv_1">لا ردود لـ %survey_info.name%</msg>
   <msg key="lt_on_responsessubmissio">في %responses.response% | %responses.submission_date% </msg>
-  <msg key="lt_One_Line_Answer_Text_">جوابُ ذو خَطِّ واحد (حقلِ نَصِّ) </msg>
+  <msg key="lt_One_Line_Answer_Text_">جوابُ ذو خَطِّ واحد - حقلِ نَصِّ </msg>
   <msg key="lt_One_Respondent_first_">مستجيب واحد: %last_name% %first_names% </msg>
   <msg key="lt_One_Survey_survey_inf">أستطلاع واحد: %survey_info.name%</msg>
   <msg key="lt_People_who_answered_r">الناس الذين أجابوا %response_text%</msg>
@@ -129,7 +130,7 @@
   <msg key="lt_Section_section_id_do">القسم %section_id% غير موجود</msg>
   <msg key="lt_Send_Mail_Re_survey_n">أرسل إعادة بريد: %survey_name%</msg>
   <msg key="lt_Survey_Administration">إدارة الإستطلاع</msg>
-  <msg key="lt_Survey_Administration_1">إدارة إستطلاع: أضفْ سؤالاً (تابع)</msg>
+  <msg key="lt_Survey_Administration_1">إدارة إستطلاع: أضفْ سؤالاً - تابع</msg>
   <msg key="lt_Survey_Administration_2">إدارة الإستطلاع: أضف إستطلاع جديد</msg>
   <msg key="lt_survey_infoname_New_Q">%survey_info.name%: السؤال الجديد</msg>
   <msg key="lt_survey_name_Edit_Desc">%survey_name%: وصف تحرير</msg>
@@ -154,15 +155,15 @@
   <msg key="lt_There_have_been_n">كان هناك %n_responses% الردود</msg>
   <msg key="lt_There_isare_n_resp">هناك %resp% %n_responses% %isare% إلى هذا السؤال. تحرير سؤال بالردود ليس موصّى بها. لا سجلّ السؤال الأصلي سيبقى. تقدّم بحذر.</msg>
   <msg key="lt_There_was_an_error_wh">كان هناك خطأ أثناء محاولة حذف السّؤال :</msg>
-  <msg key="lt_This_is_a_multiple_ch">هذا إستطلاع متعدّد الإختيارات حيث كلّ جواب يمكن أن يحرز على واحد أو أكثر متغيّرات. هذا الإستطلاع أيضا يسمح لك بتنفيذ رمز إعتباطي (ومثال على ذلك: ليعيد توجيه) مشروط بنتيجة المستعمل في نهاية الإستطلاع.</msg>
-  <msg key="lt_This_question_has_n">هذا السؤال له %response_text% %n_responses% الذي سيحذف إذا إستمريت. (ملاحظة: هذا لا يمكن أن يلغي.)</msg>
+  <msg key="lt_This_is_a_multiple_ch">هذا إستطلاع متعدّد الإختيارات حيث كلّ جواب يمكن أن يحرز على واحد أو أكثر متغيّرات. هذا الإستطلاع أيضا يسمح لك بتنفيذ رمز إعتباطي - ومثال على ذلك: ليعيد توجيه- مشروط بنتيجة المستعمل في نهاية الإستطلاع.</msg>
+  <msg key="lt_This_question_has_n">هذا السؤال له %response_text% %n_responses% الذي سيحذف إذا إستمريت. - ملاحظة: هذا لا يمكن أن يلغي.</msg>
   <msg key="lt_This_survey_allows_yo">هذا الإستطلاع يسمح لك بتحديد نوع الردّ المطلّوب. إستعمل هذا الإستطلاع إذا تريد سماح لمستعملون بدخول أجوبتهم بدلا من الإختيار من قائمة. أنت يجب أن تستعمل هذا الإستطلاع أيضا إذا ترغب خلط أنواع الأسئلة، ومثال على ذلك: له متعدّد الإختيارات ونص حرّ  لجواب الأسئلة في نفس الإستطلاع.</msg>
   <msg key="lt_This_survey_is_not_ed">هذا الإستطلاع غير قابل للتّحرير</msg>
   <msg key="lt_This_will_remove_respo">هذا سيزيل %response_count% ردود</msg>
   <msg key="lt_to_the_survey_index_p">إلى صفحة فهرس الإستطلاع.</msg>
   <msg key="lt_Users_may_edit_their_">المستعملون قَدْ يُحرّرونَ ردودَهم</msg>
   <msg key="lt_Users_may_not_edit_th">المستعملون قَدْ لا يُحرّرونَ ردودَهم</msg>
-  <msg key="lt_Valid_Resposnes_enter">الرّدود الصّحيحة ( ادخل اختيارًا واحدًا لكلّ سطر )</msg>
+  <msg key="lt_Valid_Resposnes_enter">الرّدود الصّحيحة - ادخل اختيارًا واحدًا لكلّ سطر </msg>
   <msg key="lt_You_did_not_enter_a_l">لَمْ تَدْخلْ قائمةَ الردودِ الصحيحةِ / إختياراتِ.</msg>
   <msg key="lt_You_did_not_enter_a_q">لَمْ تَدْخلْ سؤالَ.</msg>
   <msg key="lt_You_didnt_respond_to_">لَمْ تَرْددْ على كُلّ الأقسام المطلوبة. قفزت : </msg>
@@ -178,6 +179,7 @@
   <msg key="Move_Down">تحرّكْ الى الأسفل</msg>
   <msg key="Move_Up">تحرّكْ الى الأعلى</msg>
   <msg key="Multiple_Choice">متعدّد الإختيارات</msg>
+  <msg key="multiple_responses">ردود متعددة</msg>
   <msg key="Name_copy">الاسم</msg>
   <msg key="New_Survey">الإستطلاع الجديد</msg>
   <msg key="No">لا</msg>
@@ -192,6 +194,7 @@
   <msg key="One_Survey_name">إستطلاع واحد: %name%</msg>
   <msg key="oops">أوبس</msg>
   <msg key="Original">أصلي</msg>
+  <msg key="paragraph">فقرة</msg>
   <msg key="Plain_Text">النص الواضح</msg>
   <msg key="Preformatted_Text">النصّ المهيّأ مسبقا</msg>
   <msg key="Presentation_Type">نوع تقديم</msg>
@@ -226,6 +229,7 @@
   <msg key="Survey_Name_1">إسم الإستطلاع</msg>
   <msg key="Survey_Name_name">اسم الإستطلاع: %name%</msg>
   <msg key="Surveys">الإستطلاعات</msg>
+  <msg key="table">جدول</msg>
   <msg key="Text">النص</msg>
   <msg key="This_survey_is">هذا الإستطلاع</msg>
   <msg key="True_or_False">صح أو خطأ</msg>
