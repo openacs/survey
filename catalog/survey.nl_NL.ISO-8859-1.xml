@@ -89,11 +89,11 @@ Bekijk deze gebruikers. &lt;%community_url%/survey/admin/respondents?response_ty
 Stuur deze gebruikers een mailing. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; 
 
 Antwoorden: </msg>
-  <msg key="lt_Cancel_and_return_to_">Annuleren en terugkeren naar antwoorden op de vragenlijst.</msg>
-  <msg key="lt_Cancel_and_return_to__1">Annuleren en terugkeren naar de vragenlijst administratie.</msg>
+  <msg key="lt_Cancel_and_return_to_">Annuleren en naar de antwoorden op de vragenlijst terugkeren.</msg>
+  <msg key="lt_Cancel_and_return_to__1">Annuleren en naar de vragenlijst administratie terugkeren.</msg>
   <msg key="lt_Completely_delete">Het antwoord van %user_name_var% op %response_date_var% volledig wissen? (Let op: Dit kan niet ongedaan gemaakt worden)</msg>
   <msg key="lt_Confirm_Survey_Detail">Details van vragenlijst bevestigen</msg>
-  <msg key="lt_Copying_a_survey_will">Het kopiëren van een vragenlijst maakt een nieuwe vragenlijst aan en kopieert alle vragen. &lt;BR&gt; De antwoorden worden niet gekopieerd.</msg>
+  <msg key="lt_Copying_a_survey_will">Bij het kopiëren van een vragenlijst wordt een nieuwe vragenlijst aangemaakt en worden alle vragen gekopieerd.&lt;BR&gt; De antwoorden worden echter niet gekopieerd.</msg>
   <msg key="lt_Could_not_find_a_surv">Er werd geen vraag gevonden</msg>
   <msg key="lt_Could_not_find_the_re">Het antwoord kon niet worden gevonden</msg>
   <msg key="lt_Couldnt_find_attachment">De bijlage werd niet gevonden. Er kon geen bijlage worden gevonden met response_id %response_id%, question_id %question_id%.</msg>
@@ -102,14 +102,14 @@ Antwoorden: </msg>
   <msg key="lt_Deleting_this_surve">Het verwijderen van deze vragenlijst betekent dat alle %questions_count% vragen en alle %responses_count% antwoorden van deze vragenlijst ook worden verwijderd!</msg>
   <msg key="lt_denotes_a_required_qu">betekent een verplichte vraag</msg>
   <msg key="lt_Description_must_be_l">Beschrijving mag niet meer dan 4000 tekens zijn</msg>
-  <msg key="lt_Edit_and_submit_to_ch">De naam van deze vragenlijst wijzigen via bewerken/verzenden:</msg>
+  <msg key="lt_Edit_and_submit_to_ch">De naam van deze vragenlijst kan via bewerken/verzenden worden veranderd:</msg>
   <msg key="lt_Essay_Answer_Text_Are">Essay-antwoord (tekstvak)</msg>
-  <msg key="lt_Everyone_eligible_to_">Iedereen die deze vragenlijst mag af te nemen</msg>
+  <msg key="lt_Everyone_eligible_to_">Iedereen die deze vragenlijst mag af nemen</msg>
   <msg key="lt_Everyone_who_has_alre">Iedereen die deze vragenlijst al gedaan heeft</msg>
   <msg key="lt_Everyone_who_has_not_">Iedereen die deze vragenlijst nog niet gedaan heeft</msg>
   <msg key="lt_For_Multiple_Choicebr">Voor meerkeuze-vraag&lt;br /&gt;Vul een lijst van geldige antwoorden in&lt;br /&gt;(geef één keuze per regel)</msg>
   <msg key="lt_had_to_say_in_respons">zei in antwoord op %survey_name%</msg>
-  <msg key="lt_Here_is_how_your_surv">De vragenlijst er zo uit zien:</msg>
+  <msg key="lt_Here_is_how_your_surv">De vragenlijst zal er zo uit zien:</msg>
   <msg key="lt_img_srcgraphicsadming">&lt;img src='graphics/admin.gif' border=0 alt='Vragenlijsten beheren'&gt;</msg>
   <msg key="lt_img_srcgraphicsadming_1">&lt;img src='graphics/admin.gif' border=0 alt='Beheren'&gt;</msg>
   <msg key="lt_Main_Survey_Administr">Vragenlijst hoofdadministratie </msg>
@@ -127,7 +127,7 @@ Antwoorden: </msg>
   <msg key="lt_One_Survey_survey_inf">Eén Vragenlijst: %survey_info.name%</msg>
   <msg key="lt_People_who_answered_r">Personen die %response_text% geantwoord hebben</msg>
   <msg key="lt_Please_go_back_using_">Ga terug met behulp van de browser</msg>
-  <msg key="lt_Please_make_sure_your">Zorg dat de datums correct zijn.</msg>
+  <msg key="lt_Please_make_sure_your">De datums moeten geldige waarden hebben.</msg>
   <msg key="lt_Presentation_Alignmen">Presentatie Uitlijning </msg>
   <msg key="lt_Preview_One_Survey_na">Voorvertoning één vragenlijst: %name%</msg>
   <msg key="lt_Previous_response_on_">Vorig antwoord op: %surveys.creation_date%</msg>
@@ -174,12 +174,12 @@ U bent gewaarschuwd.</msg>
   <msg key="lt_There_was_an_error_wh">Er is een fout opgetreden tijdens het verwijderen van de vraag: </msg>
   <msg key="lt_This_is_a_multiple_ch">Dit is een meerkeuze vragenlijst waar ieder antwoord kan worden gescoord op een of meer variabelen. Deze vragenlijst staat toe om een willekeurige code uit te voeren (bijvoorbeeld voor een redirect), afhankelijk van de score van de gebruiker aan het eind van het onderzoek.</msg>
   <msg key="lt_This_question_has_n">Deze vraag heeft %n_responses% %response_text% die verwijderd zullen worden als wordt doorgegaan. (Waarschuwing: dit kan niet ongedaan gemaakt worden)</msg>
-  <msg key="lt_This_survey_allows_yo">Deze vragenlijst geeft de mogelijkheid om zelf het antwoordtype aan te geven. Gebruik deze vragenlijst als gebruikers de mogelijkheid moeten hebben om hun eigen antwoord te formuleren in plaats van de kiezen uit een lijst. Ook kan de vragenlijst meerdere antwoordtypes bevatten bijvoorbeeld vrije tekst en meerkeuze in hetzelfde onderzoek.</msg>
-  <msg key="lt_This_survey_is_not_ed">Dit onderzoek kan niet gewijzigd worden.</msg>
+  <msg key="lt_This_survey_allows_yo">Deze vragenlijst geeft vrijheid om het antwoordtype te kiezen. Gebruik deze vragenlijst als gebruikers vrije tekst moeten kunnen invullen in plaats van te kiezen uit een lijst. In deze vragenlijst kunnen meerdere antwoordtypes worden gebruikt, bijvoorbeeld zowel vrije tekst als meerkeuze vragen.</msg>
+  <msg key="lt_This_survey_is_not_ed">Dit onderzoek kan niet bewerkt worden.</msg>
   <msg key="lt_This_will_remove_respo">%response_count% antwoorden zullen hierdoor worden verwijderd</msg>
   <msg key="lt_to_the_survey_index_p">naar de onderzoeksindexpagina</msg>
-  <msg key="lt_Users_may_edit_their_">Gebruikers kunnen hun antwoorden wijzigen</msg>
-  <msg key="lt_Users_may_not_edit_th">Gebruikers kunnen hun antwoorden niet wijzigen</msg>
+  <msg key="lt_Users_may_edit_their_">Gebruikers kunnen hun antwoorden bewerken</msg>
+  <msg key="lt_Users_may_not_edit_th">Gebruikers kunnen hun antwoorden niet bewerken</msg>
   <msg key="lt_Valid_Resposnes_enter">Valide antwoorden (een keuze per regel)</msg>
   <msg key="lt_You_did_not_enter_a_l">Er werd geen lijst met correcte antwoorden/keuzes ingevuld.</msg>
   <msg key="lt_You_did_not_enter_a_q">Er werd geen vraag ingevuld.</msg>
