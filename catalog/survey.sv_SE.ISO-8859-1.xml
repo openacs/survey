@@ -15,6 +15,8 @@
   <msg key="are">är</msg>
   <msg key="Below_the_question">Under frågan</msg>
   <msg key="Beside_the_question">Bredvid frågan</msg>
+  <msg key="Boolean">Boolean</msg>
+  <msg key="By_user">Användarvis</msg>
   <msg key="Choose_a_Survey_Type">Välj en enkättyp</msg>
   <msg key="Choose_Survey_Type">Välj en enkättyp</msg>
   <msg key="Choose_Type">Välj typ</msg>
@@ -168,6 +170,7 @@
   <msg key="lt_You_have_already_comp">Du har redan fyllt i hela denna enkät.</msg>
   <msg key="lt_Your_file_is_zero-len">Antingen är din fil av nollstorlek eller så försökte du ladda upp en fil som inte finns - eller så gick något fel under överföringen. </msg>
   <msg key="lt_Your_response________">Ditt svar %responses.pretty_submission_date%</msg>
+  <msg key="make">gör</msg>
   <msg key="Mean">Medelvärde:</msg>
   <msg key="Medium">Medianvärde</msg>
   <msg key="Message_Subject">Meddelandets ämne</msg>
@@ -217,6 +220,7 @@
   <msg key="Short_Text">Kort text</msg>
   <msg key="Size">Storlek</msg>
   <msg key="Small">Liten</msg>
+  <msg key="Standard_Dev">Standardavvikelse</msg>
   <msg key="Submit">Skicka</msg>
   <msg key="Submit_response">Skicka svaret</msg>
   <msg key="Summary">Summering</msg>

@@ -68,6 +68,7 @@
   <msg key="Large">大的</msg>
   <msg key="Last_Name">姓</msg>
   <msg key="limit_to_one">限一人</msg>
+  <msg key="list">列表</msg>
   <msg key="lt_-_Lets_you_use_this_s">——用此问卷做模板，创建新问卷。</msg>
   <msg key="lt_-_Removes_all_questio">——删除所有问题及回应</msg>
   <msg key="lt_A_database_error_occu">交换问题时发生数据库错误。错误如下：</msg>
@@ -145,8 +146,8 @@
   <msg key="lt_Survey_section_id_does">问卷%section_id%不存在</msg>
   <msg key="lt_Survey_survey_id_do_no">问卷%survey_id不存在</msg>
   <msg key="lt_Survey_survey_id_does">问卷%survey_id不存在</msg>
-  <msg key="lt_Survey_survey_nameRes">对不起，%survey_name%回答者：%user_name%这里是%user_name% %comm_url%对%survey_name:%的应答：</msg>
-  <msg key="lt_Survey_survey_nameRes_1">问卷：%survey_name%回答者：%user_name%这里是%user_name% %comm_url%对%survey_name:%的应答：</msg>
+  <msg key="lt_Survey_survey_nameRes">对不起，%survey_name%回答者：%user_name%这里是%user_name% %comm_url%对%survey_name%:的应答：</msg>
+  <msg key="lt_Survey_survey_nameRes_1">问卷：%survey_name%回答者：%user_name%这里是%user_name% %comm_url%对%survey_name%:的应答：</msg>
   <msg key="lt_The_Above_Description">上述描述是</msg>
   <msg key="lt_The_response_to_ques_i">对%question_text%的应答必须是整数。您的回答是response_value%。</msg>
   <msg key="lt_The_response_to_ques_n">对%question_text%的应答必须是数字。您的回答是response_value%。</msg>
@@ -178,6 +179,7 @@
   <msg key="Move_Down">向下移动</msg>
   <msg key="Move_Up">向上移动</msg>
   <msg key="Multiple_Choice">多项选择题</msg>
+  <msg key="multiple_responses">多项选择回答</msg>
   <msg key="Name_copy">名称</msg>
   <msg key="New_Survey">新问卷</msg>
   <msg key="No">不是</msg>
@@ -192,6 +194,7 @@
   <msg key="One_Survey_name">问卷：%name%</msg>
   <msg key="oops">oops</msg>
   <msg key="Original">原始的</msg>
+  <msg key="paragraph">段落</msg>
   <msg key="Plain_Text">普通文本</msg>
   <msg key="Preformatted_Text">预格式化文本</msg>
   <msg key="Presentation_Type">陈述类型</msg>
@@ -226,6 +229,7 @@
   <msg key="Survey_Name_1">问卷名称</msg>
   <msg key="Survey_Name_name">问卷名称：%name%</msg>
   <msg key="Surveys">问卷</msg>
+  <msg key="table">表</msg>
   <msg key="Text">文本</msg>
   <msg key="This_survey_is">此问卷是</msg>
   <msg key="True_or_False">True或False</msg>

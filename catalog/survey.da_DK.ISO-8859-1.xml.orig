@@ -68,6 +68,7 @@
   <msg key="Large">Stor</msg>
   <msg key="Last_Name">Efternavn</msg>
   <msg key="limit_to_one">tillad kun én</msg>
+  <msg key="list">liste</msg>
   <msg key="lt_-_Lets_you_use_this_s">- Lader dig bruge dette spørgeskema som en skabelon til at oprette et nyt spørgeskema.</msg>
   <msg key="lt_-_Removes_all_questio">- Sletter alle spørgsmål og svar</msg>
   <msg key="lt_A_database_error_occu">En databasefejl opstod mens vi byttede om på dine spørgsmål. Her er fejlen:</msg>
@@ -194,6 +195,7 @@ Her er hvad %user_name% &lt;%comm_url%&gt; sagde i sin besvarelse af %survey_nam
   <msg key="Move_Down">Flyt Ned</msg>
   <msg key="Move_Up">Flyt Op</msg>
   <msg key="Multiple_Choice">Flere Valgmuligheder</msg>
+  <msg key="multiple_responses">flere svar</msg>
   <msg key="Name_copy">Navn</msg>
   <msg key="New_Survey">Nyt Spørgeskema</msg>
   <msg key="No">Nej</msg>
@@ -208,6 +210,7 @@ Her er hvad %user_name% &lt;%comm_url%&gt; sagde i sin besvarelse af %survey_nam
   <msg key="One_Survey_name">Et Spørgeskema: %name%</msg>
   <msg key="oops">ups</msg>
   <msg key="Original">Oprindelig</msg>
+  <msg key="paragraph">afsnit</msg>
   <msg key="Plain_Text">Ren Tekst</msg>
   <msg key="Preformatted_Text">Præformatteret Tekst</msg>
   <msg key="Presentation_Type">Præsentationstype</msg>
@@ -242,6 +245,7 @@ Her er hvad %user_name% &lt;%comm_url%&gt; sagde i sin besvarelse af %survey_nam
   <msg key="Survey_Name_1">Spørgeskemaets Navn</msg>
   <msg key="Survey_Name_name">Spørgeskemaets Navn: %name%</msg>
   <msg key="Surveys">Spørgeskemaer</msg>
+  <msg key="table">tabel</msg>
   <msg key="Text">Tekst</msg>
   <msg key="This_survey_is">Dette spørgeskema er</msg>
   <msg key="True_or_False">Sand eller Falsk</msg>
