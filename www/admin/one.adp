@@ -29,11 +29,11 @@ Description: </td>
 	]</td></tr>
 	
       
-	<tr class="z_light"><td><if @survey_info.editable_p@> Users may edit their responses</if><else>Users may not edit their respones</else> - [ <a
+	<tr class="z_light"><td><if @survey_info.editable_p@> Users may edit their responses</if><else>Users may not edit their responses</else> - [ <a
 	href="response-editable-toggle?survey_id=@survey_id@">make <if
 	@survey_info.editable_p@>non-</if>editable</a> ]</td></tr>
 
-	<tr class="z_light"><td>Display Opinons: </td><td> @survey_info.display_type@ - <list name="survey_display_types"><if @survey_info.display_type@ ne @survey_display_types:item@>[<a href="survey-display-type-edit?display_type=@survey_display_types:item@&survey_id=@survey_id@">@survey_display_types:item@</a>]</if></list></td></tr>
+	<tr class="z_light"><td>Display Opinions: </td><td> @survey_info.display_type@ - <list name="survey_display_types"><if @survey_info.display_type@ ne @survey_display_types:item@>[<a href="survey-display-type-edit?display_type=@survey_display_types:item@&survey_id=@survey_id@">@survey_display_types:item@</a>]</if></list></td></tr>
 	
       
 <tr class="z_light"><td valign="top" rowspan="2">Email Options:</td><td >@notification_chunk@</td></tr>
