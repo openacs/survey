@@ -555,7 +555,7 @@ begin
 	     survey_responses s
         where
 	object_id = coalesce(s.initial_response_id, s.response_id)
-	and s.response_id = p_response_id
+	and s.response_id = p_response_id;
 return v_user_id;
 end;' language 'plpgsql';
 
