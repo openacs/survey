@@ -3,7 +3,7 @@
 
 <property name="title">One Survey: @survey_info.name@</property>
 <property name="context_bar">@context_bar@</property>
-<p><a href=".">Group Survey Administration</a></p>
+<p><a href=".">Main Survey Administration</a></p>
 <font size=+1><b>@survey_info.name@</b></font> -  Created by </td><td> <a href="@user_link@">@survey_info.creator_name@</a>, on @creation_date@</h2>
 <table class="table-display" cellpadding=2 cellspacing=0>
 	<tr class="z_dark"><td> </td><td> This survey is <if @survey_info.enabled_p@ eq t>@survey_info.enabled_display@</if><else><span style="color: #f00;">@survey_info.enabled_display@</span></else>. - <a href="@toggle_enabled_url@">@toggle_enabled_text@</a></td></tr>
