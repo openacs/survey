@@ -16,7 +16,7 @@
 
 	 <a href="name-edit?survey_id=@survey_id@">#survey.Edit#</a>
 @survey_info.name@<p>
-@survey_info.description@</td>
+@survey_info.description;noquote@</td>
 </tr>
 	<tr class="even"><td>#survey.View_Responses# </td><td >
 	<a
