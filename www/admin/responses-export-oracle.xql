@@ -23,7 +23,7 @@ select
     sq.first_names,
     sq.last_name,
     sq.user_id,
-    to_char(sq.creation_date,'YYYY-MM-DD HH24:MI:SS') as creation_date,
+    to_char(sq.creation_date,'YYYY-MM-DD HH24:MI:SS') as creation_date_ansi,
     resp.boolean_answer,
     resp.number_answer,
     resp.date_answer,
