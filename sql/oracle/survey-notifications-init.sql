@@ -11,9 +11,9 @@ declare
 begin
         -- the notification type impl
        impl_id := acs_sc_impl.new (
-                     'NotificationType',
-                     'survey_response_notif_type',
-                     'survey'
+                     impl_contract_name => 'NotificationType',
+                     impl_name => 'survey_response_notif_type',
+                     impl_owner_name => 'survey'
                   );
 
         v_foo := acs_sc_impl.new_alias (
