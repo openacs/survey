@@ -7,6 +7,7 @@
 <querytext>
 begin
 	perform survey_response__remove(:response_id);
+return null;
 end;
 </querytext>
 </fullquery>
