@@ -48,7 +48,8 @@ select
           r.creation_date,
           q.abstract_data_type,
           q.sort_order
-     from survey_questions q, (select initial_user_id as user_id, creation_date, response_id from survey_responses_latest where survey_id=:survey_id) r, cc_users u, survey_sections ss
+     from survey_questions q, (select initial_user_id as user_id, creation_date, response_id from survey_responses_latest where survey_id=:survey_id) r, (select p.email, u.first_names, u.last_name, u.person_id as user_id from parties
+p, persons u where p.party_id=u.person_id) u, survey_sections ss
      where ss.survey_id=:survey_id
      and q.section_id=ss.section_id
      and r.user_id=u.user_id) sq
