@@ -31,5 +31,10 @@
       </querytext>
 </fullquery>
 
- 
+<fullquery name="already_inserted_p">
+    <querytext>
+	select case when count(*) = 0 then 0 else 1 end from survey_questions where question_id = :question_id
+    </querytext>
+</fullquery>
+
 </queryset>

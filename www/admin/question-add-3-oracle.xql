@@ -33,5 +33,9 @@
       </querytext>
 </fullquery>
 
-
+<fullquery name="already_inserted_p">
+    <querytext>
+	select decode(count(*),0,0,1) from survey_questions where question_id = :question_id
+    </querytext>
+</fullquery>
 </queryset>

@@ -67,7 +67,12 @@ if { $exception_count > 0 } {
     ad_script_abort
 }
 
+set already_inserted_p [db_string already_inserted_p {}]
 
+if { $already_inserted_p } {
+    ad_returnredirect "one?[export_vars survey_id]"
+    ad_script_abort
+}
 # Generate presentation_options.
     set presentation_options ""
     if { $presentation_type == "textbox" } {
@@ -124,13 +129,10 @@ values (survey_choice_id_sequence.nextval, :question_id, :trimmed_response, :cou
             }
     } on_error {
 
-        set already_inserted_p [db_string already_inserted_p "select decode(count(*),0,0,1) from survey_questions where question_id = :question_id" ]
-
-        if { !$already_inserted_p } {
             db_release_unused_handles
             ad_return_error "Database Error" "<pre>$errmsg</pre>"
             ad_script_abort
-        }
+ 
     }
 
 
