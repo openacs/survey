@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="5.0.0b7" locale="en_US" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.0b9" locale="en_US" charset="ISO-8859-1">
 
   <msg key="-__Created_by">-  Created by</msg>
   <msg key="_on_creation_date">, on %creation_date%</msg>
@@ -254,6 +254,7 @@ and free text answer questions in the same survey.</msg>
   <msg key="Submit">Submit</msg>
   <msg key="Submit_response">Submit response</msg>
   <msg key="Summary">Summary</msg>
+  <msg key="Survey">Survey</msg>
   <msg key="Survey_Description">Survey Description</msg>
   <msg key="Survey_Name">Survey Name:</msg>
   <msg key="Survey_Name_1">Survey Name</msg>
