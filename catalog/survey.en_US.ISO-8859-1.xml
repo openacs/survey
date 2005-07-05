@@ -254,6 +254,7 @@ and free text answer questions in the same survey.</msg>
   <msg key="Submit">Submit</msg>
   <msg key="Submit_response">Submit response</msg>
   <msg key="Summary">Summary</msg>
+  <msg key="Survey">Survey</msg>
   <msg key="Survey_Description">Survey Description</msg>
   <msg key="Survey_Name">Survey Name:</msg>
   <msg key="Survey_Name_1">Survey Name</msg>
