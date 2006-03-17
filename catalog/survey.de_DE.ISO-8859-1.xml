@@ -72,8 +72,8 @@
   <msg key="lt_-_Lets_you_use_this_s">- Die Evaluation dient als Vorlage für eine neue Evaluation</msg>
   <msg key="lt_-_Removes_all_questio">- Alle Fragen und Antworten werden gelöscht</msg>
   <msg key="lt_A_database_error_occu">Bei dem Versuch, die Fragen auzutauschen, ist folgender Datenbankfehler aufgetreten:</msg>
-  <msg key="lt_Already_Responsed_n_r">%n_responses users% Benutzer haben bereits teilgenommen. Diese Benutzer anzeigen &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; E-Mail an diese Benutzer senden &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;</msg>
-  <msg key="lt_Already_Responsed_n_r_1">%n_responses users% Benutzer haben bereits teilgenommen. Diese Benutzer anzeigen &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; E-Mail an diese Benutzer senden &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;</msg>
+  <msg key="lt_Already_Responsed_n_r">%n_responses% Benutzer haben bereits teilgenommen. Diese Benutzer anzeigen &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; E-Mail an diese Benutzer senden &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;</msg>
+  <msg key="lt_Already_Responsed_n_r_1">%n_responses% Benutzer haben bereits teilgenommen.</msg>
   <msg key="lt_Answers_to_survey_nam">Rückantworten auf %survey_name%</msg>
   <msg key="lt_Awaiting_a_response_n">Rückantwort erwartet: %n_awaiting users% Diese Benutzer anzeigen &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; Gruppen-E-Mail an diese Benutzer senden &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; Gesamte Gruppe: %n_members% Diese Benutzer anzeigen &lt;%community_url%/survey/admin/respondents?response_type=all&gt; Gruppen-E-Mail an diese Benutzer senden &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; Rückantworten: </msg>
   <msg key="lt_Cancel_and_return_to_">Abbrechen und zurück zu den Rückantworten</msg>

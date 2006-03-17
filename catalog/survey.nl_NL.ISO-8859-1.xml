@@ -73,12 +73,10 @@
   <msg key="lt_-_Removes_all_questio">- Alle vragen en antwoorden worden verwijderd </msg>
   <msg key="lt_A_database_error_occu">Er is een databasefout opgetreden bij het uitwisselen van de vragen. 
 Dit is de foutmelding:</msg>
-  <msg key="lt_Already_Responsed_n_r">Reeds beantwoord: %n_responses users% 
+  <msg key="lt_Already_Responsed_n_r">Reeds beantwoord: %n_responses% 
 Bekijk deze gebruikers. &lt;%community_utl%/survey/admin/respondents?respons_type=responded&gt; 
 Stuur deze gebruikers een mailing.&lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%to=responded&gt;</msg>
-  <msg key="lt_Already_Responsed_n_r_1">Reeds beantwoord: %n_responses users% 
-Bekijk deze gebruikers. &lt;%community_utl%/survey/admin/respondents?respons_type=responded&gt; 
-Stuur deze gebruikers een mailing.&lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%to=responded&gt;</msg>
+  <msg key="lt_Already_Responsed_n_r_1">Reeds beantwoord: %n_responses%</msg>
   <msg key="lt_Answers_to_survey_nam">Antwoorden van %survey_name%</msg>
   <msg key="lt_Awaiting_a_response_n">In afwachting van een antwoord: %n_awaiting users% 
 Bekijk deze gebruikers. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; 

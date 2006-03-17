@@ -72,8 +72,8 @@
   <msg key="lt_-_Lets_you_use_this_s">- Lar deg bruke denne undersøkelsen som mal for å lage en ny undersøkelse.</msg>
   <msg key="lt_-_Removes_all_questio">- Fjerner alle spørsmål og svar</msg>
   <msg key="lt_A_database_error_occu">En databasefeil oppstod når vi forsøkte å bytte om spørsmålene dine. Her er feilen:</msg>
-  <msg key="lt_Already_Responsed_n_r">Allerede besvart: %n_responses users% Se disse brukerene. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; E-post disse brukerene. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
-  <msg key="lt_Already_Responsed_n_r_1">Allerede besvart: %n_responses users% Se på disse brukerene. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; E-post disse brukerene. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;  </msg>
+  <msg key="lt_Already_Responsed_n_r">Allerede besvart: %n_responses% Se disse brukerene. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; E-post disse brukerene. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
+  <msg key="lt_Already_Responsed_n_r_1">Allerede besvart: %n_responses% Se på disse brukerene.</msg>
   <msg key="lt_Answers_to_survey_nam">Svar på %survey_name%</msg>
   <msg key="lt_Awaiting_a_response_n">Venter på svar: %n_awaiting users% Se på disse brukerene. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; E-post disse brukerene. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; Hele gruppa: %n_members% Se på disse brukerene. &lt;%community_url%/survey/admin/respondents?response_type=all&gt; E-post disse brukerene. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; Svar: </msg>
   <msg key="lt_Cancel_and_return_to_">Avbryt og gå tilbake til svar på undersøkelsen</msg>

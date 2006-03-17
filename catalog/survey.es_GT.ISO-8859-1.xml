@@ -72,13 +72,10 @@
   <msg key="lt_-_Lets_you_use_this_s">-Te deja usar esta encuesta como plantilla para crear una nueva encuesta.</msg>
   <msg key="lt_-_Removes_all_questio">-Remover todas las preguntas y repuestas</msg>
   <msg key="lt_A_database_error_occu">Un error en la base de datos ha ocurrido cuando tratamos de cambiar tus preguntas. Este fue el error:</msg>
-  <msg key="lt_Already_Responsed_n_r">Ya respondieron: %n_responses users% Mira los usuarios que respondieron.&lt;%community_url%/survey/admin/respondents?response_type=responded&gt; Manda mensajes masivos a estos usuarios.
+  <msg key="lt_Already_Responsed_n_r">Ya respondieron: %n_responses% Mira los usuarios que respondieron.&lt;%community_url%/survey/admin/respondents?response_type=responded&gt; Manda mensajes masivos a estos usuarios.
 &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;
 </msg>
-  <msg key="lt_Already_Responsed_n_r_1">Ya respondieron: %n_responses% Mira los usuarios que respondieron.
-&lt;%community_url%/survey/admin/respondents?response_type=responded&gt;Manda mensajes masivos a estos usuarios.
-&lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;
-</msg>
+  <msg key="lt_Already_Responsed_n_r_1">Ya respondieron: %n_responses%</msg>
   <msg key="lt_Answers_to_survey_nam">Respuesta a %survey_name%</msg>
   <msg key="lt_Awaiting_a_response_n">Esperando respuesta: %n_awaiting users% Mira los usuarios que no han respondido.
 &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt;  Manda un correo masivo a estos usuarios.
