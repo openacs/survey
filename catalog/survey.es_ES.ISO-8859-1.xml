@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="5.0.0b9" locale="es_ES" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.1" locale="es_ES" charset="ISO-8859-1">
 
   <msg key="-__Created_by">-Creado por</msg>
   <msg key="_on_creation_date">, en %creation_date%</msg>
@@ -152,17 +152,17 @@
   <msg key="lt_Survey_survey_id_does">La encuesta %survey_id% no existe</msg>
   <msg key="lt_Survey_survey_name">Encuesta: %survey_name%</msg>
   <msg key="lt_Survey_survey_notif_intro">He aquí lo que %user_name% respondió en %survey_name%</msg>
-  <msg key="lt_Survey_survey_Res">La persona que respondió: %user_name%</msg>
+  <msg key="lt_Survey_survey_Res">Remitente: %user_name%</msg>
   <msg key="lt_The_Above_Description">La descripcion anterior es</msg>
   <msg key="lt_The_response_to_ques_i">La respuesta a %question_text% tiene que ser un entero. Su respuesta es %response_value%.</msg>
   <msg key="lt_The_response_to_ques_n">La respuesta a %question_text% tiene que ser un número. Su respuesta es %response_value%.</msg>
   <msg key="lt_There_has_been_1_resp">Hay 1 respuesta.</msg>
   <msg key="lt_There_have_been_n">Hay %n_responses% respuestas.</msg>
-  <msg key="lt_There_isare_n_resp">Hay %isare% %n_responses% %resp% para esta pregunta. Editar una pregunta con contestaciones no es recomendable. No quedara ninguna copia de la pregunta original. Proceda con cuidado. </msg>
+  <msg key="lt_There_isare_n_resp">Hay %n_responses% %resp% para esta pregunta. Editar una pregunta con respuestas no es recomendable. No quedará ninguna copia de la pregunta original. Proceda con cuidado. </msg>
   <msg key="lt_There_was_an_error_wh">Se ha producido un error al intentar borrar la pregunta:</msg>
   <msg key="lt_This_is_a_multiple_ch">Esta encuesta es de opción múltiple donde cada respuesta puede tener valor en una o mas variables. Esta encuesta también permite ejecutar código arbitrario (por ejemplo redireccionar) condicionado a la puntuación del usuario al final de la encuesta.</msg>
   <msg key="lt_This_question_has_n">Esta pregunta tiene %n_responses% %response_text% que serán eliminadas si continua. (Nota: Esto no puede restaurarse)</msg>
-  <msg key="lt_This_survey_allows_yo">Esta encuesta le permite especificar el tipo de respuesta requerido. Utilice esta encuesta si quiere permitirle a los usuarios ingresar sus propias respuestas a cambio de escogerlas de una lista. Usted también debería utilizar esta encuesta  si desea mezclar tipos de preguntas, por ejemplo tener respuestas de texto libre y de opción múltiple en la misma encuesta.</msg>
+  <msg key="lt_This_survey_allows_yo">Esta encuesta le permite especificar el tipo de respuesta requerido. Utilice esta encuesta si quiere permitirle a los usuarios introducir sus propias respuestas en lugar de escogerlas de una lista. Usted también debería utilizar esta encuesta  si desea mezclar tipos de preguntas, por ejemplo tener respuestas de texto libre y de opción múltiple en la misma encuesta.</msg>
   <msg key="lt_This_survey_is_not_ed">Esta encuenta no es editable</msg>
   <msg key="lt_This_will_remove_respo">Esto borrará %response_count% respuestas</msg>
   <msg key="lt_to_the_survey_index_p">a la página principal de encuestas.</msg>
@@ -229,6 +229,8 @@
   <msg key="Submit">Enviar</msg>
   <msg key="Submit_response">Enviar respuesta</msg>
   <msg key="Summary">Resumen</msg>
+  <msg key="Survey">Encuesta</msg>
+  <msg key="Survey_Administration">Administración de Encuesta</msg>
   <msg key="Survey_Description">Descripción de la Encuesta</msg>
   <msg key="Survey_Name">Nombre de la Encuesta</msg>
   <msg key="Survey_Name_1">Nombre de la Encuesta</msg>

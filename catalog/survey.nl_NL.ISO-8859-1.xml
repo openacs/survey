@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="5.0.0b7" locale="nl_NL" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.1" locale="nl_NL" charset="ISO-8859-1">
 
   <msg key="-__Created_by">- Gemaakt door</msg>
   <msg key="_on_creation_date">, op %creation_date% </msg>
@@ -73,10 +73,12 @@
   <msg key="lt_-_Removes_all_questio">- Alle vragen en antwoorden worden verwijderd </msg>
   <msg key="lt_A_database_error_occu">Er is een databasefout opgetreden bij het uitwisselen van de vragen. 
 Dit is de foutmelding:</msg>
+  <msg key="lt_Already_Responsed_email">Deze gebruikers e-mailen</msg>
   <msg key="lt_Already_Responsed_n_r">Reeds beantwoord: %n_responses% 
 Bekijk deze gebruikers. &lt;%community_utl%/survey/admin/respondents?respons_type=responded&gt; 
 Stuur deze gebruikers een mailing.&lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%to=responded&gt;</msg>
   <msg key="lt_Already_Responsed_n_r_1">Reeds beantwoord: %n_responses%</msg>
+  <msg key="lt_Already_Responsed_view">Deze gebruikers bekijken</msg>
   <msg key="lt_Answers_to_survey_nam">Antwoorden van %survey_name%</msg>
   <msg key="lt_Awaiting_a_response_n">In afwachting van een antwoord: %n_awaiting users% 
 Bekijk deze gebruikers. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; 
@@ -134,7 +136,7 @@ Antwoorden: </msg>
   <msg key="lt_Requested_survey_does">Opgevraagde vragenlijst bestaat niet</msg>
   <msg key="lt_Response_on_response_">Antwoord op %response_date%</msg>
   <msg key="lt_Response_on_responses">Antwoord op %responses.creation_date%]</msg>
-  <msg key="lt_Response_Submitted_for">Antwoorden ingezonden voor %survey_name%</msg>
+  <msg key="lt_Response_Submitted_for">Antwoord verzonden voor %survey_name%</msg>
   <msg key="lt_Response_submitted_Th">Antwoord verzonden. Dank je!</msg>
   <msg key="lt_Responses_to_Question">Antwoorden op vraag</msg>
   <msg key="lt_Return_to_survey_admi">Terug naar vragenlijstadministratie</msg>
@@ -157,6 +159,9 @@ Antwoorden: </msg>
   <msg key="lt_Survey_section_id_does">Vragenlijst %section_id% bestaat niet</msg>
   <msg key="lt_Survey_survey_id_do_no">Vragenlijst %section_id% bestaat niet</msg>
   <msg key="lt_Survey_survey_id_does">Vragenlijst %section_id% bestaat niet</msg>
+  <msg key="lt_Survey_survey_name">Vragenlijst: %survey_name% </msg>
+  <msg key="lt_Survey_survey_notif_intro">Hier is wat %user_name% te zeggen had in reactie op %survey_name%: </msg>
+  <msg key="lt_Survey_survey_Res">Respondent: %user_name%  </msg>
   <msg key="lt_The_Above_Description">De bovenstaande beschrijving is</msg>
   <msg key="lt_The_response_to_ques_i">Het antwoord op %question_text% moeten een geheel getal zijn. Het gegeven antwoord was echter %response_value%. </msg>
   <msg key="lt_The_response_to_ques_n">Het antwoord op %question_text% moeten een getal zijn. Het gegeven antwoord was echter %response_value%. </msg>
@@ -218,7 +223,7 @@ U bent gewaarschuwd.</msg>
   <msg key="response">antwoord</msg>
   <msg key="Response_Not_Found">Antwoord niet beschikbaar</msg>
   <msg key="Response_Options">Antwoord opties:</msg>
-  <msg key="Response_Submitted">Antwoord aangeboden</msg>
+  <msg key="Response_Submitted">Antwoord verzonden</msg>
   <msg key="Response_to">Antwoord op</msg>
   <msg key="Responses">Antwoorden</msg>
   <msg key="responses">antwoorden</msg>
@@ -232,9 +237,11 @@ U bent gewaarschuwd.</msg>
   <msg key="Size">Grootte</msg>
   <msg key="Small">Klein</msg>
   <msg key="Standard_Dev">Standaard deviatie</msg>
-  <msg key="Submit">Aanbieden</msg>
-  <msg key="Submit_response">Antwoord aanbieden</msg>
+  <msg key="Submit">Verzenden</msg>
+  <msg key="Submit_response">Antwoord indienen</msg>
   <msg key="Summary">Samenvatting</msg>
+  <msg key="Survey">Vragenlijst</msg>
+  <msg key="Survey_Administration">Vragenlijstbeheer</msg>
   <msg key="Survey_Description">Beschrijving vragenlijst</msg>
   <msg key="Survey_Name">Naam vragenlijst:</msg>
   <msg key="Survey_Name_1">Naam vragenlijst</msg>

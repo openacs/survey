@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="5.0.0b7" locale="nn_NO" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.1" locale="nn_NO" charset="ISO-8859-1">
 
   <msg key="-__Created_by">- Innlagt av</msg>
   <msg key="_on_creation_date">, den %creation_date%</msg>
@@ -23,7 +23,7 @@
   <msg key="Continue_with_Delete">Hald fram med Slett</msg>
   <msg key="Copy">Kopier</msg>
   <msg key="Copy_of">Kopi av</msg>
-  <msg key="Copy_this_survey">Kopi dette skjemaet</msg>
+  <msg key="Copy_this_survey">Kopier dette skjemaet</msg>
   <msg key="Copy_title_name">Kopier: %title_name%</msg>
   <msg key="Could_not_find_user">Fann ikkje brukar</msg>
   <msg key="Create_Survey">Lag nytt spørjeskjema</msg>
@@ -67,13 +67,15 @@
   <msg key="is">er</msg>
   <msg key="Large">Stor</msg>
   <msg key="Last_Name">Etternavn</msg>
-  <msg key="limit_to_one">ikkje meir enn ein</msg>
+  <msg key="limit_to_one">ikkje meir enn eit</msg>
   <msg key="list">liste</msg>
   <msg key="lt_-_Lets_you_use_this_s">- Let deg bruke dette skjemaet som mal for å lage eit nytt skjema.</msg>
-  <msg key="lt_-_Removes_all_questio">- Fjernat alle spørsmål og svar</msg>
+  <msg key="lt_-_Removes_all_questio">- Fjernar alle spørsmål og svar</msg>
   <msg key="lt_A_database_error_occu">Vi fekk ein databasefeil når vi prøvde å byte om spørsmåla dine. Her er feilen:</msg>
+  <msg key="lt_Already_Responsed_email">Send e-post til desse brukarane</msg>
   <msg key="lt_Already_Responsed_n_r">Allereide svart: %n_responses% Sjå desse brukarane. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; E-post desse brukarane. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
   <msg key="lt_Already_Responsed_n_r_1">Allereide svart: %n_responses% Sjå desse brukarane.</msg>
+  <msg key="lt_Already_Responsed_view">Sjå desse brukarane</msg>
   <msg key="lt_Answers_to_survey_nam">Svat på %survey_name%</msg>
   <msg key="lt_Awaiting_a_response_n">Ventar på svar: %n_awaiting users% Sjå desse brukarane. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; E-post desse brukarane. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; Heile gruppa: %n_members% Sjå desse brukarane. &lt;%community_url%/survey/admin/respondents?response_type=all&gt; E-post desse brukarane. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; Svar: </msg>
   <msg key="lt_Cancel_and_return_to_">Avbryt og gå attende til svar på spørjeskjema</msg>
@@ -146,6 +148,9 @@
   <msg key="lt_Survey_section_id_does">Undersøking %section_id% fins ikkje</msg>
   <msg key="lt_Survey_survey_id_do_no">Undersøking %survey_id% fins ikkje</msg>
   <msg key="lt_Survey_survey_id_does">Undersøking %survey_id% fins ikkje</msg>
+  <msg key="lt_Survey_survey_name">Survey: %survey_name%</msg>
+  <msg key="lt_Survey_survey_notif_intro">Her er det som %user_name% hade å sei som svar på %survey_name%:</msg>
+  <msg key="lt_Survey_survey_Res">Respondent:</msg>
   <msg key="lt_The_Above_Description">Omtalen over er</msg>
   <msg key="lt_The_response_to_ques_i">Svaret på %question_text% må vere eit heiltal. Du svarte %response_value%. </msg>
   <msg key="lt_The_response_to_ques_n">Svaret på %question_text% må vere eit tal. Du svarte %response_value%. </msg>

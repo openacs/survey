@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="5.0.0b7" locale="ca_ES" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.1" locale="ca_ES" charset="ISO-8859-1">
 
   <msg key="-__Created_by">- Creat per </msg>
   <msg key="_on_creation_date">, el %creation_date% </msg>
@@ -72,8 +72,10 @@
   <msg key="lt_-_Lets_you_use_this_s">- Us permet emprar aquest examen com una plantilla per a crear-ne un de nou. </msg>
   <msg key="lt_-_Removes_all_questio">- Lleva totes les preguntes i respostes </msg>
   <msg key="lt_A_database_error_occu">S'ha produït un error en la base de dades mentre s'intentava canviar les vostres preguntes. Aquest és l'error: </msg>
+  <msg key="lt_Already_Responsed_email">Enviar un missatge a aquests usuaris</msg>
   <msg key="lt_Already_Responsed_n_r">Ja s'ha respost: %n_responses% Veure aquests usuaris. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; Avisar aquests usuaris. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
   <msg key="lt_Already_Responsed_n_r_1">Ja respost: %n_responses% Vegeu aquests usuaris.</msg>
+  <msg key="lt_Already_Responsed_view">Veure aquests usuaris</msg>
   <msg key="lt_Answers_to_survey_nam">Respostes a %survey_name% </msg>
   <msg key="lt_Awaiting_a_response_n">Esperant una resposta: %n_awaiting users% Vegent aquests usuaris. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; Aviseu aquests usuaris. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; El grup sencer: %n_members% Vegeu aquests usuaris. &lt;%community_url%/survey/admin/respondents?response_type=all&gt; Aviseu aquests usuaris. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; Respostes: </msg>
   <msg key="lt_Cancel_and_return_to_">Cancel·la i torna a les respostes de l'examen </msg>
@@ -146,6 +148,9 @@
   <msg key="lt_Survey_section_id_does">L'examen %section_id% no existeix </msg>
   <msg key="lt_Survey_survey_id_do_no">L'examen %survey_id% no existeix </msg>
   <msg key="lt_Survey_survey_id_does">L'examen %survey_id% no existeix </msg>
+  <msg key="lt_Survey_survey_name">Enquesta: %survey_name% </msg>
+  <msg key="lt_Survey_survey_notif_intro">Això és el que %user_name% va respondre a %survey_name%: </msg>
+  <msg key="lt_Survey_survey_Res">Ha contestat: %user_name%  </msg>
   <msg key="lt_The_Above_Description">La descripció de més amunt és </msg>
   <msg key="lt_The_response_to_ques_i">La resposta a %question_text% ha de ser un enter. La vostra resposta va ser %response_value%. </msg>
   <msg key="lt_The_response_to_ques_n">La resposta a %question_text% ha de ser un número. La vostra resposta va ser %response_value%. </msg>
