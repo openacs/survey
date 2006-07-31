@@ -133,7 +133,7 @@
   <msg key="lt_Return_to_survey_admi">Regresar a la Administración de Encuestas</msg>
   <msg key="lt_Section_section_id_do">La sección %section_id% no existe</msg>
   <msg key="lt_Send_Mail_Re_survey_n">Envíar correo de respuesta: %survey_name%</msg>
-  <msg key="lt_Survey_Administration">Administraciónd de Encuestas</msg>
+  <msg key="lt_Survey_Administration">Administración de Encuestas</msg>
   <msg key="lt_Survey_Administration_1">Administraciónd de Encuestas: Agregar una Pregunta(cont.)</msg>
   <msg key="lt_Survey_Administration_2">Administraciónd de Encuestas:Crear una nueva Encuesta</msg>
   <msg key="lt_survey_infoname_New_Q">%survey_info.name%: Nueva Pregunta</msg>

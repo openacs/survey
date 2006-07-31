@@ -227,6 +227,8 @@
   <msg key="Submit">Enviar</msg>
   <msg key="Submit_response">Enviar respostas</msg>
   <msg key="Summary">Resumo</msg>
+  <msg key="Survey">Questionário</msg>
+  <msg key="Survey_Administration">Administração do Questionário</msg>
   <msg key="Survey_Description">Descrição do Questionário</msg>
   <msg key="Survey_Name">Nome do Questionário:</msg>
   <msg key="Survey_Name_1">Nome do Questionário</msg>
