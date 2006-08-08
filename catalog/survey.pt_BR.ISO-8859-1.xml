@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="survey" package_version="5.0.0b7" locale="pt_BR" charset="ISO-8859-1">
+<message_catalog package_key="survey" package_version="5.0.1" locale="pt_BR" charset="ISO-8859-1">
 
   <msg key="-__Created_by">- Criado por</msg>
   <msg key="_on_creation_date">, em %creation_date%</msg>
@@ -72,8 +72,10 @@
   <msg key="lt_-_Lets_you_use_this_s">- Usar este questionário como modelo para criar um novo questionário</msg>
   <msg key="lt_-_Removes_all_questio">- Remover todas as perguntas e respotas</msg>
   <msg key="lt_A_database_error_occu">Um erro de base de dados ocorreu tentando trocar suas perguntas. Este foi o erro:</msg>
-  <msg key="lt_Already_Responsed_n_r">Já responderam: %n_responses users% Ver estes usuários. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; Enviar Spam para estes usuários. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
-  <msg key="lt_Already_Responsed_n_r_1">Já Responderam: %n_responses users% Ver estes usuários. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; Envair SPAM a estes usuários. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
+  <msg key="lt_Already_Responsed_email">Enviar e-mail para estes usuários</msg>
+  <msg key="lt_Already_Responsed_n_r">Já responderam: %n_responses% Ver estes usuários. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; Enviar Spam para estes usuários. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
+  <msg key="lt_Already_Responsed_n_r_1">Já Responderam: %n_responses% Ver estes usuários.</msg>
+  <msg key="lt_Already_Responsed_view">Ver estes usuários</msg>
   <msg key="lt_Answers_to_survey_nam">Respostas para %survey_name%</msg>
   <msg key="lt_Awaiting_a_response_n">Aguardando resposta: %n_awaiting users% Exibir usuários. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; Spam para os usuários. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; Todo o grupo: %n_members% Exibir usuários. &lt;%community_url%/survey/admin/respondents?response_type=all&gt; Spam para os usuários. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; Respostas: </msg>
   <msg key="lt_Cancel_and_return_to_">Cancelar e retornar às respotas do questionário</msg>
@@ -146,6 +148,9 @@
   <msg key="lt_Survey_section_id_does">Questionário %section_id% não existe</msg>
   <msg key="lt_Survey_survey_id_do_no">Questionário %survey_id% não existe</msg>
   <msg key="lt_Survey_survey_id_does">Questionário %survey_id% não existe</msg>
+  <msg key="lt_Survey_survey_name">Enquete: %survey_name%</msg>
+  <msg key="lt_Survey_survey_notif_intro">Aqui está o que %user_name% tem a dizer a respeito de %survey_name%:</msg>
+  <msg key="lt_Survey_survey_Res">Respondente: %user_name%</msg>
   <msg key="lt_The_Above_Description">A descrição acima é</msg>
   <msg key="lt_The_response_to_ques_i">A resposta para %question_text% deve ser um inteiro. Sua resposta foi %response_value%.</msg>
   <msg key="lt_The_response_to_ques_n">A resposta para %question_text% deve ser um número. Sua resposta foi %response_value%.</msg>
@@ -222,6 +227,8 @@
   <msg key="Submit">Enviar</msg>
   <msg key="Submit_response">Enviar respostas</msg>
   <msg key="Summary">Resumo</msg>
+  <msg key="Survey">Questionário</msg>
+  <msg key="Survey_Administration">Administração do Questionário</msg>
   <msg key="Survey_Description">Descrição do Questionário</msg>
   <msg key="Survey_Name">Nome do Questionário:</msg>
   <msg key="Survey_Name_1">Nome do Questionário</msg>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<message_catalog package_key="survey" package_version="5.0.0b7" locale="ko_KR" charset="utf-8">
+<message_catalog package_key="survey" package_version="5.0.1" locale="ko_KR" charset="utf-8">
 
   <msg key="-__Created_by">- 가 생성한</msg>
   <msg key="_on_creation_date">, %creation_date%에</msg>
@@ -72,8 +72,8 @@
   <msg key="lt_-_Lets_you_use_this_s">-이 설문을 기초로 새 설문 생성. </msg>
   <msg key="lt_-_Removes_all_questio">- 모든 질문과 응답 제거</msg>
   <msg key="lt_A_database_error_occu">당신의 질문을 교환하는 동안 데이터베이스 에러가 발생하였습니다. 이것이 에러 입니다.</msg>
-  <msg key="lt_Already_Responsed_n_r">이미 응답하였음: %n_responses users% 이 사용자들 보기. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; 이 사용자들을 스팸으로 처리하기. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
-  <msg key="lt_Already_Responsed_n_r_1">이미 응답하였음: %n_responses users%  이 사용자들 보기. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; 이 사용자들을 스팸으로 처리하기. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;</msg>
+  <msg key="lt_Already_Responsed_n_r">이미 응답하였음: %n_responses% 이 사용자들 보기. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; 이 사용자들을 스팸으로 처리하기. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
+  <msg key="lt_Already_Responsed_n_r_1">이미 응답하였음: %n_responses%  이 사용자들 보기.</msg>
   <msg key="lt_Answers_to_survey_nam">%survey_name%에 대한 답변</msg>
   <msg key="lt_Awaiting_a_response_n">응답 기다리는 중: %n_awaiting users% 사용자들 보기. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; 이 사용자들을 스팸 처리. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; 전체 그룹: %n_members% 사용자들 보기. &lt;%community_url%/survey/admin/respondents?response_type=all&gt; 이 사용자들을 스팸 처리. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; 응답들: </msg>
   <msg key="lt_Cancel_and_return_to_">취소하고 설문 응답으로 돌아 감</msg>
