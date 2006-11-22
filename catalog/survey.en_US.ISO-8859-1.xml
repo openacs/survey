@@ -61,6 +61,7 @@
   <msg key="From">From:</msg>
   <msg key="From_1">From</msg>
   <msg key="General_Survey">General Survey</msg>
+  <msg key="goto_surveys_name">Go to %surveys.name%</msg>
   <msg key="Here_is_what">Here is what</msg>
   <msg key="inactive">[inactive]</msg>
   <msg key="Integer">Integer</msg>
@@ -215,6 +216,7 @@ and free text answer questions in the same survey.</msg>
   <msg key="No_data_found">No data found</msg>
   <msg key="No_Responses">No Responses</msg>
   <msg key="No_surveys_active">No surveys active</msg>
+  <msg key="No_unanswered_surveys">No unanswered surveys</msg>
   <msg key="non-">non-</msg>
   <msg key="Not_Found">Not Found</msg>
   <msg key="Number">Number</msg>
@@ -269,6 +271,7 @@ and free text answer questions in the same survey.</msg>
   <msg key="Type_of_Response">Type of Response</msg>
   <msg key="Uploaded_file">Uploaded file:</msg>
   <msg key="View">View</msg>
+  <msg key="view_edit_previous_responses">View/edit previous responses</msg>
   <msg key="View_Response">View Response</msg>
   <msg key="View_Responses">View Responses:</msg>
   <msg key="View_responses">View responses</msg>
