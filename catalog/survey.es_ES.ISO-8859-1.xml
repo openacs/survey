@@ -61,6 +61,7 @@
   <msg key="From">De:</msg>
   <msg key="From_1">De</msg>
   <msg key="General_Survey">Encuesta General</msg>
+  <msg key="goto_surveys_name">Ir a %surveys.name%</msg>
   <msg key="Here_is_what">Aqui esta lo que</msg>
   <msg key="inactive">[inactiva]</msg>
   <msg key="Integer">Entero</msg>
@@ -191,6 +192,7 @@
   <msg key="No_data_found">No se encontraron datos</msg>
   <msg key="No_Responses">No hay respuestas</msg>
   <msg key="No_surveys_active">No hay encuestas activas</msg>
+  <msg key="No_unanswered_surveys">Ninguna encuesta sin responder</msg>
   <msg key="non-">no-</msg>
   <msg key="Not_Found">No encontrado</msg>
   <msg key="Number">Número</msg>
@@ -244,6 +246,7 @@
   <msg key="Type_of_Response">Tipo de Respuesta</msg>
   <msg key="Uploaded_file">Archivo Cargado:</msg>
   <msg key="View">Ver</msg>
+  <msg key="view_edit_previous_responses">Ver/editar respuestas anteriores</msg>
   <msg key="View_Response">Ver Respuesta</msg>
   <msg key="View_Responses">Ver Respuestas:</msg>
   <msg key="View_responses">Ver respuestas</msg>
