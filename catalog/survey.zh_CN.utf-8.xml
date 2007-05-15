@@ -149,8 +149,6 @@
   <msg key="lt_Survey_survey_id_do_no">问卷%survey_id不存在</msg>
   <msg key="lt_Survey_survey_id_does">问卷%survey_id不存在</msg>
   <msg key="lt_Survey_survey_name">问卷：%survey_name% </msg>
-  <msg key="lt_Survey_survey_nameRes">对不起，%survey_name%解答者：%user_name%这里是%user_name% %comm_url%对%survey_name%:的回复：</msg>
-  <msg key="lt_Survey_survey_nameRes_1">问卷：%survey_name%解答者：%user_name%这里是%user_name% %comm_url%对%survey_name%:的回复：</msg>
   <msg key="lt_Survey_survey_notif_intro">作为对%survey_name%的回复，%user_name%必须说明：</msg>
   <msg key="lt_Survey_survey_Res">回复者：%user_name%</msg>
   <msg key="lt_The_Above_Description">上述简介是</msg>

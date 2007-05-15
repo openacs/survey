@@ -151,8 +151,6 @@
   <msg key="lt_Survey_survey_id_do_no">Il Questionario %survey_id% non esiste </msg>
   <msg key="lt_Survey_survey_id_does">Il questionario %survey_id% non esiste </msg>
   <msg key="lt_Survey_survey_name">Questionario: %survey_name% </msg>
-  <msg key="lt_Survey_survey_nameRes">Questionario: %survey_name% Risposta di: %user_name% Questo è ciò che %user_name% %comm_url% ha da dire in risposta a %survey_name%: </msg>
-  <msg key="lt_Survey_survey_nameRes_1">Questionario: %survey_name% Risposta di: %user_name% Questo è ciò che %user_name% &lt;%comm_url%&gt; ha da dire in risposta a %survey_name%: </msg>
   <msg key="lt_Survey_survey_notif_intro">Questo è ciò che %user_name% ha da dire in risposta a %survey_name%: </msg>
   <msg key="lt_Survey_survey_Res">Risposta di: %user_name%  </msg>
   <msg key="lt_The_Above_Description">La Descrizione Sopra è</msg>

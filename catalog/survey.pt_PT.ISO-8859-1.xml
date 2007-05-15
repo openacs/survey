@@ -166,7 +166,6 @@
   <msg key="lt_You_didnt_respond_to_">Não respondeu a todas as secções obrigatórias. Faltou:</msg>
   <msg key="lt_You_have_already_comp">Já completou este inquérito</msg>
   <msg key="lt_Your_file_is_zero-len">O seu ficheiro tem tamanho zero. Ou tentou carregar um ficheiro vazio, um ficheiro que não existe, ou algo correu mal durante a transferência.</msg>
-  <msg key="lt_Your_response________">A sua resposta em %responses.pretty_submission_date_ansi%</msg>
   <msg key="make">fazer</msg>
   <msg key="Mean">Significado:</msg>
   <msg key="Medium">Meio</msg>

@@ -247,6 +247,7 @@
   <msg key="Uploaded_file">Archivo Cargado:</msg>
   <msg key="View">Ver</msg>
   <msg key="view_edit_previous_responses">Ver/editar respuestas anteriores</msg>
+  <msg key="view_edit_previous_responses_for_surveys_in_this_group">ver/editar respuestas anteriores para las encuestas de este grupo</msg>
   <msg key="View_Response">Ver Respuesta</msg>
   <msg key="View_Responses">Ver Respuestas:</msg>
   <msg key="View_responses">Ver respuestas</msg>
