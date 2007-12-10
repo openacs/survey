@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<message_catalog package_key="survey" package_version="5.0.1" locale="ko_KR" charset="utf-8">
+<message_catalog package_key="survey" locale="ko_KR" charset="utf-8">
 
   <msg key="-__Created_by">- 가 생성한</msg>
   <msg key="_on_creation_date">, %creation_date%에</msg>
