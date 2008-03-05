@@ -70,7 +70,19 @@ set survey_display_types [survey_display_types]
 
 set context [list $survey_info(name)]
 
-db_multirow -extend { question_display } questions survey_questions "" {set question_display [survey_question_display $question_id]}
+
+db_multirow -extend { question_display question_modify_url question_copy_url question_add_url question_delete_url question_swap_down_url question_swap_up_url } questions survey_questions "" {
+
+    set question_display [survey_question_display $question_id]
+    set question_modify_url [export_vars -base question-modify {{question_id $question_id} section_id survey_id}]
+    set question_copy_url [export_vars -base question-copy {{question_id $question_id} {sort_order $sort_order}}]
+    set question_add_url [export_vars -base question-add {section_id {after $sort_order}}]
+    set question_delete_url [export_vars -base question-delete {question_id survey_id}]
+    set question_swap_down_url [export_vars -base question-swap {section_id survey_id {sort_order $sort_order} {direction down}}]
+    set question_swap_up_url [export_vars -base question-swap {section_id survey_id {sort_order $sort_order} {direction up}}]
+
+}
+
 
 
 set notification_chunk [notification::display::request_widget \

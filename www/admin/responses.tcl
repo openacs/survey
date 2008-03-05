@@ -44,7 +44,7 @@ db_foreach survey_question_list {} {
 	"date" -
 	"text" -
 	"shorttext" {
-	    append results "<a href=\"view-text-responses?question_id=$question_id\">[_ survey.View_responses]</a>\n"
+	    append results "<div><a href=\"view-text-responses?question_id=$question_id\">[_ survey.View_responses]</a></div>\n"
 	}
 	
 	"boolean" {
@@ -70,7 +70,7 @@ db_foreach survey_question_list {} {
 	 }
 	"blob" {
 	    db_foreach survey_attachment_summary {} {
-	        append results "<a href=\"../view-attachment?response_id=$response_id&question_id=$question_id\">$title</a><br />"
+	        append results "<a href=\"../view-attachment?response_id=$response_id&question_id=$question_id\">$title</a><br>"
 	    }
 	}
     }

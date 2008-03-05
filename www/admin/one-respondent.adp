@@ -14,20 +14,21 @@
 
 <multiple name="responses">
 
-    <tr class="odd"><td>
-
-<a href="respond?response_id=@responses.response_id@&survey_id=@survey_id@&user_id=@user_id@">
-<img valign="top" align="right" src="../graphics/edit.gif" border="0" alt="#survey.Edit#"></a>
+    <tr class="odd">
+            <td>
+              <a href="@responses.respond_url@">
+                <img src="../graphics/edit.gif" style="float:right; border: 0; vertical-align:top;" alt="#survey.Edit#">
+              </a>
 
 <group column="initial_response">
 
 <if @responses.original_p@><a href="response-delete?response_id=@response_id@">
-<img valign="top" align="right" src="../graphics/delete.gif" border="0" alt="#survey.Delete#"></a>
+<img src="../graphics/delete.gif" style="float:right; vertical-align:top; border: 0;" alt="#survey.Delete#"></a>
 </if>
  <strong>[<if
       @responses.original_p@>#survey.Original#</if><else>#survey.Edited#</a></else>
       #survey.lt_Response_on_responses#</strong> 
-	  <br />
+	  <br>
 @responses.response_display;noquote@
 
 
