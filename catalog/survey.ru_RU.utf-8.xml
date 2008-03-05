@@ -66,7 +66,7 @@
   <msg key="lt_Cancel_and_return_to__1">Отменить и вернуться в Админ Голосования</msg>
   <msg key="lt_Confirm_Survey_Detail">Подтверждать Детали Голосования</msg>
   <msg key="lt_Copying_a_survey_will">Копировать это голосование создает новое голосование со всеми вопросамы. 
-&lt;br /&gt; Ответы не копируем.</msg>
+&lt;br&gt; Ответы не копируем.</msg>
   <msg key="lt_DELETE_survey_infonam">УДАЛИТЬ: %survey_info.name%</msg>
   <msg key="lt_DELETE_Survey_Respons">УДАЛИТЬ: Ответ на Голосование </msg>
   <msg key="lt_Description_must_be_l">Описание должно быть меньше 4.000 символов</msg>

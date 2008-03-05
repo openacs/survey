@@ -85,7 +85,7 @@
   <msg key="lt_Cancel_and_return_to__1">Cancelar y volver a la administración de la encuesta</msg>
   <msg key="lt_Completely_delete">Borrar las respuestas de %user_name_var% del día %response_date_var%? (Nota: No se puede deshacer.)</msg>
   <msg key="lt_Confirm_Survey_Detail">Confirmar detalles de Encuesta</msg>
-  <msg key="lt_Copying_a_survey_will">Copiar una encuesta creará una nueva encuesta con copia de todas las preguntas.&lt;br /&gt; Ninguna de las respuestas copiada.</msg>
+  <msg key="lt_Copying_a_survey_will">Copiar una encuesta creará una nueva encuesta con copia de todas las preguntas.&lt;br&gt; Ninguna de las respuestas copiada.</msg>
   <msg key="lt_Could_not_find_a_surv">No se puede encontrar la pregunta</msg>
   <msg key="lt_Could_not_find_the_re">No se puede encontrar la respuesta</msg>
   <msg key="lt_Couldnt_find_attachment">No se puede encontrar el archivo adjunto. No se ha podido encontrar el archivo que corresponde a response_id %response_id% y question_id %question_id% dados.</msg>

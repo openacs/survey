@@ -96,7 +96,7 @@
   <msg key="lt_Everyone_eligible_to_">Todos podem responder este questionário</msg>
   <msg key="lt_Everyone_who_has_alre">Todos que já responderam este questionário</msg>
   <msg key="lt_Everyone_who_has_not_">Todos que ainda não responderam este questionário</msg>
-  <msg key="lt_For_Multiple_Choicebr">Para mútiplas escolhas &lt;br /&gt; Entre com uma lista de respostas válidas &lt;br /&gt; (Uma escolha por linha)</msg>
+  <msg key="lt_For_Multiple_Choicebr">Para mútiplas escolhas &lt;br&gt; Entre com uma lista de respostas válidas &lt;br&gt; (Uma escolha por linha)</msg>
   <msg key="lt_had_to_say_in_respons">tiveram a dizer em resposta ao questionário %survey_name%:</msg>
   <msg key="lt_Here_is_how_your_surv">Assim é como a descição do questionário irá aparecer:</msg>
   <msg key="lt_img_srcgraphicsadming">&lt;img src=&quot;graphics/admin.gif&quot; border=&quot;0&quot; alt=&quot;Administrar Questionário&quot;&gt; </msg>
