@@ -78,7 +78,7 @@ ad_proc -public survey_question_display {
 
     append html $question_text
     if { $presentation_alignment == "below" } {
-	append html "<br />"
+	append html "<br>"
     } else {
 	append html " "
     }
@@ -287,8 +287,7 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} "Returns 
 	}
 	
 	if $html_p {
-	    append return_string "</blockquote>
-	    <P>"
+	    append return_string "<P>"
 	} else {
 	    append return_string "\n\n"
 	}
