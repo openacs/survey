@@ -536,8 +536,8 @@ end;' language 'plpgsql';
 create or replace function survey_response__initial_user_id (integer)
 returns integer as '
 declare
-p_response_id 	alias for $1;
-v_user_id	integer;
+  p_response_id 	alias for $1;
+  v_user_id	integer;
 begin
 	select into v_user_id o.creation_user
 	from acs_objects o,
