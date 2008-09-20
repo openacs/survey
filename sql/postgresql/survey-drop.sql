@@ -10,8 +10,12 @@ select drop_package('survey_question');
 select drop_package('survey_section');
 select drop_package('survey');
 
-drop view survey_responses_latest;
-drop view survey_ques_responses_latest;
+-- The following two views are already dropped by the drop_package
+-- commands by using used for "drop function .... CASCADE';
+
+--drop view survey_responses_latest;
+--drop view survey_ques_responses_latest;
+
 drop table survey_question_responses;
 drop table survey_responses;
 drop table survey_question_choices;
@@ -64,4 +68,4 @@ drop function inline_0 ();
 -- gilbertw - logical_negation is defined in utilities-create.sql in acs-kernel
 -- drop function logical_negation(boolean);
 
-
+\i survey-notifications-drop.sql
