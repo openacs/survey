@@ -38,7 +38,7 @@ set results ""
 
 db_foreach survey_question_list {} {
     append results "<li>#$sort_order $question_text
-<blockquote>
+<p>
 "
     switch -- $abstract_data_type {
 	"date" -
@@ -74,7 +74,7 @@ db_foreach survey_question_list {} {
 	    }
 	}
     }
-    append results "</blockquote>\n"
+    append results "</p>\n"
 }
  
 

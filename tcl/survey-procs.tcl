@@ -215,7 +215,7 @@ ad_proc -public survey_question_display {
 	    if { $presentation_alignment == "beside" } {
 		append html [join $choices " "]
 	    } else {
-		append html "<blockquote>\n[join $choices "<br>\n"]\n</blockquote>"
+		append html "<p>\n[join $choices "<br>\n"]\n</p>"
 	    }
 	}
 
@@ -231,7 +231,7 @@ ad_proc -public survey_question_display {
 	    if { $presentation_alignment == "beside" } {
 		append html [join $choices " "]
 	    } else {
-		append html "<blockquote>\n[join $choices "<br>\n"]\n</blockquote>"
+		append html "<p>\n[join $choices "<br>\n"]\n</p>"
 	    }
 	}
     }
