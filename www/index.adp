@@ -1,7 +1,11 @@
 <master>
 <property name="title">#survey.Surveys#</property>
 
-    <if @admin_p@ eq "1"><p style="text-align: right;"><a href="admin/">#survey.lt_img_srcgraphicsadming#</a></p></if>
+    <if @admin_p@ eq "1">
+      <p style="text-align: right;">
+        <a href="admin/" class="button">#acs-kernel.common_Administration#</a>
+      </p>
+    </if>
 
     <ul>
       <multiple name="surveys">

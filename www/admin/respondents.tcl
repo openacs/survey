@@ -12,6 +12,7 @@ ad_page_contract {
     {orderby "email"}
     {response_type "responded"}
 } -properties {
+    survey_id:onevalue
     survey_name:onevalue
     respondents:multirow
 }
@@ -25,16 +26,36 @@ ad_require_permission $survey_id survey_admin_survey
 get_survey_info -survey_id $survey_id
 set survey_name $survey_info(name)
 
-set context [list [list "one?[export_url_vars survey_id]" $survey_info(name)] [_ survey.Respondents]]
+set doc(title) [_ survey.Respondents]
+set context [list [list [export_vars -base "one" {survey_id}] $survey_info(name)] $doc(title)]
 
-set table_def [list \
-		   [list first_names "[_ survey.First_Name]" {upper(first_names) $order} {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$first_names</a></td>}] \
-		   [list last_name "[_ survey.Last_Name]" "" {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$last_name</a></td>}] \
-		   [list email "[_ survey.Email_Address]" "" {<td><a href="one-respondent?[export_vars {user_id survey_id}]">$email</a></td>}] \
-		   [list actions "[_ survey.Actions]" no_sort {<td><a href="one-respondent?[export_vars {user_id survey_id}]"><img src="../graphics/view.gif" style="border:0;" alt="[_ survey.View]"></a></td>}] \
-		   ]
+template::list::create -name respondents -multirow respondents -no_data [_ survey.No_data_found] -elements {
+    first_names {
+        label "[_ survey.First_Name]" 
+        link_url_col one_respondent_url
+        orderby first_names
+    }
+    last_name {
+        label "[_ survey.Last_Name]"
+        link_url_col one_respondent_url
+        orderby last_name
+    }
+    email {
+        label "[_ survey.Email_Address]"
+        link_url_col one_respondent_url
+        orderby email
+    }
+    action {
+        label "[_ survey.Actions]"
+        link_url_col one_respondent_url
+    } 
+} -filters {
+    survey_id {}
+}
 
-set respondents_table [ad_table -Torderby $orderby -Textra_vars {survey_id} -Tmissing_text "[_ survey.No_data_found]" select_respondents {}  $table_def]
+db_multirow -extend { one_respondent_url action } respondents select_respondents {} {
+    set one_respondent_url [export_vars -base "one-respondent" {user_id survey_id}]
+    set action [_ survey.View]
+}
 
 ad_return_template
-
