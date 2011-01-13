@@ -77,13 +77,13 @@
 
 <td valign="top">@questions.rownum@.  <a name="@questions.sort_order@"></a></td>
 
-<td><a	href="@question_modify_url@">#survey.Edit#</a>
+<td><a	href="@questions.question_modify_url@">#survey.Edit#</a>
 <if @questions.active_p@ eq "f"><span style="color: #f00;">#survey.inactive#</span></if>
-<a href="@question_copy_url@">#survey.Copy#</a>
-<a href="@question_add_url@">#survey.Add_New#</a><img src="../graphics/spacer.gif" style="border:0;" alt="" width="10">
+<a href="@questions.question_copy_url@">#survey.Copy#</a>
+<a href="@questions.question_add_url@">#survey.Add_New#</a><img src="../graphics/spacer.gif" style="border:0;" alt="" width="10">
 <if @questions.rownum@ lt @questions:rowcount@ ><a
-	  href="question-swap?section_id=@section_id@&amp;survey_id=@survey_id@&amp;sort_order=@questions.sort_order@&amp;direction=down"><img src="../graphics/down" style="border:0;" alt="#survey.Move_Down#"></a></if><if @questions.rownum@ gt 1><a
-	  href="question-swap?section_id=@section_id@&amp;survey_id=@survey_id@&amp;sort_order=@questions.sort_order@&amp;direction=up"><img src="../graphics/up.gif" style="border:0;" alt="#survey.Move_Up#"></a></if><a href="@question_delete_url@"><img src="../graphics/delete.gif" style="border:0;" alt="#survey.Delete#"></a></td></tr>
+	  href="@questions.question_swap_down_url@"><img src="../graphics/down" style="border:0;" alt="#survey.Move_Down#"></a></if><if @questions.rownum@ gt 1><a
+	  href="@questions.question_swap_up_url@"><img src="../graphics/up.gif" style="border:0;" alt="#survey.Move_Up#"></a></if><a href="@questions.question_delete_url@"><img src="../graphics/delete.gif" style="border:0;" alt="#survey.Delete#"></a></td></tr>
 
   <if @questions.rownum@ odd>
     <tr class="odd">
