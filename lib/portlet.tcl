@@ -12,24 +12,24 @@
 #  id - CSS ID attribute value
 #  cache - cache period, default 0 meaning no cache
 
-if { ![exists_and_not_null package_id]
-     && ![exists_and_not_null base_url] } {
+if { (![info exists package_id] || $package_id eq "")
+     && (![info exists base_url] || $base_url eq "") } {
     error "must specify package_id and/or base_url"
 }
 
-if { ![exists_and_not_null cache] } {
+if { ![info exists cache] || $cache eq "" } {
     set cache 0
 }
 
-if { ![exists_and_not_null display_empty_p] } {
+if { ![info exists display_empty_p] || $display_empty_p eq "" } {
     set display_empty_p 1
 }
 
-if { ![exists_and_not_null base_url] } {
+if { ![info exists base_url] || $base_url eq "" } {
     set base_url [lindex [site_node::get_url_from_object_id \
                               -object_id $package_id] 0]
 }
-if { ![exists_and_not_null package_id] } {
+if { ![info exists package_id] || $package_id eq "" } {
     set package_id [site_node::get_element \
                         -url $base_url -element object_id]
 }

@@ -32,35 +32,35 @@ delete from acs_objects where object_type = 'survey_question';
 delete from acs_objects where object_type = 'survey_section';
 delete from acs_objects where object_type = 'survey';
 
-create function inline_0 ()
-returns integer as '
-begin
+CREATE OR REPLACE FUNCTION inline_0 () RETURNS integer AS $$
+BEGIN
 
-  PERFORM acs_object_type__drop_type (''survey_response'',''f'');
-  PERFORM acs_object_type__drop_type (''survey_question'',''f'');
-  PERFORM acs_object_type__drop_type (''survey_section'',''f'');
-  PERFORM acs_object_type__drop_type (''survey'',''f'');
+  PERFORM acs_object_type__drop_type ('survey_response','f');
+  PERFORM acs_object_type__drop_type ('survey_question','f');
+  PERFORM acs_object_type__drop_type ('survey_section','f');
+  PERFORM acs_object_type__drop_type ('survey','f');
 
-  PERFORM acs_privilege__remove_child (''admin'',''survey_admin_survey'');
-  PERFORM acs_privilege__remove_child (''read'',''survey_take_survey'');
-  PERFORM acs_privilege__remove_child (''survey_admin_survey'',''survey_delete_question'');
-  PERFORM acs_privilege__remove_child (''survey_admin_survey'',''survey_modify_question'');
-  PERFORM acs_privilege__remove_child (''survey_admin_survey'',''survey_create_question'');
-  PERFORM acs_privilege__remove_child (''survey_admin_survey'',''survey_delete_survey'');
-  PERFORM acs_privilege__remove_child (''survey_admin_survey'',''survey_modify_survey'');
-  PERFORM acs_privilege__remove_child (''survey_admin_survey'',''survey_create_survey'');
+  PERFORM acs_privilege__remove_child ('admin','survey_admin_survey');
+  PERFORM acs_privilege__remove_child ('read','survey_take_survey');
+  PERFORM acs_privilege__remove_child ('survey_admin_survey','survey_delete_question');
+  PERFORM acs_privilege__remove_child ('survey_admin_survey','survey_modify_question');
+  PERFORM acs_privilege__remove_child ('survey_admin_survey','survey_create_question');
+  PERFORM acs_privilege__remove_child ('survey_admin_survey','survey_delete_survey');
+  PERFORM acs_privilege__remove_child ('survey_admin_survey','survey_modify_survey');
+  PERFORM acs_privilege__remove_child ('survey_admin_survey','survey_create_survey');
   
-  PERFORM acs_privilege__drop_privilege(''survey_admin_survey''); 
-  PERFORM acs_privilege__drop_privilege(''survey_take_survey''); 
-  PERFORM acs_privilege__drop_privilege(''survey_delete_question''); 
-  PERFORM acs_privilege__drop_privilege(''survey_modify_question''); 
-  PERFORM acs_privilege__drop_privilege(''survey_create_question''); 
-  PERFORM acs_privilege__drop_privilege(''survey_delete_survey''); 
-  PERFORM acs_privilege__drop_privilege(''survey_modify_survey''); 
-  PERFORM acs_privilege__drop_privilege(''survey_create_survey''); 
+  PERFORM acs_privilege__drop_privilege('survey_admin_survey'); 
+  PERFORM acs_privilege__drop_privilege('survey_take_survey'); 
+  PERFORM acs_privilege__drop_privilege('survey_delete_question'); 
+  PERFORM acs_privilege__drop_privilege('survey_modify_question'); 
+  PERFORM acs_privilege__drop_privilege('survey_create_question'); 
+  PERFORM acs_privilege__drop_privilege('survey_delete_survey'); 
+  PERFORM acs_privilege__drop_privilege('survey_modify_survey'); 
+  PERFORM acs_privilege__drop_privilege('survey_create_survey'); 
 
   return 0;
-end;' language 'plpgsql';
+END;
+$$ LANGUAGE plpgsql;
 
 select inline_0 ();
 drop function inline_0 ();

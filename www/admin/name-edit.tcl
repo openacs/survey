@@ -18,7 +18,7 @@ ad_page_contract {
 get_survey_info -survey_id $survey_id
 set survey_name "$survey_info(name)"
 
-ad_require_permission $survey_id survey_modify_survey
+permission::require_permission -object_id $survey_id -privilege survey_modify_survey
 
 ad_form -name edit-name -form {
     survey_id:key

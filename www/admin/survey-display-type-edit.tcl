@@ -10,11 +10,11 @@ ad_page_contract {
     display_type:notnull
 }
 
-ad_require_permission $survey_id survey_admin_survey
+permission::require_permission -object_id $survey_id -privilege survey_admin_survey
 
 if {[lsearch [survey_display_types] $display_type] > -1} {
     db_dml survey_display_type_edit ""
 }
 
 db_release_unused_handles
-ad_returnredirect "one?[export_url_vars survey_id]"
+ad_returnredirect "one?[export_vars -url {survey_id}]"

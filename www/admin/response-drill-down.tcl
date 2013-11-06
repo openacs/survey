@@ -20,7 +20,7 @@ ad_page_contract {
   
 }
 
-ad_require_permission $question_id survey_admin_survey
+permission::require_permission -object_id $question_id -privilege survey_admin_survey
 
 # get the prompt text for the question and the ID for survey of 
 # which it is part
@@ -50,8 +50,8 @@ if { !$response_exists_p } {
 db_multirow user_responses all_users_for_response {}
 
 set context [list \
-     [list "one?[export_url_vars survey_id]" $survey_info(name)] \
-     [list "responses?[export_url_vars survey_id]" "[_ survey.Responses]"] \
+     [list "one?[export_vars -url {survey_id}]" $survey_info(name)] \
+     [list "responses?[export_vars -url {survey_id}]" "[_ survey.Responses]"] \
      "[_ survey.One_Response]"]
 
 ad_return_template

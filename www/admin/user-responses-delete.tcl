@@ -13,7 +13,7 @@ ad_page_contract {
 }
 
 set package_id [ad_conn package_id]
-ad_require_permission $package_id survey_admin_survey
+permission::require_permission -object_id $package_id -privilege survey_admin_survey
 
 db_multirow responses get_response_info {}
 
@@ -32,7 +32,7 @@ ad_form -name confirm_delete -form {
 } -on_submit {
     if {$confirmation} {
 	template::multirow foreach responses {
-	    if {[empty_string_p $initial_response_id]} {
+	    if {$initial_response_id eq ""} {
 		db_exec_plsql delete_response {}
 	    }
 	}

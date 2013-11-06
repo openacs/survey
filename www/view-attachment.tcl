@@ -20,7 +20,7 @@ ad_page_contract {
     attachment_exists -requires {response_id question_id} {
 	db_1row get_file_info {}
 
-	if { [empty_string_p $file_type] } {
+	if { $file_type eq "" } {
 	    ad_complain "[_ survey.lt_Couldnt_find_attachment]"
 	}
     }

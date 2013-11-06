@@ -17,7 +17,7 @@ ad_page_contract {
 
 set package_id [ad_conn package_id]
 
-ad_require_permission $package_id survey_admin_survey
+permission::require_permission -object_id $package_id -privilege survey_admin_survey
 
 # Get the survey information.
 get_survey_info -survey_id $survey_id
@@ -50,7 +50,7 @@ if {$survey_info(single_response_p) == "t"} {
 
 
 # allow site-wide admins to enable/disable surveys directly from here
-set target "one?[export_url_vars survey_id]"
+set target "one?[export_vars -url {survey_id}]"
 set enabled_p $survey_info(enabled_p)
 set toggle_enabled_url "survey-toggle?[export_vars {survey_id enabled_p target}]"
 if {$enabled_p == "t"} {

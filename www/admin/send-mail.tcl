@@ -18,7 +18,7 @@ set package_id [ad_conn package_id]
 set user_id [ad_conn user_id]
 set sender_id [ad_conn user_id]
 
-ad_require_permission $survey_id survey_admin_survey
+permission::require_permission -object_id $survey_id -privilege survey_admin_survey
 
 get_survey_info -survey_id $survey_id
 set survey_name $survey_info(name)
@@ -29,7 +29,7 @@ if {$dotlrn_installed_p} {
     set community_id [dotlrn_community::get_community_id]
     set segment_id [db_string select_rel_segment_id {}]
     set community_name [dotlrn_community::get_community_name $community_id]
-    set community_url "[ad_parameter -package_id [ad_acs_kernel_id] SystemURL][dotlrn_community::get_community_url $community_id]"
+    set community_url "[parameter::get -package_id [ad_acs_kernel_id] -parameter SystemURL][dotlrn_community::get_community_url $community_id]"
 
     set n_responses [db_string n_responses {}]
     if {$n_responses > 0} {

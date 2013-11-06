@@ -14,7 +14,7 @@ ad_page_contract {
 }
 
 set package_id [ad_conn package_id]
-ad_require_permission $package_id survey_create_survey
+permission::require_permission -object_id $package_id -privilege survey_create_survey
 
 set whole_page "[ad_header "[_ survey.Choose_Survey_Type]"]
 

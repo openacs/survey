@@ -18,7 +18,7 @@ ad_page_contract {
 
 } -validate {
     survey_exists -requires {survey_id} {
-	if ![db_0or1row survey_exists {}] {
+	if {![db_0or1row survey_exists {}]} {
 	    ad_complain "[_ survey.lt_Survey_survey_id_do_no]"
 	}
     set user_id [auth::require_login]
@@ -56,7 +56,7 @@ ad_page_contract {
     return_url:onerow
 }
 
-ad_require_permission $survey_id survey_take_survey
+permission::require_permission -object_id $survey_id -privilege survey_take_survey
 
 set context $name
 set button_label "[_ survey.Submit_response]"
@@ -84,10 +84,10 @@ db_foreach survey_sections {} {
     # executing the survey associated with the logic
     # after the survey is completed
     #
-    if ![info exists return_url] {
+    if {![info exists return_url]} {
 	set return_url {}
     }
 }
-set form_vars [export_form_vars section_id survey_id new_response_id]
+set form_vars [export_vars -form {section_id survey_id new_response_id}]
 ad_return_template
 

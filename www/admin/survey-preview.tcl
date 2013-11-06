@@ -17,7 +17,7 @@ ad_page_contract {
 
 } -validate {
     survey_exists -requires {survey_id} {
-	if ![db_0or1row survey_exists {}] {
+	if {![db_0or1row survey_exists {}]} {
 	    ad_complain "[_ survey.lt_Survey_survey_id_does]"
 	}
     }
@@ -32,7 +32,7 @@ ad_page_contract {
     return_url:onerow
 }
 
-ad_require_permission $survey_id survey_take_survey
+permission::require_permission -object_id $survey_id -privilege survey_take_survey
 
     get_survey_info -survey_id $survey_id
     set name $survey_info(name)
@@ -64,6 +64,6 @@ db_foreach survey_sections {} {
     }
 
 set return_url "one?[export_vars survey_id]"
-set form_vars [export_form_vars section_id survey_id]
+set form_vars [export_vars -form {section_id survey_id}]
 ad_return_template
 

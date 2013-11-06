@@ -15,7 +15,7 @@ ad_page_contract {
 
 }
 
-ad_require_permission $section_id survey_modify_question
+permission::require_permission -object_id $section_id -privilege survey_modify_question
 
 get_survey_info -section_id $section_id
 set survey_id $survey_info(survey_id)
@@ -68,14 +68,14 @@ db_release_unused_handles
 doc_return 200 text/html "[ad_header "[_ survey.Modify_Responses]"]
 <h2>$survey_name</h2>
 
-[ad_context_bar [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.lt_Modify_Question_Respo]"]
+[ad_context_bar [list "one?[export_vars -url {survey_id}]" $survey_info(name)] "[_ survey.lt_Modify_Question_Respo]"]
 
 <hr>
 
 [_ survey.Question]: $question_text
 <p>
 <form action=\"modify-responses-2\" method=get>
-[export_form_vars section_id question_id choice_id_list variable_id_list]
+[export_vars -form {section_id question_id choice_id_list variable_id_list}]
 $table_html
 <p>
 <center>

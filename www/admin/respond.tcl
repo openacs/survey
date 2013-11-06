@@ -21,7 +21,7 @@ ad_page_contract {
 
 } -validate {
     survey_exists -requires {survey_id} {
-	if ![db_0or1row survey_exists {}] {
+	if {![db_0or1row survey_exists {}]} {
 	    ad_complain "Survey $survey_id does not exist"
 	}
     }
@@ -38,7 +38,7 @@ ad_page_contract {
 
 # Added by request from a professor at Sloan.
 
-ad_require_permission $survey_id survey_admin_survey
+permission::require_permission -object_id $survey_id -privilege survey_admin_survey
 
 get_survey_info -survey_id $survey_id
 set survey_name $survey_info(name)
@@ -82,13 +82,13 @@ db_foreach survey_sections {} {
     # rather than executing the survey associated with the logic
     # after the survey is completed
     
-    if ![info exists return_url] {
+    if {![info exists return_url]} {
 	set return_url {}
     }
 }
 
 set edited_response_id $response_id
-set form_vars [export_form_vars section_id survey_id new_response_id user_id edited_response_id]  
+set form_vars [export_vars -form {section_id survey_id new_response_id user_id edited_response_id}]  
 
 ad_return_template
 

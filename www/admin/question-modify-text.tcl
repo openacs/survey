@@ -16,7 +16,7 @@ ad_page_contract {
 
 }
 
-ad_require_permission $section_id survey_modify_question
+permission::require_permission -object_id $section_id -privilege survey_modify_question
 
 get_survey_info -section_id $section_id
 set survey_name $survey_info(name)
@@ -35,6 +35,6 @@ ad_form -name modify_question -form {
 
 }
 
-set context [list [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.lt_Modify_a_Questions_Te]"]
+set context [list [list "one?[export_vars -url {survey_id}]" $survey_info(name)] "[_ survey.lt_Modify_a_Questions_Te]"]
 
 ad_return_template

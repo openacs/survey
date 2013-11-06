@@ -17,7 +17,7 @@ ad_page_contract {
     respondents:multirow
 }
 
-ad_require_permission $survey_id survey_admin_survey
+permission::require_permission -object_id $survey_id -privilege survey_admin_survey
 
 # for sloanspace, we can also list users who have NOT responded or
 # the entire group.

@@ -21,8 +21,8 @@ ad_page_contract {
 get_survey_info -section_id $section_id
 set survey_name $survey_info(name)
 set survey_id $survey_info(survey_id)
-ad_require_permission $survey_id survey_modify_question
-set allow_question_deactivation [ad_parameter "allow_question_deactivation_p"]
+permission::require_permission -object_id $survey_id -privilege survey_modify_question
+set allow_question_deactivation [parameter::get -parameter "allow_question_deactivation_p"]
 set n_responses [db_string survey_number_responses {} ]
 
 ad_form -name modify_question -form {
@@ -65,7 +65,7 @@ ad_form -extend -name modify_question -form {
 
 db_1row presentation {}
 
-if {($presentation_type=="checkbox" || $presentation_type=="select" || $presentation_type=="radio") && $abstract_data_type != "boolean"} {
+if {($presentation_type=="checkbox" || $presentation_type=="select" || $presentation_type=="radio") && $abstract_data_type ne "boolean"} {
     set valid_responses_list [db_list survey_question_valid_responses {}]
     set response_list ""
     foreach response $valid_responses_list {
@@ -79,7 +79,7 @@ if {($presentation_type=="checkbox" || $presentation_type=="select" || $presenta
     } 
 } 
 
-if {$presentation_type == "textarea" || $presentation_type == "textbox"} {
+if {$presentation_type eq "textarea" || $presentation_type eq "textbox"} {
     ad_form -extend -name modify_question -form {
 	{presentation_options:text(select) {options {{[_ survey.Small] small} {[_ survey.Medium] medium} {[_ survey.Large] large}}} {value $presentation_options} {label "[string totitle $presentation_type] [_ survey.Size]"}} 
 
@@ -101,7 +101,7 @@ ad_form -extend -name modify_question -select_query_name {survey_question_detail
         set response_list ""
         foreach response $responses {
             set trimmed_response [string trim $response]
-            if { [empty_string_p $trimmed_response] } {
+            if { $trimmed_response eq "" } {
                 # skip empty lines
                 continue
             }
@@ -116,7 +116,7 @@ ad_form -extend -name modify_question -select_query_name {survey_question_detail
             set choice_name [lindex $one_response 0]
             set choice_value [lindex $one_response 1]
             set choice_id_to_update [lindex $choice_id_to_update_list $choice_count]
-            if {[empty_string_p $choice_id_to_update]} {
+            if {$choice_id_to_update eq ""} {
                 db_dml insert_new_choice {}
             } else {
 

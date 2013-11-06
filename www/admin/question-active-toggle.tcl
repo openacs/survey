@@ -14,7 +14,7 @@ ad_page_contract {
 
 }
 
-ad_require_permission $section_id survey_admin_survey
+permission::require_permission -object_id $section_id -privilege survey_admin_survey
 
 db_dml survey_question_required_toggle "update survey_questions set active_p = util.logical_negation(active_p)
 where section_id = :section_id
@@ -23,5 +23,5 @@ and question_id = :question_id"
 db_release_unused_handles
 get_survey_info -section_id $section_id
 set survey_id $survey_info(survey_id)
-ad_returnredirect "one?[export_url_vars survey_id]"
+ad_returnredirect "one?[export_vars -url {survey_id}]"
 

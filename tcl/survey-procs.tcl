@@ -29,7 +29,7 @@ ad_proc -public get_survey_info {
 } {
     upvar survey_info survey_info
 
-    if {[empty_string_p $survey_id]} {
+    if {$survey_id eq ""} {
 	db_1row lookup_survey_id ""
     }
 
@@ -41,7 +41,7 @@ ad_proc -public get_survey_info {
 	return
     }
     # If it's a single-section survey, look up the section_id
-    if {[empty_string_p $section_id] && $survey_info(single_section_p) == "t"} {
+    if {$section_id eq "" && $survey_info(single_section_p) == "t"} {
 	db_1row lookup_single_section_id ""
 	set survey_info(section_id) $section_id
     }
@@ -61,7 +61,7 @@ ad_proc -public survey_question_display {
     {response_id ""} 
 } {Returns a string of HTML to display for a question, suitable for embedding in a form. The form variable is of the form \"response_to_question.\$question_id} {
 
-    if {![empty_string_p $response_id]} {
+    if {$response_id ne ""} {
 	set edit_previous_response_p "t"
     } else {
 	set edit_previous_response_p "f"
@@ -77,7 +77,7 @@ ad_proc -public survey_question_display {
     }
 
     append html $question_text
-    if { $presentation_alignment == "below" } {
+    if { $presentation_alignment eq "below" } {
 	append html "<br>"
     } else {
 	append html " "
@@ -86,13 +86,13 @@ ad_proc -public survey_question_display {
     set user_value ""
 
     if {$edit_previous_response_p == "t"} {
- 	set user_id [ad_get_user_id]
+ 	set user_id [ad_conn user_id]
 
 	set count 0
 	db_foreach prev_response_query {} {
 	    incr count
 	    
-	    if {$presentation_type == "checkbox"} {
+	    if {$presentation_type eq "checkbox"} {
 		set selected_choices($choice_id) "t"
 	    }
 	} if_no_rows {
@@ -115,14 +115,14 @@ ad_proc -public survey_question_display {
 	}
 	"textbox" {
 	    if {$edit_previous_response_p == "t"} {
-		if {$abstract_data_type == "number" || $abstract_data_type == "integer"} {
+		if {$abstract_data_type eq "number" || $abstract_data_type eq "integer"} {
 		    set user_value $number_answer
 		} else {
 		    set user_value $varchar_answer
 		}
 	    }
 
-	    append html "<input type=text name=$element_name value=\"[philg_quote_double_quotes $user_value]\" [ad_decode $presentation_options "large" "size=70" "medium" "size=40" "size=10"]>"
+	    append html "<input type=text name=$element_name value=\"[ad_quotehtml $user_value]\" [ad_decode $presentation_options "large" "size=70" "medium" "size=40" "size=10"]>"
 	}
 	"textarea" {
 	    if {$edit_previous_response_p == "t"} {
@@ -141,12 +141,12 @@ ad_proc -public survey_question_display {
 	    append html "[ad_dateentrywidget $element_name $user_value]" 
 	}
 	"select" {
-	    if { $abstract_data_type == "boolean" } {
+	    if { $abstract_data_type eq "boolean" } {
 		if {$edit_previous_response_p == "t"} {
 		    set user_value $boolean_answer
 		}
 		
-		if {![empty_string_p $presentation_options]} {
+		if {$presentation_options ne ""} {
 		    set options_list [split $presentation_options "/"]
 		    set choice_t [lindex $options_list 0]
 		    set choice_f [lindex $options_list 1]
@@ -183,11 +183,11 @@ ad_proc -public survey_question_display {
 	}
     
 	"radio" {
-	    if { $abstract_data_type == "boolean" } {
+	    if { $abstract_data_type eq "boolean" } {
 		if {$edit_previous_response_p == "t"} {
 		    set user_value $boolean_answer
 		}
-		if {![empty_string_p $presentation_options]} {
+		if {$presentation_options ne ""} {
 		    set options_list [split $presentation_options "/"]
 		    set choice_t [lindex $options_list 0]
 		    set choice_f [lindex $options_list 1]
@@ -212,7 +212,7 @@ ad_proc -public survey_question_display {
 		    }
 		}
 	    }  
-	    if { $presentation_alignment == "beside" } {
+	    if { $presentation_alignment eq "beside" } {
 		append html [join $choices " "]
 	    } else {
 		append html "<p>\n[join $choices "<br>\n"]\n</p>"
@@ -228,7 +228,7 @@ ad_proc -public survey_question_display {
 		    lappend choices "<input type=checkbox name=$element_name value=$choice_id> $label"
 		}
 	    }
-	    if { $presentation_alignment == "beside" } {
+	    if { $presentation_alignment eq "beside" } {
 		append html [join $choices " "]
 	    } else {
 		append html "<p>\n[join $choices "<br>\n"]\n</p>"
@@ -260,7 +260,7 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} "Returns 
 	    continue
 	}
 	
-	if $html_p {
+	if {$html_p} {
 	    append return_string "# $sort_order: $question_text <p>"
 	    append return_string "[ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]"
 	} else {
@@ -270,23 +270,23 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} "Returns 
 	    append return_string "[ad_html_to_text -- [ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]]"
 	}
 	
-	if {![empty_string_p $attachment_answer]} {
+	if {$attachment_answer ne ""} {
 	    set package_id [ad_conn package_id]
 	    set filename [db_string get_filename {}]
-	    append return_string "[_ survey.Uploaded_file] <a href=\"[site_node::get_url_from_object_id -object_id $package_id]/view-attachment?[export_url_vars response_id question_id]\">\"$filename\"</a>"
+	    append return_string "[_ survey.Uploaded_file] <a href=\"[site_node::get_url_from_object_id -object_id $package_id]/view-attachment?[export_vars -url {response_id question_id}]\">\"$filename\"</a>"
 	}
 	
-	if {$choice_id != 0 && ![empty_string_p $choice_id] && $question_id != $question_id_previous} {
+	if {$choice_id != 0 && $choice_id ne "" && $question_id != $question_id_previous} {
 	    set label_list [db_list survey_label_list ""]
 	    append return_string "[join $label_list ", "]"
 	}
 	
-	if ![empty_string_p $boolean_answer] {
+	if {$boolean_answer ne ""} {
 	    append return_string "[survey_decode_boolean_answer -response $boolean_answer -question_id $question_id]"
 	    
 	}
 	
-	if $html_p {
+	if {$html_p} {
 	    append return_string "<P>"
 	} else {
 	    append return_string "\n\n"
@@ -327,12 +327,12 @@ ad_proc -public survey_question_copy {
 } {
     set user_id [ad_conn user_id]
     db_1row get_question_details {}
-    if {![empty_string_p $new_section_id]} {
+    if {$new_section_id ne ""} {
 	set section_id $new_section_id
     }
 
     set old_question_id $question_id
-    if {[empty_string_p $new_section_id]} {
+    if {$new_section_id eq ""} {
 	set after $sort_order
 	set new_sort_order [expr {$after + 1}]
 	    db_dml renumber_sort_orders {}
@@ -362,12 +362,12 @@ ad_proc survey_copy {
     same package instance
 } {
 
-    if {[empty_string_p $package_id]} {
+    if {$package_id eq ""} {
 	set package_id [ad_conn package_id]
     }
 
     db_1row get_survey_info {}
-    if {![empty_string_p $new_name]} {
+    if {$new_name ne ""} {
 	set name $new_name
     }
     set user_id [ad_conn user_id]
@@ -379,7 +379,7 @@ ad_proc survey_copy {
     
 	set new_section_id [db_exec_plsql section_create {}]
 	set new_section_ids($section_id) $new_section_id
-	if {![empty_string_p $description]} {
+	if {$description ne ""} {
 	    db_dml set_section_description {}
 	}
     }
@@ -405,10 +405,10 @@ ad_proc -public survey_do_notifications {
     set community_url [ad_conn package_url]
 
     #dotlrn specific info
-    set dotlrn_installed_p [expr [apm_package_installed_p dotlrn] && [apm_package_enabled_p dotlrn]]
+    set dotlrn_installed_p [expr {[apm_package_installed_p dotlrn] && [apm_package_enabled_p dotlrn]}]
     if { $dotlrn_installed_p } {
         # Cannot do this unless dotlrn package is installed and enabled
-        if { [empty_string_p [dotlrn_community::get_community_id]] } {
+        if { [dotlrn_community::get_community_id] eq "" } {
             set dotlrn_installed_p 0
         }
     }
@@ -418,7 +418,7 @@ ad_proc -public survey_do_notifications {
 	set community_id [dotlrn_community::get_community_id]
 	set segment_id [dotlrn_community::get_rel_segment_id -community_id $community_id -rel_type "dotlrn_member_rel"]
 	set community_name [dotlrn_community::get_community_name $community_id]
-	set community_url "[ad_parameter -package_id [ad_acs_kernel_id] SystemURL][dotlrn_community::get_community_url $community_id]"
+	set community_url "[parameter::get -package_id [ad_acs_kernel_id] -parameter SystemURL][dotlrn_community::get_community_url $community_id]"
     }
     db_1row get_response_info {}
     
@@ -430,7 +430,7 @@ ad_proc -public survey_do_notifications {
         append notif_html "Group: <a href=\"$community_url\">$community_name</a><br>"
 
     }
-    set comm_url "[ad_parameter -package_id [ad_acs_kernel_id] SystemURL][acs_community_member_url -user_id $responding_user_id]"
+    set comm_url "[parameter::get -package_id [ad_acs_kernel_id] -parameter SystemURL][acs_community_member_url -user_id $responding_user_id]"
     append notif_text "\n[_ survey.lt_Survey_survey_name]"
     append notif_text "\n[_ survey.lt_Survey_survey_Res]\n"
     append notif_text "\n[_ survey.lt_Survey_survey_notif_intro]\n"
@@ -487,12 +487,12 @@ ad_proc survey_decode_boolean_answer {
     @param -question_id question_id of question response is from
 } {
     set presentation_options [db_string get_presentation_options {}]
-    if {[empty_string_p $presentation_options]} {
+    if {$presentation_options eq ""} {
 	set presentation_options "True/False"
     }
 
 
-    if {![empty_string_p $response]} {
+    if {$response ne ""} {
 	set options_list [split $presentation_options "/"]
 
 	if {$response=="t"} {

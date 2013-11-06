@@ -15,7 +15,7 @@ ad_page_contract {
     {sort_order ""}
 }
 
-ad_require_permission $question_id survey_delete_question
+permission::require_permission -object_id $question_id -privilege survey_delete_question
 
 db_1row section_id_from_question_id ""
 
@@ -58,7 +58,7 @@ ad_form -extend -name confirm_delete -form {
 		db_dml survey_question_choices_delete {}
 
 		db_exec_plsql survey_delete_question {}
-		if {![empty_string_p $sort_order]} {
+		if {$sort_order ne ""} {
 		    db_dml survey_renumber_questions {}
 		}
 	    } on_error {
@@ -75,7 +75,7 @@ ad_form -extend -name confirm_delete -form {
 	    db_release_unused_handles
 	    set sort_order [expr {$sort_order -1}]
 	}
-        ad_returnredirect "one?[export_url_vars survey_id]&#${sort_order}"
+        ad_returnredirect "one?[export_vars -url {survey_id}]&#${sort_order}"
         ad_script_abort
     }
 

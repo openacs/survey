@@ -15,7 +15,7 @@ ad_page_contract {
     {target "./"}
 }
 
-ad_require_permission $survey_id survey_admin_survey
+permission::require_permission -object_id $survey_id -privilege survey_admin_survey
 
 if {$enabled_p == "f"} {
     set enabled_p "t"

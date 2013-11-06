@@ -18,7 +18,7 @@ ad_page_contract {
 
 } -validate {
         survey_exists -requires {survey_id} {
-	    if ![db_0or1row survey_exists {}] {
+	    if {![db_0or1row survey_exists {}]} {
 		ad_complain "[_ survey.lt_Survey_section_id_does]"
 	    }
 	}

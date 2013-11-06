@@ -24,7 +24,7 @@ ad_page_contract {
 } -validate {
 
     section_exists -requires { section_id } {
-	if ![db_0or1row section_exists {}] {
+	if {![db_0or1row section_exists {}]} {
 	    ad_complain "[_ survey.lt_Section_section_id_do]"
 	}
     }
@@ -58,24 +58,24 @@ ad_page_contract {
 	    #  but first value for 'choice' abstract_data_type - see ad_page_contract
 	    #  doc and code for more info.
 	    #
-	    if { [exists_and_not_null response_to_question($question_id)] } {
-		if {$abstract_data_type != "choice"} {
+	    if { ([info exists response_to_question($question_id)] && $response_to_question($question_id) ne "") } {
+		if {$abstract_data_type ne "choice"} {
 		    set response_to_question($question_id) [join $response_to_question($question_id)]
 		} else {
-		    if { [empty_string_p [lindex $response_to_question($question_id) 0 ] ] } {
+		    if { [lindex $response_to_question($question_id) 0 ] eq "" } {
 			set response_to_question($question_id) ""
 		    }
 	        }
 	    }
 	    
-	    if { $abstract_data_type == "date" } {
+	    if { $abstract_data_type eq "date" } {
 		if [catch  { set response_to_question($question_id) [validate_ad_dateentrywidget "" response_to_question.$question_id [ns_getform]]} errmsg] {
 		    ad_complain "$errmsg: [_ survey.lt_Please_make_sure_your]"
 		}
 	    }
 	   
     
-	    if { [exists_and_not_null response_to_question($question_id)] } {
+	    if { ([info exists response_to_question($question_id)] && $response_to_question($question_id) ne "") } {
 
 		set response_value [string trim $response_to_question($question_id)]
 	    } elseif {$required_p == "t"} {
@@ -86,14 +86,14 @@ ad_page_contract {
 		set response_value ""
 	    }
 	    
-	    if {![empty_string_p $response_value]} {
-		if { $abstract_data_type == "number" } {
+	    if {$response_value ne ""} {
+		if { $abstract_data_type eq "number" } {
 		    if { ![regexp {^(-?[0-9]+\.)?[0-9]+$} $response_value] } {
 			
 			ad_complain "[_ survey.lt_The_response_to_ques_n]"
 			continue
 		    }
-		} elseif { $abstract_data_type == "integer" } {
+		} elseif { $abstract_data_type eq "integer" } {
 		    if { ![regexp {^[0-9]+$} $response_value] } {
 			
 			ad_complain "[_ survey.lt_The_response_to_ques_i]"
@@ -102,7 +102,7 @@ ad_page_contract {
 		}
 	    }
 	    
-	    if { $abstract_data_type == "blob" } {
+	    if { $abstract_data_type eq "blob" } {
                 set tmp_filename $response_to_question($question_id.tmpfile)
 		set n_bytes [file size $tmp_filename]
 		if { $n_bytes == 0 && $required_p == "t" } {
@@ -129,7 +129,7 @@ ad_page_contract {
     survey_name:onerow
 }
 
-ad_require_permission $survey_id survey_take_survey
+permission::require_permission -object_id $survey_id -privilege survey_take_survey
 
 set user_id [ad_conn user_id]
 
@@ -177,11 +177,11 @@ if {[db_string get_response_count {}] == 0} {
 
 	    switch -- $abstract_data_type {
 		"choice" {
-		    if { $presentation_type == "checkbox" } {
+		    if { $presentation_type eq "checkbox" } {
 			# Deal with multiple responses. 
 			set checked_responses $response_to_question($question_id)
 			foreach response_value $checked_responses {
-			    if { [empty_string_p $response_value] } {
+			    if { $response_value eq "" } {
 				set response_value [db_null]
 			    }
 
@@ -189,7 +189,7 @@ if {[db_string get_response_count {}] == 0} {
  values (:response_id, :question_id, :response_value)"
 			}
 		    }  else {
-			if { [empty_string_p $response_value] || [empty_string_p [lindex $response_value 0]] } {
+			if { $response_value eq "" || [lindex $response_value 0] eq "" } {
 			    set response_value [db_null]
 			}
 
@@ -202,7 +202,7 @@ if {[db_string get_response_count {}] == 0} {
  values (:response_id, :question_id, :response_value)"
 		}
 		"boolean" {
-		    if { [empty_string_p $response_value] } {
+		    if { $response_value eq "" } {
 			set response_value [db_null]
 		    }
 
@@ -211,14 +211,14 @@ if {[db_string get_response_count {}] == 0} {
 		}
 		"integer" -
 		"number" {
-		    if { [empty_string_p $response_value] } {
+		    if { $response_value eq "" } {
 			set response_value [db_null]
 		    } 
 		    db_dml survey_question_response_integer_insert "insert into survey_question_responses (response_id, question_id, number_answer)
  values (:response_id, :question_id, :response_value)"
 		}
 		"text" {
-		    if { [empty_string_p $response_value] } {
+		    if { $response_value eq "" } {
 			set response_value [db_null]
 		    }
 
@@ -229,7 +229,7 @@ values (:response_id, :question_id, empty_clob())
 returning clob_answer into :1" -clobs [list $response_value]
 	    }
 	    "date" {
-                if { [empty_string_p $response_value] } {
+                if { $response_value eq "" } {
                     set response_value [db_null]
                 }
 
@@ -238,7 +238,7 @@ values (:response_id, :question_id, :response_value)"
 	    }   
             "blob" {
 
-                if { ![empty_string_p $response_value] } {
+                if { $response_value ne "" } {
                     # this stuff only makes sense to do if we know the file exists
 		    set tmp_filename $response_to_question($question_id.tmpfile)
 
@@ -249,7 +249,7 @@ values (:response_id, :question_id, :response_value)"
 
                     set n_bytes [file size $tmp_filename]
                     # strip off the C:\directories... crud and just get the file name
-                    if ![regexp {([^/\\]+)$} $response_value match client_filename] {
+                    if {![regexp {([^/\\]+)$} $response_value match client_filename]} {
                         # couldn't find a match
                         set client_filename $response_value
                     }
@@ -279,7 +279,7 @@ survey_do_notifications -response_id $response_id
 
 }
 
-if {[info exists return_url] && ![empty_string_p $return_url]} {
+if {[info exists return_url] && $return_url ne ""} {
     ad_returnredirect "$return_url"
            ad_script_abort
 } else {

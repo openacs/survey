@@ -17,7 +17,7 @@ ad_page_contract {
   direction:notnull
 }
 
-ad_require_permission $section_id survey_modify_survey
+permission::require_permission -object_id $section_id -privilege survey_modify_survey
 
 if { $direction=="up" } {
      set next_sort_order [expr { $sort_order - 1 }]

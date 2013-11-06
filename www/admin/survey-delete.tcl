@@ -14,7 +14,7 @@ ad_page_contract {
 }
 
 set package_id [ad_conn package_id]
-ad_require_permission $package_id survey_admin_survey
+permission::require_permission -object_id $package_id -privilege survey_admin_survey
 
 get_survey_info -survey_id $survey_id
 

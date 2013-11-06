@@ -39,8 +39,8 @@ ad_page_contract {
 }
 
 set package_id [ad_conn package_id]
-set user_id [ad_get_user_id]
-ad_require_permission $package_id survey_create_question
+set user_id [ad_conn user_id]
+permission::require_permission -object_id $package_id -privilege survey_create_question
 get_survey_info -section_id $section_id
 
 if {![info exists survey_info(survey_id)]} {
@@ -52,18 +52,18 @@ set survey_id $survey_info(survey_id)
 set exception_count 0
 set exception_text ""
 
-if { [empty_string_p $question_text] } {
+if { $question_text eq "" } {
     incr exception_count
     append exception_text "<li>[_ survey.lt_You_did_not_enter_a_q]\n"
 }
 
-if { $type != "scored" && $type != "general" } {
+if { $type ne "scored" && $type ne "general" } {
     incr exception_count
     set type_var $type
     append exception_text "<li>[_ survey.Surveys of type $type are not currently available.\n"
 }
 
-if { $type == "general" && $abstract_data_type == "choice" && [empty_string_p $valid_responses] } {
+if { $type eq "general" && $abstract_data_type eq "choice" && $valid_responses eq "" } {
     incr exception_count
     append exception_text "<li>[_ survey.lt_You_did_not_enter_a_l]\n"
 }
@@ -82,30 +82,30 @@ if { $already_inserted_p } {
 }
 # Generate presentation_options.
     set presentation_options ""
-    if { $presentation_type == "textbox" } {
-	if { [exists_and_not_null textbox_size] } {
+    if { $presentation_type eq "textbox" } {
+	if { ([info exists textbox_size] && $textbox_size ne "") } {
 	    # Will be "small", "medium", or "large".
 	    set presentation_options $textbox_size
 	}
-    } elseif { $presentation_type == "textarea" } {
-	if { [exists_and_not_null textarea_size] } {
+    } elseif { $presentation_type eq "textarea" } {
+	if { ([info exists textarea_size] && $textarea_size ne "") } {
 	    # Will be "small", "medium", or "large".
 	    set presentation_options $textarea_size
 	}
-    } elseif { $abstract_data_type == "yn" } {
+    } elseif { $abstract_data_type eq "yn" } {
 	set abstract_data_type "boolean"
 	set presentation_options "[_ survey.YesNo]"
-    } elseif { $abstract_data_type == "boolean" } {
+    } elseif { $abstract_data_type eq "boolean" } {
 	set presentation_options "[_ survey.TrueFalse]"
     }
 
     db_transaction {
-	if { [exists_and_not_null after] } {
+	if { ([info exists after] && $after ne "") } {
 	    # We're inserting between existing questions; move everybody down.
 	    set sort_order [expr { $after + 1 }]
 	    db_dml renumber_sort_orders {}
 	} else {
-	    set sort_order [expr [db_string max_question {}] + 1]
+	    set sort_order [expr {[db_string max_question {}] + 1}]
 	}
 
 	db_exec_plsql create_question {}
@@ -116,13 +116,13 @@ if { $already_inserted_p } {
     # For questions where the user is selecting a canned response, insert
     # the canned responses into survey_question_choices by parsing the valid_responses
     # field.
-            if { $presentation_type == "checkbox" || $presentation_type == "radio" || $presentation_type == "select" } {
-                if { $abstract_data_type == "choice" } {
+            if { $presentation_type eq "checkbox" || $presentation_type eq "radio" || $presentation_type eq "select" } {
+                if { $abstract_data_type eq "choice" } {
 	            set responses [split $valid_responses "\n"]
 	            set count 0
 	            foreach response $responses {
 		        set trimmed_response [string trim $response]
-		        if { [empty_string_p $trimmed_response] } {
+		        if { $trimmed_response eq "" } {
 		        # skip empty lines
 		            continue
 		        }

@@ -18,7 +18,7 @@ ad_page_contract {
     {choice_id_list ""}
 }
 
-ad_require_permission $section_id survey_modify_question
+permission::require_permission -object_id $section_id -privilege survey_modify_question
 
 db_transaction {
     
@@ -46,6 +46,6 @@ db_release_unused_handles
 
 get_survey_info -section_id $section_id
 set survey_id $survey_info(survey_id)
-ad_returnredirect "one?[export_url_vars survey_id]"
+ad_returnredirect "one?[export_vars -url {survey_id}]"
 
 	

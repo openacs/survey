@@ -17,9 +17,9 @@ set package_id [ad_conn package_id]
 
 set user_id [auth::require_login]
 
-set take_survey_p [ad_permission_p $survey_id survey_take_survey]
+set take_survey_p [permission::permission_p -object_id $survey_id -privilege survey_take_survey]
 
-set admin_p [ad_permission_p $survey_id survey_admin_survey]
+set admin_p [permission::permission_p -object_id $survey_id -privilege survey_admin_survey]
 
 db_multirow survey_details get_survey_details {} 
 

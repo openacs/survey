@@ -14,7 +14,7 @@ ad_page_contract {
 
 }
 
-ad_require_permission $survey_id survey_modify_survey
+permission::require_permission -object_id $survey_id -privilege survey_modify_survey
 ad_form -name edit-survey -form {
     survey_id:key
     {description:text(textarea) {label "[_ survey.Survey_Description]"} {html {rows 10 cols 65}}}
@@ -47,10 +47,10 @@ ad_form -name edit-survey -form {
     }
         db_dml survey_update_description ""
 
-    ad_returnredirect "one?[export_url_vars survey_id]"
+    ad_returnredirect "one?[export_vars -url {survey_id}]"
     ad_script_abort
 }
 
-set context [list [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Edit_Description]"]
+set context [list [list "one?[export_vars -url {survey_id}]" $survey_info(name)] "[_ survey.Edit_Description]"]
 
 ad_return_template

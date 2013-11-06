@@ -15,7 +15,7 @@ ad_page_contract {
 
 } 
 
-ad_require_permission $survey_id survey_admin_survey
+permission::require_permission -object_id $survey_id -privilege survey_admin_survey
 
 get_survey_info -survey_id $survey_id
 set survey_name $survey_info(name)

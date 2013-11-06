@@ -15,9 +15,9 @@ ad_page_contract {
 
 }
 
-ad_require_permission $survey_id survey_admin_survey
+permission::require_permission -object_id $survey_id -privilege survey_admin_survey
 
-set user_id [ad_get_user_id]
+set user_id [ad_conn user_id]
 
 # nstrug - 12/9/2000
 # Summarise scored responses for all users
@@ -65,7 +65,7 @@ db_foreach survey_question_list {} {
         }
 	"choice" {
 	    db_foreach survey_section_question_choices "" {
-             append results "$label: <a href=\"response-drill-down?[export_url_vars question_id choice_id]\">$n_responses</a><br>\n"
+             append results "$label: <a href=\"response-drill-down?[export_vars -url {question_id choice_id}]\">$n_responses</a><br>\n"
              }
 	 }
 	"blob" {
@@ -87,6 +87,6 @@ if { $n_responses == 1 } {
  	set response_sentence "[_ survey.lt_There_have_been_n]"
 }
 
-set context [list [list "one?[export_url_vars survey_id]" $survey_info(name)] "[_ survey.Responses]"]
+set context [list [list "one?[export_vars -url {survey_id}]" $survey_info(name)] "[_ survey.Responses]"]
 
 ad_return_template
