@@ -105,7 +105,10 @@ if { $already_inserted_p } {
 	    set sort_order [expr { $after + 1 }]
 	    db_dml renumber_sort_orders {}
 	} else {
-	    set sort_order [expr {[db_string max_question {}] + 1}]
+	    set sort_order [db_string max_question {}]
+	    if { $sort_order eq ""} {
+		set sort_order 1
+	    }
 	}
 
 	db_exec_plsql create_question {}
