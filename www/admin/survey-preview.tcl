@@ -11,7 +11,7 @@ ad_page_contract {
 
 } {
     
-    survey_id:integer,notnull
+    survey_id:naturalnum,notnull
     {section_id:integer ""}
     return_url:optional
 

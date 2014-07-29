@@ -12,7 +12,7 @@ ad_page_contract {
   @cvs-id $Id$
 
 } {
-    survey_id:optional
+    survey_id:naturalnum,optional
     {name ""}
     {description:html ""}
     {variable_names ""}

@@ -10,8 +10,8 @@ ad_page_contract {
     @date   September 15, 2000
     @cvs-id $Id$
 } {
-    section_id:integer,notnull
-    question_id:integer,notnull
+    section_id:naturalnum,notnull
+    question_id:naturalnum,notnull
     {responses:multiple ""}
     {scores:multiple,array,integer ""}
     {variable_id_list ""}

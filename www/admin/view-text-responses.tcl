@@ -11,7 +11,7 @@ ad_page_contract {
 
 } {
 
-  question_id:integer,notnull
+  question_id:naturalnum,notnull
 
 }
 

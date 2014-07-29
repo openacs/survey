@@ -4,7 +4,7 @@ ad_page_contract {
     @date    July 29, 2002
     @cvs-id $Id:
 } {
-    question_id:integer,notnull
+    question_id:naturalnum,notnull
     {sort_order 0}
 }
 

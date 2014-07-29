@@ -19,8 +19,8 @@ ad_page_contract {
     @author nstrug@arsdigita.com
     @cvs-id $Id$
 } {
-    section_id:integer,notnull
-    question_id:integer,notnull
+    section_id:naturalnum,notnull
+    question_id:naturalnum,notnull
     after:integer,optional
     question_text:html
     {abstract_data_type ""}
