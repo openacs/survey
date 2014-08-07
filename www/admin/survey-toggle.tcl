@@ -10,7 +10,7 @@ ad_page_contract {
     @date   February 9, 2000
     @cvs-id $Id$
 } {
-    survey_id:integer
+    survey_id:naturalnum,notnull
     enabled_p
     {target "./"}
 }

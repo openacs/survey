@@ -6,7 +6,7 @@ ad_page_contract {
     @cvs-id response-limit-toggle.tcl,v 1.2.2.6 2000/07/21 04:04:21 ron Exp
 
 } {
-    survey_id:integer
+    survey_id:naturalnum,notnull
     display_type:notnull
 }
 

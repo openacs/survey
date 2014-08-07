@@ -15,12 +15,12 @@ ad_page_contract {
     @cvs-id $Id$
 
 } {
-  survey_id:integer
-  section_id:integer
-  {initial_response_id:integer 0}
+  survey_id:naturalnum,notnull
+  section_id:naturalnum,notnull
+  {initial_response_id:naturalnum,notnull 0}
   return_url:optional
   response_to_question:array,optional,multiple,html
-  new_response_id:integer
+  new_response_id:naturalnum,notnull
 } -validate {
 
     section_exists -requires { section_id } {

@@ -11,8 +11,8 @@ ad_page_contract {
     @cvs-id $Id$
 } {
 
-    survey_id:integer
-    {section_id:integer ""}
+    survey_id:naturalnum,notnull
+    {section_id:naturalnum ""}
 }
 
 set package_id [ad_conn package_id]

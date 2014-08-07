@@ -14,8 +14,8 @@ ad_page_contract {
 } {
 
     required_p:notnull
-    section_id:integer
-    question_id:integer
+    section_id:naturalnum,notnull
+    question_id:naturalnum,notnull
 
 }
 

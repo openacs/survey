@@ -8,8 +8,8 @@ ad_page_contract {
     @date   August 7, 2002
     @cvs-id $Id$
 } {
-    survey_id:integer
-    user_id:integer
+    survey_id:naturalnum,notnull
+    user_id:naturalnum,notnull
 }
 
 set package_id [ad_conn package_id]

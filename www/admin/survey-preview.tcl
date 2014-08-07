@@ -12,7 +12,7 @@ ad_page_contract {
 } {
     
     survey_id:naturalnum,notnull
-    {section_id:integer ""}
+    {section_id:naturalnum ""}
     return_url:optional
 
 } -validate {

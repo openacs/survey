@@ -10,8 +10,8 @@ ad_page_contract {
     @cvs-id $Id$
 } {
 
-    question_id:integer
-    section_id:integer
+    question_id:naturalnum,notnull
+    section_id:naturalnum,notnull
 
 }
 

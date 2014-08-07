@@ -10,7 +10,7 @@ ad_page_contract {
     @date    February 9, 2000
     @cvs-id $Id$
 } {
-    section_id:integer
+    section_id:naturalnum,notnull
     {after:integer ""}
     
 }

@@ -9,8 +9,8 @@ ad_page_contract {
     @cvs-id question-active-toggle.tcl,v 1.5.2.4 2000/07/21 04:04:11 ron Exp
 } {
 
-    section_id:integer
-    question_id:integer
+    section_id:naturalnum,notnull
+    question_id:naturalnum,notnull
 
 }
 

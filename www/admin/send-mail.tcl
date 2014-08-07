@@ -10,7 +10,7 @@ ad_page_contract {
     @cvs-id $Id:
 } {
   survey_id:naturalnum,notnull
-  {package_id:integer 0}
+  {package_id:naturalnum,notnull 0}
   {to "responded"}  
 }
 
