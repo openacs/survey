@@ -9,7 +9,7 @@ ad_library {
   @author philg@mit.edu on
   @author teadams@mit.edu
   @author nstrug@arsdigita.com
-  @date   February 9, 2000
+  @creation-date February 9, 2000
   @cvs-id survey-simple-defs.tcl,v 1.29.2.5 2000/07/19 20:11:24 seb Exp
 
 }
@@ -25,7 +25,7 @@ ad_proc -public get_survey_info {
     section_id will also be looked up and returned in the survey_info array.
 
     @author luke@museatech.net
-    @date 2002-07-24
+    @creation-date 2002-07-24
 } {
     upvar survey_info survey_info
 
