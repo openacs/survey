@@ -63,26 +63,24 @@ db_foreach get_choices "select choice_id, label from survey_question_choices whe
 
 append table_html "</table>\n"
 
-db_release_unused_handles
+set title [_ survey.Modify_Responses]
+set context [list "one?[export_vars -url {survey_id}]" $survey_info(name)] [_ survey.lt_Modify_Question_Respo]
 
-doc_return 200 text/html "[ad_header "[_ survey.Modify_Responses]"]
-<h2>$survey_name</h2>
+set body [subst {
+    <h2>$survey_name</h2>
 
-[ad_context_bar [list "one?[export_vars -url {survey_id}]" $survey_info(name)] "[_ survey.lt_Modify_Question_Respo]"]
+    <hr>
+    [_ survey.Question]: $question_text
+    <p>
+    <form action="modify-responses-2" method=get>
+    [export_vars -form {section_id question_id choice_id_list variable_id_list}]
+    $table_html
+    <p>
+    <center>
+    <input type=submit value="[_ survey.Submit]">
+    </center>
 
-<hr>
+    </form>
+}]
 
-[_ survey.Question]: $question_text
-<p>
-<form action=\"modify-responses-2\" method=get>
-[export_vars -form {section_id question_id choice_id_list variable_id_list}]
-$table_html
-<p>
-<center>
-<input type=submit value=\"[_ survey.Submit]\">
-</center>
-
-</form>
-
-[ad_footer]
-"
+ad_return_template generic

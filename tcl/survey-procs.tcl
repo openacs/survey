@@ -59,8 +59,10 @@ ad_proc -public get_survey_info {
 ad_proc -public survey_question_display { 
     question_id 
     {response_id ""} 
-} {Returns a string of HTML to display for a question, suitable for embedding in a form. The form variable is of the form \"response_to_question.\$question_id} {
-
+} {
+    Returns a string of HTML to display for a question, suitable for embedding in a form. 
+    The form variable is of the form \"response_to_question.\$question_id
+} {
     if {$response_id ne ""} {
 	set edit_previous_response_p "t"
     } else {
@@ -107,12 +109,14 @@ ad_proc -public survey_question_display {
     }
 
     switch -- $presentation_type {
+
         "upload_file"  {
 	    if {$edit_previous_response_p == "t"} {
 		set user_value $attachment_answer
 	    }
 	    append html "<input type=file name=$element_name $presentation_options>"
 	}
+
 	"textbox" {
 	    if {$edit_previous_response_p == "t"} {
 		if {$abstract_data_type eq "number" || $abstract_data_type eq "integer"} {
@@ -122,24 +126,26 @@ ad_proc -public survey_question_display {
 		}
 	    }
 
-	    append html "<input type=text name=$element_name value=\"[ad_quotehtml $user_value]\" [ad_decode $presentation_options "large" "size=70" "medium" "size=40" "size=10"]>"
+	    append html [subst {<input type=text name="$element_name" value="[ad_quotehtml $user_value]" 
+		[ad_decode $presentation_options "large" "size=70" "medium" "size=40" "size=10"]>}]
 	}
+
 	"textarea" {
 	    if {$edit_previous_response_p == "t"} {
-
 		    set user_value $clob_answer
 		}
 	    
 	    set presentation_options [ad_decode $presentation_options "large" "rows=20 cols=65" "medium" "rows=15 cols=55" "rows=8 cols=35"]
 	    append html "<textarea name=$element_name $presentation_options style=\"vertical-align: text-top\">$user_value</textarea>" 
-	    }
+	}
+
 	"date" {
 	    if {$edit_previous_response_p == "t"} {
 		set user_value $date_answer
 	    }
-
-	    append html "[ad_dateentrywidget $element_name $user_value]" 
+	    append html [ad_dateentrywidget $element_name $user_value]
 	}
+
 	"select" {
 	    if { $abstract_data_type eq "boolean" } {
 		if {$edit_previous_response_p == "t"} {
@@ -167,7 +173,7 @@ ad_proc -public survey_question_display {
 		}
 
 # at some point, we may want to add a UI option for the admin
-# to sepcify multiple or not for select
+# to specify multiple or not for select
 		append html "<select name=$element_name>
 		<option value=\"\">Select One</option>\n"
 		db_foreach question_choices "" {
@@ -239,7 +245,10 @@ ad_proc -public survey_question_display {
     return $html
 }
 
-ad_proc -public util_show_plain_text { text_to_display } "allows plain text (e.g. text entered through forms) to look good on screen without using tags; preserves newlines, angle brackets, etc." {
+ad_proc -public util_show_plain_text { text_to_display } {
+    allows plain text (e.g. text entered through forms) to look good on screen 
+    without using tags; preserves newlines, angle brackets, etc.
+} {
     regsub -all "\\&" $text_to_display "\\&amp;" good_text
     regsub -all "\>" $good_text "\\&gt;" good_text
     regsub -all "\<" $good_text "\\&lt;" good_text
@@ -249,8 +258,11 @@ ad_proc -public util_show_plain_text { text_to_display } "allows plain text (e.g
     return $good_text
 }
 
-ad_proc -public survey_answer_summary_display {response_id {html_p 1}} "Returns a string with the questions and answers. If html_p =t, the format will be html. Otherwise, it will be text.  If a list of category_ids is provided, the questions will be limited to that set of categories." {
-
+ad_proc -public survey_answer_summary_display {response_id {html_p 1}} {
+    Returns a string with the questions and answers. If html_p =t, the format will be html. 
+    Otherwise, it will be text.  If a list of category_ids is provided, 
+    the questions will be limited to that set of categories.
+} {
     set return_string ""
     set question_id_previous ""
     
@@ -295,12 +307,14 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} "Returns 
 	set question_id_previous $question_id 
     }
     
-    return "$return_string"
+    return $return_string
 }
 
 
 
-ad_proc -public survey_get_score {section_id user_id} "Returns the score of the user's most recent response to a survey" {
+ad_proc -public survey_get_score {section_id user_id} {
+    Returns the score of the user's most recent response to a survey
+} {
     
     set response_id [ survey_get_response_id $section_id $user_id ]
     

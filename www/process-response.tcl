@@ -29,7 +29,7 @@ ad_page_contract {
 	}
     }
 
-    check_questions -requires { section_id:integer } {
+    check_questions -requires { section_id } {
 
 	set question_info_list [db_list_of_lists survey_question_info_list {
 	    select question_id, question_text, abstract_data_type, presentation_type, required_p
@@ -69,10 +69,20 @@ ad_page_contract {
 	    }
 	    
 	    if { $abstract_data_type eq "date" } {
-		if [catch  { set response_to_question($question_id) [validate_ad_dateentrywidget "" response_to_question.$question_id [ns_getform]]} errmsg] {
-		    ad_complain "$errmsg: [_ survey.lt_Please_make_sure_your]"
+		foreach {name value} [ns_set array [ns_getform]] {
+		    if {[regexp "^response_to_question\[.\]$question_id\[.\](.*)\$" $name _ part]} {
+			set date_value($part) $value
+		    }
 		}
-	    }
+		set ok [ad_page_contract_filter_proc_date "date" date_value]
+		if {$ok} {
+		    set response_to_question($question_id) [ns_buildsqldate $date_value(month) \
+								$date_value(day) \
+								$date_value(year)]
+		} else {
+		    ad_complain "Please make sure your dates are valid."
+		}
+ 	    }
 	   
     
 	    if { ([info exists response_to_question($question_id)] && $response_to_question($question_id) ne "") } {
