@@ -10,7 +10,7 @@ ad_page_contract {
     @cvs-id survey-category-add.tcl,v 1.4.2.4 2000/07/21 04:04:22 ron Exp
 } {
 
-    section_id:integer,notnull
+    section_id:naturalnum,notnull
     category:notnull
 
 }

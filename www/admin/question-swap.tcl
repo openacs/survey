@@ -11,8 +11,8 @@ ad_page_contract {
   @cvs-id $Id$
 
 } {
-  survey_id:integer,notnull
-  section_id:integer,notnull
+  survey_id:naturalnum,notnull
+  section_id:naturalnum,notnull
   sort_order:integer,notnull
   direction:notnull
 }

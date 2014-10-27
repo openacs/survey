@@ -8,7 +8,7 @@ ad_page_contract {
     @date    28th September 2000
     @cvs-id  $Id$
 } {
-    survey_id:integer,notnull
+    survey_id:naturalnum,notnull
 } -properties {
     survey_details:multirow
 }

@@ -10,8 +10,8 @@ ad_page_contract {
     @cvs-id $Id$
 } {
 
-    user_id:integer
-    survey_id:integer
+    user_id:naturalnum,notnull
+    survey_id:naturalnum,notnull
 
 } 
 

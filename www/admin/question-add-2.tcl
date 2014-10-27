@@ -18,7 +18,7 @@ ad_page_contract {
     @cvs-id $Id$
 } {
 
-    section_id:integer
+    section_id:naturalnum,notnull
     question_text:html,notnull
     presentation_type
     {after:integer ""}

@@ -8,7 +8,7 @@ ad_page_contract {
     @date   August 7, 2002
     @cvs-id $Id$
 } {
-   response_id:integer,optional
+   response_id:naturalnum,optional
 }
 
 set package_id [ad_conn package_id]

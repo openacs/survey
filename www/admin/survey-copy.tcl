@@ -4,9 +4,9 @@ ad_page_contract {
     @date    August 3, 2002
     @cvs-id $Id:
 } {
-    survey_id:integer,notnull
+    survey_id:naturalnum,notnull
     name:optional
-    new_survey_id:optional
+    new_survey_id:naturalnum,optional
 }
 
 set package_id [ad_conn package_id]

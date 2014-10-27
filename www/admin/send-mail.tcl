@@ -9,8 +9,8 @@ ad_page_contract {
     @date   July 29, 2002
     @cvs-id $Id:
 } {
-  survey_id:integer,notnull
-  {package_id:integer 0}
+  survey_id:naturalnum,notnull
+  {package_id:naturalnum,notnull 0}
   {to "responded"}  
 }
 

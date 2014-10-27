@@ -13,8 +13,8 @@ ad_page_contract {
   @cvs-id $Id$
 } {
 
-  response_id:integer,notnull
-  question_id:integer,notnull
+  response_id:naturalnum,notnull
+  question_id:naturalnum,notnull
 
 } -validate {
     attachment_exists -requires {response_id question_id} {

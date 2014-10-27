@@ -11,7 +11,7 @@ ad_page_contract {
     @cvs-id question-delete.tcl,v 1.5.2.4 2000/07/21 04:04:15 ron Exp
 } {
 
-    question_id:integer
+    question_id:naturalnum,notnull
     {sort_order ""}
 }
 

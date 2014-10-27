@@ -16,22 +16,18 @@ ad_page_contract {
 set package_id [ad_conn package_id]
 permission::require_permission -object_id $package_id -privilege survey_create_survey
 
-set whole_page "[ad_header "[_ survey.Choose_Survey_Type]"]
+set title [_ survey.Choose_a_Survey_Type]
+set context [list [_ survey.Choose_Type]]
 
-<h2>[_ survey.Choose_a_Survey_Type]</h2>
+set body [subst {
+    <hr>
+    <dl>
+    <dt><a href="survey-create?type=scored">[_ survey.Scored_Survey]</a>
+    <dd>[_ survey.lt_This_is_a_multiple_ch]</dd>
+    <dt><a href="survey-create?type=general">[_ survey.General_Survey]</a>
+    <dd>[_ survey.lt_This_survey_allows_yo]</dd>
+    </dl>
+}]
 
-[ad_context_bar "[_ survey.Choose_Type]"]
+ad_return_template generic
 
-<hr>
-
-<dl>
-<dt><a href=\"survey-create?type=scored\">[_ survey.Scored_Survey]</a>
-<dd>[_ survey.lt_This_is_a_multiple_ch]</dd>
-<dt><a href=\"survey-create?type=general\">[_ survey.General_Survey]</a>
-<dd>[_ survey.lt_This_survey_allows_yo]</dd>
-</dl>
-
-[ad_footer]
-"
-
-doc_return 200 text/html $whole_page

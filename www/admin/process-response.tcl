@@ -15,13 +15,13 @@ ad_page_contract {
     @date    1 April 2003
     @cvs-id $Id$
 } {
-  survey_id:integer
-  section_id:integer
-  {initial_response_id:integer 0}
-  {edited_response_id:integer 0}
+  survey_id:naturalnum,notnull
+  section_id:naturalnum,notnull
+  {initial_response_id:naturalnum,notnull 0}
+  {edited_response_id:naturalnum,notnull 0}
   return_url:optional
   response_to_question:array,optional,multiple,html
-  new_response_id:integer
+  new_response_id:naturalnum,notnull
 } -validate {
 
     section_exists -requires { section_id } {
@@ -30,7 +30,7 @@ ad_page_contract {
 	}
     }
 
-    check_questions -requires { section_id:integer } {
+    check_questions -requires { section_id } {
 
 	set question_info_list [db_list_of_lists survey_question_info_list {
 	    select question_id, question_text, abstract_data_type, presentation_type, required_p
@@ -43,7 +43,7 @@ ad_page_contract {
 	## Validate input.
 	
 	set questions_with_missing_responses [list]
-	
+
 	foreach question $question_info_list { 
 	    set question_id [lindex $question 0]
 	    set question_text [lindex $question 1]
@@ -68,10 +68,20 @@ ad_page_contract {
 		    }
 	        }
 	    }
-	    	    
+	    
 	    if { $abstract_data_type eq "date" } {
-		if [catch  { set response_to_question($question_id) [validate_ad_dateentrywidget "" response_to_question.$question_id [ns_getform]]} errmsg] {
-		    ad_complain "$errmsg: Please make sure your dates are valid."
+		foreach {name value} [ns_set array [ns_getform]] {
+		    if {[regexp "^response_to_question\[.\]$question_id\[.\](.*)\$" $name _ part]} {
+			set date_value($part) $value
+		    }
+		}
+		set ok [ad_page_contract_filter_proc_date "date" date_value]
+		if {$ok} {
+		    set response_to_question($question_id) [ns_buildsqldate $date_value(month) \
+								$date_value(day) \
+								$date_value(year)]
+		} else {
+		    ad_complain "Please make sure your dates are valid."
 		}
 	    }
 	        

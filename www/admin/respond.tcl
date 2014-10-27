@@ -13,10 +13,10 @@ ad_page_contract {
     @cvs-id $Id$
 } {
 
-    user_id:integer
-    survey_id:integer
-    {section_id:integer 0}
-    {response_id:integer 0} 
+    user_id:naturalnum,notnull
+    survey_id:naturalnum,notnull
+    {section_id:naturalnum,notnull 0}
+    {response_id:naturalnum,notnull 0} 
     return_url:optional
 
 } -validate {
