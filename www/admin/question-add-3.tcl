@@ -2,7 +2,7 @@
 ad_page_contract {
     Inserts a new question into the database.
 
-    @param section_id               integer denoting which survey we're adding question to
+    @param section_id              integer denoting which survey we're adding question to
     @param question_id             id of new question
     @param after                   optional integer determining position of this question
     @param question_text           text of question
@@ -30,8 +30,8 @@ ad_page_contract {
     {valid_responses ""}
     {textbox_size ""} 
     {textarea_size: "medium"} 
-    {required_p t}
-    {active_p t}
+    {required_p:boolean t}
+    {active_p:boolean t}
     {responses:multiple ""}
     {scores:multiple,array,integer ""}
     {n_variables:integer ""}

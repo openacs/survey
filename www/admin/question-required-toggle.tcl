@@ -13,7 +13,7 @@ ad_page_contract {
 
 } {
 
-    required_p:notnull
+    required_p:boolean,notnull
     section_id:naturalnum,notnull
     question_id:naturalnum,notnull
 

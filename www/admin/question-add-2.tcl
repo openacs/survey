@@ -4,7 +4,7 @@ ad_page_contract {
     Based on the presentation type selected in previous form,
     gives the user various options on how to lay out the question.
 
-    @param section_id          integer determining survey we're dealing with
+    @param section_id         integer determining survey we're dealing with
     @param after              optional integer determining placement of question
     @param question_text      text comprising this question
     @param presentation_type  string denoting widget used to provide answer
@@ -22,8 +22,8 @@ ad_page_contract {
     question_text:html,notnull
     presentation_type
     {after:integer ""}
-    {required_p t}
-    {active_p t}
+    {required_p:boolean t}
+    {active_p:boolean t}
     {n_responses ""}
 
 }

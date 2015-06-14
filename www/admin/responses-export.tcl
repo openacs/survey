@@ -10,7 +10,7 @@ ad_page_contract {
 } {
 
   survey_id:naturalnum,notnull
-  {unique_users_p f}
+  {unique_users_p:boolean f}
   on_what_id:naturalnum,optional
   {start:naturalnum 1}
   {end:naturalnum 10000}
