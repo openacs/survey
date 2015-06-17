@@ -18,7 +18,7 @@
 	    <li>#survey.lt_Previous_response_on__1#
 	    <a href="one-respondent?survey_id=@survey_details.survey_id@&amp;#@survey_details.response_id@">#survey.View_Response#</a>
 	    <if @survey_details.editable_p@ eq "t">
-	    <a href="respond?survey_id=@survey_details.survey_id@&response_id=@survey_details.response_id@">#survey.Edit_Response#</a></if>
+	    <a href="respond?survey_id=@survey_details.survey_id@&amp;response_id=@survey_details.response_id@">#survey.Edit_Response#</a></if>
 	    </li>
 	 </ul>
 

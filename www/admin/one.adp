@@ -5,7 +5,7 @@
 <property name="context">@context;noquote@</property>
 <p><a href=".">#survey.lt_Main_Survey_Administr#</a></p>
 <h2><b style="font-size: large">@survey_info.name@</b> #survey.-__Created_by# <a href="@user_link@">@survey_info.creator_name@</a>#survey._on_creation_date#</h2>
-<table class="table-display" cellpadding=2 cellspacing=0>
+<table class="table-display" cellpadding="2" cellspacing="0">
 	<tr class="even"><td> </td><td> #survey.This_survey_is# <if @survey_info.enabled_p@ eq t><%= [lang::util::localize @survey_info.enabled_display@]%></if><else><span style="color: #f00;"><%=[lang::util::localize @survey_info.enabled_display@]%></span></else>. - <a href="@toggle_enabled_url@">@toggle_enabled_text@</a></td></tr>
 
 	<tr class="odd"> 
@@ -60,7 +60,7 @@
 <br>
 
 <h3>#survey.Questions#</h3>
-<table cellspacing=0>
+<table cellspacing="0">
 <if @questions:rowcount@ eq 0>
     <tr class="odd">
   </else>

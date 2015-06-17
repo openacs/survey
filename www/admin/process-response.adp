@@ -4,4 +4,4 @@
 <property name=context>@context;noquote@</property>
 
      <p>#survey.lt_Response_submitted_Th#</p>
-	<p><a href="one-respondent?survey_id=@survey_id@&user_id=@initial_creation_user_id@">#survey.lt_Return_to_survey_admi#</a>.</p>
+	<p><a href="one-respondent?survey_id=@survey_id@&amp;user_id=@initial_creation_user_id@">#survey.lt_Return_to_survey_admi#</a>.</p>

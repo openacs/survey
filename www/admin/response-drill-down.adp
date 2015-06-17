@@ -8,7 +8,7 @@
 
 <ul>
 <multiple name="user_responses">
-<li><a href="one-respondent?user_id=@user_responses.user_id@&survey_id=@survey_id@">@user_responses.responder_name@</a></li>
+<li><a href="one-respondent?user_id=@user_responses.user_id@&amp;survey_id=@survey_id@">@user_responses.responder_name@</a></li>
 
 </multiple>
 </ul>
