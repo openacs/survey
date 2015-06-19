@@ -285,16 +285,22 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} {
 	if {$attachment_answer ne ""} {
 	    set package_id [ad_conn package_id]
 	    set filename [db_string get_filename {}]
-	    append return_string "[_ survey.Uploaded_file] <a href=\"[site_node::get_url_from_object_id -object_id $package_id]/view-attachment?[export_vars -url {response_id question_id}]\">\"$filename\"</a>"
+	    set href [export_vars \
+			  -base [site_node::get_url_from_object_id -object_id $package_id]/view-attachment \
+			  {response_id question_id}]
+	    append return_string [subst {
+		[_ survey.Uploaded_file]
+		<a href="[ns_quotehtml $href]">"$filename"</a>
+	    }]
 	}
 	
 	if {$choice_id != 0 && $choice_id ne "" && $question_id != $question_id_previous} {
 	    set label_list [db_list survey_label_list ""]
-	    append return_string "[join $label_list ", "]"
+	    append return_string [join $label_list ", "]
 	}
 	
 	if {$boolean_answer ne ""} {
-	    append return_string "[survey_decode_boolean_answer -response $boolean_answer -question_id $question_id]"
+	    append return_string [survey_decode_boolean_answer -response $boolean_answer -question_id $question_id]
 	    
 	}
 	
@@ -441,7 +447,7 @@ ad_proc -public survey_do_notifications {
 
     if {$dotlrn_installed_p} {
 	append notif_text "\nGroup: $community_name"
-        append notif_html "Group: <a href=\"$community_url\">$community_name</a><br>"
+        append notif_html "Group: <a href=\"[ns_quotehtml $community_url]\">$community_name</a><br>"
 
     }
     set comm_url "[parameter::get -package_id [ad_acs_kernel_id] -parameter SystemURL][acs_community_member_url -user_id $responding_user_id]"
@@ -471,7 +477,12 @@ ad_proc -public survey_do_notifications {
         db_foreach get_questions {} {
 	    # only doing the summary for HTML version because
 	    # all the links make the text version a mess
-	    append notif_html "$sort_order.    $question_text - <a href=$community_url/survey/admin/view-text-responses?question_id=$question_id> [_ survey.View_responses_1]</a><br>"
+	    set href [export_vars -base $community_url/survey/admin/view-text-responses {question_id}]
+	    append notif_html [subst {
+		$sort_order.
+		$question_text -
+		<a href="[ns_quotehtml $href]">[_ survey.View_responses_1]</a><br>
+	    }]
         }
     }
 
