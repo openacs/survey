@@ -47,10 +47,10 @@ ad_form -name edit-survey -form {
     }
         db_dml survey_update_description ""
 
-    ad_returnredirect "one?[export_vars -url {survey_id}]"
+    ad_returnredirect [export_vars -base one {survey_id}]
     ad_script_abort
 }
 
-set context [list [list "one?[export_vars -url {survey_id}]" $survey_info(name)] "[_ survey.Edit_Description]"]
+set context [list [list [export_vars -base one {survey_id}] $survey_info(name)] "[_ survey.Edit_Description]"]
 
 ad_return_template

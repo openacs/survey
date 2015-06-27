@@ -54,16 +54,15 @@ ad_form -extend -name confirm_delete -form {
 	    db_transaction {
 
 		db_dml survey_question_responses_delete {}
-
 		db_dml survey_question_choices_delete {}
-
 		db_exec_plsql survey_delete_question {}
+
 		if {$sort_order ne ""} {
 		    db_dml survey_renumber_questions {}
 		}
 	    } on_error {
     
-		ad_return_error "[_ survey.Database_Error]" "[_ survey.lt_There_was_an_error_wh]
+		ad_return_error [_ survey.Database_Error] "[_ survey.lt_There_was_an_error_wh]
 		<pre>
 		$errmsg
 		</pre>
@@ -75,7 +74,7 @@ ad_form -extend -name confirm_delete -form {
 	    db_release_unused_handles
 	    set sort_order [expr {$sort_order -1}]
 	}
-        ad_returnredirect "one?[export_vars -url {survey_id}]&#${sort_order}"
+        ad_returnredirect "[export_vars -base one {survey_id}]&#$sort_order"
         ad_script_abort
     }
 

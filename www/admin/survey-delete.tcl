@@ -37,7 +37,7 @@ ad_form -name confirm_delete -form {
 	ad_returnredirect "."
         ad_script_abort
     } else {
-	ad_returnredirect "one?[export_vars survey_id]"
+	ad_returnredirect [export_vars -base one survey_id]
         ad_script_abort
     }
 }

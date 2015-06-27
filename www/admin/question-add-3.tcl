@@ -77,7 +77,7 @@ if { $exception_count > 0 } {
 set already_inserted_p [db_string already_inserted_p {}]
 
 if { $already_inserted_p } {
-    ad_returnredirect "one?[export_vars survey_id]"
+    ad_returnredirect [export_vars -base one survey_id]
     ad_script_abort
 }
 # Generate presentation_options.

@@ -41,7 +41,7 @@ ad_form -name edit-name -form {
     set description_html_p "$survey_info(description_html_p)"
 } -edit_data {
     db_dml survey_update ""
-    ad_returnredirect "one?[export_vars survey_id]"
+    ad_returnredirect [export_vars -base one survey_id]
     ad_script_abort
 }
 

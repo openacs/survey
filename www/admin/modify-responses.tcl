@@ -64,7 +64,7 @@ db_foreach get_choices "select choice_id, label from survey_question_choices whe
 append table_html "</table>\n"
 
 set title [_ survey.Modify_Responses]
-set context [list "one?[export_vars -url {survey_id}]" $survey_info(name)] [_ survey.lt_Modify_Question_Respo]
+set context [list [export_vars -base one {survey_id}] $survey_info(name)] [_ survey.lt_Modify_Question_Respo]
 
 set body [subst {
     <h2>$survey_name</h2>

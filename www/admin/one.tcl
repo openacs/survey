@@ -50,9 +50,9 @@ if {$survey_info(single_response_p) == "t"} {
 
 
 # allow site-wide admins to enable/disable surveys directly from here
-set target "one?[export_vars -url {survey_id}]"
+set target [export_vars -base one {survey_id}]
 set enabled_p $survey_info(enabled_p)
-set toggle_enabled_url "survey-toggle?[export_vars {survey_id enabled_p target}]"
+set toggle_enabled_url [export_vars -base survey-toggle {survey_id enabled_p target}]
 if {$enabled_p == "t"} {
     append toggle_enabled_text "[_ survey.disable]"
 } else {

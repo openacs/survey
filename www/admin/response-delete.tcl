@@ -33,7 +33,7 @@ ad_form -name confirm_delete -form {
     if {$confirmation} {
 	db_exec_plsql delete_response {}
     } 
-    ad_returnredirect "one-respondent?[export_vars {survey_id user_id}]"
+    ad_returnredirect [export_vars -base one-respondent {survey_id user_id}]
 }
 
 set context [_ survey.Delete_Response]

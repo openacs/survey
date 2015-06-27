@@ -17,4 +17,4 @@ if {[lsearch [survey_display_types] $display_type] > -1} {
 }
 
 db_release_unused_handles
-ad_returnredirect "one?[export_vars -url {survey_id}]"
+ad_returnredirect [export_vars -base one {survey_id}]

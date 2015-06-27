@@ -18,4 +18,4 @@ permission::require_permission -object_id $survey_id -privilege survey_admin_sur
 db_dml survey_response_toggle ""
 
 db_release_unused_handles
-ad_returnredirect "one?[export_vars -url {survey_id}]"
+ad_returnredirect [export_vars -base one {survey_id}]

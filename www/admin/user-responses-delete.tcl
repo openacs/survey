@@ -37,7 +37,7 @@ ad_form -name confirm_delete -form {
 	    }
 	}
     } 
-    ad_returnredirect "one-respondent?[export_vars {survey_id user_id}]"
+    ad_returnredirect [export_vars -base one-respondent {survey_id user_id}]
     ad_script_abort
 }
 

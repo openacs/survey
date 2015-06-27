@@ -50,8 +50,8 @@ if { !$response_exists_p } {
 db_multirow user_responses all_users_for_response {}
 
 set context [list \
-     [list "one?[export_vars -url {survey_id}]" $survey_info(name)] \
-     [list "responses?[export_vars -url {survey_id}]" "[_ survey.Responses]"] \
+     [list [export_vars -base one {survey_id}] $survey_info(name)] \
+     [list [export_vars -base responses {survey_id}] "[_ survey.Responses]"] \
      "[_ survey.One_Response]"]
 
 ad_return_template

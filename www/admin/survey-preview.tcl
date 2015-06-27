@@ -63,7 +63,7 @@ db_foreach survey_sections {} {
 
     }
 
-set return_url "one?[export_vars survey_id]"
+set return_url [export_vars -base one survey_id]
 set form_vars [export_vars -form {section_id survey_id}]
 ad_return_template
 
