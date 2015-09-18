@@ -126,7 +126,7 @@ ad_proc -public survey_question_display {
 		}
 	    }
 
-	    append html [subst {<input type=text name="$element_name" value="[ad_quotehtml $user_value]" 
+	    append html [subst {<input type=text name="$element_name" value="[ns_quotehtml $user_value]" 
 		[ad_decode $presentation_options "large" "size=70" "medium" "size=40" "size=10"]>}]
 	}
 
