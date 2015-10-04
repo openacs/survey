@@ -7,15 +7,15 @@
     <initial-install-p>f</initial-install-p>
     <singleton-p>f</singleton-p>
     
-    <version name="5.9.0b1" url="http://openacs.org/repository/download/apm/survey-5.9.0b1.apm">
+    <version name="5.9.0b2" url="http://openacs.org/repository/download/apm/survey-5.9.0b2.apm">
         <owner url="mailto:dave@thedesignexperience.org">Dave Bauer</owner>
         <owner url="mailto:luke@museatech.net">Luke Pond</owner>
         <summary>User defined surveys with reporting.</summary>
         <vendor url="http://openacs.org">OpenACS</vendor>
         <description format="text/plain">Expanded functionality survey package derived from simple-survey.</description>
 
-        <provides url="survey" version="5.9.0b1"/>
-        <requires url="notifications" version="5.9.0b1"/>
+        <provides url="survey" version="5.9.0b2"/>
+        <requires url="notifications" version="5.9.0b2"/>
 
         <callbacks>
         </callbacks>
