@@ -18,7 +18,7 @@ ad_page_contract {
   survey_id:naturalnum,notnull
   section_id:naturalnum,notnull
   {initial_response_id:naturalnum,notnull 0}
-  return_url:optional
+  return_url:localurl,optional
   response_to_question:array,optional,multiple,html
   new_response_id:naturalnum,notnull
 } -validate {

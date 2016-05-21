@@ -13,7 +13,7 @@ ad_page_contract {
     
     survey_id:naturalnum,notnull
     {section_id:naturalnum ""}
-    return_url:optional
+    return_url:localurl,optional
 
 } -validate {
     survey_exists -requires {survey_id} {

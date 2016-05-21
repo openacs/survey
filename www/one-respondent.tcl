@@ -2,7 +2,7 @@ ad_page_contract {
 
     Display the user's previous responses.
 
-    @param   section_id   id of survey for which responses are displayed
+    @param   section_id  id of survey for which responses are displayed
     @param   return_url  if provided, generate a 'return' link to that URL
     @param   group_id    if specified, display all the responses for all
                          users of that group
@@ -14,7 +14,7 @@ ad_page_contract {
 } {
 
     survey_id:naturalnum,notnull
-    {return_url ""}
+    {return_url:localurl ""}
 
 } -validate {
         survey_exists -requires {survey_id} {
