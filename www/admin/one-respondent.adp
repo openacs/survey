@@ -22,7 +22,7 @@
 
 <group column="initial_response">
 
-<if @responses.original_p@><a href="response-delete?response_id=@response_id@">
+<if @responses.original_p;literal@ true><a href="response-delete?response_id=@response_id@">
 <img src="../graphics/delete.gif" style="float:right; vertical-align:top; border: 0;" alt="#survey.Delete#"></a>
 </if>
  <strong>[<if
