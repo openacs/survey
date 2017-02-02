@@ -9,7 +9,7 @@ ad_page_contract {
     @version $Id$
 } -query {
     survey_id:integer
-    {orderby "email"}
+    {orderby:token "email"}
     {response_type "responded"}
 } -properties {
     survey_id:onevalue
