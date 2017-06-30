@@ -18,7 +18,7 @@ ad_proc -public get_survey_info {
     {-survey_id ""} 
     {-section_id ""} 
 } {
-    creates a tcl array variable named "survey_info" in the caller's environment,
+    creates a Tcl array variable named "survey_info" in the caller's environment,
     which contains key/value pairs for all properties of the requested survey.
 
     If survey_id is passed in, and it's a single-section survey, the 
