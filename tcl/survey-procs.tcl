@@ -18,7 +18,7 @@ ad_proc -public get_survey_info {
     {-survey_id ""} 
     {-section_id ""} 
 } {
-    creates a tcl array variable named "survey_info" in the caller's environment,
+    creates a Tcl array variable named "survey_info" in the caller's environment,
     which contains key/value pairs for all properties of the requested survey.
 
     If survey_id is passed in, and it's a single-section survey, the 
@@ -126,7 +126,7 @@ ad_proc -public survey_question_display {
 		}
 	    }
 
-	    append html [subst {<input type=text name="$element_name" value="[ad_quotehtml $user_value]" 
+	    append html [subst {<input type=text name="$element_name" value="[ns_quotehtml $user_value]" 
 		[ad_decode $presentation_options "large" "size=70" "medium" "size=40" "size=10"]>}]
 	}
 
@@ -274,12 +274,12 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} {
 	
 	if {$html_p} {
 	    append return_string "# $sort_order: $question_text <p>"
-	    append return_string "[ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]"
+	    append return_string [ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]
 	} else {
 	    append return_string "$sort_order: "
 	    append return_string [ad_html_to_text -- $question_text]
 	    append return_string "\n\n"
-	    append return_string "[ad_html_to_text -- [ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]]"
+	    append return_string [ad_html_to_text -- [ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]]
 	}
 	
 	if {$attachment_answer ne ""} {

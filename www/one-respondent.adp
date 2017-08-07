@@ -17,7 +17,7 @@
           <table width="100%" cellpadding="2" cellspacing="2" border="0">
             <tr class="table-header" style="background-color:#e6e6e6;">
               <td><a name="@responses.response_id@">#survey.lt_Your_response________#</a>
-                <if @editable_p@ eq "t">
+                <if @editable_p;literal@ true>
                   [<a href="@responses.respond_url@">#survey.edit_this_response#</a>]
                 </if>
 	      </td>

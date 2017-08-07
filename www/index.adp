@@ -1,7 +1,7 @@
 <master>
 <property name="title">#survey.Surveys#</property>
 
-    <if @admin_p@ eq "1">
+    <if @admin_p;literal@ true>
       <p style="text-align: right;">
         <a href="admin/" class="button">#acs-kernel.common_Administration#</a>
       </p>
@@ -13,7 +13,7 @@
           <if @surveys.single_response_p@ eq "t" and @surveys.response_id@ nil> 
             (<a href="respond?survey_id=@surveys.survey_id@">#survey.Answer_Survey#</a>)
           </if>
-          <if @surveys.single_response_p@ eq "f">
+          <if @surveys.single_response_p;literal@ false>
             (<a	href="respond?survey_id=@surveys.survey_id@">#survey.Answer_Survey#</a>)
           </if>
           <if @surveys.response_id@ not nil>
@@ -23,7 +23,7 @@
             <ul>
               <group column="survey_id">
                 <li>#survey.lt_Previous_response_on_#
-                  <if @surveys.editable_p@ eq "t">
+                  <if @surveys.editable_p;literal@ true>
                     (<a href="respond?survey_id=@surveys.survey_id@&amp;response_id=@surveys.response_id@">#survey.Edit_Response#</a>)
                   </if>
                 </li>

@@ -3,7 +3,7 @@ ad_page_contract {
     Insert user response into database.
     This page receives an input for each question named
     response_to_question.$question_id 
-    Adapted from www/process-reponse.tcl
+    Adapted from www/process-response.tcl
 
     @param   section_id             survey user is responding to
     @param   return_url            optional redirect address
@@ -19,7 +19,7 @@ ad_page_contract {
   section_id:naturalnum,notnull
   {initial_response_id:naturalnum,notnull 0}
   {edited_response_id:naturalnum,notnull 0}
-  return_url:optional
+  return_url:localurl,optional
   response_to_question:array,optional,multiple,html
   new_response_id:naturalnum,notnull
 } -validate {

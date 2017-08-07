@@ -6,7 +6,7 @@
 <multiple name=surveys>
 <group column="enabled_p">
 <li> <a href="one?survey_id=@surveys.survey_id@">@surveys.name@</a> 
-<if @surveys.enabled_p@ eq "f"><span style="color: #f00">#survey.disabled#</span></if>
+<if @surveys.enabled_p;literal@ false><span style="color: #f00">#survey.disabled#</span></if>
 </group>
 </multiple>
 <p>

@@ -4,9 +4,9 @@
 <property name="title">#survey.lt_One_Survey_survey_inf#</property>
 <property name="context">@context;noquote@</property>
 <p><a href=".">#survey.lt_Main_Survey_Administr#</a></p>
-<h2><b style="font-size: large">@survey_info.name@</b> #survey.-__Created_by# <a href="@user_link@">@survey_info.creator_name@</a>#survey._on_creation_date#</h2>
+<h2><strong style="font-size: large">@survey_info.name@</strong> #survey.-__Created_by# <a href="@user_link@">@survey_info.creator_name@</a>#survey._on_creation_date#</h2>
 <table class="table-display" cellpadding="2" cellspacing="0">
-	<tr class="even"><td> </td><td> #survey.This_survey_is# <if @survey_info.enabled_p@ eq t><%= [lang::util::localize @survey_info.enabled_display@]%></if><else><span style="color: #f00;"><%=[lang::util::localize @survey_info.enabled_display@]%></span></else>. - <a href="@toggle_enabled_url@">@toggle_enabled_text@</a></td></tr>
+	<tr class="even"><td> </td><td> #survey.This_survey_is# <if @survey_info.enabled_p;literal@ true><%= [lang::util::localize @survey_info.enabled_display@]%></if><else><span style="color: #f00;"><%=[lang::util::localize @survey_info.enabled_display@]%></span></else>. - <a href="@toggle_enabled_url@">@toggle_enabled_text@</a></td></tr>
 
 	<tr class="odd"> 
 <td valign="top">#survey.Survey_Name#<p>
@@ -29,7 +29,7 @@
 	]</td></tr>
 	
       
-	<tr class="odd"><td><if @survey_info.editable_p@> #survey.lt_Users_may_edit_their_#</if><else>#survey.lt_Users_may_not_edit_th#</else> - [ <a
+	<tr class="odd"><td><if @survey_info.editable_p;literal@ true> #survey.lt_Users_may_edit_their_#</if><else>#survey.lt_Users_may_not_edit_th#</else> - [ <a
 	href="response-editable-toggle?survey_id=@survey_id@">#survey.make# <if
 	@survey_info.editable_p@>#survey.non-#</if>#survey.editable#</a> ]</td></tr>
 
@@ -78,7 +78,7 @@
 <td valign="top">@questions.rownum@.  <a name="@questions.sort_order@"></a></td>
 
 <td><a	href="@questions.question_modify_url@">#survey.Edit#</a>
-<if @questions.active_p@ eq "f"><span style="color: #f00;">#survey.inactive#</span></if>
+<if @questions.active_p;literal@ false><span style="color: #f00;">#survey.inactive#</span></if>
 <a href="@questions.question_copy_url@">#survey.Copy#</a>
 <a href="@questions.question_add_url@">#survey.Add_New#</a><img src="../graphics/spacer.gif" style="border:0;" alt="" width="10">
 <if @questions.rownum@ lt @questions:rowcount@ ><a
