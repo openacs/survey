@@ -25,7 +25,7 @@ set type $survey_info(type)
 
 
 if {$description_html_p != "t"} {
-    set description [ad_text_to_html $description]
+    set description [ad_text_to_html -- $description]
 } 
 
 # survey_name and description are now set 

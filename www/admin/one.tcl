@@ -27,7 +27,7 @@ if {![info exists survey_info(survey_id)]} {
 }
 
 if {$survey_info(description_html_p) == "f"} {   
-    set survey_info(description) [ad_text_to_html $survey_info(description)]    
+    set survey_info(description) [ad_text_to_html -- $survey_info(description)]    
 }
 
 # get users and # who responded etc...

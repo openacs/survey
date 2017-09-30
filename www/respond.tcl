@@ -36,7 +36,7 @@ ad_page_contract {
     set display_type $survey_info(display_type)
 
    if {$description_html_p != "t"} {
-       set description [ad_text_to_html $description]
+       set description [ad_text_to_html -- $description]
    } 
 
    if {($single_response_p=="t" && $editable_p=="f" && $number_of_responses>0) || ($single_response_p=="t" && $editable_p=="t" && $number_of_responses>0 && $response_id==0)} {

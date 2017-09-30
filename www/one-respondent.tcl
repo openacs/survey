@@ -42,7 +42,7 @@ set editable_p $survey_info(editable_p)
 set context [_ survey.Responses]
 
 if {$description_html_p != "t" } {
-    set description [ad_text_to_html $description]
+    set description [ad_text_to_html -- $description]
 }
 
 db_multirow -extend {answer_summary pretty_submission_date respond_url} responses responses_select {} {

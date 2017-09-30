@@ -43,7 +43,7 @@ permission::require_permission -object_id $survey_id -privilege survey_take_surv
     set display_type $survey_info(display_type)
 
    if {$description_html_p != "t"} {
-       set description [ad_text_to_html $description]
+       set description [ad_text_to_html -- $description]
    } 
    
 
