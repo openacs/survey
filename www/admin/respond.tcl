@@ -51,8 +51,10 @@ set display_type $survey_info(display_type)
 set user_exists_p [db_0or1row user_name_from_id "select first_names, last_name from persons where person_id = :user_id" ]
 
 if { !$user_exists_p } {
-    ad_return_error "Not Found" "Could not find user #$user_id"
-    return
+    ad_return_error \
+	"Not Found" \
+	"Could not find user #$user_id"
+    ad_script_abort
 }
 
 # XXX TODO - person name

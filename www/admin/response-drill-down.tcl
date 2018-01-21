@@ -33,7 +33,7 @@ set survey_id $survey_info(survey_id)
 if { !$question_exists_p }  {
     db_release_unused_handles
     ad_return_error "[_ survey.lt_Survey_Question_Not_F]" "[_ survey.lt_Could_not_find_a_surv] #$question_id"
-    return
+    ad_script_abort
 }
 
 set response_exists_p [db_0or1row get_response_text ""]
@@ -41,7 +41,7 @@ set response_exists_p [db_0or1row get_response_text ""]
 if { !$response_exists_p } {
     db_release_unused_handles
     ad_return_error "[_ survey.Response_Not_Found]" "[_ survey.lt_Could_not_find_the_re] #$choice_id"
-    return
+    ad_script_abort
 }
 
 # Get information of users who responded in particular manner to
