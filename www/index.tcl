@@ -1,7 +1,7 @@
 ad_page_contract {
 
     Lists all the enabled surveys
-    a user is eligable to complete.
+    a user is eligible to complete.
 
     @author  philg@mit.edu
     @author  nstrug@arsdigita.com
