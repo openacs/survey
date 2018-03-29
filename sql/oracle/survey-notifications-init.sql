@@ -13,7 +13,7 @@ begin
        impl_id := acs_sc_impl.new (
                      impl_contract_name => 'NotificationType',
                      impl_name => 'survey_response_notif_type',
-		     impl_pretty_name => 'Survey Responce Notification',
+		     impl_pretty_name => 'Survey Response Notification',
                      impl_owner_name => 'survey'
                   );
 
