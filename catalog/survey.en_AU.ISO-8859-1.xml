@@ -71,7 +71,7 @@
   <msg key="list">list</msg>
   <msg key="lt_-_Lets_you_use_this_s">- Lets you use this survey as a template to create a new survey.</msg>
   <msg key="lt_-_Removes_all_questio">- Removes all questions and responses</msg>
-  <msg key="lt_A_database_error_occu">A database error occured while trying
+  <msg key="lt_A_database_error_occu">A database error occurred while trying
 to swap your questions. Here's the error:</msg>
   <msg key="lt_Already_Responsed_email">Email these users</msg>
   <msg key="lt_Already_Responsed_n_r">Already Responsed: %n_responses% users
