@@ -226,7 +226,7 @@ ad_proc -public survey_question_display {
 	}
 
 	"checkbox" {
-	    set choices [list]
+	    set choices {}
 	    db_foreach question_choices_3 "" {
 		if { [info exists selected_choices($choice_id)] } {
 		    lappend choices "<input type=checkbox name=$element_name value=$choice_id checked> $label"
