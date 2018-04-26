@@ -52,7 +52,7 @@ set context [list "[_ survey.Preview] $name"]
 # build a list containing the HTML (generated with survey_question_display) for each question
 set rownum 0
     
-set questions [list]
+set questions {}
 
 db_foreach survey_sections {} {
 

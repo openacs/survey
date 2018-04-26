@@ -71,7 +71,7 @@ if {$editable_p == "t"} {
 set rownum 0
 # for double-click protection
 set new_response_id [db_nextval acs_object_id_seq]    
-set questions [list]
+set questions {}
 
 db_foreach survey_sections {} {
 

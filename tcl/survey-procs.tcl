@@ -209,7 +209,7 @@ ad_proc -public survey_question_display {
 		    set user_value $choice_id
 		}
 		
-		set choices [list]
+		set choices {}
 		db_foreach question_choices_2 "" {
 		    if { $user_value == $choice_id } {
 			lappend choices "<input type=radio name=$element_name value=$choice_id checked> $label"
