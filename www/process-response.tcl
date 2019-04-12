@@ -53,7 +53,7 @@ ad_page_contract {
 	    #  in ad_page_contract.  Because :multiple flag will sorround empty
 	    #  strings and all multiword values with one level of curly braces {}
 	    #  we need to get rid of them for almost any abstract_data_type
-	    #  except 'choice', where this is intended behaviour.  Why bother
+	    #  except 'choice', where this is intended behavior.  Why bother
 	    #  with :multiple flag at all?  Because otherwise we would lost all
 	    #  but first value for 'choice' abstract_data_type - see ad_page_contract
 	    #  doc and code for more info.
