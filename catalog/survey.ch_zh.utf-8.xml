@@ -72,8 +72,8 @@
   <msg key="lt_-_Lets_you_use_this_s">——用此问卷做模板，创建新问卷。</msg>
   <msg key="lt_-_Removes_all_questio">——删除所有问题及回应</msg>
   <msg key="lt_A_database_error_occu">交换问题时发生数据库错误。错误如下：</msg>
-  <msg key="lt_Already_Responsed_n_r">已收到：%n_responses%查看用户。&lt;%community_url%/survey/admin/respondents?response_type=responded&gt; 群发用户。 &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
-  <msg key="lt_Already_Responsed_n_r_1">已收到：%n_responses% 查看用户。&lt;%community_url%/survey/admin/respondents?response_type=responded&gt; 群发用户。&lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
+  <msg key="lt_Already_Responded_n_r">已收到：%n_responses%查看用户。&lt;%community_url%/survey/admin/respondents?response_type=responded&gt; 群发用户。 &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
+  <msg key="lt_Already_Responded_n_r_1">已收到：%n_responses% 查看用户。&lt;%community_url%/survey/admin/respondents?response_type=responded&gt; 群发用户。&lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
   <msg key="lt_Answers_to_survey_nam">应答%survey_name%</msg>
   <msg key="lt_Awaiting_a_response_n">等待回应：%n_awaiting users% 查看用户。&lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; 群发用户。&lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; 整组：%n_members% 查看用户。&lt;%community_url%/survey/admin/respondents?response_type=all&gt; 群发用户。&lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; 回应： </msg>
   <msg key="lt_Cancel_and_return_to_">取消并返回到问卷回复</msg>

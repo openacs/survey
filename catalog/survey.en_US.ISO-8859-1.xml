@@ -74,14 +74,14 @@
   <msg key="lt_-_Removes_all_questio">- Removes all questions and responses</msg>
   <msg key="lt_A_database_error_occu">A database error occurred while trying
 to swap your questions. Here's the error:</msg>
-  <msg key="lt_Already_Responsed_email">Email these users</msg>
-  <msg key="lt_Already_Responsed_n_r">Already Responsed: %n_responses% users
+  <msg key="lt_Already_Responded_email">Email these users</msg>
+  <msg key="lt_Already_Responded_n_r">Already Responded: %n_responses% users
 
 View these users. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt;
 
 Spam these users. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;</msg>
-  <msg key="lt_Already_Responsed_n_r_1">Already Responsed: %n_responses% users</msg>
-  <msg key="lt_Already_Responsed_view">View these users</msg>
+  <msg key="lt_Already_Responded_n_r_1">Already Responded: %n_responses% users</msg>
+  <msg key="lt_Already_Responded_view">View these users</msg>
   <msg key="lt_Answers_to_survey_nam">Answers to %survey_name%</msg>
   <msg key="lt_Awaiting_a_response_n">Awaiting a response: %n_awaiting% users
 
@@ -175,7 +175,8 @@ when asked %question_text%:</msg>
   <msg key="lt_The_response_to_ques_n">The response to %question_text% must be a number. Your answer was %response_value%.</msg>
   <msg key="lt_There_has_been_1_resp">There has been 1 response.</msg>
   <msg key="lt_There_have_been_n">There have been %n_responses% responses.</msg>
-  <msg key="lt_There_isare_n_resp">There %isare% %n_responses% %resp% to this question.  Editing a question with responses is not recommnded. No record of the original question will remain.  Proceed with caution.</msg>
+  <msg key="lt_There_isare_n_resp">There %isare% %n_responses% %resp%
+  to this question.  Editing a question with responses is not recommended. No record of the original question will remain.  Proceed with caution.</msg>
   <msg key="lt_There_was_an_error_wh">There was an error while trying to delete the question:</msg>
   <msg key="lt_This_is_a_multiple_ch">This is a multiple choice survey where each answer can be scored on one
 or more variables. This survey also allows you to execute arbitrary

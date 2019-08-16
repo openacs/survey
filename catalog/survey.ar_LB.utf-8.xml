@@ -72,9 +72,9 @@
   <msg key="lt_-_Lets_you_use_this_s">- يَتْركُك تَستعملُ هذا الإستطلاع كنموذج لخَلْق لإستطلاع جديد. </msg>
   <msg key="lt_-_Removes_all_questio">- أزل كُلّ الأسئلة والردود </msg>
   <msg key="lt_A_database_error_occu">خطأ في قاعدةِ البيانات حصل عند محاولة تبديل أسئلتِكَ. هنا الخطأَ: </msg>
-  <msg key="lt_Already_Responsed_email">Email these users</msg>
-  <msg key="lt_Already_Responsed_n_r">مردّود سابقاً: %n_awaiting users% شاهد هؤلاء المستعملين. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; أغرق هؤلاء المستعملين. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;</msg>
-  <msg key="lt_Already_Responsed_view">View these users</msg>
+  <msg key="lt_Already_Responded_email">Email these users</msg>
+  <msg key="lt_Already_Responded_n_r">مردّود سابقاً: %n_awaiting users% شاهد هؤلاء المستعملين. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; أغرق هؤلاء المستعملين. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;</msg>
+  <msg key="lt_Already_Responded_view">View these users</msg>
   <msg key="lt_Answers_to_survey_nam">الأجوبة الى %survey_name%</msg>
   <msg key="lt_Awaiting_a_response_n">إنتظار ردّ: %n_awaiting users% إنظر هؤلاء المستعملين. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; أغرق هؤلاء المستعملين. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; المجموعة الكاملة: %n_members% شاهد هؤلاء المستعملين. &lt;%community_url%/survey/admin/respondents?response_type=all&gt; أغرق هؤلاء المستعملين. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; الردود:</msg>
   <msg key="lt_Cancel_and_return_to_">ألغِ وعُدْ الردود الإستطلاع</msg>

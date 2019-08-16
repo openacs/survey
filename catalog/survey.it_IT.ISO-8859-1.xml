@@ -72,10 +72,10 @@
   <msg key="lt_-_Lets_you_use_this_s">- Usa questo questionario come modello per creare un nuovo questionario</msg>
   <msg key="lt_-_Removes_all_questio">- Cancella tutte le domande e le risposte</msg>
   <msg key="lt_A_database_error_occu">Si è verificato un errore nel database trattando la tua domanda. L'errore è:</msg>
-  <msg key="lt_Already_Responsed_email">Invia una Email a questi utenti</msg>
-  <msg key="lt_Already_Responsed_n_r">Già risposto: %n_responses% utenti Vedi gli utenti. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; Manda messaggio agli utenti. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
-  <msg key="lt_Already_Responsed_n_r_1">Hanno già risposto: %n_responses% utenti </msg>
-  <msg key="lt_Already_Responsed_view">Wisualizza questi utenti</msg>
+  <msg key="lt_Already_Responded_email">Invia una Email a questi utenti</msg>
+  <msg key="lt_Already_Responded_n_r">Già risposto: %n_responses% utenti Vedi gli utenti. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; Manda messaggio agli utenti. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
+  <msg key="lt_Already_Responded_n_r_1">Hanno già risposto: %n_responses% utenti </msg>
+  <msg key="lt_Already_Responded_view">Wisualizza questi utenti</msg>
   <msg key="lt_Answers_to_survey_nam">Risposte a %survey_name% </msg>
   <msg key="lt_Awaiting_a_response_n">Attesa risposta: %n_awaiting% utenti. Vedi questi utenti. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt;  Manda messaggio a questi utenti. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; Il gruppo intero: %n_members% Vedi questiutenti. &lt;%community_url%/survey/admin/respondents?response_type=all&gt; Manda messaggio a questi utenti. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; Risposte:
 </msg>

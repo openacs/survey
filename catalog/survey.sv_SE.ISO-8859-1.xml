@@ -72,8 +72,8 @@
   <msg key="lt_-_Lets_you_use_this_s">- Låter dig använda denna enkät som en mall för för att skapa en ny enkät.</msg>
   <msg key="lt_-_Removes_all_questio">- Tar bort alla frågor och svar</msg>
   <msg key="lt_A_database_error_occu">Ett databasfel uppstod när dina frågor skulle flyttas om. Här är felet:</msg>
-  <msg key="lt_Already_Responsed_n_r">Redan besvarade: %n_responses% Se dessa användare. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; E-posta dessa användare. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;</msg>
-  <msg key="lt_Already_Responsed_n_r_1">Redan besvarade: %n_responses% Se dessa användare.</msg>
+  <msg key="lt_Already_Responded_n_r">Redan besvarade: %n_responses% Se dessa användare. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; E-posta dessa användare. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt;</msg>
+  <msg key="lt_Already_Responded_n_r_1">Redan besvarade: %n_responses% Se dessa användare.</msg>
   <msg key="lt_Answers_to_survey_nam">Svar på %survey_name%</msg>
   <msg key="lt_Awaiting_a_response_n">Väntar på svar: %n_awaiting users% Se dessa användare. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; E-posta dessa användare. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; Hela gruppen: %n_members% Se dessa användare. &lt;%community_url%/survey/admin/respondents?response_type=all&gt; E-posta dessa användare. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; Svar:</msg>
   <msg key="lt_Cancel_and_return_to_">Avbryt och återvänd till enkätsvaren</msg>
