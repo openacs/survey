@@ -174,7 +174,7 @@ when asked %question_text%:</msg>
   <msg key="lt_The_response_to_ques_n">The response to %question_text% must be a number. Your answer was %response_value%.</msg>
   <msg key="lt_There_has_been_1_resp">There has been 1 response.</msg>
   <msg key="lt_There_have_been_n">There have been %n_responses% responses.</msg>
-  <msg key="lt_There_isare_n_resp">There %isare% %n_responses% %resp% to this question.  Editing a question with responses is not recommnded. No record of the original question will remain.  Proceed with caution.</msg>
+  <msg key="lt_There_isare_n_resp">There %isare% %n_responses% %resp% to this question.  Editing a question with responses is not recommended. No record of the original question will remain.  Proceed with caution.</msg>
   <msg key="lt_There_was_an_error_wh">There was an error while trying to delete the question:</msg>
   <msg key="lt_This_is_a_multiple_ch">This is a multiple choice survey where each answer can be scored on one
 or more variables. This survey also allows you to execute arbitrary
