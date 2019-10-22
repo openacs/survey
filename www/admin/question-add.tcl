@@ -3,7 +3,7 @@ ad_page_contract {
     Lets user enter the question and select a presentation type.
 
     @param section_id    integer designating survey we're adding question to
-    @param after        optinal integer denoting position of question within survey
+    @param after        optional integer denoting position of question within survey
 
     @author  jsc@arsdigita.com
     @author  nstrug@arsdigita.com

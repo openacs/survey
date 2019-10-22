@@ -60,7 +60,7 @@ if { !$user_exists_p } {
 # XXX TODO - person name
 set context $survey_name
 
-# XXX TODO - check how the correct response get's filled
+# XXX TODO - check how the correct response gets filled
 #  with the correct response esp if there is more than
 #  one response to a survey.
 

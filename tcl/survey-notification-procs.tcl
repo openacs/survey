@@ -1,7 +1,7 @@
 ad_library {
     Notification procs for Survey
 
-    Currently this is a place holder file. These procs are not currently needeed and have not been implemented.
+    Currently this is a place holder file. These procs are not currently needed and have not been implemented.
 
     At some point the notification procs in survey-procs should be moved into this file.
 
