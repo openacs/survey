@@ -26,7 +26,7 @@ ad_page_contract {
     }
 }
 
-ReturnHeaders $file_type
+util_return_headers $file_type
 
 cr_write_content -revision_id $revision_id
 

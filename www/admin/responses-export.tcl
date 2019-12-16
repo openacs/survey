@@ -77,7 +77,7 @@ set current_question_id ""
 set current_question_list [list]
 set csv_export ""
 set r 0
-ReturnHeaders "application/text"
+util_return_headers "application/text"
 ns_write "$headline \r\n"
 
 db_foreach get_all_survey_question_responses "" {
