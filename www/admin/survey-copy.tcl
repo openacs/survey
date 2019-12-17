@@ -19,15 +19,15 @@ set name "[_ survey.Copy_of] $name"
 
 ad_form -name copy_survey -form {
     new_survey_id:key
-    {message:text(inform) {value "[_ survey.lt_Copying_a_survey_will]"}} 
+    {message:text(inform) {value "[_ survey.lt_Copying_a_survey_will]"}}
     {name:text(text) {label "[_ survey.Name_copy]"} {html {size 60}} {value $name}}
     {survey_id:text(hidden) {value $survey_id}}
-    
+
 } -on_submit {
     set new_survey_id [survey_copy -survey_id $survey_id -new_name $name]
 
     set survey_id $new_survey_id
- 
+
     ad_returnredirect [export_vars -base one survey_id]
     ad_script_abort
 }
