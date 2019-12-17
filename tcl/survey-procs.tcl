@@ -14,14 +14,14 @@ ad_library {
 
 }
 
-ad_proc -public get_survey_info { 
-    {-survey_id ""} 
-    {-section_id ""} 
+ad_proc -public get_survey_info {
+    {-survey_id ""}
+    {-section_id ""}
 } {
     creates a Tcl array variable named "survey_info" in the caller's environment,
     which contains key/value pairs for all properties of the requested survey.
 
-    If survey_id is passed in, and it's a single-section survey, the 
+    If survey_id is passed in, and it's a single-section survey, the
     section_id will also be looked up and returned in the survey_info array.
 
     @author luke@museatech.net
@@ -56,11 +56,11 @@ ad_proc -public get_survey_info {
 }
 
 
-ad_proc -public survey_question_display { 
-    question_id 
-    {response_id ""} 
+ad_proc -public survey_question_display {
+    question_id
+    {response_id ""}
 } {
-    Returns a string of HTML to display for a question, suitable for embedding in a form. 
+    Returns a string of HTML to display for a question, suitable for embedding in a form.
     The form variable is of the form \"response_to_question.\$question_id
 } {
     if {$response_id ne ""} {
@@ -93,7 +93,7 @@ ad_proc -public survey_question_display {
 	set count 0
 	db_foreach prev_response_query {} {
 	    incr count
-	    
+
 	    if {$presentation_type eq "checkbox"} {
 		set selected_choices($choice_id) "t"
 	    }
@@ -126,7 +126,7 @@ ad_proc -public survey_question_display {
 		}
 	    }
 
-	    append html [subst {<input type=text name="$element_name" value="[ns_quotehtml $user_value]" 
+	    append html [subst {<input type=text name="$element_name" value="[ns_quotehtml $user_value]"
 		[ad_decode $presentation_options "large" "size=70" "medium" "size=40" "size=10"]>}]
 	}
 
@@ -134,9 +134,9 @@ ad_proc -public survey_question_display {
 	    if {$edit_previous_response_p == "t"} {
 		    set user_value $clob_answer
 		}
-	    
+
 	    set presentation_options [ad_decode $presentation_options "large" "rows=20 cols=65" "medium" "rows=15 cols=55" "rows=8 cols=35"]
-	    append html "<textarea name=$element_name $presentation_options style=\"vertical-align: text-top\">$user_value</textarea>" 
+	    append html "<textarea name=$element_name $presentation_options style=\"vertical-align: text-top\">$user_value</textarea>"
 	}
 
 	"date" {
@@ -151,7 +151,7 @@ ad_proc -public survey_question_display {
 		if {$edit_previous_response_p == "t"} {
 		    set user_value $boolean_answer
 		}
-		
+
 		if {$presentation_options ne ""} {
 		    set options_list [split $presentation_options "/"]
 		    set choice_t [lindex $options_list 0]
@@ -187,7 +187,7 @@ ad_proc -public survey_question_display {
 		append html "</select>"
 	    }
 	}
-    
+
 	"radio" {
 	    if { $abstract_data_type eq "boolean" } {
 		if {$edit_previous_response_p == "t"} {
@@ -208,7 +208,7 @@ ad_proc -public survey_question_display {
 		if {$edit_previous_response_p == "t"} {
 		    set user_value $choice_id
 		}
-		
+
 		set choices {}
 		db_foreach question_choices_2 "" {
 		    if { $user_value == $choice_id } {
@@ -217,7 +217,7 @@ ad_proc -public survey_question_display {
 			lappend choices "<input type=radio name=$element_name value=$choice_id> $label"
 		    }
 		}
-	    }  
+	    }
 	    if { $presentation_alignment eq "beside" } {
 		append html [join $choices " "]
 	    } else {
@@ -246,7 +246,7 @@ ad_proc -public survey_question_display {
 }
 
 ad_proc -public util_show_plain_text { text_to_display } {
-    allows plain text (e.g. text entered through forms) to look good on screen 
+    allows plain text (e.g. text entered through forms) to look good on screen
     without using tags; preserves newlines, angle brackets, etc.
 } {
     regsub -all "\\&" $text_to_display "\\&amp;" good_text
@@ -259,19 +259,19 @@ ad_proc -public util_show_plain_text { text_to_display } {
 }
 
 ad_proc -public survey_answer_summary_display {response_id {html_p 1}} {
-    Returns a string with the questions and answers. If html_p =t, the format will be html. 
-    Otherwise, it will be text.  If a list of category_ids is provided, 
+    Returns a string with the questions and answers. If html_p =t, the format will be html.
+    Otherwise, it will be text.  If a list of category_ids is provided,
     the questions will be limited to that set of categories.
 } {
     set return_string ""
     set question_id_previous ""
-    
+
     db_foreach summary "" {
 
 	if {$question_id == $question_id_previous} {
 	    continue
 	}
-	
+
 	if {$html_p} {
 	    append return_string "# $sort_order: $question_text <p>"
 	    append return_string [ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]
@@ -281,7 +281,7 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} {
 	    append return_string "\n\n"
 	    append return_string [ad_html_to_text -- [ad_enhanced_text_to_html "$clob_answer $number_answer $varchar_answer $date_answer"]]
 	}
-	
+
 	if {$attachment_answer ne ""} {
 	    set package_id [ad_conn package_id]
 	    set filename [db_string get_filename {}]
@@ -293,26 +293,26 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} {
 		<a href="[ns_quotehtml $href]">"$filename"</a>
 	    }]
 	}
-	
+
 	if {$choice_id != 0 && $choice_id ne "" && $question_id != $question_id_previous} {
 	    set label_list [db_list survey_label_list ""]
 	    append return_string [join $label_list ", "]
 	}
-	
+
 	if {$boolean_answer ne ""} {
 	    append return_string [survey_decode_boolean_answer -response $boolean_answer -question_id $question_id]
-	    
+
 	}
-	
+
 	if {$html_p} {
 	    append return_string "<P>"
 	} else {
 	    append return_string "\n\n"
 	}
-	
-	set question_id_previous $question_id 
+
+	set question_id_previous $question_id
     }
-    
+
     return $return_string
 }
 
@@ -321,15 +321,15 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} {
 ad_proc -public survey_get_score {section_id user_id} {
     Returns the score of the user's most recent response to a survey
 } {
-    
+
     set response_id [ survey_get_response_id $section_id $user_id ]
-    
+
     if { $response_id != 0 } {
         set score [db_string get_score "" -default 0]
     } else {
         set score {}
     }
-    
+
     return $score
 }
 
@@ -365,15 +365,15 @@ ad_proc -public survey_question_copy {
     db_foreach get_survey_question_choices {} {
 	set new_choice_id [db_string get_choice_id {}]
 	db_dml insert_survey_question_choice {}
-	
+
     }
 
   return $new_question_id
 }
 
-ad_proc survey_copy { 
-    {-survey_id:required} 
-    {-package_id ""} 
+ad_proc survey_copy {
+    {-survey_id:required}
+    {-package_id ""}
     {-new_name ""}
 } {
     copies a survey, copying all questions, but not responses
@@ -396,7 +396,7 @@ ad_proc survey_copy {
 
 
     foreach section_id $sections_list {
-    
+
 	set new_section_id [db_exec_plsql section_create {}]
 	set new_section_ids($section_id) $new_section_id
 	if {$description ne ""} {
@@ -433,7 +433,7 @@ ad_proc -public survey_do_notifications {
         }
     }
 
-    if {$dotlrn_installed_p} { 
+    if {$dotlrn_installed_p} {
 	set package_id [ad_conn package_id]
 	set community_id [dotlrn_community::get_community_id]
 	set segment_id [dotlrn_community::get_rel_segment_id -community_id $community_id -rel_type "dotlrn_member_rel"]
@@ -441,7 +441,7 @@ ad_proc -public survey_do_notifications {
 	set community_url "[parameter::get -package_id [ad_acs_kernel_id] -parameter SystemURL][dotlrn_community::get_community_url $community_id]"
     }
     db_1row get_response_info {}
-    
+
     set notif_text ""
     set notif_html ""
 
@@ -499,11 +499,11 @@ ad_proc -public survey_do_notifications {
 }
 
 
-ad_proc survey_decode_boolean_answer { 
+ad_proc survey_decode_boolean_answer {
     {-response:required}
     {-question_id:required}
 } {
-    takes t/f value from a boolean_answer column and 
+    takes t/f value from a boolean_answer column and
     decodes it based on the presentation_options of the question
 
     @author Dave Bauer <dave@thedesignexperience.org>
@@ -525,6 +525,6 @@ ad_proc survey_decode_boolean_answer {
 	} else {
 	    set response [lindex $options_list 1]
 	}
-    } 
+    }
     return $response
 }
