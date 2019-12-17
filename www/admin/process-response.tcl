@@ -153,7 +153,7 @@ permission::require_permission -object_id $survey_id -privilege survey_take_surv
 
 set user_id [ad_conn user_id]
 
-get_survey_info -survey_id $survey_id
+survey::get_info -survey_id $survey_id
 set type $survey_info(type)
 set survey_id $survey_info(survey_id)
 set survey_name $survey_info(name)

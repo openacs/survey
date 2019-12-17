@@ -40,7 +40,7 @@ ad_page_contract {
 
 permission::require_permission -object_id $survey_id -privilege survey_admin_survey
 
-get_survey_info -survey_id $survey_id
+survey::get_info -survey_id $survey_id
 set survey_name $survey_info(name)
 set description $survey_info(description)
 set type $survey_info(type)
@@ -68,7 +68,7 @@ set context $survey_name
 set button_label "Modify previous response"
 db_1row get_initial_response ""
 
-# build a list containing the HTML (generated with survey_question_display) for each question
+# build a list containing the HTML (generated with survey::display_question) for each question
 set rownum 0
 # for double-click protection
 set new_response_id [db_nextval acs_object_id_seq]    
@@ -77,7 +77,7 @@ set questions {}
 db_foreach survey_sections {} {
 
     db_foreach question_ids_select {} {
-	lappend questions [survey_question_display $question_id $response_id]
+	lappend questions [survey::display_question $question_id $response_id]
     }
 
     # survey will return to survey_url if it exists 

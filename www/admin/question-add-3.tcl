@@ -41,7 +41,7 @@ ad_page_contract {
 set package_id [ad_conn package_id]
 set user_id [ad_conn user_id]
 permission::require_permission -object_id $package_id -privilege survey_create_question
-get_survey_info -section_id $section_id
+survey::get_info -section_id $section_id
 
 if {![info exists survey_info(survey_id)]} {
     ad_return_complaint 1 "[_ survey.lt_Requested_survey_does]"

@@ -38,7 +38,7 @@ db_transaction {
 
 }
 
-get_survey_info -section_id $section_id
+survey::get_info -section_id $section_id
 set survey_id $survey_info(survey_id)
 ad_returnredirect [export_vars -base one {survey_id}]
 

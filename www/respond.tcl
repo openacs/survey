@@ -23,7 +23,7 @@ ad_page_contract {
 	}
     set user_id [auth::require_login]
     set number_of_responses [db_string count_responses {}]
-    get_survey_info -survey_id $survey_id
+    survey::get_info -survey_id $survey_id
     set single_section_p $survey_info(single_section_p)
         if {$section_id==0 && $single_section_p=="t"} {
             set section_id $survey_info(section_id)
@@ -67,7 +67,7 @@ if {$editable_p == "t"} {
     }
 }
 
-# build a list containing the HTML (generated with survey_question_display) for each question
+# build a list containing the HTML (generated with survey::display_question) for each question
 set rownum 0
 # for double-click protection
 set new_response_id [db_nextval acs_object_id_seq]    
@@ -76,7 +76,7 @@ set questions {}
 db_foreach survey_sections {} {
 
     db_foreach question_ids_select {} {
-	lappend questions [survey_question_display $question_id $response_id]
+	lappend questions [survey::display_question $question_id $response_id]
     }
 
     # return_url is used for infoshare - if it is set

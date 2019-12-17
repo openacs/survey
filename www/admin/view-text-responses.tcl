@@ -17,7 +17,7 @@ ad_page_contract {
 
 db_1row one_question ""
 
-get_survey_info -section_id $section_id
+survey::get_info -section_id $section_id
 set survey_name $survey_info(name)
 set survey_id $survey_info(survey_id)
 

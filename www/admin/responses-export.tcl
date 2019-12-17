@@ -22,7 +22,7 @@ permission::require_permission -object_id $package_id -privilege survey_admin_su
 set n_responses [db_string get_n_responses {}]
 ns_log notice "DAVEB: n_responses=$n_responses"
 if {$n_responses==0} {
-    get_survey_info -survey_id $survey_id
+    survey::get_info -survey_id $survey_id
     set context [list [list [export_vars -base one {survey_id}] $survey_info(name)] "[_ survey.CSV_Export]"]
     ad_return_template "no-responses"
     return
@@ -118,7 +118,7 @@ db_foreach get_all_survey_question_responses "" {
       }
 # decode boolean answers
 	if {$question_data_type($question_id)=="boolean"} {
-	    set response_value [survey_decode_boolean_answer -response $response_value -question_id $question_id]
+	    set response_value [survey::decode_boolean_answer -response $response_value -question_id $question_id]
 	}
 	if {$question_data_type($question_id)=="blob"} {
 	    set response_value [db_string get_filename {} -default ""]

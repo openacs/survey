@@ -16,7 +16,7 @@ ad_page_contract {
 set package_id [ad_conn package_id]
 permission::require_permission -object_id $package_id -privilege survey_admin_survey
 
-get_survey_info -survey_id $survey_id
+survey::get_info -survey_id $survey_id
 
 set questions_count ""
 set responses_count ""

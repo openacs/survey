@@ -15,7 +15,7 @@ ad_page_contract {
     {description:html ""}
 }
 
-get_survey_info -survey_id $survey_id
+survey::get_info -survey_id $survey_id
 set survey_name "$survey_info(name)"
 
 permission::require_permission -object_id $survey_id -privilege survey_modify_survey
@@ -35,7 +35,7 @@ ad_form -name edit-name -form {
     "[_ survey.lt_Survey_Name_must_be_l]"
     }
 } -edit_request {
-    get_survey_info -survey_id $survey_id
+    survey::get_info -survey_id $survey_id
     set name "$survey_info(name)"
     set description "$survey_info(description)"
     set description_html_p "$survey_info(description_html_p)"

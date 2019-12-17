@@ -22,7 +22,7 @@ ad_form -name edit-survey -form {
 	                        {options {{"[_ survey.Preformatted_Text]" "pre"}    
 				    {"HTML" "html"} {"[_ survey.Plain_Text]" "plain"}}}}
 } -edit_request {
-    get_survey_info -survey_id $survey_id
+    survey::get_info -survey_id $survey_id
     set survey_name $survey_info(name)
     set description $survey_info(description)
     set description_html_p $survey_info(description_html_p)

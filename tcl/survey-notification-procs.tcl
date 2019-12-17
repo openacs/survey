@@ -14,6 +14,8 @@ namespace eval survey::notification {}
 ad_proc -public survey::notification::get_url {
     object_id
 } {
+    Return the URL to supplied survey object to be used in notifications
+} {
     set package_id [db_string get_package_id {}]
     set package_url [site_node::get_url_from_object_id -object_id $package_id]
     return "${package_url}admin/one?survey_id=$object_id"
@@ -22,5 +24,6 @@ ad_proc -public survey::notification::get_url {
 ad_proc -public survey::notification::process_reply {
     reply_id
 } {
-
+    This proc is an empty stub
+} {
 }

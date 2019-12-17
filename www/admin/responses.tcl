@@ -22,7 +22,7 @@ set user_id [ad_conn user_id]
 # nstrug - 12/9/2000
 # Summarise scored responses for all users
 
-get_survey_info -survey_id $survey_id
+survey::get_info -survey_id $survey_id
 set survey_name $survey_info(name)
 set type $survey_info(type)
 
@@ -51,7 +51,7 @@ db_foreach survey_question_list {} {
 	"boolean" {
 
 	    db_foreach survey_boolean_summary "" { 
-		append results "[survey_decode_boolean_answer -response $boolean_answer -question_id $question_id]: $n_responses<br>\n"
+		append results "[survey::decode_boolean_answer -response $boolean_answer -question_id $question_id]: $n_responses<br>\n"
 	    }
 	}
 	"integer" -

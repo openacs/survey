@@ -13,7 +13,10 @@ set package_id [ad_conn package_id]
 set user_id [ad_conn user_id]
 
 permission::require_permission -object_id $package_id -privilege survey_create_question
-db_1row get_survey_info {}
+db_1row get_survey_info {
+    select * from surveys
+    where survey_id = :survey_id
+}
 set title_name $name
 set name "[_ survey.Copy_of] $name"
 
@@ -24,7 +27,7 @@ ad_form -name copy_survey -form {
     {survey_id:text(hidden) {value $survey_id}}
 
 } -on_submit {
-    set new_survey_id [survey_copy -survey_id $survey_id -new_name $name]
+    set new_survey_id [survey::copy -survey_id $survey_id -new_name $name]
 
     set survey_id $new_survey_id
 

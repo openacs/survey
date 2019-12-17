@@ -3,7 +3,7 @@
 ad_library {
 
   Support procs for simple survey module, most important being
-  survey_question_display which generates a question widget based
+  survey::display_question which generates a question widget based
   on data retrieved from database.
 
   @author philg@mit.edu on
@@ -14,7 +14,26 @@ ad_library {
 
 }
 
-ad_proc -public get_survey_info {
+namespace eval survey {}
+
+ad_proc -deprecated get_survey_info args {
+    creates a Tcl array variable named "survey_info" in the caller's environment,
+    which contains key/value pairs for all properties of the requested survey.
+
+    If survey_id is passed in, and it's a single-section survey, the
+    section_id will also be looked up and returned in the survey_info array.
+
+    @author luke@museatech.net
+    @creation-date 2002-07-24
+
+    DEPRECATED: does not comply with OpenACS naming convention
+
+    @see survey::get_info
+} {
+    return [survey::get_info {*}$args]
+}
+
+ad_proc -public survey::get_info {
     {-survey_id ""}
     {-section_id ""}
 } {
@@ -55,8 +74,18 @@ ad_proc -public get_survey_info {
     }
 }
 
+ad_proc -deprecated survey_question_display args {
+    Returns a string of HTML to display for a question, suitable for embedding in a form.
+    The form variable is of the form \"response_to_question.\$question_id
 
-ad_proc -public survey_question_display {
+    DEPRECATED: does not comply with OpenACS naming convention
+
+    @see survey::display_question
+} {
+    return [survey::display_question {*}$args]
+}
+
+ad_proc -public survey::display_question {
     question_id
     {response_id ""}
 } {
@@ -258,10 +287,26 @@ ad_proc -public util_show_plain_text { text_to_display } {
     return $good_text
 }
 
-ad_proc -public survey_answer_summary_display {response_id {html_p 1}} {
+ad_proc -deprecated survey_answer_summary_display args {
     Returns a string with the questions and answers. If html_p =t, the format will be html.
     Otherwise, it will be text.  If a list of category_ids is provided,
     the questions will be limited to that set of categories.
+
+    DEPRECATED: does not comply with OpenACS naming convention
+
+    @see survey::display_answer_summary
+} {
+    return [survey::display_answer_summary {*}$args]
+}
+
+ad_proc -public survey::display_answer_summary {
+    response_id
+    {html_p 1}
+} {
+    Returns a string with the questions and answers. If html_p =t, the
+    format will be html.  Otherwise, it will be text.  If a list of
+    category_ids is provided, the questions will be limited to that
+    set of categories.
 } {
     set return_string ""
     set question_id_previous ""
@@ -300,7 +345,7 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} {
 	}
 
 	if {$boolean_answer ne ""} {
-	    append return_string [survey_decode_boolean_answer -response $boolean_answer -question_id $question_id]
+	    append return_string [survey::decode_boolean_answer -response $boolean_answer -question_id $question_id]
 
 	}
 
@@ -317,8 +362,20 @@ ad_proc -public survey_answer_summary_display {response_id {html_p 1}} {
 }
 
 
+ad_proc -deprecated survey_get_score args {
+    Returns the score of the user's most recent response to a survey
 
-ad_proc -public survey_get_score {section_id user_id} {
+    DEPRECATED: does not comply with OpenACS naming convention
+
+    @see survey::get_score
+} {
+    return [survey::get_score {*}$args]
+}
+
+ad_proc -public survey::get_score {
+    section_id
+    user_id
+} {
     Returns the score of the user's most recent response to a survey
 } {
 
@@ -334,16 +391,35 @@ ad_proc -public survey_get_score {section_id user_id} {
 }
 
 
-ad_proc -public survey_display_types {
+ad_proc -deprecated survey_display_types {} {
+    DEPRECATED: does not comply with OpenACS naming convention
+
+    @see survey::display_types
+} {
+    return [survey::display_types]
+}
+
+ad_proc -public survey::display_types {} {
+    Return the list of display types
 } {
     return {list table paragraph}
 }
 
 
-ad_proc -public survey_question_copy {
+ad_proc -deprecated survey_question_copy args {
+    copies a question within the same survey
+    DEPRECATED: does not comply with OpenACS naming convention
+
+    @see survey::copy_question
+} {
+    return [survey::copy_question {*}$args]
+}
+
+ad_proc -public survey::copy_question {
     {-new_section_id ""}
     {-question_id:required}
-} { copies a question within the same survey
+} {
+    Copies a question within the same survey
 } {
     set user_id [ad_conn user_id]
     db_1row get_question_details {}
@@ -371,15 +447,29 @@ ad_proc -public survey_question_copy {
   return $new_question_id
 }
 
-ad_proc survey_copy {
-    {-survey_id:required}
-    {-package_id ""}
-    {-new_name ""}
-} {
+
+ad_proc -deprecated survey_copy args {
     copies a survey, copying all questions, but not responses
     is package_id is specific it copies they survey to another
     survey package instance, otherwise it copies the survey to the
     same package instance
+
+    DEPRECATED: does not comply with OpenACS naming convention
+
+    @see survey::copy
+} {
+    return [survey::copy {*}$args]
+}
+
+ad_proc -public survey::copy {
+    {-survey_id:required}
+    {-package_id ""}
+    {-new_name ""}
+} {
+    Copies a survey, copying all questions, but not responses. Is
+    package_id is specific, it copies the survey to another survey
+    package instance, otherwise it copies the survey to the same
+    package instance.
 } {
 
     if {$package_id eq ""} {
@@ -405,20 +495,32 @@ ad_proc survey_copy {
     }
    db_foreach get_questions {} {
 
-	survey_question_copy -new_section_id $new_section_ids($section_id) -question_id $question_id
+	survey::copy_question -new_section_id $new_section_ids($section_id) -question_id $question_id
     }
 return $new_survey_id
 
 }
 
-ad_proc -public survey_do_notifications {
-    {-response_id ""}
-} { process notifications when someone responds to a survey
+ad_proc -deprecated survey_do_notifications args {
+    process notifications when someone responds to a survey
     or edits a response
+
+    DEPRECATED: does not comply with OpenACS naming convention
+
+    @see survey::do_notifications
+} {
+    return [survey::do_notifications {*}$args]
+}
+
+ad_proc -public survey::do_notifications {
+    {-response_id ""}
+} {
+    Process notifications when someone responds to a survey or edits a
+    response.
 } {
 
     set survey_id [db_string get_survey_id_from_response {}]
-    get_survey_info -survey_id $survey_id
+    survey::get_info -survey_id $survey_id
     set survey_name $survey_info(name)
     set subject "[_ survey.Response_to] $survey_name"
     set community_name {}
@@ -499,12 +601,28 @@ ad_proc -public survey_do_notifications {
 }
 
 
-ad_proc survey_decode_boolean_answer {
+ad_proc -deprecated survey_decode_boolean_answer args {
+    takes t/f value from a boolean_answer column and
+    decodes it based on the presentation_options of the question
+
+    @author Dave Bauer <dave@thedesignexperience.org>
+
+    @param -response text value of response to be decoded
+    @param -question_id question_id of question response is from
+
+    DEPRECATED: does not comply with OpenACS naming convention
+
+    @see survey::decode_boolean_answer
+} {
+    return [survey::decode_boolean_answer {*}$args]
+}
+
+ad_proc -public survey::decode_boolean_answer {
     {-response:required}
     {-question_id:required}
 } {
-    takes t/f value from a boolean_answer column and
-    decodes it based on the presentation_options of the question
+    Takes t/f value from a boolean_answer column and decodes it based
+    on the presentation_options of the question.
 
     @author Dave Bauer <dave@thedesignexperience.org>
 

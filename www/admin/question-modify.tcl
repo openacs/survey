@@ -18,7 +18,7 @@ ad_page_contract {
     {sort_order ""}
 }
 
-get_survey_info -section_id $section_id
+survey::get_info -section_id $section_id
 set survey_name $survey_info(name)
 set survey_id $survey_info(survey_id)
 permission::require_permission -object_id $survey_id -privilege survey_modify_question

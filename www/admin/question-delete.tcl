@@ -19,7 +19,7 @@ permission::require_permission -object_id $question_id -privilege survey_delete_
 
 db_1row section_id_from_question_id ""
 
-get_survey_info -section_id $section_id
+survey::get_info -section_id $section_id
 set survey_id $survey_info(survey_id)
 
 set n_responses [db_string survey_number_responses {} ]

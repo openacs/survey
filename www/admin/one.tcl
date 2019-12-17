@@ -20,7 +20,7 @@ set package_id [ad_conn package_id]
 permission::require_permission -object_id $package_id -privilege survey_admin_survey
 
 # Get the survey information.
-get_survey_info -survey_id $survey_id
+survey::get_info -survey_id $survey_id
 if {![info exists survey_info(survey_id)]} {
     ad_return_complaint 1 "[_ survey.lt_Requested_survey_does]"
     ad_script_abort
@@ -62,7 +62,7 @@ if {$enabled_p == "t"} {
 
 # Display Type (ben)
 # provide list survey_display_types to adp process with <list>
-set survey_display_types [survey_display_types]
+set survey_display_types [survey::display_types]
 
 
 # Questions summary.   
@@ -73,7 +73,7 @@ set context [list $survey_info(name)]
 
 db_multirow -extend { question_display question_modify_url question_copy_url question_add_url question_delete_url question_swap_down_url question_swap_up_url } questions survey_questions "" {
 
-    set question_display [survey_question_display $question_id]
+    set question_display [survey::display_question $question_id]
     set question_modify_url [export_vars -base question-modify {{question_id $question_id} section_id survey_id}]
     set question_copy_url [export_vars -base question-copy {{question_id $question_id} {sort_order $sort_order}}]
     set question_add_url [export_vars -base question-add {section_id {after $sort_order}}]

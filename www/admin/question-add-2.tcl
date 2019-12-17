@@ -33,7 +33,7 @@ set user_id [ad_conn user_id]
 permission::require_permission -object_id $package_id -privilege survey_create_question
 
 set question_id [db_nextval acs_object_id_seq]
-get_survey_info -section_id $section_id
+survey::get_info -section_id $section_id
 
 if {![info exists survey_info(survey_id)]} {
     ad_return_complaint 1 "[_ survey.lt_Requested_survey_does]"

@@ -34,7 +34,7 @@ ad_page_contract {
 
 permission::require_permission -object_id $survey_id -privilege survey_take_survey
 
-    get_survey_info -survey_id $survey_id
+    survey::get_info -survey_id $survey_id
     set name $survey_info(name)
     set description $survey_info(description)
     set description_html_p $survey_info(description_html_p)
@@ -49,7 +49,7 @@ permission::require_permission -object_id $survey_id -privilege survey_take_surv
 
 set context [list "[_ survey.Preview] $name"]
 
-# build a list containing the HTML (generated with survey_question_display) for each question
+# build a list containing the HTML (generated with survey::display_question) for each question
 set rownum 0
     
 set questions {}
@@ -57,7 +57,7 @@ set questions {}
 db_foreach survey_sections {} {
 
     db_foreach question_ids_select {} {
-	lappend questions [survey_question_display $question_id]
+	lappend questions [survey::display_question $question_id]
     }
 
 

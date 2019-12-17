@@ -13,9 +13,9 @@ set user_id [ad_conn user_id]
 
 permission::require_permission -object_id $package_id -privilege survey_create_question
 set section_id [db_string get_section_id_from_question {}]
-get_survey_info -section_id $section_id
+survey::get_info -section_id $section_id
 set survey_id $survey_info(survey_id)
-set new_question_id [survey_question_copy -question_id $question_id]
+set new_question_id [survey::copy_question -question_id $question_id]
 incr sort_order
 ad_returnredirect "[export_vars -base one survey_id]&#$sort_order"
 

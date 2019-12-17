@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <queryset>
 
-<fullquery name="get_survey_info.n_eligible">
+<fullquery name="survey::get_info.n_eligible">
 <querytext>
     select count(*) from dotlrn_member_rels_full
     where rel_type='dotlrn_member_rel'
@@ -10,7 +10,7 @@
 </fullquery>
 
 
-<fullquery name="get_survey_info.lookup_single_section_id">
+<fullquery name="survey::get_info.lookup_single_section_id">
 <querytext>
 	select min(section_id) as section_id
           from survey_sections
@@ -18,7 +18,7 @@
 </querytext>
 </fullquery>
 
-<fullquery name="get_survey_info.lookup_survey_id">      
+<fullquery name="survey::get_info.lookup_survey_id">      
 <querytext>
 	select survey_id
 	  from survey_sections
@@ -26,7 +26,7 @@
 </querytext>
 </fullquery>
 
-<fullquery name="get_survey_info.get_info_by_survey_id">      
+<fullquery name="survey::get_info.get_info_by_survey_id">      
 <querytext>
 	select s.*,
 	       o.creation_user, o.creation_date, p.first_names || ' ' || p.last_name as creator_name, 
@@ -42,7 +42,7 @@
 </fullquery>
 
 
-<fullquery name="survey_question_display.prev_response_query">
+<fullquery name="survey::display_question.prev_response_query">
 <querytext>
 select	
   choice_id,
@@ -59,7 +59,7 @@ select
 </fullquery>
 
 
-<fullquery name="survey_question_display.prev_response_query">
+<fullquery name="survey::display_question.prev_response_query">
 <querytext>
 select	
   choice_id,
@@ -76,7 +76,7 @@ select
 </fullquery>
 
 
-<fullquery name="survey_question_display.survey_question_properties">      
+<fullquery name="survey::display_question.survey_question_properties">      
       <querytext>
       
 select
@@ -99,7 +99,7 @@ where
       </querytext>
 </fullquery>
 
-<fullquery name="survey_question_display.question_choices">      
+<fullquery name="survey::display_question.question_choices">      
       <querytext>
       select choice_id, label
 from survey_question_choices
@@ -109,7 +109,7 @@ order by sort_order
 </fullquery>
 
  
-<fullquery name="survey_question_display.question_choices_2">      
+<fullquery name="survey::display_question.question_choices_2">      
       <querytext>
       select choice_id, label
 from survey_question_choices
@@ -119,7 +119,7 @@ order by sort_order
 </fullquery>
 
  
-<fullquery name="survey_question_display.question_choices_3">      
+<fullquery name="survey::display_question.question_choices_3">      
       <querytext>
       select * from survey_question_choices
 where question_id = :question_id
@@ -142,14 +142,14 @@ order by sort_order
  
  
 
-<fullquery name="survey_question_copy.get_question_details">
+<fullquery name="survey::copy_question.get_question_details">
 <querytext>
 select * from survey_questions
 where question_id=:question_id
 </querytext>
 </fullquery>
 
-<fullquery name="survey_question_copy.insert_question_text">
+<fullquery name="survey::copy_question.insert_question_text">
 <querytext>
 	    update survey_questions
 	    set question_text = :question_text
@@ -157,7 +157,7 @@ where question_id=:question_id
 </querytext>
 </fullquery>
 
-<fullquery name="survey_question_copy.renumber_sort_orders">
+<fullquery name="survey::copy_question.renumber_sort_orders">
 <querytext>
 update survey_questions
    set sort_order = sort_order + 1
@@ -166,14 +166,14 @@ update survey_questions
 </querytext>
 </fullquery>
 
-<fullquery name="survey_question_copy.get_survey_question_choices">
+<fullquery name="survey::copy_question.get_survey_question_choices">
 <querytext>
 	select * from survey_question_choices
 	where question_id=:old_question_id
 </querytext>
 </fullquery>
 
-<fullquery name="survey_question_copy.insert_survey_question_choice">
+<fullquery name="survey::copy_question.insert_survey_question_choice">
 <querytext>
 insert into survey_question_choices
                 (choice_id, question_id, label, numeric_value, sort_order)
@@ -183,28 +183,28 @@ insert into survey_question_choices
 </querytext>
 </fullquery>
 
-<fullquery name="survey_do_notifications.get_survey_id_from_response">
+<fullquery name="survey::do_notifications.get_survey_id_from_response">
 <querytext>
 	select survey_id from survey_responses
 	where response_id=:response_id
 </querytext>
 </fullquery>
 
-<fullquery name="survey_do_notifications.n_responses">
+<fullquery name="survey::do_notifications.n_responses">
     <querytext>
 	select count(*) from survey_responses_latest
 	where survey_id=:survey_id
     </querytext>
 </fullquery>
 
-<fullquery name="survey_do_notifications.n_members">
+<fullquery name="survey::do_notifications.n_members">
     <querytext>
 	select count(*) from party_approved_member_map
 	where party_id=:segment_id
     </querytext>
 </fullquery>
 
-<fullquery name="survey_do_notifications.get_questions">
+<fullquery name="survey::do_notifications.get_questions">
     <querytext>
 	select sort_order, question_text, question_id
 	from survey_questions
@@ -215,7 +215,7 @@ insert into survey_question_choices
     </querytext>
 </fullquery>
 
-<fullquery name="survey_copy.get_survey_info">
+<fullquery name="survey::copy.get_survey_info">
 <querytext>
 	select
 	    survey_id,
@@ -232,20 +232,20 @@ insert into survey_question_choices
 </querytext>
 </fullquery>
 
-<fullquery name="survey_copy.set_section_description">
+<fullquery name="survey::copy.set_section_description">
 <querytext>
 	update survey_sections set description=:description
 	where section_id=:new_section_id
 </querytext>
 </fullquery>
 
-<fullquery name="survey_copy.get_sections">
+<fullquery name="survey::copy.get_sections">
     <querytext>
 	select section_id from survey_sections where survey_id=:survey_id
     </querytext>
 </fullquery>
 
-<fullquery name="survey_copy.get_questions">
+<fullquery name="survey::copy.get_questions">
 <querytext>
 select question_id from survey_questions
 	where section_id in (select section_id from survey_sections
@@ -288,7 +288,7 @@ order by sort_order
       </querytext>
 </fullquery>
 
-<fullquery name="survey_decode_boolean_answer.get_presentation_options">
+<fullquery name="survey::decode_boolean_answer.get_presentation_options">
     <querytext>
 	select presentation_options 
 	from survey_questions

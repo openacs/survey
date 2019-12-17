@@ -26,7 +26,7 @@ permission::require_permission -object_id $question_id -privilege survey_admin_s
 # which it is part
 
 set question_exists_p [db_0or1row get_question_text ""]
-get_survey_info -section_id $section_id
+survey::get_info -section_id $section_id
 set survey_name $survey_info(name)
 set survey_id $survey_info(survey_id)
 

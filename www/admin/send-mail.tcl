@@ -20,7 +20,7 @@ set sender_id [ad_conn user_id]
 
 permission::require_permission -object_id $survey_id -privilege survey_admin_survey
 
-get_survey_info -survey_id $survey_id
+survey::get_info -survey_id $survey_id
 set survey_name $survey_info(name)
 db_1row select_sender_info {}
 set dotlrn_installed_p [apm_package_installed_p dotlrn]

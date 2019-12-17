@@ -17,7 +17,7 @@ ad_page_contract {
 
 permission::require_permission -object_id $section_id -privilege survey_modify_question
 
-get_survey_info -section_id $section_id
+survey::get_info -section_id $section_id
 set survey_id $survey_info(survey_id)
 
 set survey_name [db_string survey_name_from_id "select name from survey_sections where section_id=:section_id" ]
