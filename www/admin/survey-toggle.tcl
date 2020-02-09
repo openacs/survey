@@ -1,5 +1,5 @@
 ad_page_contract {
-    Survey,-toggle.tcl will toggle (ie - enable or disable) a single survey.
+    Survey-toggle.tcl will toggle (i.e. - enable or disable) a single survey.
 
     @param section_id   survey we're toggling
     @param enabled_p    flag describing original state of survey
