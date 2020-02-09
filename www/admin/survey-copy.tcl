@@ -38,3 +38,9 @@ ad_form -name copy_survey -form {
 
 set context "[_ survey.Copy] $title_name"
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

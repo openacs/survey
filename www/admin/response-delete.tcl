@@ -23,17 +23,24 @@ ad_form -name confirm_delete -form {
     {warning:text(inform) {value "[_ survey.lt_Completely_delete [list user_name_var user_name response_date_var response_date]]"}
     {label "[_ survey.Warning]"}}
     {confirmation:text(radio) {label " "}
-	{options
-	    {{"[_ survey.Continue_with_Delete]" t }
-	     {"[_ survey.lt_Cancel_and_return_to_]" f }}	}
-	    {value f}
+        {options
+            {{"[_ survey.Continue_with_Delete]" t }
+                {"[_ survey.lt_Cancel_and_return_to_]" f }}
+        }
+        {value f}
     }
 
 } -on_submit {
     if {$confirmation} {
-	db_exec_plsql delete_response {}
-    } 
+        db_exec_plsql delete_response {}
+    }
     ad_returnredirect [export_vars -base one-respondent {survey_id user_id}]
 }
 
 set context [_ survey.Delete_Response]
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

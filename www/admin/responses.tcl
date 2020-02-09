@@ -29,7 +29,7 @@ set type $survey_info(type)
 set return_html ""
 
 # mbryzek - 3/27/2000
-# We need a way to limit the summary page to 1 response from 
+# We need a way to limit the summary page to 1 response from
 # each user. We use views to select out only the latest response
 # from any given user
 
@@ -41,44 +41,44 @@ db_foreach survey_question_list {} {
 <p>
 "
     switch -- $abstract_data_type {
-	"date" -
-	"text" -
-	"shorttext" {
-	    set href [export_vars -base view-text-responses {question_id}]
-	    append results [subst {<div><a href="[ns_quotehtml $href]">[_ survey.View_responses]</a></div>\n}]
-	}
-	
-	"boolean" {
+        "date" -
+        "text" -
+        "shorttext" {
+            set href [export_vars -base view-text-responses {question_id}]
+            append results [subst {<div><a href="[ns_quotehtml $href]">[_ survey.View_responses]</a></div>\n}]
+        }
 
-	    db_foreach survey_boolean_summary "" { 
-		append results "[survey::decode_boolean_answer -response $boolean_answer -question_id $question_id]: $n_responses<br>\n"
-	    }
-	}
-	"integer" -
-	"number" {
-	    db_foreach survey_number_summary "" {
+        "boolean" {
+
+            db_foreach survey_boolean_summary "" {
+                append results "[survey::decode_boolean_answer -response $boolean_answer -question_id $question_id]: $n_responses<br>\n"
+            }
+        }
+        "integer" -
+        "number" {
+            db_foreach survey_number_summary "" {
                append results "$number_answer: $n_responses<br>\n"
             }
-            db_1row survey_number_average "" 
-	    append results "<p>[_ survey.Mean] $mean<br>[_ survey.Standard_Dev]: $standard_deviation<br>\n"
-	    
+            db_1row survey_number_average ""
+            append results "<p>[_ survey.Mean] $mean<br>[_ survey.Standard_Dev]: $standard_deviation<br>\n"
+
         }
-	"choice" {
-	    db_foreach survey_section_question_choices "" {
-		set href [export_vars -base response-drill-down {question_id choice_id}]
-		append results [subst {$label: <a href="[ns_quotehtml $href]">$n_responses</a><br>\n}]
-	    }
-	 }
-	"blob" {
-	    db_foreach survey_attachment_summary {} {
-		set href [export_vars -base ../view-attachment {response_id question_id}]
-	        append results [subst {<a href="[ns_quotehtml $href]">$title</a><br>}]
-	    }
-	}
+        "choice" {
+            db_foreach survey_section_question_choices "" {
+                set href [export_vars -base response-drill-down {question_id choice_id}]
+                append results [subst {$label: <a href="[ns_quotehtml $href]">$n_responses</a><br>\n}]
+            }
+         }
+        "blob" {
+            db_foreach survey_attachment_summary {} {
+                set href [export_vars -base ../view-attachment {response_id question_id}]
+                append results [subst {<a href="[ns_quotehtml $href]">$title</a><br>}]
+            }
+        }
     }
     append results "</p>\n"
 }
- 
+
 
 
 set n_responses [db_string survey_number_responses {} ]
@@ -92,3 +92,9 @@ if { $n_responses == 1 } {
 set context [list [list [export_vars -base one {survey_id}] $survey_info(name)] "[_ survey.Responses]"]
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

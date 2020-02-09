@@ -19,3 +19,9 @@ set new_question_id [survey::copy_question -question_id $question_id]
 incr sort_order
 ad_returnredirect "[export_vars -base one survey_id]&#$sort_order"
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

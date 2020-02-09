@@ -31,14 +31,14 @@ ad_form -name modify_question -form {
 
 if {$n_responses > 0} {
     if {$n_responses >1} {
-	set isare "[_ survey.are]"
-	set resp "[_ survey.responses]"
+        set isare "[_ survey.are]"
+        set resp "[_ survey.responses]"
     } else {
-	set isare "[_ survey.is]"
-	set resp "[_ survey.response]"
+        set isare "[_ survey.is]"
+        set resp "[_ survey.response]"
     }
     ad_form -extend -name modify_question -form {
-	{warning:text(inform) {label "[_ survey.Warning]"} {value "<span style=\"color: #f00;\">[_ survey.lt_There_isare_n_resp]"}}
+        {warning:text(inform) {label "[_ survey.Warning]"} {value "<span style=\"color: #f00;\">[_ survey.lt_There_isare_n_resp]"}}
     }
 }
 ad_form -extend -name modify_question -export {sort_order} -form {
@@ -60,7 +60,7 @@ ad_form -extend -name modify_question -form {
     {required_p:text(radio)     {label "[_ survey.Required]"} {options {{"[_ survey.Yes]" t} {"[_ survey.No]" f}}}}
     {section_id:text(hidden) {value $section_id}}
     {survey_id:text(hidden) {value $survey_id}}
-} 
+}
 
 
 db_1row presentation {}
@@ -69,19 +69,19 @@ if {($presentation_type=="checkbox" || $presentation_type=="select" || $presenta
     set valid_responses_list [db_list survey_question_valid_responses {}]
     set response_list ""
     foreach response $valid_responses_list {
-	append valid_responses "$response\n"
+        append valid_responses "$response\n"
     }
     ad_form -extend -name modify_question -form {
         {valid_responses:text(textarea)
             {label "[_ survey.lt_For_Multiple_Choicebr]"}
             {html {rows 10 cols 50}}
             {value $valid_responses}}
-    } 
-} 
+    }
+}
 
 if {$presentation_type eq "textarea" || $presentation_type eq "textbox"} {
     ad_form -extend -name modify_question -form {
-	{presentation_options:text(select) {options {{[_ survey.Small] small} {[_ survey.Medium] medium} {[_ survey.Large] large}}} {value $presentation_options} {label "[string totitle $presentation_type] [_ survey.Size]"}} 
+        {presentation_options:text(select) {options {{[_ survey.Small] small} {[_ survey.Medium] medium} {[_ survey.Large] large}}} {value $presentation_options} {label "[string totitle $presentation_type] [_ survey.Size]"}}
 
     }
 }
@@ -109,7 +109,7 @@ ad_form -extend -name modify_question -select_query_name {survey_question_detail
             lappend response_list [list "$trimmed_response" "$count"]
             incr count
         }
-        
+
         set choice_id_to_update_list [db_list get_choice_id {}]
         set choice_count 0
         foreach one_response $response_list {
@@ -133,7 +133,7 @@ ad_form -extend -name modify_question -select_query_name {survey_question_detail
     }
 
 
-    
+
 
 
     ad_returnredirect "one?survey_id=$survey_id&#${sort_order}"
@@ -144,3 +144,9 @@ ad_form -extend -name modify_question -select_query_name {survey_question_detail
 set context [_ survey.Modify_Question]
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

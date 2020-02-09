@@ -21,24 +21,24 @@ ad_page_contract {
 permission::require_permission -object_id $section_id -privilege survey_modify_question
 
 db_transaction {
-    
+
     set i 0
     foreach choice_id $choice_id_list {
-	set trimmed_response [string trim [lindex $responses $i]]
-	db_dml update_survey_question_choice "update survey_question_choices
+        set trimmed_response [string trim [lindex $responses $i]]
+        db_dml update_survey_question_choice "update survey_question_choices
           set label = :trimmed_response
           where choice_id = :choice_id"
 
-	foreach variable_id $variable_id_list {
-	    set score_list $scores($variable_id)
-	    set score [lindex $score_list $i]
-	    db_dml update_survey_scores "update survey_choice_scores
+        foreach variable_id $variable_id_list {
+            set score_list $scores($variable_id)
+            set score [lindex $score_list $i]
+            db_dml update_survey_scores "update survey_choice_scores
                                            set score = :score
                                            where choice_id = :choice_id
                                            and variable_id = :variable_id"
-	}
+        }
 
-	incr i
+        incr i
     }
 }
 
@@ -48,4 +48,10 @@ survey::get_info -section_id $section_id
 set survey_id $survey_info(survey_id)
 ad_returnredirect [export_vars -base one {survey_id}]
 
-	
+
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

@@ -1,4 +1,3 @@
-# /www/survsimp/admin/question-delete.tcl
 ad_page_contract {
 
     Delete a question from a survey
@@ -32,48 +31,50 @@ ad_form -name confirm_delete -export {sort_order} -form {
 
 if {$n_responses > 0} {
     if {$n_responses >1} {
-	set response_text "[_ survey.responses]"
+        set response_text "[_ survey.responses]"
     } else {
-	set response_text "[_ survey.response]"
+        set response_text "[_ survey.response]"
     }
     ad_form -extend -name confirm_delete -form {
-	{warning:text(inform) {value "[_ survey.lt_This_question_has_n]"}
-	{label "[_ survey.Warning]"}}
+        {warning:text(inform) {value "[_ survey.lt_This_question_has_n]"}
+        {label "[_ survey.Warning]"}}
     }
- 
+
 }
 
 ad_form -extend -name confirm_delete -form {
    {confirmation:text(radio) {label " "}
-	{options
-	    {{"[_ survey.Continue_with_Delete]" t }
-	     {"[_ survey.lt_Cancel_and_return_to_]" f }}	}
-	     {value f}}
-    } -select_query_name {get_question_details} -on_submit {
-	if {$confirmation} {
-	    db_transaction {
+        {options
+            {{"[_ survey.Continue_with_Delete]" t }
+                {"[_ survey.lt_Cancel_and_return_to_]" f }}
+        }
+       {value f}
+   }
+} -select_query_name {get_question_details} -on_submit {
+        if {$confirmation} {
+            db_transaction {
 
-		db_dml survey_question_responses_delete {}
-		db_dml survey_question_choices_delete {}
-		db_exec_plsql survey_delete_question {}
+                db_dml survey_question_responses_delete {}
+                db_dml survey_question_choices_delete {}
+                db_exec_plsql survey_delete_question {}
 
-		if {$sort_order ne ""} {
-		    db_dml survey_renumber_questions {}
-		}
-	    } on_error {
-    
-		ad_return_error [_ survey.Database_Error] "[_ survey.lt_There_was_an_error_wh]
-		<pre>
-		$errmsg
-		</pre>
-		<p> [_ survey.lt_Please_go_back_using_]
-		"
+                if {$sort_order ne ""} {
+                    db_dml survey_renumber_questions {}
+                }
+            } on_error {
+
+                ad_return_error [_ survey.Database_Error] "[_ survey.lt_There_was_an_error_wh]
+                <pre>
+                $errmsg
+                </pre>
+                <p> [_ survey.lt_Please_go_back_using_]
+                "
                 ad_script_abort
-	    }
+            }
 
-	    db_release_unused_handles
-	    set sort_order [expr {$sort_order -1}]
-	}
+            db_release_unused_handles
+            set sort_order [expr {$sort_order -1}]
+        }
         ad_returnredirect "[export_vars -base one {survey_id}]&#$sort_order"
         ad_script_abort
     }
@@ -81,3 +82,9 @@ ad_form -extend -name confirm_delete -form {
 set context [_ survey.Delete_Question]
 ad_return_template
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

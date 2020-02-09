@@ -71,7 +71,7 @@ ad_form -name create-question-2 -action question-add-3 -form {
 # if { $presentation_type eq "upload_file" } {
 # #    incr exception_count
 # #    append exception_text "<li>The presentation type: upload file is not supported at this time."
-    
+
 # }
 
 # if { $exception_count > 0 } {
@@ -91,18 +91,18 @@ if { $type eq "scored" } {
 
     set variable_id_list [list]
     db_foreach select_variable_names "" {
-	lappend variable_id_list $variable_id
-	append response_fields "<th>$variable_name</th>"
+        lappend variable_id_list $variable_id
+        append response_fields "<th>$variable_name</th>"
     }
 
     append response_fields "</tr>\n"
 
     for {set response 0} {$response < $n_responses} {incr response} {
-	append response_fields "<tr><td align=center><input type=text name=\"responses\" size=80></td>"
-	for {set variable 0} {$variable < $n_variables} {incr variable} {
-	    append response_fields "<td align=center><input type=text name=\"scores.$variable\" size=2></td>"
-	}
-	append response_fields "</tr>\n"
+        append response_fields "<tr><td align=center><input type=text name=\"responses\" size=80></td>"
+        for {set variable 0} {$variable < $n_variables} {incr variable} {
+            append response_fields "<td align=center><input type=text name=\"scores.$variable\" size=2></td>"
+        }
+        append response_fields "</tr>\n"
     }
 
     append response_fields "</table>\n"
@@ -115,23 +115,23 @@ if { $type eq "scored" } {
 # Display presentation options for sizing text input fields and textareas.
 
     switch -- $presentation_type {
-	"textbox" { 
+        "textbox" {
 
-	    ad_form -extend -name create-question-2 -form {
-		{textbox_size:text(select) {options {{[_ survey.Small] small} {[_ survey.Medium] medium} {[_ survey.Large] large}}} {label "[_ survey.Size]"}}
-		{abstract_data_type:text(select) {label "[_ survey.Type_of_Response]"}
-		{options {{"[_ survey.Short_Text]" shorttext} {[_ survey.Text] text} {[_ survey.Boolean] boolean} {[_ survey.Number] number} {[_ survey.Integer] integer}}}
-	    }
+            ad_form -extend -name create-question-2 -form {
+                {textbox_size:text(select) {options {{[_ survey.Small] small} {[_ survey.Medium] medium} {[_ survey.Large] large}}} {label "[_ survey.Size]"}}
+                {abstract_data_type:text(select) {label "[_ survey.Type_of_Response]"}
+                {options {{"[_ survey.Short_Text]" shorttext} {[_ survey.Text] text} {[_ survey.Boolean] boolean} {[_ survey.Number] number} {[_ survey.Integer] integer}}}
+            }
 
-	    }	    
-	}
-	"textarea" {
-	    ad_form -extend -name create-question-2 -form {
-		{textarea_size:text(select) {options {{[_ survey.Small] small} {[_ survey.Medium] medium} {[_ survey.Large] large}}} {label "[_ survey.Size]"}}
-		{abstract_data_type:text(hidden) {value "text"}}
+            }
+        }
+        "textarea" {
+            ad_form -extend -name create-question-2 -form {
+                {textarea_size:text(select) {options {{[_ survey.Small] small} {[_ survey.Medium] medium} {[_ survey.Large] large}}} {label "[_ survey.Size]"}}
+                {abstract_data_type:text(hidden) {value "text"}}
 
-	    }
-	}
+            }
+        }
     }
 }
 # Let user enter valid responses for selections, radio buttons, and check boxes.
@@ -139,40 +139,40 @@ if { $type eq "scored" } {
     set response_fields ""
 
     switch -- $presentation_type {
-	"radio" -
-	"select" {
+        "radio" -
+        "select" {
 
-	    ad_form -extend -name create-question-2 -form {
-		{abstract_data_type:text(radio)
-		    {label "[_ survey.Type_of_Response]"} {value "choice"} 
-		    {options {{"[_ survey.True_or_False]" boolean} {"[_ survey.Yes_or_No]" yn} {"[_ survey.Multiple_Choice]" choice}}}}
-		{valid_responses:text(textarea)
-		    {label "[_ survey.lt_For_Multiple_Choicebr]"}
-		    {html {rows 10 cols 50}}}
-	    }
-	}
-	 
-	"checkbox" {
-	    ad_form -extend -name create-question-2 -form {
-		{valid_responses:text(textarea) {label "[_ survey.lt_Valid_Resposnes_enter]"} {html {rows 10 cols 50}}}
-		{abstract_data_type:text(hidden) {value "choice"}}
-	    }
-	}
+            ad_form -extend -name create-question-2 -form {
+                {abstract_data_type:text(radio)
+                    {label "[_ survey.Type_of_Response]"} {value "choice"}
+                    {options {{"[_ survey.True_or_False]" boolean} {"[_ survey.Yes_or_No]" yn} {"[_ survey.Multiple_Choice]" choice}}}}
+                {valid_responses:text(textarea)
+                    {label "[_ survey.lt_For_Multiple_Choicebr]"}
+                    {html {rows 10 cols 50}}}
+            }
+        }
+
+        "checkbox" {
+            ad_form -extend -name create-question-2 -form {
+                {valid_responses:text(textarea) {label "[_ survey.lt_Valid_Resposnes_enter]"} {html {rows 10 cols 50}}}
+                {abstract_data_type:text(hidden) {value "choice"}}
+            }
+        }
 
 
-	
-	"date" {
 
-	    ad_form -extend -name create-question-2 -form {
-		{abstract_data_type:text(hidden) {value date}}
-	    }
+        "date" {
 
-	}
-	"upload_file" {
-	    ad_form -extend -name create-question-2 -form {
-		{abstract_data_type:text(hidden) {value blob}}
-	    }
-	}
+            ad_form -extend -name create-question-2 -form {
+                {abstract_data_type:text(hidden) {value date}}
+            }
+
+        }
+        "upload_file" {
+            ad_form -extend -name create-question-2 -form {
+                {abstract_data_type:text(hidden) {value blob}}
+            }
+        }
     }
 
 ad_form -extend -name create-question-2 -form {
@@ -181,3 +181,9 @@ ad_form -extend -name create-question-2 -form {
 set context [list [list [export_vars -base one {survey_id}] $survey_info(name)] "[_ survey.Add_A_Question]"]
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

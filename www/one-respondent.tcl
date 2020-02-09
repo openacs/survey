@@ -18,10 +18,10 @@ ad_page_contract {
 
 } -validate {
         survey_exists -requires {survey_id} {
-	    if {![db_0or1row survey_exists {}]} {
-		ad_complain "[_ survey.lt_Survey_section_id_does]"
-	    }
-	}
+            if {![db_0or1row survey_exists {}]} {
+                ad_complain "[_ survey.lt_Survey_section_id_does]"
+            }
+        }
 } -properties {
     survey_name:onerow
     description:onerow
@@ -46,9 +46,15 @@ if {$description_html_p != "t" } {
 }
 
 db_multirow -extend {answer_summary pretty_submission_date respond_url} responses responses_select {} {
-    set answer_summary [survey_answer_summary_display $response_id 1] 
+    set answer_summary [survey_answer_summary_display $response_id 1]
     set pretty_submission_date [lc_time_fmt $pretty_submission_date_ansi %x]
     set respond_url [export_vars -base respond {survey_id response_id}]
 }
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

@@ -10,16 +10,16 @@ ad_page_contract {
     @cvs-id $Id$
 
 } {
-    
+
     survey_id:naturalnum,notnull
     {section_id:naturalnum ""}
     return_url:localurl,optional
 
 } -validate {
     survey_exists -requires {survey_id} {
-	if {![db_0or1row survey_exists {}]} {
-	    ad_complain "[_ survey.lt_Survey_survey_id_does]"
-	}
+        if {![db_0or1row survey_exists {}]} {
+            ad_complain "[_ survey.lt_Survey_survey_id_does]"
+        }
     }
 } -properties {
 
@@ -44,20 +44,20 @@ permission::require_permission -object_id $survey_id -privilege survey_take_surv
 
    if {$description_html_p != "t"} {
        set description [ad_text_to_html -- $description]
-   } 
-   
+   }
+
 
 set context [list "[_ survey.Preview] $name"]
 
 # build a list containing the HTML (generated with survey::display_question) for each question
 set rownum 0
-    
+
 set questions {}
 
 db_foreach survey_sections {} {
 
     db_foreach question_ids_select {} {
-	lappend questions [survey::display_question $question_id]
+        lappend questions [survey::display_question $question_id]
     }
 
 
@@ -67,3 +67,9 @@ set return_url [export_vars -base one survey_id]
 set form_vars [export_vars -form {section_id survey_id}]
 ad_return_template
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

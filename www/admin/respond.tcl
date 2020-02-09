@@ -1,13 +1,13 @@
 ad_page_contract {
 
-    Display the questionnaire prefilled with responses for one survey submission.  
+    Display the questionnaire prefilled with responses for one survey submission.
     Allows administrator to edit the answers to a survey.
     Adapted from www/respond.tcl
 
     @param  user_id    user whose response we're viewing
     @param  survey_id  survey we're viewing
     @param  response_id  response we are editing
-    @param  return_url   url to redirect to after submission 
+    @param  return_url   url to redirect to after submission
     @author teadams@alum.mit
     @date   March 27, 2003
     @cvs-id $Id$
@@ -16,14 +16,14 @@ ad_page_contract {
     user_id:naturalnum,notnull
     survey_id:naturalnum,notnull
     {section_id:naturalnum,notnull 0}
-    {response_id:naturalnum,notnull 0} 
+    {response_id:naturalnum,notnull 0}
     return_url:localurl,optional
 
 } -validate {
     survey_exists -requires {survey_id} {
-	if {![db_0or1row survey_exists {}]} {
-	    ad_complain "Survey $survey_id does not exist"
-	}
+        if {![db_0or1row survey_exists {}]} {
+            ad_complain "Survey $survey_id does not exist"
+        }
     }
 } -properties {
 
@@ -46,14 +46,14 @@ set description $survey_info(description)
 set type $survey_info(type)
 set display_type $survey_info(display_type)
 
-# survey_name and description are now set 
+# survey_name and description are now set
 
 set user_exists_p [db_0or1row user_name_from_id "select first_names, last_name from persons where person_id = :user_id" ]
 
 if { !$user_exists_p } {
     ad_return_error \
-	"Not Found" \
-	"Could not find user #$user_id"
+        "Not Found" \
+        "Could not find user #$user_id"
     ad_script_abort
 }
 
@@ -71,26 +71,32 @@ db_1row get_initial_response ""
 # build a list containing the HTML (generated with survey::display_question) for each question
 set rownum 0
 # for double-click protection
-set new_response_id [db_nextval acs_object_id_seq]    
+set new_response_id [db_nextval acs_object_id_seq]
 set questions {}
 
 db_foreach survey_sections {} {
 
     db_foreach question_ids_select {} {
-	lappend questions [survey::display_question $question_id $response_id]
+        lappend questions [survey::display_question $question_id $response_id]
     }
 
-    # survey will return to survey_url if it exists 
+    # survey will return to survey_url if it exists
     # rather than executing the survey associated with the logic
     # after the survey is completed
-    
+
     if {![info exists return_url]} {
-	set return_url {}
+        set return_url {}
     }
 }
 
 set edited_response_id $response_id
-set form_vars [export_vars -form {section_id survey_id new_response_id user_id edited_response_id}]  
+set form_vars [export_vars -form {section_id survey_id new_response_id user_id edited_response_id}]
 
 ad_return_template
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

@@ -27,3 +27,9 @@ ad_proc -public survey::notification::process_reply {
     This proc is an empty stub
 } {
 }
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

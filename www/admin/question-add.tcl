@@ -12,7 +12,7 @@ ad_page_contract {
 } {
     section_id:naturalnum,notnull
     {after:integer ""}
-    
+
 }
 
 set package_id [ad_conn package_id]
@@ -24,22 +24,22 @@ survey::get_info -section_id $section_id
 ad_form -name create_question -action question-add-2  -export { after } -form {
     question_id:key
     {section_id:text(hidden) {value $section_id}}
-    {question_text:text(textarea) {label "[_ survey.Question]"}  {html {rows 5 cols 70}}}   
+    {question_text:text(textarea) {label "[_ survey.Question]"}  {html {rows 5 cols 70}}}
 }
 
 ad_form -extend -name create_question -form {
      {presentation_type:text(select)
-	 {label "[_ survey.Presentation_Type]"}
-	 {options {{ "[_ survey.lt_One_Line_Answer_Text_]" "textbox" }
-	           { "[_ survey.lt_Essay_Answer_Text_Are]" "textarea" }
-        	     { "[_ survey.lt_Multiple_Choice_Drop_]" "select" }
-        	     { "[_ survey.lt_Multiple_Choice_Radio]" "radio" }
-		     { "[_ survey.lt_Multiple_Choice_Check]" "checkbox" }
-		     { "[_ survey.Date]" "date" }
-		     { "[_ survey.File_Attachment]" "upload_file" } } } }
-}	    
-		
-    
+         {label "[_ survey.Presentation_Type]"}
+         {options {{ "[_ survey.lt_One_Line_Answer_Text_]" "textbox" }
+                   { "[_ survey.lt_Essay_Answer_Text_Are]" "textarea" }
+                     { "[_ survey.lt_Multiple_Choice_Drop_]" "select" }
+                     { "[_ survey.lt_Multiple_Choice_Radio]" "radio" }
+                     { "[_ survey.lt_Multiple_Choice_Check]" "checkbox" }
+                     { "[_ survey.Date]" "date" }
+                     { "[_ survey.File_Attachment]" "upload_file" } } } }
+}
+
+
 
 survey::get_info -section_id $section_id
 set survey_id $survey_info(survey_id)
@@ -48,7 +48,7 @@ set context [list [list [export_vars -base one {survey_id}] $survey_info(name)] 
 if {[parameter::get -parameter allow_question_deactivation_p] == 1} {
     ad_form -extend -name create_question -form {
         {active:text(radio)     {label "[_ survey.Active]"} {options {{[_ survey.Yes] t} {[_ survey.No] f}}} {value t}}
-    } 
+    }
 } else {
     ad_form -extend -name create_question -form {
         {active:text(hidden) {value t}}
@@ -57,9 +57,15 @@ if {[parameter::get -parameter allow_question_deactivation_p] == 1} {
 ad_form -extend -name create_question -form {
     {required_p:text(radio)     {label "[_ survey.Required]"} {options {{"[_ survey.Yes]" t} {"[_ survey.No]" f}}} {value t}}
 }
-    
+
 ad_return_template
 
 
 
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

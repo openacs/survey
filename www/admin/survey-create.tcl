@@ -34,12 +34,12 @@ ad_form -name create_survey -confirm_template survey-create-confirm -form {
     {name:text(text)            {label "[_ survey.Survey_Name_1]"} {html {size 55}}}
     {description:text(textarea) {label "[_ survey.Description_1]"} {html {rows 10 cols 40}}}
     {desc_html:text(radio)      {label "[_ survey.lt_The_Above_Description]"}
-	{options {{"[_ survey.Preformatted_Text]" "pre"}
-	       {"HTML" "html"} }}
-		{value "pre"}
+        {options {{"[_ survey.Preformatted_Text]" "pre"}
+               {"HTML" "html"} }}
+                {value "pre"}
     }
-    
-} -validate { 
+
+} -validate {
     {name {[string length $name] <= 4000}
     "[_ survey.lt_Survey_Name_must_be_4]"
 }     {description {[string length $description] <= 4000}
@@ -47,32 +47,32 @@ ad_form -name create_survey -confirm_template survey-create-confirm -form {
 }
     {survey_id {[db_string count_surveys "select count(survey_id) from surveys where survey_id=:survey_id"] < 1} "[_ survey.oops]"
     }
-    
+
 } -new_data {
-        
+
     if {$desc_html eq "html" } {
-	set description_html_p "t"
+        set description_html_p "t"
     } else {
-	set description_html_p "f"
+        set description_html_p "f"
     }
 
     if {[parameter::get -package_id $package_id -parameter survey_enabled_default_p -default 0]} {
-	set enabled_p "t"
+        set enabled_p "t"
     } else {
-	set enabled_p "f"
+        set enabled_p "f"
     }
     db_transaction {
-	db_exec_plsql create_survey ""
+        db_exec_plsql create_survey ""
 
-	# survey type-specific inserts
+        # survey type-specific inserts
 
 
-	# create new section here. the questions go in the section
-	# section_id is null to create a new section
-	# we might want to specify a section_id later for
-	# multiple section surveys
-	set section_id ""
-	set section_id [db_exec_plsql create_section ""]
+        # create new section here. the questions go in the section
+        # section_id is null to create a new section
+        # we might want to specify a section_id later for
+        # multiple section surveys
+        set section_id ""
+        set section_id [db_exec_plsql create_section ""]
     }
     ad_returnredirect "question-add?section_id=$section_id"
     ad_script_abort
@@ -87,3 +87,9 @@ set context [_ survey.Create_Survey]
 
 ad_return_template
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

@@ -55,7 +55,7 @@ db_foreach get_choices "select choice_id, label from survey_question_choices whe
       and survey_choice_scores.variable_id = survey_variables.variable_id
       order by variable_name" {
 
-	  append table_html "<td align=center><input name=\"scores.$variable_id\" value=\"$score\" size=2></td>"
+          append table_html "<td align=center><input name=\"scores.$variable_id\" value=\"$score\" size=2></td>"
       }
 
     append table_html "</tr>\n"
@@ -84,3 +84,9 @@ set body [subst {
 }]
 
 ad_return_template generic
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

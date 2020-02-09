@@ -25,21 +25,28 @@ ad_form -name confirm_delete -form {
     {survey_id:text(hidden) {value $survey_id}}
     {warning:text(inform) {label "[_ survey.Warning_1]"} {value "[_ survey.lt_Deleting_this_surve]"}}
     {confirmation:text(radio) {label " "}
-	{options
-	    {{"[_ survey.Continue_with_Delete]" t }
-	     {"[_ survey.lt_Cancel_and_return_to__1]" f }}	}
-	    {value f}
+        {options
+            {{"[_ survey.Continue_with_Delete]" t }
+                {"[_ survey.lt_Cancel_and_return_to__1]" f }}
+        }
+        {value f}
     }
 
 } -on_submit {
     if {$confirmation} {
-	db_exec_plsql delete_survey {}
-	ad_returnredirect "."
+        db_exec_plsql delete_survey {}
+        ad_returnredirect "."
         ad_script_abort
     } else {
-	ad_returnredirect [export_vars -base one survey_id]
+        ad_returnredirect [export_vars -base one survey_id]
         ad_script_abort
     }
 }
 
 set context [_ survey.Delete_Survey]
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

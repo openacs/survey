@@ -18,3 +18,9 @@ if {[lsearch [survey::display_types] $display_type] > -1} {
 
 db_release_unused_handles
 ad_returnredirect [export_vars -base one {survey_id}]
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

@@ -23,22 +23,29 @@ ad_form -name confirm_delete -form {
     {user_id:text(hidden) {value $user_id}}
     {warning:text(inform) {label "[_ survey.Warning_1]"} {value "[_ survey.lt_This_will_remove_respo]"}}
     {confirmation:text(radio) {label " "}
-	{options
-	    {{"[_ survey.Continue_with_Delete]" t }
-	     {"[_ survey.lt_Cancel_and_return_to_]" f }}	}
-	    {value f}
+        {options
+            {{"[_ survey.Continue_with_Delete]" t }
+                {"[_ survey.lt_Cancel_and_return_to_]" f }}
+        }
+        {value f}
     }
 
 } -on_submit {
     if {$confirmation} {
-	template::multirow foreach responses {
-	    if {$initial_response_id eq ""} {
-		db_exec_plsql delete_response {}
-	    }
-	}
-    } 
+        template::multirow foreach responses {
+            if {$initial_response_id eq ""} {
+                db_exec_plsql delete_response {}
+            }
+        }
+    }
     ad_returnredirect [export_vars -base one-respondent {survey_id user_id}]
     ad_script_abort
 }
 
 set context [_ survey.Delete_Response]
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

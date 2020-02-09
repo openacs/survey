@@ -30,3 +30,9 @@ survey::get_info -section_id $section_id
 set survey_id $survey_info(survey_id)
 ad_returnredirect [export_vars -base one {survey_id}]
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

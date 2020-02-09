@@ -27,3 +27,9 @@ db_dml survey_active_toggle ""
 
 ad_returnredirect "$target"
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

@@ -10,7 +10,7 @@ ad_page_contract {
     @cvs-id $Id$
 
 } {
-    
+
     survey_id:naturalnum,notnull
     {section_id:naturalnum,notnull 0}
     {response_id:naturalnum,notnull 0}
@@ -18,9 +18,9 @@ ad_page_contract {
 
 } -validate {
     survey_exists -requires {survey_id} {
-	if {![db_0or1row survey_exists {}]} {
-	    ad_complain "[_ survey.lt_Survey_survey_id_do_no]"
-	}
+        if {![db_0or1row survey_exists {}]} {
+            ad_complain "[_ survey.lt_Survey_survey_id_do_no]"
+        }
     set user_id [auth::require_login]
     set number_of_responses [db_string count_responses {}]
     survey::get_info -survey_id $survey_id
@@ -37,13 +37,13 @@ ad_page_contract {
 
    if {$description_html_p != "t"} {
        set description [ad_text_to_html -- $description]
-   } 
+   }
 
    if {($single_response_p=="t" && $editable_p=="f" && $number_of_responses>0) || ($single_response_p=="t" && $editable_p=="t" && $number_of_responses>0 && $response_id==0)} {
-	    ad_complain "[_ survey.lt_You_have_already_comp]"
-	} elseif {$response_id>0 && $editable_p=="f"} {
-	    ad_complain "[_ survey.lt_This_survey_is_not_ed]"
-	}
+            ad_complain "[_ survey.lt_You_have_already_comp]"
+        } elseif {$response_id>0 && $editable_p=="f"} {
+            ad_complain "[_ survey.lt_This_survey_is_not_ed]"
+        }
     }
 } -properties {
 
@@ -62,21 +62,21 @@ set context $name
 set button_label "[_ survey.Submit_response]"
 if {$editable_p == "t"} {
     if {$response_id > 0} {
-	set button_label "[_ survey.lt_Modify_previous_respo]"
-	db_1row get_initial_response ""
+        set button_label "[_ survey.lt_Modify_previous_respo]"
+        db_1row get_initial_response ""
     }
 }
 
 # build a list containing the HTML (generated with survey::display_question) for each question
 set rownum 0
 # for double-click protection
-set new_response_id [db_nextval acs_object_id_seq]    
+set new_response_id [db_nextval acs_object_id_seq]
 set questions {}
 
 db_foreach survey_sections {} {
 
     db_foreach question_ids_select {} {
-	lappend questions [survey::display_question $question_id $response_id]
+        lappend questions [survey::display_question $question_id $response_id]
     }
 
     # return_url is used for infoshare - if it is set
@@ -85,9 +85,15 @@ db_foreach survey_sections {} {
     # after the survey is completed
     #
     if {![info exists return_url]} {
-	set return_url {}
+        set return_url {}
     }
 }
 set form_vars [export_vars -form {section_id survey_id new_response_id}]
 ad_return_template
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

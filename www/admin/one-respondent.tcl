@@ -13,7 +13,7 @@ ad_page_contract {
     user_id:naturalnum,notnull
     survey_id:naturalnum,notnull
 
-} 
+}
 
 permission::require_permission -object_id $survey_id -privilege survey_admin_survey
 
@@ -26,16 +26,16 @@ set type $survey_info(type)
 
 if {$description_html_p != "t"} {
     set description [ad_text_to_html -- $description]
-} 
+}
 
-# survey_name and description are now set 
+# survey_name and description are now set
 
 set user_exists_p [db_0or1row user_name_from_id "select first_names, last_name from persons where person_id = :user_id" ]
 
 if { !$user_exists_p } {
     ad_return_error \
-	"[_ survey.Not_Found]" \
-	"[_ survey.Could_not_find_user] #$user_id"
+        "[_ survey.Not_Found]" \
+        "[_ survey.Could_not_find_user] #$user_id"
     ad_script_abort
 }
 
@@ -48,3 +48,9 @@ db_multirow -extend {response_display respond_url} responses get_responses {} {
 }
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

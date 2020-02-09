@@ -4,7 +4,7 @@ ad_page_contract {
 
     @param  section_id  integer denoting survey whose description we're changing
 
-    @author Jin Choi (jsc@arsdigita.com) 
+    @author Jin Choi (jsc@arsdigita.com)
     @author nstrug@arsdigita.com
     @date   February 16, 2000
     @cvs-id $Id$
@@ -23,12 +23,12 @@ permission::require_permission -object_id $survey_id -privilege survey_modify_su
 ad_form -name edit-name -form {
     survey_id:key
     {name:text(text) {label "[_ survey.Survey_Name_1]"} {html {size 80}}}
-	{description:text(textarea) {label "[_ survey.Description_1]"} 
-	{html {rows 10 cols 65}}}
-	{description_html_p:text(radio)      {label "[_ survey.lt_The_Above_Description]"}
-	{options {{"[_ survey.Preformatted_Text]" "f"}
-	       {"HTML" "t"} }}
-	       {value "pre"}}
+        {description:text(textarea) {label "[_ survey.Description_1]"}
+        {html {rows 10 cols 65}}}
+        {description_html_p:text(radio)      {label "[_ survey.lt_The_Above_Description]"}
+        {options {{"[_ survey.Preformatted_Text]" "f"}
+               {"HTML" "t"} }}
+               {value "pre"}}
 
 } -validate {
     {name {[string length $name] <= 4000}
@@ -50,3 +50,9 @@ set context [_ survey.Edit_Name]
 ad_return_template
 
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

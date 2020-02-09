@@ -4,14 +4,14 @@ ad_page_contract {
     a survey to various groups
 
     @param survey_id
-    
+
     @author dave@thedesignexperience.org
     @date   July 29, 2002
     @cvs-id $Id:
 } {
   survey_id:naturalnum,notnull
   {package_id:naturalnum,notnull 0}
-  {to "responded"}  
+  {to "responded"}
 }
 
 set package_id [ad_conn package_id]
@@ -33,32 +33,32 @@ if {$dotlrn_installed_p} {
 
     set n_responses [db_string n_responses {}]
     if {$n_responses > 0} {
-	ad_form -name send-mail -form {
-	    {to:text(radio) {options {
-		{"[_ survey.lt_Everyone_eligible_to_]" "all"}
-		{"[_ survey.lt_Everyone_who_has_alre]" "responded"}
-		{"[_ survey.lt_Everyone_who_has_not_]" "not_responded"}}}
-		{label "[_ survey.Send_mail_to]"}
-		{value $to}
-	    }
-	}
+        ad_form -name send-mail -form {
+            {to:text(radio) {options {
+                {"[_ survey.lt_Everyone_eligible_to_]" "all"}
+                {"[_ survey.lt_Everyone_who_has_alre]" "responded"}
+                {"[_ survey.lt_Everyone_who_has_not_]" "not_responded"}}}
+                {label "[_ survey.Send_mail_to]"}
+                {value $to}
+            }
+        }
     } else {
-	ad_form -name send-mail -form {
-	    {to:text(radio) {options {
-		{"[_ survey.lt_Everyone_eligible_to_]" "all"}
-		{"[_ survey.lt_Everyone_who_has_not_]" "not_responded"}}}
-		{label "[_ survey.Send_mail_to]"}
-		{value $to}
-	    }
-	}
+        ad_form -name send-mail -form {
+            {to:text(radio) {options {
+                {"[_ survey.lt_Everyone_eligible_to_]" "all"}
+                {"[_ survey.lt_Everyone_who_has_not_]" "not_responded"}}}
+                {label "[_ survey.Send_mail_to]"}
+                {value $to}
+            }
+        }
     }
 } else {
     ad_form -name send-mail -form {
-	{to:text(radio) {options {
-	    {"[_ survey.lt_Everyone_who_has_alre]" "all"}}} 
-	    {value "all"}
-	    {label "[_ survey.Send_mail_to]"}
-	}
+        {to:text(radio) {options {
+            {"[_ survey.lt_Everyone_who_has_alre]" "all"}}}
+            {value "all"}
+            {label "[_ survey.Send_mail_to]"}
+        }
     }
 }
 
@@ -73,27 +73,27 @@ set query ""
 
 if {$dotlrn_installed_p} {
     switch $to {
-	    all {
-		    set query [db_map dotlrn_all]
-		}
-	    
-	    responded {
-		    set query [db_map dotlrn_responded]
-		}
-	   
-	    not_responded {
-		set query [db_map dotlrn_not_responded]
-	    }
+            all {
+                    set query [db_map dotlrn_all]
+                }
+
+            responded {
+                    set query [db_map dotlrn_responded]
+                }
+
+            not_responded {
+                set query [db_map dotlrn_not_responded]
+            }
     }
 } else {
     set query [db_map responded]
 }
 
 ns_log notice "DAVE-SURVEY: $query"
-	bulk_mail::new \
-	    -package_id $package_id \
-	    -from_addr $sender_email \
-	    -subject $subject \
+        bulk_mail::new \
+            -package_id $package_id \
+            -from_addr $sender_email \
+            -subject $subject \
             -message $message \
             -query $query
     ad_returnredirect "one?survey_id=$survey_id"
@@ -103,3 +103,9 @@ ns_log notice "DAVE-SURVEY: $query"
 set context [_ survey.Send_Mail]
 ad_return_template
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

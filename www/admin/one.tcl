@@ -26,17 +26,17 @@ if {![info exists survey_info(survey_id)]} {
     ad_script_abort
 }
 
-if {$survey_info(description_html_p) == "f"} {   
-    set survey_info(description) [ad_text_to_html -- $survey_info(description)]    
+if {$survey_info(description_html_p) == "f"} {
+    set survey_info(description) [ad_text_to_html -- $survey_info(description)]
 }
 
 # get users and # who responded etc...
 if {[apm_package_installed_p dotlrn]} {
     set community_id [dotlrn_community::get_community_id_from_url]
-    set n_eligible [db_string n_eligible { 
-	select count(*) from dotlrn_member_rels_full
-	where rel_type='dotlrn_member_rel'
-	and community_id=:community_id}]
+    set n_eligible [db_string n_eligible {
+        select count(*) from dotlrn_member_rels_full
+        where rel_type='dotlrn_member_rel'
+        and community_id=:community_id}]
 }
 set return_html ""
 
@@ -65,7 +65,7 @@ if {$enabled_p == "t"} {
 set survey_display_types [survey::display_types]
 
 
-# Questions summary.   
+# Questions summary.
 # We need to get the questions for ALL sections.
 
 set context [list $survey_info(name)]
@@ -93,3 +93,9 @@ set notification_chunk [notification::display::request_widget \
 ]
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:
