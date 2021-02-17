@@ -65,7 +65,7 @@ ad_proc -public survey::get_info {
 
     # some useful stats about the survey, dotLRN specific for sloanspace
     if {[apm_package_installed_p dotlrn]} {
-        set community_id [dotlrn_community::get_community_id_from_url]
+        set community_id [dotlrn_community::get_community_id_from_url -url [ad_conn url]]
         set survey_info(eligible) [db_string n_eligible {}]
         set survey_info(completed) [db_string n_completed {}]
         set survey_info(not_completed) [expr {$survey_info(eligible) - $survey_info(completed)}]

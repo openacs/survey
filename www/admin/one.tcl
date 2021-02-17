@@ -32,7 +32,7 @@ if {$survey_info(description_html_p) == "f"} {
 
 # get users and # who responded etc...
 if {[apm_package_installed_p dotlrn]} {
-    set community_id [dotlrn_community::get_community_id_from_url]
+    set community_id [dotlrn_community::get_community_id_from_url -url [ad_conn url]]
     set n_eligible [db_string n_eligible {
         select count(*) from dotlrn_member_rels_full
         where rel_type='dotlrn_member_rel'
