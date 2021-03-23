@@ -569,8 +569,8 @@ ad_proc -public survey::do_notifications {
     append notif_text "[_ survey.lt_Response_on_response_]\n\n"
     append notif_html "[_ survey.lt_Response_on_response_] : <P>"
 
-    append notif_text [survey_answer_summary_display $response_id 0]
-    append notif_html [survey_answer_summary_display $response_id 1]
+    append notif_text [survey::display_answer_summary $response_id 0]
+    append notif_html [survey::display_answer_summary $response_id 1]
 
     # add summary info for sloanspace
     if {$dotlrn_installed_p} {

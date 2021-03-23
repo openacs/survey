@@ -43,7 +43,7 @@ set context [_ survey.One_Respondent]
 
 
 db_multirow -extend {response_display respond_url} responses get_responses {} {
-    set response_display [survey_answer_summary_display $response_id 1 ]
+    set response_display [survey::display_answer_summary $response_id 1 ]
     set respond_url [export_vars -base respond {response_id survey_id user_id}]
 }
 

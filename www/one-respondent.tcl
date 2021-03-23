@@ -46,7 +46,7 @@ if {$description_html_p != "t" } {
 }
 
 db_multirow -extend {answer_summary pretty_submission_date respond_url} responses responses_select {} {
-    set answer_summary [survey_answer_summary_display $response_id 1]
+    set answer_summary [survey::display_answer_summary $response_id 1]
     set pretty_submission_date [lc_time_fmt $pretty_submission_date_ansi %x]
     set respond_url [export_vars -base respond {survey_id response_id}]
 }
