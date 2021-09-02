@@ -264,7 +264,7 @@ values (:response_id, :question_id, :response_value)"
                     set guessed_file_type [ns_guesstype $response_value]
 
                     set n_bytes [file size $tmp_filename]
-                    # strip off the C:\directories... crud and just get the file name
+                    # strip off the C:\directories... crud and just get the filename
                     if {![regexp {([^/\\]+)$} $response_value match client_filename]} {
                         # couldn't find a match
                         set client_filename $response_value

@@ -44,7 +44,7 @@ set survey_id $survey_info(survey_id)
 set type $survey_info(type)
 
 # create a blank form, we fill it based on the question type
-# maybe put question_id:key in there if we move the processing from quesion-add-3 to this form.
+# maybe put question_id:key in there if we move the processing from question-add-3 to this form.
 
 ad_form -name create-question-2 -action question-add-3 -form {
     {question:text(inform) {label "[_ survey.Question_Text]"} {value $question_text}}
