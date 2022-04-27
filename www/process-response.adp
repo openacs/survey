@@ -1,6 +1,6 @@
 <master>
 <property name=title>#survey.Response_Submitted#</property>
-<property name=context>@context;noquote@</property>
+<property name=context>@context;literal@</property>
 
      <p> #survey.lt_Response_submitted_Th#</p>
 	<p><a href=".">#survey.Return#</a> #survey.lt_to_the_survey_index_p#</p>

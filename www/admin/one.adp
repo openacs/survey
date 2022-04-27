@@ -1,8 +1,8 @@
 <master>
-<property name="survey_id">@survey_id;noquote@</property>
+<property name="survey_id">@survey_id;literal@</property>
 
 <property name="title">#survey.lt_One_Survey_survey_inf#</property>
-<property name="context">@context;noquote@</property>
+<property name="context">@context;literal@</property>
 <p><a href=".">#survey.lt_Main_Survey_Administr#</a></p>
 <h2><strong style="font-size: large">@survey_info.name@</strong> #survey.-__Created_by# <a href="@user_link@">@survey_info.creator_name@</a>#survey._on_creation_date#</h2>
 <table class="table-display" cellpadding="2" cellspacing="0">
