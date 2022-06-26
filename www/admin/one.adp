@@ -30,8 +30,7 @@
 	
       
 	<tr class="odd"><td><if @survey_info.editable_p;literal@ true> #survey.lt_Users_may_edit_their_#</if><else>#survey.lt_Users_may_not_edit_th#</else> - [ <a
-	href="response-editable-toggle?survey_id=@survey_id@">#survey.make# <if
-	@survey_info.editable_p@>#survey.non-#</if>#survey.editable#</a> ]</td></tr>
+	href="response-editable-toggle?survey_id=@survey_id@">#survey.make# <if	@survey_info.editable_p;literal@ true>#survey.non-#</if>#survey.editable#</a> ]</td></tr>
 
       <tr class="odd">
         <td>#survey.Display_Options# </td>
@@ -61,7 +60,7 @@
 
 <h3>#survey.Questions#</h3>
 <table cellspacing="0">
-<if @questions:rowcount@ eq 0>
+<if @questions:rowcount;literal@ eq 0>
     <tr class="odd">
   </else>
 <td></td><td><a href="question-add?section_id=@survey_info.section_id@">#survey.add_new_question#</a></tr></tr>

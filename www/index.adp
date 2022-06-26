@@ -33,7 +33,7 @@
         </li>
       </multiple>
       
-      <if @surveys:rowcount@ eq 0>
+      <if @surveys:rowcount;literal@ eq 0>
         <li>#survey.No_surveys_active#</li>
       </if>
     </ul>

@@ -1,6 +1,6 @@
 <master>
 
-<if @surveys:rowcount@ gt 0>
+<if @surveys:rowcount;literal@ gt 0>
 	<multiple name="surveys">
 @surveys.parent_name@
 <ul>

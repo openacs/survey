@@ -3,7 +3,7 @@
 <property name="survey_id">@survey_id;literal@</property>
 
 <property name="survey_id">@survey_id;literal@</property>
-<property name="survey_name@">;noquote@survey_info.name@</property>
+<property name="survey_name">@survey_info.name;literal@</property>
 <property name="title">#survey.lt_One_Respondent_first_#</property>
 <property name="context">@context;literal@</property>
 <table class="table-display" cellspacing="0" cellpadding="5">
@@ -25,8 +25,7 @@
 <if @responses.original_p;literal@ true><a href="response-delete?response_id=@response_id@">
 <img src="../graphics/delete.gif" style="float:right; vertical-align:top; border: 0;" alt="#survey.Delete#"></a>
 </if>
- <strong>[<if
-      @responses.original_p@>#survey.Original#</if><else>#survey.Edited#</a></else>
+ <strong>[<if @responses.original_p;literal@ true>#survey.Original#</if><else>#survey.Edited#</a></else>
       #survey.lt_Response_on_responses#</strong> 
 	  <br>
 @responses.response_display;noquote@

@@ -6,7 +6,7 @@
 <property name="context">@context;literal@</property>
 @question_text@ 
 <hr>
-<if @responses:rowcount@ eq 0>
+<if @responses:rowcount;literal@ eq 0>
 	<em>#survey.No_Responses#</em>
 	</if>
       <multiple name="responses">
