@@ -40,7 +40,7 @@ if {[apm_package_installed_p dotlrn]} {
 }
 set return_html ""
 
-set creation_date [util_AnsiDatetoPrettyDate $survey_info(creation_date)]
+set creation_date [lc_time_fmt $survey_info(creation_date) %q]
 set user_link [acs_community_member_url -user_id $survey_info(creation_user)]
 if {$survey_info(single_response_p) == "t"} {
     set response_limit_toggle "[_ survey.allow_multiple]"
