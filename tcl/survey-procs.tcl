@@ -170,7 +170,19 @@ ad_proc -public survey::display_question {
             if {$edit_previous_response_p == "t"} {
                 set user_value $date_answer
             }
-            append html [ad_dateentrywidget $element_name $user_value]
+            lassign [split [string range $user_value 0 9] -] year month day
+            append html [subst -nocommands {<select name="$element_name.month">}]
+            set i 1
+            foreach month_name [_ acs-lang.localization-mon] {
+                set selected [expr {$i == $month ? " selected" : ""}]
+                append html [subst -nocommands {<option$selected>$month_name</option>}]
+                incr i
+            }
+            append html [subst -nocommands {
+                </select>
+                <input name="$element_name.day" type="text" size="2" maxlength="2" value="$day">
+                <input name="$element_name.year" type="text" size="4" maxlength="4" value="$year">
+            }]
         }
 
         "select" {
