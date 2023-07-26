@@ -129,7 +129,7 @@ order by sort_order
 
 
  
-<fullquery name="survey_answer_summary_display.survey_label_list">      
+<fullquery name="survey::display_answer_summary.survey_label_list">      
       <querytext>
       select label
 	    from survey_question_choices, survey_question_responses
@@ -253,7 +253,7 @@ select question_id from survey_questions
 </querytext>
 </fullquery>
 
-<fullquery name="survey_answer_summary_display.summary">      
+<fullquery name="survey::display_answer_summary.summary">      
       <querytext>
 
 select
@@ -296,7 +296,7 @@ order by sort_order
     </querytext>
 </fullquery>
 
-<fullquery name="survey_answer_summary_display.get_filename">
+<fullquery name="survey::display_answer_summary.get_filename">
     <querytext>
 	select title from cr_revisions where
 	revision_id=:attachment_answer
