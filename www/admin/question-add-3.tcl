@@ -29,7 +29,7 @@ ad_page_contract {
     type:notnull
     {valid_responses ""}
     {textbox_size ""}
-    {textarea_size: "medium"}
+    {textarea_size "medium"}
     {required_p:boolean t}
     {active_p:boolean t}
     {responses:multiple ""}
