@@ -22,8 +22,8 @@ ad_page_contract {
     question_text:html,notnull
     presentation_type
     {after:integer ""}
-    {required_p:boolean t}
-    {active_p:boolean t}
+    {required_p:boolean,notnull t}
+    {active_p:boolean,notnull t}
     {n_responses ""}
 
 }

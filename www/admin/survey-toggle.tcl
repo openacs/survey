@@ -11,17 +11,13 @@ ad_page_contract {
     @cvs-id $Id$
 } {
     survey_id:naturalnum,notnull
-    enabled_p:boolean
+    {enabled_p:boolean,notnull "f"}
     {target "./"}
 }
 
 permission::require_permission -object_id $survey_id -privilege survey_admin_survey
 
-if {$enabled_p == "f"} {
-    set enabled_p "t"
-} else {
-    set enabled_p "f"
-}
+set enabled_p [expr {$enabled_p ? "f" : "t"}]
 
 db_dml survey_active_toggle ""
 

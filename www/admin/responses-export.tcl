@@ -10,10 +10,10 @@ ad_page_contract {
 } {
 
   survey_id:naturalnum,notnull
-  {unique_users_p:boolean f}
+  {unique_users_p:boolean,notnull f}
   on_what_id:naturalnum,optional
-  {start:naturalnum 1}
-  {end:naturalnum 10000}
+  {start:naturalnum,notnull 1}
+  {end:naturalnum,notnull 10000}
 }
 set csv_export ""
 set package_id [ad_conn package_id]

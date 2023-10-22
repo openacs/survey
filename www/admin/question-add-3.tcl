@@ -30,8 +30,8 @@ ad_page_contract {
     {valid_responses ""}
     {textbox_size ""}
     {textarea_size "medium"}
-    {required_p:boolean t}
-    {active_p:boolean t}
+    {required_p:boolean,notnull t}
+    {active_p:boolean,notnull t}
     {responses:multiple ""}
     {scores:multiple,array,integer ""}
     {n_variables:integer ""}
