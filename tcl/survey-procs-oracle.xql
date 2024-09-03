@@ -3,7 +3,7 @@
 <queryset>
    <rdbms><type>oracle</type><version>8.1.6</version></rdbms>
 
-<fullquery name="survey_question_copy.create_question">      
+<fullquery name="survey::copy_question.create_question">      
       <querytext>
       
 	    begin
@@ -26,13 +26,13 @@
       </querytext>
 </fullquery>
 
-<fullquery name="survey_question_copy.get_choice_id">
+<fullquery name="survey::copy_question.get_choice_id">
 <querytext>
 select survey_choice_id_sequence.nextval as choice_id from dual
 </querytext>
 </fullquery>
 
-<fullquery name="get_survey_info.n_completed">
+<fullquery name="survey::get_info.n_completed">
 <querytext>
     		    select count(distinct survey_response.initial_user_id(response_id))
                     from 
@@ -42,7 +42,7 @@ select survey_choice_id_sequence.nextval as choice_id from dual
 </fullquery>
 
 
-<fullquery name="survey_copy.survey_create">
+<fullquery name="survey::copy.survey_create">
 <querytext>
 	    begin
 	        :1 := survey.new (
@@ -64,7 +64,7 @@ select survey_choice_id_sequence.nextval as choice_id from dual
 </querytext>
 </fullquery>
 
-<fullquery name="survey_copy.section_create">
+<fullquery name="survey::copy.section_create">
 <querytext>
 	    begin
 	    :1 := survey_section.new (
@@ -79,7 +79,7 @@ select survey_choice_id_sequence.nextval as choice_id from dual
 </querytext>
 </fullquery>
 
-<fullquery name="survey_do_notifications.get_response_info">
+<fullquery name="survey::do_notifications.get_response_info">
     <querytext>
         select r.initial_response_id, r.responding_user_id, r.response_id,
             u.first_names || ' ' || u.last_name as user_name,

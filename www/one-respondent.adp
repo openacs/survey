@@ -1,6 +1,6 @@
 <master>
 <property name="title">#survey.lt_Answers_to_survey_nam#</property>
-<property name="context">@context;noquote@</property>
+<property name="context">@context;literal@</property>
 
     @description;noquote@
     <p>

@@ -20,3 +20,9 @@ set disabled_header_written_p 0
 
 db_multirow surveys select_surveys {}
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

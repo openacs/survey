@@ -28,10 +28,10 @@ ad_page_contract {
     presentation_alignment
     type:notnull
     {valid_responses ""}
-    {textbox_size ""} 
-    {textarea_size: "medium"} 
-    {required_p:boolean t}
-    {active_p:boolean t}
+    {textbox_size ""}
+    {textarea_size "medium"}
+    {required_p:boolean,notnull t}
+    {active_p:boolean,notnull t}
     {responses:multiple ""}
     {scores:multiple,array,integer ""}
     {n_variables:integer ""}
@@ -41,7 +41,7 @@ ad_page_contract {
 set package_id [ad_conn package_id]
 set user_id [ad_conn user_id]
 permission::require_permission -object_id $package_id -privilege survey_create_question
-get_survey_info -section_id $section_id
+survey::get_info -section_id $section_id
 
 if {![info exists survey_info(survey_id)]} {
     ad_return_complaint 1 "[_ survey.lt_Requested_survey_does]"
@@ -83,37 +83,37 @@ if { $already_inserted_p } {
 # Generate presentation_options.
     set presentation_options ""
     if { $presentation_type eq "textbox" } {
-	if { ([info exists textbox_size] && $textbox_size ne "") } {
-	    # Will be "small", "medium", or "large".
-	    set presentation_options $textbox_size
-	}
+        if { ([info exists textbox_size] && $textbox_size ne "") } {
+            # Will be "small", "medium", or "large".
+            set presentation_options $textbox_size
+        }
     } elseif { $presentation_type eq "textarea" } {
-	if { ([info exists textarea_size] && $textarea_size ne "") } {
-	    # Will be "small", "medium", or "large".
-	    set presentation_options $textarea_size
-	}
+        if { ([info exists textarea_size] && $textarea_size ne "") } {
+            # Will be "small", "medium", or "large".
+            set presentation_options $textarea_size
+        }
     } elseif { $abstract_data_type eq "yn" } {
-	set abstract_data_type "boolean"
-	set presentation_options "[_ survey.YesNo]"
+        set abstract_data_type "boolean"
+        set presentation_options "[_ survey.YesNo]"
     } elseif { $abstract_data_type eq "boolean" } {
-	set presentation_options "[_ survey.TrueFalse]"
+        set presentation_options "[_ survey.TrueFalse]"
     }
 
     db_transaction {
-	if { ([info exists after] && $after ne "") } {
-	    # We're inserting between existing questions; move everybody down.
-	    set sort_order [expr { $after + 1 }]
-	    db_dml renumber_sort_orders {}
-	} else {
-	    set sort_order [db_string max_question {}]
-	    if { $sort_order eq ""} {
-		set sort_order 1
-	    }
-	}
+        if { ([info exists after] && $after ne "") } {
+            # We're inserting between existing questions; move everybody down.
+            set sort_order [expr { $after + 1 }]
+            db_dml renumber_sort_orders {}
+        } else {
+            set sort_order [db_string max_question {}]
+            if { $sort_order eq ""} {
+                set sort_order 1
+            }
+        }
 
-	db_exec_plsql create_question {}
+        db_exec_plsql create_question {}
 
-	db_dml add_question_text {}
+        db_dml add_question_text {}
 
 
     # For questions where the user is selecting a canned response, insert
@@ -121,28 +121,28 @@ if { $already_inserted_p } {
     # field.
             if { $presentation_type eq "checkbox" || $presentation_type eq "radio" || $presentation_type eq "select" } {
                 if { $abstract_data_type eq "choice" } {
-	            set responses [split $valid_responses "\n"]
-	            set count 0
-	            foreach response $responses {
-		        set trimmed_response [string trim $response]
-		        if { $trimmed_response eq "" } {
-		        # skip empty lines
-		            continue
-		        }
-		        ### added this next line to 
-	    	        set choice_id [db_string get_choice_id "select survey_choice_id_sequence.nextval as choice_id from dual"]
-		        db_dml insert_survey_question_choice "insert into survey_question_choices (choice_id, question_id, label, sort_order)
+                    set responses [split $valid_responses "\n"]
+                    set count 0
+                    foreach response $responses {
+                        set trimmed_response [string trim $response]
+                        if { $trimmed_response eq "" } {
+                        # skip empty lines
+                            continue
+                        }
+                        ### added this next line to
+                        set choice_id [db_string get_choice_id "select survey_choice_id_sequence.nextval as choice_id from dual"]
+                        db_dml insert_survey_question_choice "insert into survey_question_choices (choice_id, question_id, label, sort_order)
 values (survey_choice_id_sequence.nextval, :question_id, :trimmed_response, :count)"
-		        incr count
-	            }
-	        }
+                        incr count
+                    }
+                }
             }
     } on_error {
 
             db_release_unused_handles
             ad_return_error "[_ survey.Database_Error]" "<pre>$errmsg</pre>"
             ad_script_abort
- 
+
     }
 
 
@@ -155,3 +155,9 @@ ad_returnredirect "one?survey_id=$survey_id&#${sort_order}"
 
 
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

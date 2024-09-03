@@ -71,10 +71,10 @@
   <msg key="lt_-_Lets_you_use_this_s">- Vă permite să folosiţi acest sondaj ca model pentru creearea unui nou sondaj</msg>
   <msg key="lt_-_Removes_all_questio">- Elimină toate întrebările şi răspunsurile</msg>
   <msg key="lt_A_database_error_occu">S-a produs o eroare în baza de date încercând să schimbăm între ele întrebările dumneavoastră. Iată eroarea:</msg>
-  <msg key="lt_Already_Responsed_email">Trimite un email acestor utilizatori</msg>
-  <msg key="lt_Already_Responsed_n_r">Răspunse deja: %n_responses% Afişează aceşti utilizatori. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; Trimite email la toţi aceşti utilizatori. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
-  <msg key="lt_Already_Responsed_n_r_1">Răspunse deja: %n_responses% Afişează aceşti utilizatori.</msg>
-  <msg key="lt_Already_Responsed_view">Vezi aceşti utilizatori</msg>
+  <msg key="lt_Already_Responded_email">Trimite un email acestor utilizatori</msg>
+  <msg key="lt_Already_Responded_n_r">Răspunse deja: %n_responses% Afişează aceşti utilizatori. &lt;%community_url%/survey/admin/respondents?response_type=responded&gt; Trimite email la toţi aceşti utilizatori. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=responded&gt; </msg>
+  <msg key="lt_Already_Responded_n_r_1">Răspunse deja: %n_responses% Afişează aceşti utilizatori.</msg>
+  <msg key="lt_Already_Responded_view">Vezi aceşti utilizatori</msg>
   <msg key="lt_Answers_to_survey_nam">Răspunsuri la %survey_name%</msg>
   <msg key="lt_Awaiting_a_response_n">Aşteaptă un răspuns: %n_awaiting users% Afişează aceşti utilizatori. &lt;%community_url%/survey/admin/respondents?response_type=not_responded&gt; Trimite email acestor utilizatori.&lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=not_responded&gt; Întregul grup: %n_members% Afişează aceşti utilizatori. &lt;%community_url%/survey/admin/respondents?response_type=all&gt; Trimite email acestor utilizatori. &lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;to=all&gt; Răspunsuri:</msg>
   <msg key="lt_Cancel_and_return_to_">Anulează modificările şi întoarce-te la răspunsurile sondajului</msg>

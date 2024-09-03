@@ -41,3 +41,9 @@ $errmsg
 }
 ad_returnredirect "one?survey_id=$survey_id&#${sort_order}"
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

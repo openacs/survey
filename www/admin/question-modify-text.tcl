@@ -18,7 +18,7 @@ ad_page_contract {
 
 permission::require_permission -object_id $section_id -privilege survey_modify_question
 
-get_survey_info -section_id $section_id
+survey::get_info -section_id $section_id
 set survey_name $survey_info(name)
 set survey_id $survey_info(survey_id)
 
@@ -38,3 +38,9 @@ ad_form -name modify_question -form {
 set context [list [list [export_vars -base one {survey_id}] $survey_info(name)] "[_ survey.lt_Modify_a_Questions_Te]"]
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

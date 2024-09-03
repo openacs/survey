@@ -3,7 +3,7 @@
 <queryset>
    <rdbms><type>postgresql</type><version>7.1</version></rdbms>
 
-<fullquery name="survey_question_copy.create_question">      
+<fullquery name="survey::copy_question.create_question">      
       <querytext>
 	SELECT survey_question__new (
 		    NULL,
@@ -22,13 +22,13 @@
       </querytext>
 </fullquery>
 
-<fullquery name="survey_question_copy.get_choice_id">
+<fullquery name="survey::copy_question.get_choice_id">
 <querytext>
 select survey_choice_id_sequence.nextval as choice_id
 </querytext>
 </fullquery>
 
-<fullquery name="get_survey_info.n_completed">
+<fullquery name="survey::get_info.n_completed">
 <querytext>
     		    select count(distinct survey_response__initial_user_id(response_id))
                     from 
@@ -38,7 +38,7 @@ select survey_choice_id_sequence.nextval as choice_id
 </fullquery>
 
 
-<fullquery name="survey_do_notifications.get_response_info">
+<fullquery name="survey::do_notifications.get_response_info">
     <querytext>
 	select r.initial_response_id, r.responding_user_id, r.response_id,
 	    u.first_names || ' ' || u.last_name as user_name,
@@ -54,7 +54,7 @@ select survey_choice_id_sequence.nextval as choice_id
     </querytext>
 </fullquery>
 
-<fullquery name="get_survey_info.n_completed">
+<fullquery name="survey::get_info.n_completed">
 <querytext>
     		    select count(distinct survey_response__initial_user_id(response_id))
                     from 
@@ -63,7 +63,7 @@ select survey_choice_id_sequence.nextval as choice_id
 </querytext>
 </fullquery>
 
-<fullquery name="survey_copy.survey_create">
+<fullquery name="survey::copy.survey_create">
 <querytext>
         select survey__new (
                     NULL,
@@ -83,7 +83,7 @@ select survey_choice_id_sequence.nextval as choice_id
 </querytext>
 </fullquery>
 
-<fullquery name="survey_copy.section_create">
+<fullquery name="survey::copy.section_create">
 <querytext>
 	    select survey_section__new (
 	              NULL,

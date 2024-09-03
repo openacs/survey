@@ -1,8 +1,8 @@
 <master>
-<property name="survey_id">@survey_id;noquote@</property>
+<property name="survey_id">@survey_id;literal@</property>
 
 <property name="title">#survey.lt_One_Survey_survey_inf#</property>
-<property name="context">@context;noquote@</property>
+<property name="context">@context;literal@</property>
 <p><a href=".">#survey.lt_Main_Survey_Administr#</a></p>
 <h2><strong style="font-size: large">@survey_info.name@</strong> #survey.-__Created_by# <a href="@user_link@">@survey_info.creator_name@</a>#survey._on_creation_date#</h2>
 <table class="table-display" cellpadding="2" cellspacing="0">
@@ -30,8 +30,7 @@
 	
       
 	<tr class="odd"><td><if @survey_info.editable_p;literal@ true> #survey.lt_Users_may_edit_their_#</if><else>#survey.lt_Users_may_not_edit_th#</else> - [ <a
-	href="response-editable-toggle?survey_id=@survey_id@">#survey.make# <if
-	@survey_info.editable_p@>#survey.non-#</if>#survey.editable#</a> ]</td></tr>
+	href="response-editable-toggle?survey_id=@survey_id@">#survey.make# <if	@survey_info.editable_p;literal@ true>#survey.non-#</if>#survey.editable#</a> ]</td></tr>
 
       <tr class="odd">
         <td>#survey.Display_Options# </td>
@@ -61,7 +60,7 @@
 
 <h3>#survey.Questions#</h3>
 <table cellspacing="0">
-<if @questions:rowcount@ eq 0>
+<if @questions:rowcount;literal@ eq 0>
     <tr class="odd">
   </else>
 <td></td><td><a href="question-add?section_id=@survey_info.section_id@">#survey.add_new_question#</a></tr></tr>

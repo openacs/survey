@@ -23,7 +23,7 @@ permission::require_permission -object_id $survey_id -privilege survey_admin_sur
 # the entire group.
 
 
-get_survey_info -survey_id $survey_id
+survey::get_info -survey_id $survey_id
 set survey_name $survey_info(name)
 
 set doc(title) [_ survey.Respondents]
@@ -59,3 +59,9 @@ db_multirow -extend { one_respondent_url action } respondents select_respondents
 }
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

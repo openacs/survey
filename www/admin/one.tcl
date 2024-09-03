@@ -20,27 +20,27 @@ set package_id [ad_conn package_id]
 permission::require_permission -object_id $package_id -privilege survey_admin_survey
 
 # Get the survey information.
-get_survey_info -survey_id $survey_id
+survey::get_info -survey_id $survey_id
 if {![info exists survey_info(survey_id)]} {
     ad_return_complaint 1 "[_ survey.lt_Requested_survey_does]"
     ad_script_abort
 }
 
-if {$survey_info(description_html_p) == "f"} {   
-    set survey_info(description) [ad_text_to_html -- $survey_info(description)]    
+if {$survey_info(description_html_p) == "f"} {
+    set survey_info(description) [ad_text_to_html -- $survey_info(description)]
 }
 
 # get users and # who responded etc...
 if {[apm_package_installed_p dotlrn]} {
-    set community_id [dotlrn_community::get_community_id_from_url]
-    set n_eligible [db_string n_eligible { 
-	select count(*) from dotlrn_member_rels_full
-	where rel_type='dotlrn_member_rel'
-	and community_id=:community_id}]
+    set community_id [dotlrn_community::get_community_id_from_url -url [ad_conn url]]
+    set n_eligible [db_string n_eligible {
+        select count(*) from dotlrn_member_rels_full
+        where rel_type='dotlrn_member_rel'
+        and community_id=:community_id}]
 }
 set return_html ""
 
-set creation_date [util_AnsiDatetoPrettyDate $survey_info(creation_date)]
+set creation_date [lc_time_fmt $survey_info(creation_date) %q]
 set user_link [acs_community_member_url -user_id $survey_info(creation_user)]
 if {$survey_info(single_response_p) == "t"} {
     set response_limit_toggle "[_ survey.allow_multiple]"
@@ -62,10 +62,10 @@ if {$enabled_p == "t"} {
 
 # Display Type (ben)
 # provide list survey_display_types to adp process with <list>
-set survey_display_types [survey_display_types]
+set survey_display_types [survey::display_types]
 
 
-# Questions summary.   
+# Questions summary.
 # We need to get the questions for ALL sections.
 
 set context [list $survey_info(name)]
@@ -73,7 +73,7 @@ set context [list $survey_info(name)]
 
 db_multirow -extend { question_display question_modify_url question_copy_url question_add_url question_delete_url question_swap_down_url question_swap_up_url } questions survey_questions "" {
 
-    set question_display [survey_question_display $question_id]
+    set question_display [survey::display_question $question_id]
     set question_modify_url [export_vars -base question-modify {{question_id $question_id} section_id survey_id}]
     set question_copy_url [export_vars -base question-copy {{question_id $question_id} {sort_order $sort_order}}]
     set question_add_url [export_vars -base question-add {section_id {after $sort_order}}]
@@ -93,3 +93,9 @@ set notification_chunk [notification::display::request_widget \
 ]
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

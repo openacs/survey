@@ -17,7 +17,7 @@ ad_page_contract {
 
 db_1row one_question ""
 
-get_survey_info -section_id $section_id
+survey::get_info -section_id $section_id
 set survey_name $survey_info(name)
 set survey_id $survey_info(survey_id)
 
@@ -41,3 +41,9 @@ set results ""
 db_multirow responses all_responses_to_question {}
 
 set context [list [list [export_vars -base one {survey_id}] $survey_info(name)] "[_ survey.lt_Responses_to_Question]"]
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

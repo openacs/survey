@@ -2,7 +2,7 @@
 <property name="survey_id">@survey_id@</property>
 
 <property name=title>#survey.lt_survey_name_Responses_1#</property>
-<property name=context>@context;noquote@</property>
+<property name=context>@context;literal@</property>
 <form enctype="multipart/form-data" method="post" action="process-response">
       <if @initial_response_id@ not nil>
         <div>

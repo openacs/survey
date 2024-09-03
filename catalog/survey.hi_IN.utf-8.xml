@@ -72,12 +72,12 @@
   <msg key="lt_-_Lets_you_use_this_s">इस नया सर्वेक्षण बनाने के लिये इस सर्वेक्षण का उपयोग टेमप्लेट की तरह करे।</msg>
   <msg key="lt_-_Removes_all_questio">- सारे प्रशन व प्रत्युतर मिटाता है।</msg>
   <msg key="lt_A_database_error_occu">आपके प्रशनो को अदल बदल करते समय एक त्रुटि हुई है। वह त्रुटि यह है:</msg>
-  <msg key="lt_Already_Responsed_email">इन प्रयोक्ताओ को ईमेल कीजिए</msg>
-  <msg key="lt_Already_Responsed_n_r">पहले से प्रत्युतरित: %n_responses% उपयोगकर्ता इन उपयोगकर्ताओ को देखे।  &amp;lt;%community_url%/survey/admin/respondents?response_type=responded&amp;gt;
+  <msg key="lt_Already_Responded_email">इन प्रयोक्ताओ को ईमेल कीजिए</msg>
+  <msg key="lt_Already_Responded_n_r">पहले से प्रत्युतरित: %n_responses% उपयोगकर्ता इन उपयोगकर्ताओ को देखे।  &amp;lt;%community_url%/survey/admin/respondents?response_type=responded&amp;gt;
 
 इन उपयोगकर्ताओ को स्पेम करे &amp;lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;amp;to=responded&amp;gt;</msg>
-  <msg key="lt_Already_Responsed_n_r_1">पहले से प्रत्युतरित: %n_responses% उपयोगकर्ता</msg>
-  <msg key="lt_Already_Responsed_view">इन उपयोगकर्ताओ को देखे</msg>
+  <msg key="lt_Already_Responded_n_r_1">पहले से प्रत्युतरित: %n_responses% उपयोगकर्ता</msg>
+  <msg key="lt_Already_Responded_view">इन उपयोगकर्ताओ को देखे</msg>
   <msg key="lt_Answers_to_survey_nam">%survey_name% के उत्तर</msg>
   <msg key="lt_Awaiting_a_response_n">प्रत्युतर की प्रतीक्षा मे: %n_awaiting% उपयोगकर्ता इन उपयोगकर्ताओ को देखे। &amp;lt;%community_url%/survey/admin/respondents?response_type=not_responded&amp;gt;
 इन उपयोगकर्ताओ को स्पेम करे। &amp;lt;%community_url%/survey/admin/send-mail?survey_id=%survey_id%&amp;amp;to=not_responded&amp;gt;
